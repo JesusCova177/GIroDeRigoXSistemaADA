@@ -1,0 +1,240 @@
+import { useEffect, useState } from 'react';
+import { supabase, Stage, Challenge } from './lib/supabase';
+import { StageHeader } from './components/StageHeader';
+import { ChallengeCarousel } from './components/ChallengeCarousel';
+import { LoginPage } from './components/LoginPage';
+import { Loader2, AlertCircle, LogOut } from 'lucide-react';
+import type { User } from '@supabase/supabase-js';
+
+function App() {
+  const [user, setUser] = useState<User | null>(null);
+  const [authLoading, setAuthLoading] = useState(true);
+  const [currentStage, setCurrentStage] = useState<Stage | null>(null);
+  const [challenges, setChallenges] = useState<Challenge[]>([]);
+  const [totalStages, setTotalStages] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    checkUser();
+  }, []);
+
+  async function checkUser() {
+    try {
+      const storedEmail = localStorage.getItem('userEmail');
+      if (storedEmail) {
+        setUser({ email: storedEmail } as User);
+        await fetchStageData();
+      }
+    } catch (err) {
+      console.error('Error checking user:', err);
+    } finally {
+      setAuthLoading(false);
+    }
+  }
+
+  async function handleLogin(email: string) {
+    localStorage.setItem('userEmail', email);
+    setUser({ email } as User);
+    await fetchStageData();
+  }
+
+  async function handleLogout() {
+    localStorage.removeItem('userEmail');
+    setUser(null);
+    setCurrentStage(null);
+    setChallenges([]);
+  }
+
+  async function fetchStageData() {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const { data: stages, error: stagesError } = await supabase
+        .from('stages')
+        .select('*')
+        .order('stage_number', { ascending: true });
+
+      if (stagesError) throw stagesError;
+      if (!stages || stages.length === 0) {
+        throw new Error('No stages found');
+      }
+
+      setTotalStages(stages.length);
+      const stage = stages[0];
+      setCurrentStage(stage);
+
+      const { data: challengesData, error: challengesError } = await supabase
+        .from('challenges')
+        .select('*')
+        .eq('stage_id', stage.id)
+        .order('order_index', { ascending: true });
+
+      if (challengesError) throw challengesError;
+
+      setChallenges(challengesData || []);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function navigateToStage(stageNumber: number) {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const { data: stage, error: stageError } = await supabase
+        .from('stages')
+        .select('*')
+        .eq('stage_number', stageNumber)
+        .maybeSingle();
+
+      if (stageError) throw stageError;
+      if (!stage) throw new Error('Stage not found');
+
+      setCurrentStage(stage);
+
+      const { data: challengesData, error: challengesError } = await supabase
+        .from('challenges')
+        .select('*')
+        .eq('stage_id', stage.id)
+        .order('order_index', { ascending: true });
+
+      if (challengesError) throw challengesError;
+
+      setChallenges(challengesData || []);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
+          <p className="text-gray-600 text-lg">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
+
+  if (loading && !currentStage) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
+          <p className="text-gray-600 text-lg">Loading your journey...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl shadow-lg p-8 max-w-md w-full">
+          <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">
+            Oops!
+          </h2>
+          <p className="text-gray-600 text-center mb-4">{error}</p>
+          <button
+            onClick={fetchStageData}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!currentStage) {
+    return null;
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="flex justify-between items-center mb-6">
+          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-sm font-medium text-gray-700">
+              {user?.email}
+            </span>
+          </div>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 rounded-lg shadow transition-all duration-200 hover:shadow-md"
+          >
+            <LogOut className="w-4 h-4" />
+            <span className="text-sm font-medium">Salir</span>
+          </button>
+        </div>
+
+        <StageHeader
+          stage={currentStage}
+          totalStages={totalStages}
+          onNavigateToStage={navigateToStage}
+          loading={loading}
+        />
+
+        <div className="mt-12">
+          <div className="flex items-center justify-between mb-6 px-4">
+            <h2 className="text-2xl font-bold text-gray-800">
+              Tus Desafíos
+            </h2>
+            {challenges.length > 1 && (
+              <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">
+                {challenges.length} desafíos
+              </div>
+            )}
+          </div>
+          {challenges.length > 0 ? (
+            <ChallengeCarousel challenges={challenges} stageNumber={currentStage.stage_number} />
+          ) : (
+            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <p className="text-gray-500">No hay desafíos disponibles para esta etapa</p>
+            </div>
+          )}
+
+          {currentStage.stage_number < totalStages && (
+            <div className="mt-8 px-4">
+              <button
+                onClick={() => navigateToStage(currentStage.stage_number + 1)}
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span>Cargando...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Continuar a Fase {currentStage.stage_number + 1}</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
