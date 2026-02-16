@@ -221,19 +221,41 @@ export function ChallengeCarousel({
                   />
                 ) : challenge.type === "checklist" ? (
                   <ChecklistCard
-                    title={challenge.title}
+                    title={
+                      typeof challenge.content === "object" &&
+                      "title" in challenge.content
+                        ? challenge.content.title
+                        : challenge.title
+                    }
                     items={
-                      Array.isArray(challenge.content) ? challenge.content : []
+                      typeof challenge.content === "object" &&
+                      "items" in challenge.content &&
+                      Array.isArray(challenge.content.items)
+                        ? challenge.content.items
+                        : Array.isArray(challenge.content)
+                        ? challenge.content
+                        : []
                     }
                   />
-                ) : (
+                ) : challenge.type === "reflection" ? (
                   <ReflectionCard
-                    title={challenge.title}
+                    title={
+                      typeof challenge.content === "object" &&
+                      "title" in challenge.content
+                        ? challenge.content.title
+                        : challenge.title
+                    }
                     questions={
-                      Array.isArray(challenge.content) ? challenge.content : []
+                      typeof challenge.content === "object" &&
+                      "questions" in challenge.content &&
+                      Array.isArray(challenge.content.questions)
+                        ? challenge.content.questions
+                        : Array.isArray(challenge.content)
+                        ? challenge.content
+                        : []
                     }
                   />
-                )}
+                ) : null}
               </div>
             ))}
             {testimonialChallenge && (
