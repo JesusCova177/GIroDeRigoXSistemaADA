@@ -164,18 +164,18 @@ function App() {
   }
 
   return (
-    <div className="h-dvh bg-white over overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-gray-700">
+    <div className="min-h-dvh bg-white overflow-x-hidden">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className="flex items-center gap-2 bg-white px-3 sm:px-4 py-2 rounded-xl shadow w-full sm:w-auto">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
+            <span className="text-xs sm:text-sm font-medium text-gray-700 truncate">
               {user?.email}
             </span>
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 rounded-lg shadow transition-all duration-200 hover:shadow-md"
+            className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 rounded-lg shadow transition-all duration-200 hover:shadow-md w-full sm:w-auto"
           >
             <LogOut className="w-4 h-4" />
             <span className="text-sm font-medium">Salir</span>
@@ -189,26 +189,26 @@ function App() {
           loading={loading}
         />
 
-        <div className="mt-4">
+        <div className="mt-3 sm:mt-4">
           {challenges.length > 0 ? (
             <ChallengeCarousel
               challenges={challenges}
               stageNumber={currentStage.stage_number}
             />
           ) : (
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-              <p className="text-gray-500">
+            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">
+              <p className="text-sm sm:text-base text-gray-500">
                 No hay desafíos disponibles para esta etapa
               </p>
             </div>
           )}
 
           {currentStage.stage_number < totalStages && (
-            <div className="mt-8 px-4">
+            <div className="mt-6 sm:mt-8 px-2 sm:px-4">
               <button
                 onClick={() => navigateToStage(currentStage.stage_number + 1)}
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 {loading ? (
                   <>
@@ -221,7 +221,7 @@ function App() {
                       Continuar a Fase {currentStage.stage_number + 1}
                     </span>
                     <svg
-                      className="w-5 h-5"
+                      className="w-4 h-4 sm:w-5 sm:h-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

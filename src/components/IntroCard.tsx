@@ -2,17 +2,17 @@ import { BookOpen } from "lucide-react";
 
 export function IntroCard() {
   return (
-    <div className="flex  rounded-2xl bg-white  p-8 mb-8 flex-col">
-      <div className="flex items-center justify-center gap-4 mb-6">
+    <div className="flex rounded-2xl bg-white p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
+      <div className="flex items-center justify-center gap-4 mb-4 sm:mb-6">
         <div>
-          <h2 className="text-5xl  font-bold text-[#31563C] text- text-center mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#31563C] text-center mb-2">
             Bajar grasa sin quedarte vacío
           </h2>
         </div>
       </div>
 
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p className="text-xl">
+      <div className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl">
           Yo antes creía que "ponerse más liviano" era sinónimo de comer menos
           todos los días y ya. Y sí… al principio la balanza baja, uno se
           emociona, y hasta se siente "juicioso". El problema es que esa
@@ -20,7 +20,7 @@ export function IntroCard() {
           y mi cuerpo me empezó a hablar claro… pero yo no le paré bolas.
         </p>
 
-        <p>
+        <p className="text-sm sm:text-base">
           Y la embarré por completo. Montaba muchas horas, a alta intensidad, y
           no le estaba dando a mi cuerpo las calorías ni los nutrientes que
           necesitaba. Me descompensé y terminé con una desorientación tan grave
@@ -33,7 +33,7 @@ export function IntroCard() {
           aprender a comer con intención, no con culpa.
         </p>
 
-        <p>
+        <p className="text-sm sm:text-base">
           Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo:
           comer igual todos los días, entrenara o no entrenara. Empecé a jugar
           el verdadero partido:{" "}
@@ -45,8 +45,8 @@ export function IntroCard() {
           descontrola después.
         </p>
 
-        <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 p-4 rounded-r-xl my-6">
-          <p className="text-green-900 font-semibold">
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 p-3 sm:p-4 rounded-r-xl my-4 sm:my-6">
+          <p className="text-green-900 font-semibold text-sm sm:text-base">
             Aplicando esta estrategia, en mi caso, logré perder más de 22 kg en
             menos de 10 meses.
           </p>
