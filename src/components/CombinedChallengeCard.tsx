@@ -75,32 +75,37 @@ export function CombinedChallengeCard({ title, subtitle, checklist, reflections 
         <div className="mb-6 sm:mb-8 bg-gradient-to-br from-amber-50 to-orange-50 border-l-4 border-orange-400 rounded-xl p-4 sm:p-6">
           <div className="space-y-3 sm:space-y-4">
             <p className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">
-              Yo dejo de perseguir <span className="font-bold text-orange-700">"bajar rápido"</span> y empiezo a perseguir <span className="font-bold text-green-700">bajar sostenible</span>. Porque el cuerpo puede bajar grasa, sí… pero si yo lo castigo, me devuelve el golpe en forma de fatiga, antojos, mal humor y entrenos malos.
+              Yo <span className="font-bold text-orange-700">no elimino carbohidratos</span>. Yo aprendo a usarlos.
+            </p>
+
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              El carbohidrato es <span className="font-semibold text-blue-600">gasolina</span>. El error es usarlo "a lo loco", en productos ultraprocesados todo el día, o intentar entrenar duro sin él. Yo lo vuelvo una <span className="font-semibold text-green-600">herramienta</span>: poco cuando toca poco, y suficiente cuando toca rendir.
             </p>
 
             <div className="bg-white/80 rounded-lg p-3 sm:p-4 border-2 border-orange-200">
-              <p className="text-xs sm:text-sm font-bold text-gray-700 mb-3">Ejemplo práctico (lo que yo hago):</p>
+              <p className="text-xs sm:text-sm font-bold text-gray-700 mb-3">Ejemplo práctico (día de intensidad / series):</p>
 
               <div className="space-y-2 sm:space-y-3">
                 <div className="space-y-1.5">
-                  <p className="text-xs sm:text-sm text-gray-700 font-medium">
-                    Si hoy tengo un <span className="font-semibold text-blue-600">entrenamiento suave</span> o es <span className="font-semibold text-blue-600">día de descanso</span>, lo aprovecho para comer más limpio y estable:
+                  <p className="text-xs sm:text-sm text-gray-700 font-medium mb-2">
+                    <span className="font-semibold text-blue-600">Antes del entreno</span> yo meto un pre simple (sin inventos):
                   </p>
-                  <ul className="ml-4 space-y-1 text-xs sm:text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold flex-shrink-0">•</span>
-                      <span><span className="font-semibold">Desayuno:</span> Huevos 100% + una arepa Don Maíz + algo de fruta.</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold flex-shrink-0">•</span>
-                      <span><span className="font-semibold">Almuerzo:</span> pechuga de pollo Friko + verduras + una porción controlada de Arroz Sonora. Y listo, sin darle mucha vuelta.</span>
-                    </li>
-                  </ul>
+                  <div className="ml-4 bg-blue-50 rounded-lg p-2 sm:p-3 border border-blue-200">
+                    <p className="text-xs sm:text-sm text-gray-700">
+                      Harina de arroz + banano + algo de proteína, yogur griego o un scoop
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-gray-200 space-y-1.5">
+                  <p className="text-xs sm:text-sm text-gray-700 font-medium">
+                    <span className="font-semibold text-green-600">Durante</span>, si el entreno es intenso y largo, yo ya sé que probablemente voy a necesitar una bebida deportiva tipo Gatorade o una estrategia con geles. En salidas largas no podemos depender solo de las reservas. En las siguientes fases profundizamos este tema.
+                  </p>
                 </div>
 
                 <div className="pt-2 border-t border-gray-200">
-                  <p className="text-xs sm:text-sm text-gray-700 font-medium mb-1.5">
-                    Si el <span className="font-semibold text-green-600">entreno es más intenso</span>, le sumo aguacate Corpohass, aumentó el carbohidrato y lo vario con Pastas La Muñeca, papá o yuca cocida.
+                  <p className="text-xs sm:text-sm text-gray-700 font-medium">
+                    <span className="font-semibold text-orange-600">Cuando llego</span>, yo no me premio con cualquier cosa: yo repongo bien.
                   </p>
                 </div>
               </div>
