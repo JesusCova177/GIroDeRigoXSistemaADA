@@ -8,6 +8,7 @@ import { PhaseImportanceCard } from "./PhaseImportanceCard";
 import { TestimonialCard } from "./TestimonialCard";
 import ActionPlanCard from "./ActionPlanCard";
 import CTACard from "./CTACard";
+import { PreambleChecklistCard } from "./PreambleChecklistCard";
 import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -219,6 +220,29 @@ export function ChallengeCarousel({
                         : []
                     }
                   />
+                ) : challenge.type === "preamble_checklist" ? (
+                  <PreambleChecklistCard
+                    title={
+                      typeof challenge.content === "object" &&
+                      "title" in challenge.content
+                        ? challenge.content.title
+                        : challenge.title
+                    }
+                    preamble={
+                      typeof challenge.content === "object" &&
+                      "preamble" in challenge.content &&
+                      typeof challenge.content.preamble === "string"
+                        ? challenge.content.preamble
+                        : ""
+                    }
+                    items={
+                      typeof challenge.content === "object" &&
+                      "items" in challenge.content &&
+                      Array.isArray(challenge.content.items)
+                        ? challenge.content.items
+                        : []
+                    }
+                  />
                 ) : challenge.type === "checklist" ? (
                   <ChecklistCard
                     title={
@@ -345,9 +369,11 @@ export function ChallengeCarousel({
                       ? "📋 Plan de acción"
                       : challenge.type === "combined"
                         ? "🎯 Sub-bloque"
-                        : challenge.type === "checklist"
-                          ? "✓ Lista"
-                          : "💭 Reflexión"}
+                        : challenge.type === "preamble_checklist"
+                          ? "📝 Lista con preámbulo"
+                          : challenge.type === "checklist"
+                            ? "✓ Lista"
+                            : "💭 Reflexión"}
                 </span>
               </button>
             );
