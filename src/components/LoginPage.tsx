@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { Mail, Zap, Loader2 } from "lucide-react";
+import { useState } from 'react';
+import { Mail, Zap, Loader2 } from 'lucide-react';
 
 interface LoginPageProps {
   onLogin: (email: string) => Promise<void>;
 }
 
 export function LoginPage({ onLogin }: LoginPageProps) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!email || !email.includes("@")) {
-      setError("Please enter a valid email address");
+    if (!email || !email.includes('@')) {
+      setError('Please enter a valid email address');
       return;
     }
 
@@ -23,13 +23,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
       setError(null);
       await onLogin(email);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to log in");
+      setError(err instanceof Error ? err.message : 'Failed to log in');
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-dvh bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center p-4">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full opacity-10 blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-400 rounded-full opacity-10 blur-3xl" />
@@ -51,10 +51,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-semibold text-gray-700 mb-2"
-            >
+            <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
               Email Address
             </label>
             <div className="relative">
