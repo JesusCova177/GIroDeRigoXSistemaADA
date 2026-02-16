@@ -4,11 +4,19 @@ import { Check, CheckCircle2, Lightbulb, Sparkles, Target, MessageCircle } from 
 interface CombinedChallengeCardProps {
   title: string;
   subtitle?: string;
+  preamble?: {
+    text: string[];
+    example?: {
+      title: string;
+      items: { label: string; content: string }[];
+    };
+    brands?: { name: string; icon: string }[];
+  };
   checklist: string[];
   reflections: string[];
 }
 
-export function CombinedChallengeCard({ title, subtitle, checklist, reflections }: CombinedChallengeCardProps) {
+export function CombinedChallengeCard({ title, subtitle, preamble, checklist, reflections }: CombinedChallengeCardProps) {
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
   const [answeredReflections, setAnsweredReflections] = useState<Set<number>>(new Set());
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
@@ -72,100 +80,50 @@ export function CombinedChallengeCard({ title, subtitle, checklist, reflections 
           </div>
         </div>
 
-        <div className="mb-6 sm:mb-8 bg-gradient-to-br from-amber-50 to-orange-50 border-l-4 border-orange-400 rounded-xl p-4 sm:p-6">
-          <div className="space-y-3 sm:space-y-4">
-            <p className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">
-              Yo <span className="font-bold text-orange-700">no elimino carbohidratos</span>. Yo aprendo a usarlos.
-            </p>
+        {preamble && (
+          <div className="mb-6 sm:mb-8 bg-gradient-to-br from-amber-50 to-orange-50 border-l-4 border-orange-400 rounded-xl p-4 sm:p-6">
+            <div className="space-y-3 sm:space-y-4">
+              {preamble.text.map((paragraph, index) => (
+                <p key={index} className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: paragraph }} />
+              ))}
 
-            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-              El carbohidrato es <span className="font-semibold text-blue-600">gasolina</span>. El error es usarlo "a lo loco", en productos ultraprocesados todo el día, o intentar entrenar duro sin él. Yo lo vuelvo una <span className="font-semibold text-green-600">herramienta</span>: poco cuando toca poco, y suficiente cuando toca rendir.
-            </p>
+              {preamble.example && (
+                <div className="bg-white/80 rounded-lg p-3 sm:p-4 border-2 border-orange-200">
+                  <p className="text-xs sm:text-sm font-bold text-gray-700 mb-3">{preamble.example.title}</p>
 
-            <div className="bg-white/80 rounded-lg p-3 sm:p-4 border-2 border-orange-200">
-              <p className="text-xs sm:text-sm font-bold text-gray-700 mb-3">Ejemplo práctico (día de intensidad / series):</p>
+                  <div className="space-y-2 sm:space-y-3">
+                    {preamble.example.items.map((item, index) => (
+                      <div key={index} className={index > 0 ? "pt-2 border-t border-gray-200" : ""}>
+                        <p className="text-xs sm:text-sm text-gray-700 font-medium mb-2" dangerouslySetInnerHTML={{ __html: item.label }} />
+                        <div className="ml-4 bg-blue-50 rounded-lg p-2 sm:p-3 border border-blue-200">
+                          <p className="text-xs sm:text-sm text-gray-700" dangerouslySetInnerHTML={{ __html: item.content }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-              <div className="space-y-2 sm:space-y-3">
-                <div className="space-y-1.5">
-                  <p className="text-xs sm:text-sm text-gray-700 font-medium mb-2">
-                    <span className="font-semibold text-blue-600">Antes del entreno</span> yo meto un pre simple (sin inventos):
-                  </p>
-                  <div className="ml-4 bg-blue-50 rounded-lg p-2 sm:p-3 border border-blue-200">
-                    <p className="text-xs sm:text-sm text-gray-700">
-                      Harina de arroz + banano + algo de proteína, yogur griego o un scoop
-                    </p>
+              {preamble.brands && preamble.brands.length > 0 && (
+                <div className="mt-4 pt-4 border-t border-orange-200">
+                  <p className="text-xs font-semibold text-gray-600 mb-3 text-center">Marcas que uso:</p>
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                    {preamble.brands.map((brand, index) => (
+                      <div key={index} className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
+                        <div className="text-center">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
+                            <span className="text-xl sm:text-2xl">{brand.icon}</span>
+                          </div>
+                          <p className="text-[10px] sm:text-xs font-bold text-gray-700">{brand.name}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-
-                <div className="pt-2 border-t border-gray-200 space-y-1.5">
-                  <p className="text-xs sm:text-sm text-gray-700 font-medium">
-                    <span className="font-semibold text-green-600">Durante</span>, si el entreno es intenso y largo, yo ya sé que probablemente voy a necesitar una bebida deportiva tipo Gatorade o una estrategia con geles. En salidas largas no podemos depender solo de las reservas. En las siguientes fases profundizamos este tema.
-                  </p>
-                </div>
-
-                <div className="pt-2 border-t border-gray-200">
-                  <p className="text-xs sm:text-sm text-gray-700 font-medium">
-                    <span className="font-semibold text-orange-600">Cuando llego</span>, yo no me premio con cualquier cosa: yo repongo bien.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-4 pt-4 border-t border-orange-200">
-              <p className="text-xs font-semibold text-gray-600 mb-3 text-center">Marcas que uso:</p>
-              <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
-                  <div className="text-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
-                      <span className="text-xl sm:text-2xl">🥚</span>
-                    </div>
-                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Huevos 100%</p>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
-                  <div className="text-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
-                      <span className="text-xl sm:text-2xl">🌽</span>
-                    </div>
-                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Don Maíz</p>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
-                  <div className="text-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
-                      <span className="text-xl sm:text-2xl">🍗</span>
-                    </div>
-                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Friko</p>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
-                  <div className="text-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
-                      <span className="text-xl sm:text-2xl">🍚</span>
-                    </div>
-                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Arroz Sonora</p>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
-                  <div className="text-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
-                      <span className="text-xl sm:text-2xl">🥑</span>
-                    </div>
-                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Corpohass</p>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
-                  <div className="text-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
-                      <span className="text-xl sm:text-2xl">🍝</span>
-                    </div>
-                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">La Muñeca</p>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
-        </div>
+        )}
 
         <div className="mb-6 sm:mb-8">
           <div className="flex items-center gap-2 mb-3 sm:mb-4">
