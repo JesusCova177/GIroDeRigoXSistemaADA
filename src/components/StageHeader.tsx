@@ -27,7 +27,11 @@ export function StageHeader({
   return (
     <div className="flex flex-col justify-center">
       <div
-        className="flex flex-col items-center justify-around min-h-[280px] sm:min-h-[320px] md:min-h-[360px] py-6 sm:py-8 md:py-12 px-4 sm:px-6 rounded-2xl sm:rounded-3xl gap-4 sm:gap-5 md:gap-6 transition-all duration-300 overflow-hidden"
+        className={`flex flex-col items-center justify-around py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
+          showStageSelector
+            ? 'min-h-[280px] sm:min-h-[320px] md:min-h-[360px] gap-4 sm:gap-5 md:gap-6'
+            : 'min-h-[140px] sm:min-h-[160px] gap-3 sm:gap-4'
+        }`}
         style={{
           background: stage.primary_color,
         }}
@@ -55,17 +59,23 @@ export function StageHeader({
         </div>
 
         <div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-titling font-black text-[#31563C] tracking-tight px-2 italic uppercase">
+          <h1 className={`text-center font-titling font-black text-[#31563C] tracking-tight px-2 italic uppercase transition-all duration-300 ${
+            showStageSelector
+              ? 'text-3xl sm:text-4xl md:text-5xl'
+              : 'text-2xl sm:text-3xl md:text-4xl'
+          }`}>
             {stage.title}
           </h1>
         </div>
 
-        <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-xl">
-          <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#31563C] flex-shrink-0" />
-          <p className="text-[#31563C] font-medium text-sm sm:text-base md:text-lg text-center">
-            {stage.description}
-          </p>
-        </div>
+        {showStageSelector && (
+          <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-xl">
+            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#31563C] flex-shrink-0" />
+            <p className="text-[#31563C] font-medium text-sm sm:text-base md:text-lg text-center">
+              {stage.description}
+            </p>
+          </div>
+        )}
 
         <div className="flex justify-center w-full">
           {showStageSelector ? (
