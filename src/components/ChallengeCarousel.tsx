@@ -151,18 +151,18 @@ export function ChallengeCarousel({
           onMouseLeave={handleMouseLeave}
         >
           <div
-            className="flex gap-3 sm:gap-4 transition-transform duration-300 ease-out px-2 sm:px-4"
+            className="flex transition-transform duration-300 ease-out"
             style={{
               transform: `translateX(calc(-${currentIndex * 100}% + ${translateX}px))`,
             }}
           >
             {showIntroCard && (
-              <div className="w-full flex-shrink-0">
+              <div className="w-full flex-shrink-0 px-2 sm:px-4">
                 <IntroCard />
               </div>
             )}
             {challenges.map((challenge) => (
-              <div key={challenge.id} className="w-full flex-shrink-0">
+              <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
                 {challenge.type === "phase_importance" ? (
                   <PhaseImportanceCard
                     content={
@@ -218,7 +218,7 @@ export function ChallengeCarousel({
               </div>
             ))}
             {showTestimonialCard && (
-              <div className="w-full flex-shrink-0">
+              <div className="w-full flex-shrink-0 px-2 sm:px-4">
                 <TestimonialCard />
               </div>
             )}
