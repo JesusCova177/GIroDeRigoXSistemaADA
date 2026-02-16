@@ -26,7 +26,7 @@ export function IntroCard({ content }: IntroCardProps) {
         </div>
       </div>
 
-      <div className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed">
+      <div className="space-y-3 sm:space-y-4  border-l-4 border-blue-500 text-gray-700 leading-relaxed">
         {paragraphs.map((paragraph, index) => (
           <p
             key={index}
