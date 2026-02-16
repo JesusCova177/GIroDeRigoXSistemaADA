@@ -134,7 +134,7 @@ export function ChallengeCarousel({
         {totalCards > 1 && currentIndex < totalCards - 1 && (
           <button
             onClick={goToNext}
-            className="flex absolute right-2 sm:right-0 top-[15%] -translate-y-1/2 sm:translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center"
+            className="flex opacity-25 absolute right-2 sm:right-0 top-[15%] -translate-y-1/2 sm:translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center"
             aria-label="Siguiente"
           >
             <ChevronRight className="w-6 h-6" />
