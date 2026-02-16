@@ -27,7 +27,7 @@ export function StageHeader({
   return (
     <div className="flex flex-col justify-center">
       <div
-        className={`flex items-center justify-start py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
+        className={`flex flex-col items-center justify-start py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
           showStageSelector
             ? 'min-h-[280px] sm:min-h-[320px] md:min-h-[360px] gap-4 sm:gap-5 md:gap-6'
             : 'min-h-[140px] sm:min-h-[160px] gap-3 sm:gap-4'
@@ -36,7 +36,7 @@ export function StageHeader({
           background: stage.primary_color,
         }}
       >
-        <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
+        <div className="w-full flex  sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
           {userEmail && onLogout && (
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
