@@ -4,6 +4,7 @@ import { ChecklistCard } from "./ChecklistCard";
 import { ReflectionCard } from "./ReflectionCard";
 import { CombinedChallengeCard } from "./CombinedChallengeCard";
 import { IntroCard } from "./IntroCard";
+import { PhaseImportanceCard } from "./PhaseImportanceCard";
 import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -160,7 +161,16 @@ export function ChallengeCarousel({
             )}
             {challenges.map((challenge) => (
               <div key={challenge.id} className="w-full flex-shrink-0">
-                {challenge.type === "combined" ? (
+                {challenge.type === "phase_importance" ? (
+                  <PhaseImportanceCard
+                    content={
+                      typeof challenge.content === "object" &&
+                      "sections" in challenge.content
+                        ? challenge.content
+                        : { sections: [] }
+                    }
+                  />
+                ) : challenge.type === "combined" ? (
                   <CombinedChallengeCard
                     title={challenge.title}
                     subtitle={
@@ -246,11 +256,13 @@ export function ChallengeCarousel({
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
                 )}
                 <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                  {challenge.type === "combined"
-                    ? "🎯 Sub-bloque"
-                    : challenge.type === "checklist"
-                      ? "✓ Lista"
-                      : "💭 Reflexión"}
+                  {challenge.type === "phase_importance"
+                    ? "📌 Información clave"
+                    : challenge.type === "combined"
+                      ? "🎯 Sub-bloque"
+                      : challenge.type === "checklist"
+                        ? "✓ Lista"
+                        : "💭 Reflexión"}
                 </span>
               </button>
             );
