@@ -5,6 +5,7 @@ import { ReflectionCard } from "./ReflectionCard";
 import { CombinedChallengeCard } from "./CombinedChallengeCard";
 import { IntroCard } from "./IntroCard";
 import { PhaseImportanceCard } from "./PhaseImportanceCard";
+import { SustainableApproachCard } from "./SustainableApproachCard";
 import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -24,7 +25,7 @@ export function ChallengeCarousel({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const showIntroCard = stageNumber === 1;
-  const totalCards = showIntroCard ? challenges.length + 1 : challenges.length;
+  const totalCards = showIntroCard ? challenges.length + 2 : challenges.length;
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -155,9 +156,14 @@ export function ChallengeCarousel({
             }}
           >
             {showIntroCard && (
-              <div className="w-full flex-shrink-0">
-                <IntroCard />
-              </div>
+              <>
+                <div className="w-full flex-shrink-0">
+                  <SustainableApproachCard />
+                </div>
+                <div className="w-full flex-shrink-0">
+                  <IntroCard />
+                </div>
+              </>
             )}
             {challenges.map((challenge) => (
               <div key={challenge.id} className="w-full flex-shrink-0">
@@ -216,28 +222,49 @@ export function ChallengeCarousel({
       {totalCards > 1 && (
         <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6">
           {showIntroCard && (
-            <button
-              onClick={() => {
-                setCurrentIndex(0);
-                setShowHint(false);
-              }}
-              className={`group relative transition-all duration-300 rounded-full ${
-                0 === currentIndex
-                  ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
-                  : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
-              }`}
-              aria-label="Ir a la introducción"
-            >
-              {0 === currentIndex && (
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
-              )}
-              <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                📖 Introducción
-              </span>
-            </button>
+            <>
+              <button
+                onClick={() => {
+                  setCurrentIndex(0);
+                  setShowHint(false);
+                }}
+                className={`group relative transition-all duration-300 rounded-full ${
+                  0 === currentIndex
+                    ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
+                    : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
+                }`}
+                aria-label="Ir al enfoque sostenible"
+              >
+                {0 === currentIndex && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
+                )}
+                <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                  🎯 Enfoque sostenible
+                </span>
+              </button>
+              <button
+                onClick={() => {
+                  setCurrentIndex(1);
+                  setShowHint(false);
+                }}
+                className={`group relative transition-all duration-300 rounded-full ${
+                  1 === currentIndex
+                    ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
+                    : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
+                }`}
+                aria-label="Ir a la introducción"
+              >
+                {1 === currentIndex && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
+                )}
+                <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                  📖 Introducción
+                </span>
+              </button>
+            </>
           )}
           {challenges.map((challenge, index) => {
-            const cardIndex = showIntroCard ? index + 1 : index;
+            const cardIndex = showIntroCard ? index + 2 : index;
             return (
               <button
                 key={challenge.id}
