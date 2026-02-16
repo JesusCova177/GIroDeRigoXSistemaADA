@@ -23,31 +23,35 @@ export function StageHeader({
   return (
     <div className="flex flex-col justify-center">
       <div
-        className="flex flex-col items-center justify-around min-h-[280px] sm:min-h-[320px] md:min-h-[360px] py-6 sm:py-8 md:py-12 px-4 sm:px-6 rounded-2xl sm:rounded-3xl gap-4 sm:gap-5 md:gap-6 transition-all duration-300 hover:shadow-3xl overflow-hidden"
+        className="flex flex-col items-center justify-around min-h-[280px] sm:min-h-[320px] md:min-h-[360px] py-6 sm:py-8 md:py-12 px-4 sm:px-6 rounded-2xl sm:rounded-3xl gap-4 sm:gap-5 md:gap-6 transition-all duration-300 overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, ${stage.primary_color} 0%, ${stage.primary_color}dd 100%)`,
+          background: stage.primary_color,
         }}
       >
-        {userEmail && onLogout && (
-          <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow w-full sm:w-auto">
+        <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
+          {userEmail && onLogout && (
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
               <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
                 {userEmail}
               </span>
+              <button
+                onClick={onLogout}
+                className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
+              >
+                <LogOut className="w-4 h-4 text-[#31563C]" />
+              </button>
             </div>
-            <button
-              onClick={onLogout}
-              className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-[#31563C] rounded-lg shadow transition-all duration-200 hover:shadow-md w-full sm:w-auto"
-            >
-              <LogOut className="w-4 h-4" />
-              <span className="text-sm font-medium">Salir</span>
-            </button>
+          )}
+          <div className="ml-auto">
+            <span className="text-xs sm:text-sm font-medium text-white/90">
+              By SISTEMAADA
+            </span>
           </div>
-        )}
+        </div>
 
         <div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-black text-[#31563C] tracking-tight px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-black text-[#31563C] tracking-tight px-2 italic uppercase">
             {stage.title}
           </h1>
         </div>
@@ -62,47 +66,39 @@ export function StageHeader({
         <div className="flex justify-center w-full">
           <div className="flex items-center justify-center">
             <div className="flex flex-col items-center gap-5">
-              <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6 flex-wrap px-2">
+              <div className="flex items-center justify-center gap-4 sm:gap-5 md:gap-6 flex-wrap px-2">
                 {Array.from({ length: totalStages }, (_, i) => i + 1).map(
                   (stageNum) => (
                     <button
                       key={stageNum}
                       onClick={() => onNavigateToStage?.(stageNum)}
                       disabled={loading || !onNavigateToStage}
-                      className={`relative group/btn transition-all duration-200 ${
-                        stage.stage_number === stageNum
-                          ? "scale-110"
-                          : "hover:scale-110"
-                      } disabled:cursor-not-allowed`}
+                      className={`relative group/btn transition-all duration-200 flex flex-col items-center gap-2 disabled:cursor-not-allowed`}
                     >
                       <div
-                        className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg flex items-center justify-center font-bold text-2xl sm:text-3xl md:text-4xl transition-all duration-200 ${
+                        className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center font-black text-4xl sm:text-5xl md:text-6xl transition-all duration-200 ${
                           stage.stage_number === stageNum
-                            ? "bg-white shadow-xl ring-4 ring-white/30"
-                            : stageNum < stage.stage_number
-                              ? "bg-white/80 text-gray-700 shadow-lg hover:bg-white hover:shadow-xl"
-                              : "bg-white/20 text-white/70 hover:bg-white/30"
+                            ? "bg-white text-[#f89fc7] shadow-2xl scale-105"
+                            : "bg-white/80 text-[#f89fc7]/70 shadow-lg hover:bg-white hover:shadow-xl hover:scale-105"
                         }`}
                       >
-                        <span className="relative z-10">{stageNum}</span>
+                        <span className="relative z-10 italic">{stageNum}</span>
                         {stageNum < stage.stage_number && (
-                          <div className="absolute -top-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-green-500 rounded-full border-2 border-white shadow-lg">
-                            <Award className="w-2 h-2 sm:w-3 sm:h-3 text-white absolute inset-0 m-auto" />
+                          <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full border-2 border-white shadow-lg">
+                            <Award className="w-3 h-3 sm:w-4 sm:h-4 text-white absolute inset-0 m-auto" />
                           </div>
                         )}
                       </div>
 
-                      <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap hidden sm:block">
-                        <span
-                          className={`text-xs font-medium ${
-                            stage.stage_number === stageNum
-                              ? "text-white opacity-100"
-                              : "text-white/0 group-hover/btn:text-white/70 group-hover/btn:opacity-100"
-                          } transition-all duration-200`}
-                        >
-                          Etapa {stageNum}
-                        </span>
-                      </div>
+                      <span
+                        className={`text-xs sm:text-sm font-semibold ${
+                          stage.stage_number === stageNum
+                            ? "text-white"
+                            : "text-white/80"
+                        } transition-all duration-200`}
+                      >
+                        Etapa {stageNum}
+                      </span>
                     </button>
                   ),
                 )}

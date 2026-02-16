@@ -164,7 +164,7 @@ function App() {
   }
 
   return (
-    <div className="h-dvh bg-white overflow-hidden flex flex-col">
+    <div className="h-dvh bg-[#F5EFE7] overflow-hidden flex flex-col">
       <div className="flex-1 min-h-0 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4">
           <StageHeader
