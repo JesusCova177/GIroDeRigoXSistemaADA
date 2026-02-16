@@ -112,7 +112,7 @@ export function ChallengeCarousel({
   return (
     <div className="w-full relative">
       {showHint && totalCards > 1 && (
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+        <div className="absolute top-1/5 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
           <div className="bg-gray-900/90 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-2xl flex items-center gap-2 animate-bounce">
             <Hand className="w-4 h-4 sm:w-5 sm:h-5" />
             <span className="text-xs sm:text-sm font-semibold">Desliza para ver más</span>
@@ -124,7 +124,7 @@ export function ChallengeCarousel({
         {totalCards > 1 && currentIndex > 0 && (
           <button
             onClick={goToPrevious}
-            className="flex absolute left-2 sm:left-0 top-1/2 -translate-y-1/5 sm:-translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 items-center justify-center"
+            className="flex absolute left-2 sm:left-0 top-1/5 -translate-y-1/2 sm:-translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 items-center justify-center"
             aria-label="Anterior"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -134,7 +134,7 @@ export function ChallengeCarousel({
         {totalCards > 1 && currentIndex < totalCards - 1 && (
           <button
             onClick={goToNext}
-            className="flex absolute right-2 sm:right-0 top-1/2 -translate-y-1/5 sm:translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center"
+            className="flex absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 sm:translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center"
             aria-label="Siguiente"
           >
             <ChevronRight className="w-6 h-6" />
