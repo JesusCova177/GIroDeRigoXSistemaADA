@@ -51,7 +51,7 @@ export function StageHeader({
         </div>
 
         <div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-black text-[#31563C] tracking-tight px-2 italic uppercase">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-titling font-black text-[#31563C] tracking-tight px-2 italic uppercase">
             {stage.title}
           </h1>
         </div>

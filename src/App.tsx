@@ -150,9 +150,9 @@ function App() {
           <p className="text-gray-600 text-center mb-4">{error}</p>
           <button
             onClick={fetchStageData}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-gradient-to-r from-[#31563C] to-[#2a4833] hover:from-[#2a4833] hover:to-[#1f3626] text-white font-titling font-black py-3 px-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl italic uppercase tracking-wide"
           >
-            Try Again
+            Intentar de nuevo
           </button>
         </div>
       </div>
@@ -195,7 +195,7 @@ function App() {
                 <button
                   onClick={() => navigateToStage(currentStage.stage_number + 1)}
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
+                  className="w-full bg-gradient-to-r from-[#31563C] to-[#2a4833] hover:from-[#2a4833] hover:to-[#1f3626] text-white font-titling font-black py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base italic uppercase tracking-wide"
                 >
                   {loading ? (
                     <>

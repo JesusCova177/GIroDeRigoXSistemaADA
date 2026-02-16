@@ -5,7 +5,7 @@ export function IntroCard() {
     <div className="flex rounded-2xl bg-white p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
       <div className="flex items-center justify-center gap-4 mb-4 sm:mb-6">
         <div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#31563C] text-center mb-2 italic uppercase">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-[#31563C] text-center mb-2 italic uppercase">
             Bajar grasa sin quedarte vacío
           </h2>
         </div>

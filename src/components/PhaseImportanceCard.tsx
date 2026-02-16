@@ -31,7 +31,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
           <div key={index}>
             <div className="flex items-start gap-3 mb-3">
               <div className="flex-shrink-0 mt-1">{getIcon(section.icon)}</div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#31563C]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] italic">
                 {section.title}
               </h3>
             </div>

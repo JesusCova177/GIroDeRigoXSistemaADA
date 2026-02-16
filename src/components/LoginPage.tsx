@@ -42,7 +42,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           </div>
         </div>
 
-        <h1 className="text-4xl font-black text-gray-800 text-center mb-3">
+        <h1 className="text-4xl font-titling font-black text-[#31563C] text-center mb-3 italic uppercase tracking-tight">
           Start Your Journey
         </h1>
         <p className="text-gray-600 text-center mb-8">
@@ -81,7 +81,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-[#31563C] to-[#2a4833] hover:from-[#2a4833] hover:to-[#1f3626] text-white font-titling font-black py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 italic uppercase tracking-wide"
           >
             {loading ? (
               <>

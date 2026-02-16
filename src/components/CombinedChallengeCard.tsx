@@ -53,7 +53,7 @@ export function CombinedChallengeCard({ title, subtitle, checklist, reflections 
               <div className="p-1.5 sm:p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg flex-shrink-0">
                 <Target className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-black text-[#31563C] tracking-tight italic">{title}</h3>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] tracking-tight italic">{title}</h3>
             </div>
             {subtitle && (
               <p className="text-xs sm:text-sm text-gray-600 font-medium ml-9 sm:ml-14">{subtitle}</p>
