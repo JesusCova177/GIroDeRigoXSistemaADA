@@ -12,12 +12,10 @@ import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
   challenges: Challenge[];
-  stageNumber?: number;
 }
 
 export function ChallengeCarousel({
   challenges,
-  stageNumber,
 }: ChallengeCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -27,11 +25,10 @@ export function ChallengeCarousel({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const introChallenge = challenges.find(c => c.type === 'intro');
-  const showTestimonialCard = stageNumber === 1;
+  const testimonialChallenge = challenges.find(c => c.type === 'testimonial');
   const ctaChallenge = challenges.find(c => c.type === 'cta');
-  const regularChallenges = challenges.filter(c => c.type !== 'cta' && c.type !== 'intro');
-  const showCTACard = stageNumber === 1 && ctaChallenge;
-  const totalCards = regularChallenges.length + (introChallenge ? 1 : 0) + (showTestimonialCard ? 1 : 0) + (showCTACard ? 1 : 0);
+  const regularChallenges = challenges.filter(c => c.type !== 'cta' && c.type !== 'intro' && c.type !== 'testimonial');
+  const totalCards = regularChallenges.length + (introChallenge ? 1 : 0) + (testimonialChallenge ? 1 : 0) + (ctaChallenge ? 1 : 0);
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -239,12 +236,29 @@ export function ChallengeCarousel({
                 )}
               </div>
             ))}
-            {showTestimonialCard && (
+            {testimonialChallenge && (
               <div className="w-full flex-shrink-0 px-2 sm:px-4">
-                <TestimonialCard />
+                <TestimonialCard
+                  content={
+                    typeof testimonialChallenge.content === "object" &&
+                    "title" in testimonialChallenge.content &&
+                    "subtitle" in testimonialChallenge.content
+                      ? testimonialChallenge.content
+                      : {
+                          title: "",
+                          subtitle: "",
+                          intro: "",
+                          person: { name: "", initial: "", duration: "" },
+                          metrics: [],
+                          description: "",
+                          strategy: { intro: "", items: [], conclusion: "" },
+                          footer: { title: "", message: "" }
+                        }
+                  }
+                />
               </div>
             )}
-            {showCTACard && ctaChallenge && (
+            {ctaChallenge && (
               <div className="w-full flex-shrink-0 px-2 sm:px-4">
                 <CTACard
                   content={
@@ -316,7 +330,7 @@ export function ChallengeCarousel({
               </button>
             );
           })}
-          {showTestimonialCard && (
+          {testimonialChallenge && (
             <button
               onClick={() => {
                 const testimonialIndex = (introChallenge ? 1 : 0) + regularChallenges.length;
@@ -338,7 +352,7 @@ export function ChallengeCarousel({
               </span>
             </button>
           )}
-          {showCTACard && (
+          {ctaChallenge && (
             <button
               onClick={() => {
                 setCurrentIndex(totalCards - 1);

@@ -1,6 +1,53 @@
-import { Quote, TrendingDown, Zap, Trophy } from 'lucide-react';
+import { Quote, TrendingDown, Zap, Trophy, LucideIcon } from 'lucide-react';
 
-export function TestimonialCard() {
+interface Metric {
+  label: string;
+  value: string;
+  icon: string;
+  color: string;
+}
+
+interface TestimonialContent {
+  title: string;
+  subtitle: string;
+  intro: string;
+  person: {
+    name: string;
+    initial: string;
+    duration: string;
+  };
+  metrics: Metric[];
+  description: string;
+  strategy: {
+    intro: string;
+    items: string[];
+    conclusion: string;
+  };
+  footer: {
+    title: string;
+    message: string;
+  };
+}
+
+interface TestimonialCardProps {
+  content: TestimonialContent;
+}
+
+const iconMap: Record<string, LucideIcon> = {
+  TrendingDown,
+  Zap,
+  Trophy,
+};
+
+const colorMap: Record<string, { border: string; text: string; hover: string }> = {
+  emerald: { border: 'border-emerald-200', text: 'text-emerald-600', hover: 'hover:border-emerald-300' },
+  blue: { border: 'border-blue-200', text: 'text-blue-600', hover: 'hover:border-blue-300' },
+  yellow: { border: 'border-yellow-200', text: 'text-yellow-600', hover: 'hover:border-yellow-300' },
+};
+
+export function TestimonialCard({ content }: TestimonialCardProps) {
+  const { title, subtitle, intro, person, metrics, description, strategy, footer } = content;
+
   return (
     <div className="flex-shrink-0 w-full bg-gradient-to-br from-emerald-50 via-white to-blue-50 rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8 border-2 border-emerald-200 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-br from-emerald-200 to-blue-200 rounded-full opacity-20 blur-3xl -mr-16 sm:-mr-32 -mt-16 sm:-mt-32" />
@@ -13,84 +60,74 @@ export function TestimonialCard() {
           </div>
           <div className="flex-1">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-titling font-black text-[#31563C] tracking-tight italic mb-1">
-              Testimonio Real
+              {title}
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 font-medium">
-              Para que veas que esto sí aterriza
+              {subtitle}
             </p>
           </div>
         </div>
 
         <div className="bg-white/80 rounded-xl p-4 sm:p-6 border-2 border-emerald-100 shadow-inner mb-4 sm:mb-6">
           <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
-            A mí me encanta cuando alguien lo vive en serio, porque ahí se nota que no es teoría.
+            {intro}
           </p>
 
           <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-lg p-4 sm:p-5 mb-4 border-2 border-emerald-200">
             <div className="flex items-start gap-2 sm:gap-3 mb-3">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg">
-                <span className="text-lg sm:text-xl font-bold text-white">K</span>
+                <span className="text-lg sm:text-xl font-bold text-white">{person.initial}</span>
               </div>
               <div className="flex-1">
-                <p className="font-bold text-base sm:text-lg text-gray-900">Kevin</p>
-                <p className="text-xs sm:text-sm text-gray-600">3 meses en el sistema</p>
+                <p className="font-bold text-base sm:text-lg text-gray-900">{person.name}</p>
+                <p className="text-xs sm:text-sm text-gray-600">{person.duration}</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
-              <div className="bg-white rounded-lg p-3 border-2 border-emerald-200 hover:border-emerald-300 transition-all duration-200">
-                <div className="flex items-center gap-2 mb-1">
-                  <TrendingDown className="w-4 h-4 text-emerald-600" />
-                  <span className="text-xs font-semibold text-gray-600">Peso</span>
-                </div>
-                <p className="text-lg sm:text-xl font-bold text-emerald-600">-5 kg</p>
-              </div>
-
-              <div className="bg-white rounded-lg p-3 border-2 border-blue-200 hover:border-blue-300 transition-all duration-200">
-                <div className="flex items-center gap-2 mb-1">
-                  <Zap className="w-4 h-4 text-blue-600" />
-                  <span className="text-xs font-semibold text-gray-600">Energía</span>
-                </div>
-                <p className="text-lg sm:text-xl font-bold text-blue-600">+ Fuerte</p>
-              </div>
-
-              <div className="bg-white rounded-lg p-3 border-2 border-yellow-200 hover:border-yellow-300 transition-all duration-200">
-                <div className="flex items-center gap-2 mb-1">
-                  <Trophy className="w-4 h-4 text-yellow-600" />
-                  <span className="text-xs font-semibold text-gray-600">Resultado</span>
-                </div>
-                <p className="text-lg sm:text-xl font-bold text-yellow-600">Mejor tiempo</p>
-              </div>
+            <div className={`grid grid-cols-1 ${metrics.length === 3 ? 'sm:grid-cols-3' : metrics.length === 2 ? 'sm:grid-cols-2' : ''} gap-3 mb-4`}>
+              {metrics.map((metric, index) => {
+                const Icon = iconMap[metric.icon] || Zap;
+                const colors = colorMap[metric.color] || colorMap.emerald;
+                return (
+                  <div key={index} className={`bg-white rounded-lg p-3 border-2 ${colors.border} ${colors.hover} transition-all duration-200`}>
+                    <div className="flex items-center gap-2 mb-1">
+                      <Icon className={`w-4 h-4 ${colors.text}`} />
+                      <span className="text-xs font-semibold text-gray-600">{metric.label}</span>
+                    </div>
+                    <p className={`text-lg sm:text-xl font-bold ${colors.text}`}>{metric.value}</p>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="bg-white/90 rounded-lg p-3 sm:p-4 border border-gray-200">
               <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                Llevaba alrededor de tres meses en el sistema y bajó aproximadamente 5 kilos, se sentía más fuerte en la bici y ya no andaba cansado todo el día.
+                {description}
               </p>
             </div>
           </div>
 
           <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-4 border-2 border-yellow-200">
-            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-3">
-              Además, en una carrera <span className="font-bold text-orange-600">(muy poquito tiempo después de empezar)</span> siguió una estrategia puntual de:
-            </p>
+            <p
+              className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-3"
+              dangerouslySetInnerHTML={{
+                __html: strategy.intro.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-orange-600">$1</span>')
+              }}
+            />
             <ul className="space-y-2 text-xs sm:text-sm text-gray-700">
-              <li className="flex items-start gap-2">
-                <span className="text-orange-500 font-bold flex-shrink-0">•</span>
-                <span>Qué comer</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-orange-500 font-bold flex-shrink-0">•</span>
-                <span>Cuándo usar geles y sales</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-orange-500 font-bold flex-shrink-0">•</span>
-                <span>Cuántos carbohidratos meter por bidón</span>
-              </li>
+              {strategy.items.map((item, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <span className="text-orange-500 font-bold flex-shrink-0">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
-            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mt-3">
-              Y le fue <span className="font-bold text-orange-600">demasiado bien</span>, incluso mejorando su tiempo en esa misma carrera.
-            </p>
+            <p
+              className="text-xs sm:text-sm text-gray-700 leading-relaxed mt-3"
+              dangerouslySetInnerHTML={{
+                __html: strategy.conclusion.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-orange-600">$1</span>')
+              }}
+            />
           </div>
         </div>
 
@@ -101,10 +138,10 @@ export function TestimonialCard() {
             </div>
             <div className="flex-1">
               <p className="text-sm sm:text-base font-bold text-white mb-1">
-                Eso es exactamente lo que busco en Fase 1:
+                {footer.title}
               </p>
               <p className="text-xs sm:text-sm text-white/95">
-                Bajar grasa sin perder motor, y entrenar con energía inteligente.
+                {footer.message}
               </p>
             </div>
           </div>

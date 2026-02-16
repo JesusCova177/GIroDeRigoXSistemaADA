@@ -180,7 +180,6 @@ function App() {
             {challenges.length > 0 ? (
               <ChallengeCarousel
                 challenges={challenges}
-                stageNumber={currentStage.stage_number}
               />
             ) : (
               <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">
