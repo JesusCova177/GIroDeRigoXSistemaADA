@@ -26,12 +26,12 @@ export function ChallengeCarousel({
   const [showHint, setShowHint] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const showIntroCard = stageNumber === 1;
+  const introChallenge = challenges.find(c => c.type === 'intro');
   const showTestimonialCard = stageNumber === 1;
   const ctaChallenge = challenges.find(c => c.type === 'cta');
-  const regularChallenges = challenges.filter(c => c.type !== 'cta');
+  const regularChallenges = challenges.filter(c => c.type !== 'cta' && c.type !== 'intro');
   const showCTACard = stageNumber === 1 && ctaChallenge;
-  const totalCards = regularChallenges.length + (showIntroCard ? 1 : 0) + (showTestimonialCard ? 1 : 0) + (showCTACard ? 1 : 0);
+  const totalCards = regularChallenges.length + (introChallenge ? 1 : 0) + (showTestimonialCard ? 1 : 0) + (showCTACard ? 1 : 0);
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -161,9 +161,17 @@ export function ChallengeCarousel({
               transform: `translateX(calc(-${currentIndex * 100}% + ${translateX}px))`,
             }}
           >
-            {showIntroCard && (
+            {introChallenge && (
               <div className="w-full flex-shrink-0 px-2 sm:px-4">
-                <IntroCard />
+                <IntroCard
+                  content={
+                    typeof introChallenge.content === "object" &&
+                    "title" in introChallenge.content &&
+                    "paragraphs" in introChallenge.content
+                      ? introChallenge.content
+                      : { title: "", paragraphs: [] }
+                  }
+                />
               </div>
             )}
             {regularChallenges.map((challenge) => (
@@ -254,7 +262,7 @@ export function ChallengeCarousel({
 
       {totalCards > 1 && (
         <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6">
-          {showIntroCard && (
+          {introChallenge && (
             <button
               onClick={() => {
                 setCurrentIndex(0);
@@ -276,7 +284,7 @@ export function ChallengeCarousel({
             </button>
           )}
           {regularChallenges.map((challenge, index) => {
-            const cardIndex = showIntroCard ? index + 1 : index;
+            const cardIndex = introChallenge ? index + 1 : index;
             return (
               <button
                 key={challenge.id}
@@ -311,18 +319,18 @@ export function ChallengeCarousel({
           {showTestimonialCard && (
             <button
               onClick={() => {
-                const testimonialIndex = (showIntroCard ? 1 : 0) + regularChallenges.length;
+                const testimonialIndex = (introChallenge ? 1 : 0) + regularChallenges.length;
                 setCurrentIndex(testimonialIndex);
                 setShowHint(false);
               }}
               className={`group relative transition-all duration-300 rounded-full ${
-                (showIntroCard ? 1 : 0) + regularChallenges.length === currentIndex
+                (introChallenge ? 1 : 0) + regularChallenges.length === currentIndex
                   ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg"
                   : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
               }`}
               aria-label="Ir al testimonio"
             >
-              {(showIntroCard ? 1 : 0) + regularChallenges.length === currentIndex && (
+              {(introChallenge ? 1 : 0) + regularChallenges.length === currentIndex && (
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
               )}
               <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
