@@ -27,7 +27,7 @@ export function StageHeader({
   return (
     <div className="flex flex-col justify-center">
       <div
-        className={`flex flex-col items-center justify-around py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
+        className={`flex flex-col items-center justify-start py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
           showStageSelector
             ? 'min-h-[280px] sm:min-h-[320px] md:min-h-[360px] gap-4 sm:gap-5 md:gap-6'
             : 'min-h-[140px] sm:min-h-[160px] gap-3 sm:gap-4'
