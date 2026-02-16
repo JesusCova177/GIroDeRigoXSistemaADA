@@ -3,7 +3,7 @@ import { supabase, Stage, Challenge } from "./lib/supabase";
 import { StageHeader } from "./components/StageHeader";
 import { ChallengeCarousel } from "./components/ChallengeCarousel";
 import { LoginPage } from "./components/LoginPage";
-import { Loader2, AlertCircle, LogOut } from "lucide-react";
+import { Loader2, AlertCircle } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
 function App() {
@@ -165,24 +165,6 @@ function App() {
 
   return (
     <div className="h-dvh bg-white overflow-hidden flex flex-col">
-      <div className="flex-shrink-0 max-w-4xl w-full mx-auto px-3 sm:px-4 md:px-6 pt-3 sm:pt-4">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
-          <div className="flex items-center gap-2 bg-white px-3 sm:px-4 py-2 rounded-xl shadow w-full sm:w-auto">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
-            <span className="text-xs sm:text-sm font-medium text-gray-700 truncate">
-              {user?.email}
-            </span>
-          </div>
-          <button
-            onClick={handleLogout}
-            className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 rounded-lg shadow transition-all duration-200 hover:shadow-md w-full sm:w-auto"
-          >
-            <LogOut className="w-4 h-4" />
-            <span className="text-sm font-medium">Salir</span>
-          </button>
-        </div>
-      </div>
-
       <div className="flex-1 min-h-0 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4">
           <StageHeader
@@ -190,6 +172,8 @@ function App() {
             totalStages={totalStages}
             onNavigateToStage={navigateToStage}
             loading={loading}
+            userEmail={user?.email}
+            onLogout={handleLogout}
           />
 
           <div className="mt-3 sm:mt-4">

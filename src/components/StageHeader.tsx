@@ -1,4 +1,4 @@
-import { ChevronRight, Zap, Award, Target, Calendar } from "lucide-react";
+import { ChevronRight, Zap, Award, Target, Calendar, LogOut } from "lucide-react";
 import { Stage } from "../lib/supabase";
 
 interface StageHeaderProps {
@@ -6,6 +6,8 @@ interface StageHeaderProps {
   totalStages: number;
   onNavigateToStage?: (stageNumber: number) => void;
   loading?: boolean;
+  userEmail?: string;
+  onLogout?: () => void;
 }
 
 export function StageHeader({
@@ -13,6 +15,8 @@ export function StageHeader({
   totalStages,
   onNavigateToStage,
   loading,
+  userEmail,
+  onLogout,
 }: StageHeaderProps) {
   const progressPercentage = (stage.stage_number / totalStages) * 100;
 
@@ -24,6 +28,24 @@ export function StageHeader({
           background: `linear-gradient(135deg, ${stage.primary_color} 0%, ${stage.primary_color}dd 100%)`,
         }}
       >
+        {userEmail && onLogout && (
+          <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow w-full sm:w-auto">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
+                {userEmail}
+              </span>
+            </div>
+            <button
+              onClick={onLogout}
+              className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-[#31563C] rounded-lg shadow transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+            >
+              <LogOut className="w-4 h-4" />
+              <span className="text-sm font-medium">Salir</span>
+            </button>
+          </div>
+        )}
+
         <div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-black text-[#31563C] tracking-tight px-2">
             {stage.title}
