@@ -154,19 +154,26 @@ export function CombinedChallengeCard({ title, subtitle, preamble, checklist, re
                           </p>
                         );
                       } else if (line.trim()) {
-                        const highlightedText = line.replace(
-                          /\*([^*]+)\*/g,
-                          '<span class="font-bold text-orange-700">$1</span>'
-                        ).replace(
-                          /"([^"]+)"/g,
-                          '<span class="font-semibold text-blue-600 italic">"$1"</span>'
-                        );
+                        const parts = line.split(/(\*[^*]+\*|"[^"]+")/g);
                         return (
-                          <p
-                            key={lidx}
-                            className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed"
-                            dangerouslySetInnerHTML={{ __html: highlightedText }}
-                          />
+                          <p key={lidx} className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">
+                            {parts.map((part, pidx) => {
+                              if (part.startsWith('*') && part.endsWith('*')) {
+                                return (
+                                  <span key={pidx} className="font-bold text-orange-700">
+                                    {part.slice(1, -1)}
+                                  </span>
+                                );
+                              } else if (part.startsWith('"') && part.endsWith('"')) {
+                                return (
+                                  <span key={pidx} className="font-semibold text-blue-600 italic">
+                                    {part}
+                                  </span>
+                                );
+                              }
+                              return <span key={pidx}>{part}</span>;
+                            })}
+                          </p>
                         );
                       }
                       return null;
