@@ -14,6 +14,7 @@ function App() {
   const [totalStages, setTotalStages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showStageSelector, setShowStageSelector] = useState(true);
 
   useEffect(() => {
     checkUser();
@@ -106,6 +107,7 @@ function App() {
       if (challengesError) throw challengesError;
 
       setChallenges(challengesData || []);
+      setShowStageSelector(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
@@ -174,6 +176,8 @@ function App() {
             loading={loading}
             userEmail={user?.email}
             onLogout={handleLogout}
+            showStageSelector={showStageSelector}
+            onToggleStageSelector={() => setShowStageSelector(!showStageSelector)}
           />
 
           <div className="mt-3 sm:mt-4">
