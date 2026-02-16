@@ -26,35 +26,35 @@ export function ChecklistCard({ title, items }: ChecklistCardProps) {
   const isComplete = checkedItems.size === items.length;
 
   return (
-    <div className="flex-shrink-0 w-full bg-white rounded-2xl shadow-lg p-6 border-l-4 border-blue-500 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+    <div className="flex-shrink-0 w-full bg-white rounded-2xl shadow-lg p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
       {isComplete && (
-        <div className="absolute top-0 right-0 p-4">
-          <Trophy className="w-8 h-8 text-yellow-500 animate-bounce" />
+        <div className="absolute top-0 right-0 p-2 sm:p-4">
+          <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500 animate-bounce" />
         </div>
       )}
 
-      <div className="flex items-center gap-2 mb-4">
-        <CheckCircle2 className={`w-6 h-6 transition-all duration-300 ${isComplete ? 'text-green-500 animate-pulse' : 'text-gray-400'}`} />
-        <h3 className="text-xl font-bold text-gray-800">{title}</h3>
+      <div className="flex items-center gap-2 mb-3 sm:mb-4">
+        <CheckCircle2 className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 flex-shrink-0 ${isComplete ? 'text-green-500 animate-pulse' : 'text-gray-400'}`} />
+        <h3 className="text-lg sm:text-xl font-bold text-gray-800">{title}</h3>
         {isComplete && (
-          <span className="ml-auto bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+          <span className="ml-auto bg-green-100 text-green-700 text-xs font-bold px-2 sm:px-3 py-1 rounded-full animate-pulse">
             ¡Completado!
           </span>
         )}
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {items.map((item, index) => (
           <label
             key={index}
-            className={`flex items-start gap-3 cursor-pointer group p-3 rounded-lg transition-all duration-200 ${
+            className={`flex items-start gap-2 sm:gap-3 cursor-pointer group p-2 sm:p-3 rounded-lg transition-all duration-200 ${
               checkedItems.has(index)
                 ? 'bg-blue-50'
                 : 'hover:bg-gray-50'
             } ${justChecked === index ? 'scale-105 bg-green-50' : ''}`}
           >
             <div
-              className={`flex-shrink-0 w-6 h-6 mt-0.5 rounded-lg border-2 transition-all duration-200 flex items-center justify-center ${
+              className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 rounded-lg border-2 transition-all duration-200 flex items-center justify-center ${
                 checkedItems.has(index)
                   ? 'bg-gradient-to-br from-blue-500 to-blue-600 border-blue-500 shadow-lg scale-110'
                   : 'border-gray-300 group-hover:border-blue-400 group-hover:scale-110'
@@ -62,11 +62,11 @@ export function ChecklistCard({ title, items }: ChecklistCardProps) {
               onClick={() => toggleItem(index)}
             >
               {checkedItems.has(index) && (
-                <Check className="w-4 h-4 text-white animate-scale-in" strokeWidth={3} />
+                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white animate-scale-in" strokeWidth={3} />
               )}
             </div>
             <span
-              className={`flex-1 text-gray-700 transition-all duration-200 ${
+              className={`flex-1 text-xs sm:text-sm text-gray-700 transition-all duration-200 ${
                 checkedItems.has(index)
                   ? 'line-through text-gray-400'
                   : 'group-hover:text-gray-900 group-hover:translate-x-1'
@@ -75,22 +75,22 @@ export function ChecklistCard({ title, items }: ChecklistCardProps) {
               {item}
             </span>
             {checkedItems.has(index) && (
-              <Sparkles className="w-4 h-4 text-blue-500 animate-pulse" />
+              <Sparkles className="w-4 h-4 text-blue-500 animate-pulse flex-shrink-0" />
             )}
           </label>
         ))}
       </div>
 
-      <div className="mt-6 pt-4 border-t border-gray-100">
+      <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-100">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-600">Progreso</span>
-          <span className={`text-sm font-bold transition-all duration-300 ${
+          <span className="text-xs sm:text-sm font-medium text-gray-600">Progreso</span>
+          <span className={`text-xs sm:text-sm font-bold transition-all duration-300 ${
             isComplete ? 'text-green-600 scale-110' : 'text-blue-600'
           }`}>
             {checkedItems.size} / {items.length}
           </span>
         </div>
-        <div className="relative w-full bg-gray-200 rounded-full h-3 overflow-hidden shadow-inner">
+        <div className="relative w-full bg-gray-200 rounded-full h-2.5 sm:h-3 overflow-hidden shadow-inner">
           <div
             className={`h-full rounded-full transition-all duration-500 ease-out relative overflow-hidden ${
               isComplete
