@@ -5,6 +5,7 @@ import { ReflectionCard } from "./ReflectionCard";
 import { CombinedChallengeCard } from "./CombinedChallengeCard";
 import { IntroCard } from "./IntroCard";
 import { PhaseImportanceCard } from "./PhaseImportanceCard";
+import { TestimonialCard } from "./TestimonialCard";
 import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -24,7 +25,8 @@ export function ChallengeCarousel({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const showIntroCard = stageNumber === 1;
-  const totalCards = showIntroCard ? challenges.length + 1 : challenges.length;
+  const showTestimonialCard = stageNumber === 1;
+  const totalCards = challenges.length + (showIntroCard ? 1 : 0) + (showTestimonialCard ? 1 : 0);
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -215,6 +217,11 @@ export function ChallengeCarousel({
                 )}
               </div>
             ))}
+            {showTestimonialCard && (
+              <div className="w-full flex-shrink-0">
+                <TestimonialCard />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -273,6 +280,27 @@ export function ChallengeCarousel({
               </button>
             );
           })}
+          {showTestimonialCard && (
+            <button
+              onClick={() => {
+                setCurrentIndex(totalCards - 1);
+                setShowHint(false);
+              }}
+              className={`group relative transition-all duration-300 rounded-full ${
+                totalCards - 1 === currentIndex
+                  ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg"
+                  : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
+              }`}
+              aria-label="Ir al testimonio"
+            >
+              {totalCards - 1 === currentIndex && (
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
+              )}
+              <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                💬 Testimonio
+              </span>
+            </button>
+          )}
         </div>
       )}
     </div>
