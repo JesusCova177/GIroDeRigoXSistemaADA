@@ -28,7 +28,10 @@ export function ChallengeCarousel({
 
   const showIntroCard = stageNumber === 1;
   const showTestimonialCard = stageNumber === 1;
-  const totalCards = challenges.length + (showIntroCard ? 1 : 0) + (showTestimonialCard ? 1 : 0);
+  const ctaChallenge = challenges.find(c => c.type === 'cta');
+  const regularChallenges = challenges.filter(c => c.type !== 'cta');
+  const showCTACard = stageNumber === 1 && ctaChallenge;
+  const totalCards = regularChallenges.length + (showIntroCard ? 1 : 0) + (showTestimonialCard ? 1 : 0) + (showCTACard ? 1 : 0);
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -163,7 +166,7 @@ export function ChallengeCarousel({
                 <IntroCard />
               </div>
             )}
-            {challenges.map((challenge) => (
+            {regularChallenges.map((challenge) => (
               <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
                 {challenge.type === "phase_importance" ? (
                   <PhaseImportanceCard
@@ -181,15 +184,6 @@ export function ChallengeCarousel({
                       "keyTakeaways" in challenge.content
                         ? challenge.content
                         : { keyTakeaways: [], phases: [] }
-                    }
-                  />
-                ) : challenge.type === "cta" ? (
-                  <CTACard
-                    content={
-                      typeof challenge.content === "object" &&
-                      "message" in challenge.content
-                        ? challenge.content
-                        : { message: "", options: [], transition: { text: "", buttonText: "", buttonUrl: "" } }
                     }
                   />
                 ) : challenge.type === "combined" ? (
@@ -242,6 +236,18 @@ export function ChallengeCarousel({
                 <TestimonialCard />
               </div>
             )}
+            {showCTACard && ctaChallenge && (
+              <div className="w-full flex-shrink-0 px-2 sm:px-4">
+                <CTACard
+                  content={
+                    typeof ctaChallenge.content === "object" &&
+                    "message" in ctaChallenge.content
+                      ? ctaChallenge.content
+                      : { message: "", options: [], transition: { text: "", buttonText: "", buttonUrl: "" } }
+                  }
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -269,7 +275,7 @@ export function ChallengeCarousel({
               </span>
             </button>
           )}
-          {challenges.map((challenge, index) => {
+          {regularChallenges.map((challenge, index) => {
             const cardIndex = showIntroCard ? index + 1 : index;
             return (
               <button
@@ -293,13 +299,11 @@ export function ChallengeCarousel({
                     ? "📌 Información clave"
                     : challenge.type === "action_plan"
                       ? "📋 Plan de acción"
-                      : challenge.type === "cta"
-                        ? "🚀 Call to Action"
-                        : challenge.type === "combined"
-                          ? "🎯 Sub-bloque"
-                          : challenge.type === "checklist"
-                            ? "✓ Lista"
-                            : "💭 Reflexión"}
+                      : challenge.type === "combined"
+                        ? "🎯 Sub-bloque"
+                        : challenge.type === "checklist"
+                          ? "✓ Lista"
+                          : "💭 Reflexión"}
                 </span>
               </button>
             );
@@ -307,21 +311,43 @@ export function ChallengeCarousel({
           {showTestimonialCard && (
             <button
               onClick={() => {
-                setCurrentIndex(totalCards - 1);
+                const testimonialIndex = (showIntroCard ? 1 : 0) + regularChallenges.length;
+                setCurrentIndex(testimonialIndex);
                 setShowHint(false);
               }}
               className={`group relative transition-all duration-300 rounded-full ${
-                totalCards - 1 === currentIndex
+                (showIntroCard ? 1 : 0) + regularChallenges.length === currentIndex
                   ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg"
                   : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
               }`}
               aria-label="Ir al testimonio"
             >
-              {totalCards - 1 === currentIndex && (
+              {(showIntroCard ? 1 : 0) + regularChallenges.length === currentIndex && (
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
               )}
               <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                 💬 Testimonio
+              </span>
+            </button>
+          )}
+          {showCTACard && (
+            <button
+              onClick={() => {
+                setCurrentIndex(totalCards - 1);
+                setShowHint(false);
+              }}
+              className={`group relative transition-all duration-300 rounded-full ${
+                totalCards - 1 === currentIndex
+                  ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-orange-500 to-amber-600 shadow-lg"
+                  : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
+              }`}
+              aria-label="Ir al Call to Action"
+            >
+              {totalCards - 1 === currentIndex && (
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
+              )}
+              <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                🚀 Call to Action
               </span>
             </button>
           )}
