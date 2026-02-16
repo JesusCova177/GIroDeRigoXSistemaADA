@@ -5,6 +5,7 @@ import { ChallengeCarousel } from "./components/ChallengeCarousel";
 import { LoginPage } from "./components/LoginPage";
 import { Loader2, AlertCircle } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
+import { hardcodedStage1Challenges } from "./data/hardcodedChallenges";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -74,7 +75,11 @@ function App() {
 
       if (challengesError) throw challengesError;
 
-      setChallenges(challengesData || []);
+      const allChallenges = stage.stage_number === 1
+        ? [...hardcodedStage1Challenges, ...(challengesData || [])]
+        : (challengesData || []);
+
+      setChallenges(allChallenges);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
@@ -106,7 +111,11 @@ function App() {
 
       if (challengesError) throw challengesError;
 
-      setChallenges(challengesData || []);
+      const allChallenges = stage.stage_number === 1
+        ? [...hardcodedStage1Challenges, ...(challengesData || [])]
+        : (challengesData || []);
+
+      setChallenges(allChallenges);
       setShowStageSelector(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
