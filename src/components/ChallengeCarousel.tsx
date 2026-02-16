@@ -179,12 +179,6 @@ export function ChallengeCarousel({
                         ? challenge.content.subtitle
                         : undefined
                     }
-                    preamble={
-                      typeof challenge.content === "object" &&
-                      "preamble" in challenge.content
-                        ? challenge.content.preamble
-                        : undefined
-                    }
                     checklist={
                       typeof challenge.content === "object" &&
                       "checklist" in challenge.content
