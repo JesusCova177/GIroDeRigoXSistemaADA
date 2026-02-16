@@ -22,12 +22,23 @@ export interface Stage {
 export interface Challenge {
   id: string;
   stage_id: string;
-  type: 'checklist' | 'reflection' | 'combined';
+  type: 'checklist' | 'reflection' | 'combined' | 'phase_importance' | 'action_plan';
   title: string;
   content: string[] | {
     subtitle?: string;
-    checklist: string[];
-    reflections: string[];
+    preamble?: string;
+    checklist?: string[];
+    reflections?: string[];
+    sections?: Array<{
+      icon: string;
+      title: string;
+      content: string;
+    }>;
+    keyTakeaways?: string[];
+    phases?: Array<{
+      title: string;
+      items: string[];
+    }>;
   };
   order_index: number;
   created_at: string;

@@ -6,6 +6,7 @@ import { CombinedChallengeCard } from "./CombinedChallengeCard";
 import { IntroCard } from "./IntroCard";
 import { PhaseImportanceCard } from "./PhaseImportanceCard";
 import { TestimonialCard } from "./TestimonialCard";
+import ActionPlanCard from "./ActionPlanCard";
 import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -170,6 +171,15 @@ export function ChallengeCarousel({
                       "sections" in challenge.content
                         ? challenge.content
                         : { sections: [] }
+                    }
+                  />
+                ) : challenge.type === "action_plan" ? (
+                  <ActionPlanCard
+                    content={
+                      typeof challenge.content === "object" &&
+                      "keyTakeaways" in challenge.content
+                        ? challenge.content
+                        : { keyTakeaways: [], phases: [] }
                     }
                   />
                 ) : challenge.type === "combined" ? (
