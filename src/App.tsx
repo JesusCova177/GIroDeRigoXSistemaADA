@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { supabase, Stage, Challenge } from './lib/supabase';
-import { StageHeader } from './components/StageHeader';
-import { ChallengeCarousel } from './components/ChallengeCarousel';
-import { LoginPage } from './components/LoginPage';
-import { Loader2, AlertCircle, LogOut } from 'lucide-react';
-import type { User } from '@supabase/supabase-js';
+import { useEffect, useState } from "react";
+import { supabase, Stage, Challenge } from "./lib/supabase";
+import { StageHeader } from "./components/StageHeader";
+import { ChallengeCarousel } from "./components/ChallengeCarousel";
+import { LoginPage } from "./components/LoginPage";
+import { Loader2, AlertCircle, LogOut } from "lucide-react";
+import type { User } from "@supabase/supabase-js";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -21,26 +21,26 @@ function App() {
 
   async function checkUser() {
     try {
-      const storedEmail = localStorage.getItem('userEmail');
+      const storedEmail = localStorage.getItem("userEmail");
       if (storedEmail) {
         setUser({ email: storedEmail } as User);
         await fetchStageData();
       }
     } catch (err) {
-      console.error('Error checking user:', err);
+      console.error("Error checking user:", err);
     } finally {
       setAuthLoading(false);
     }
   }
 
   async function handleLogin(email: string) {
-    localStorage.setItem('userEmail', email);
+    localStorage.setItem("userEmail", email);
     setUser({ email } as User);
     await fetchStageData();
   }
 
   async function handleLogout() {
-    localStorage.removeItem('userEmail');
+    localStorage.removeItem("userEmail");
     setUser(null);
     setCurrentStage(null);
     setChallenges([]);
@@ -52,13 +52,13 @@ function App() {
       setError(null);
 
       const { data: stages, error: stagesError } = await supabase
-        .from('stages')
-        .select('*')
-        .order('stage_number', { ascending: true });
+        .from("stages")
+        .select("*")
+        .order("stage_number", { ascending: true });
 
       if (stagesError) throw stagesError;
       if (!stages || stages.length === 0) {
-        throw new Error('No stages found');
+        throw new Error("No stages found");
       }
 
       setTotalStages(stages.length);
@@ -66,16 +66,16 @@ function App() {
       setCurrentStage(stage);
 
       const { data: challengesData, error: challengesError } = await supabase
-        .from('challenges')
-        .select('*')
-        .eq('stage_id', stage.id)
-        .order('order_index', { ascending: true });
+        .from("challenges")
+        .select("*")
+        .eq("stage_id", stage.id)
+        .order("order_index", { ascending: true });
 
       if (challengesError) throw challengesError;
 
       setChallenges(challengesData || []);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
     }
@@ -87,27 +87,27 @@ function App() {
       setError(null);
 
       const { data: stage, error: stageError } = await supabase
-        .from('stages')
-        .select('*')
-        .eq('stage_number', stageNumber)
+        .from("stages")
+        .select("*")
+        .eq("stage_number", stageNumber)
         .maybeSingle();
 
       if (stageError) throw stageError;
-      if (!stage) throw new Error('Stage not found');
+      if (!stage) throw new Error("Stage not found");
 
       setCurrentStage(stage);
 
       const { data: challengesData, error: challengesError } = await supabase
-        .from('challenges')
-        .select('*')
-        .eq('stage_id', stage.id)
-        .order('order_index', { ascending: true });
+        .from("challenges")
+        .select("*")
+        .eq("stage_id", stage.id)
+        .order("order_index", { ascending: true });
 
       if (challengesError) throw challengesError;
 
       setChallenges(challengesData || []);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
     }
@@ -164,7 +164,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50">
+    <div className="h-dvh bg-white over overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow">
@@ -189,22 +189,17 @@ function App() {
           loading={loading}
         />
 
-        <div className="mt-12">
-          <div className="flex items-center justify-between mb-6 px-4">
-            <h2 className="text-2xl font-bold text-gray-800">
-              Tus Desafíos
-            </h2>
-            {challenges.length > 1 && (
-              <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">
-                {challenges.length} desafíos
-              </div>
-            )}
-          </div>
+        <div className="mt-4">
           {challenges.length > 0 ? (
-            <ChallengeCarousel challenges={challenges} stageNumber={currentStage.stage_number} />
+            <ChallengeCarousel
+              challenges={challenges}
+              stageNumber={currentStage.stage_number}
+            />
           ) : (
             <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-              <p className="text-gray-500">No hay desafíos disponibles para esta etapa</p>
+              <p className="text-gray-500">
+                No hay desafíos disponibles para esta etapa
+              </p>
             </div>
           )}
 
@@ -222,9 +217,21 @@ function App() {
                   </>
                 ) : (
                   <>
-                    <span>Continuar a Fase {currentStage.stage_number + 1}</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    <span>
+                      Continuar a Fase {currentStage.stage_number + 1}
+                    </span>
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
                     </svg>
                   </>
                 )}

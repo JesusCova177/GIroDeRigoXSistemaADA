@@ -1,17 +1,20 @@
-import { useState, useRef, useEffect } from 'react';
-import { Challenge } from '../lib/supabase';
-import { ChecklistCard } from './ChecklistCard';
-import { ReflectionCard } from './ReflectionCard';
-import { CombinedChallengeCard } from './CombinedChallengeCard';
-import { IntroCard } from './IntroCard';
-import { ChevronLeft, ChevronRight, Hand } from 'lucide-react';
+import { useState, useRef, useEffect } from "react";
+import { Challenge } from "../lib/supabase";
+import { ChecklistCard } from "./ChecklistCard";
+import { ReflectionCard } from "./ReflectionCard";
+import { CombinedChallengeCard } from "./CombinedChallengeCard";
+import { IntroCard } from "./IntroCard";
+import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
   challenges: Challenge[];
   stageNumber?: number;
 }
 
-export function ChallengeCarousel({ challenges, stageNumber }: ChallengeCarouselProps) {
+export function ChallengeCarousel({
+  challenges,
+  stageNumber,
+}: ChallengeCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -116,7 +119,7 @@ export function ChallengeCarousel({ challenges, stageNumber }: ChallengeCarousel
         {totalCards > 1 && currentIndex > 0 && (
           <button
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110"
+            className="absolute left-0 top-[15%] -translate-y-1/2 -translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110"
             aria-label="Anterior"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -126,7 +129,7 @@ export function ChallengeCarousel({ challenges, stageNumber }: ChallengeCarousel
         {totalCards > 1 && currentIndex < totalCards - 1 && (
           <button
             onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 animate-pulse"
+            className="absolute right-0 top-[15%] -translate-y-1/2 translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 animate-pulse"
             aria-label="Siguiente"
           >
             <ChevronRight className="w-6 h-6" />
@@ -157,22 +160,41 @@ export function ChallengeCarousel({ challenges, stageNumber }: ChallengeCarousel
             )}
             {challenges.map((challenge) => (
               <div key={challenge.id} className="w-full flex-shrink-0">
-                {challenge.type === 'combined' ? (
+                {challenge.type === "combined" ? (
                   <CombinedChallengeCard
                     title={challenge.title}
-                    subtitle={typeof challenge.content === 'object' && 'subtitle' in challenge.content ? challenge.content.subtitle : undefined}
-                    checklist={typeof challenge.content === 'object' && 'checklist' in challenge.content ? challenge.content.checklist : []}
-                    reflections={typeof challenge.content === 'object' && 'reflections' in challenge.content ? challenge.content.reflections : []}
+                    subtitle={
+                      typeof challenge.content === "object" &&
+                      "subtitle" in challenge.content
+                        ? challenge.content.subtitle
+                        : undefined
+                    }
+                    checklist={
+                      typeof challenge.content === "object" &&
+                      "checklist" in challenge.content
+                        ? challenge.content.checklist
+                        : []
+                    }
+                    reflections={
+                      typeof challenge.content === "object" &&
+                      "reflections" in challenge.content
+                        ? challenge.content.reflections
+                        : []
+                    }
                   />
-                ) : challenge.type === 'checklist' ? (
+                ) : challenge.type === "checklist" ? (
                   <ChecklistCard
                     title={challenge.title}
-                    items={Array.isArray(challenge.content) ? challenge.content : []}
+                    items={
+                      Array.isArray(challenge.content) ? challenge.content : []
+                    }
                   />
                 ) : (
                   <ReflectionCard
                     title={challenge.title}
-                    questions={Array.isArray(challenge.content) ? challenge.content : []}
+                    questions={
+                      Array.isArray(challenge.content) ? challenge.content : []
+                    }
                   />
                 )}
               </div>
@@ -191,8 +213,8 @@ export function ChallengeCarousel({ challenges, stageNumber }: ChallengeCarousel
               }}
               className={`group relative transition-all duration-300 rounded-full ${
                 0 === currentIndex
-                  ? 'w-8 h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg'
-                  : 'w-3 h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125'
+                  ? "w-8 h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
+                  : "w-3 h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
               }`}
               aria-label="Ir a la introducción"
             >
@@ -215,8 +237,8 @@ export function ChallengeCarousel({ challenges, stageNumber }: ChallengeCarousel
                 }}
                 className={`group relative transition-all duration-300 rounded-full ${
                   cardIndex === currentIndex
-                    ? 'w-8 h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg'
-                    : 'w-3 h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125'
+                    ? "w-8 h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
+                    : "w-3 h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
                 }`}
                 aria-label={`Ir al desafío ${index + 1}`}
               >
@@ -224,7 +246,11 @@ export function ChallengeCarousel({ challenges, stageNumber }: ChallengeCarousel
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
                 )}
                 <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                  {challenge.type === 'combined' ? '🎯 Sub-bloque' : challenge.type === 'checklist' ? '✓ Lista' : '💭 Reflexión'}
+                  {challenge.type === "combined"
+                    ? "🎯 Sub-bloque"
+                    : challenge.type === "checklist"
+                      ? "✓ Lista"
+                      : "💭 Reflexión"}
                 </span>
               </button>
             );
