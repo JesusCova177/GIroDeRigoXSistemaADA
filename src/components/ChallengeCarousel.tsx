@@ -124,7 +124,7 @@ export function ChallengeCarousel({
         {totalCards > 1 && currentIndex > 0 && (
           <button
             onClick={goToPrevious}
-            className="hidden sm:flex absolute left-0 top-[15%] -translate-y-1/2 -translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-2 sm:p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 items-center justify-center"
+            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-2 sm:p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 items-center justify-center"
             aria-label="Anterior"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -134,7 +134,7 @@ export function ChallengeCarousel({
         {totalCards > 1 && currentIndex < totalCards - 1 && (
           <button
             onClick={goToNext}
-            className="hidden sm:flex absolute right-0 top-[15%] -translate-y-1/2 translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-2 sm:p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center"
+            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-2 sm:p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center"
             aria-label="Siguiente"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
