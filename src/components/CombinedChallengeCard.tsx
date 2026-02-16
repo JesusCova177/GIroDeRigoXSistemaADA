@@ -74,15 +74,106 @@ export function CombinedChallengeCard({ title, subtitle, preamble, checklist, re
         </div>
 
         {preamble && (
-          <div className="mb-6 sm:mb-8 bg-gradient-to-br from-amber-50 to-orange-50 border-l-4 border-orange-400 rounded-xl p-4 sm:p-6">
+          <div className="mb-6 sm:mb-8 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-l-4 border-orange-400 rounded-xl p-4 sm:p-6 shadow-lg">
             <div className="space-y-3 sm:space-y-4">
-              {preamble.split('\n').map((paragraph, idx) => (
-                paragraph.trim() && (
-                  <p key={idx} className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-wrap">
-                    {paragraph}
-                  </p>
-                )
-              ))}
+              {preamble.split('\n\n').map((section, idx) => {
+                if (section.trim().startsWith('MARCAS:')) {
+                  const brands = section.replace('MARCAS:', '').trim().split(',').map(b => b.trim());
+                  return (
+                    <div key={idx} className="mt-4 pt-4 border-t border-orange-200">
+                      <p className="text-xs font-semibold text-gray-600 mb-3 text-center">Marcas que uso:</p>
+                      <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                        {brands.map((brand, bidx) => {
+                          const brandEmojis: { [key: string]: string } = {
+                            'Huevos 100%': '🥚',
+                            'Don Maíz': '🌽',
+                            'Friko': '🍗',
+                            'Arroz Sonora': '🍚',
+                            'Corpohass': '🥑',
+                            'La Muñeca': '🍝',
+                            'Alquería': '🥛',
+                            'Alpina': '🧈',
+                            'Colanta': '🧀',
+                            'Piko Riko': '🐔',
+                            'Gatorade': '⚡',
+                            'Powerade': '💧',
+                            'GU': '🎯',
+                            'Mauriten': '🚴',
+                          };
+                          const emoji = brandEmojis[brand] || '✨';
+                          return (
+                            <div key={bidx} className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md hover:scale-105">
+                              <div className="text-center">
+                                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center mb-1 shadow-inner">
+                                  <span className="text-xl sm:text-2xl">{emoji}</span>
+                                </div>
+                                <p className="text-[10px] sm:text-xs font-bold text-gray-700">{brand}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                }
+
+                const lines = section.trim().split('\n');
+                return (
+                  <div key={idx} className="space-y-2">
+                    {lines.map((line, lidx) => {
+                      if (line.startsWith('**')) {
+                        const text = line.replace(/\*\*/g, '');
+                        return (
+                          <div key={lidx} className="bg-white/80 rounded-lg p-3 sm:p-4 border-2 border-orange-200">
+                            <p className="text-xs sm:text-sm font-bold text-orange-700 mb-2">{text}</p>
+                          </div>
+                        );
+                      } else if (line.startsWith('- ')) {
+                        const parts = line.substring(2).split(':');
+                        if (parts.length > 1) {
+                          const label = parts[0].trim();
+                          const content = parts.slice(1).join(':').trim();
+                          const colorMap: { [key: string]: string } = {
+                            'Antes': 'blue',
+                            'Durante': 'green',
+                            'Después': 'orange',
+                            'Cuando llego': 'orange',
+                          };
+                          const color = colorMap[label] || 'gray';
+                          return (
+                            <div key={lidx} className={`ml-4 bg-${color}-50 rounded-lg p-2 sm:p-3 border border-${color}-200`}>
+                              <p className="text-xs sm:text-sm text-gray-700">
+                                <span className={`font-semibold text-${color}-600`}>{label}:</span> {content}
+                              </p>
+                            </div>
+                          );
+                        }
+                        return (
+                          <p key={lidx} className="text-xs sm:text-sm text-gray-700 leading-relaxed ml-4">
+                            • {line.substring(2)}
+                          </p>
+                        );
+                      } else if (line.trim()) {
+                        const highlightedText = line.replace(
+                          /\*([^*]+)\*/g,
+                          '<span class="font-bold text-orange-700">$1</span>'
+                        ).replace(
+                          /"([^"]+)"/g,
+                          '<span class="font-semibold text-blue-600 italic">"$1"</span>'
+                        );
+                        return (
+                          <p
+                            key={lidx}
+                            className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: highlightedText }}
+                          />
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
