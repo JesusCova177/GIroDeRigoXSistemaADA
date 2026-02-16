@@ -165,8 +165,8 @@ function App() {
 
   return (
     <div className="h-dvh bg-white overflow-hidden flex flex-col">
-      <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 flex-1 overflow-y-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+      <div className="flex-shrink-0 max-w-4xl w-full mx-auto px-3 sm:px-4 md:px-6 pt-3 sm:pt-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-2 bg-white px-3 sm:px-4 py-2 rounded-xl shadow w-full sm:w-auto">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
             <span className="text-xs sm:text-sm font-medium text-gray-700 truncate">
@@ -181,63 +181,67 @@ function App() {
             <span className="text-sm font-medium">Salir</span>
           </button>
         </div>
+      </div>
 
-        <StageHeader
-          stage={currentStage}
-          totalStages={totalStages}
-          onNavigateToStage={navigateToStage}
-          loading={loading}
-        />
+      <div className="flex-1 min-h-0 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4">
+          <StageHeader
+            stage={currentStage}
+            totalStages={totalStages}
+            onNavigateToStage={navigateToStage}
+            loading={loading}
+          />
 
-        <div className="mt-3 sm:mt-4">
-          {challenges.length > 0 ? (
-            <ChallengeCarousel
-              challenges={challenges}
-              stageNumber={currentStage.stage_number}
-            />
-          ) : (
-            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">
-              <p className="text-sm sm:text-base text-gray-500">
-                No hay desafíos disponibles para esta etapa
-              </p>
-            </div>
-          )}
+          <div className="mt-3 sm:mt-4">
+            {challenges.length > 0 ? (
+              <ChallengeCarousel
+                challenges={challenges}
+                stageNumber={currentStage.stage_number}
+              />
+            ) : (
+              <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">
+                <p className="text-sm sm:text-base text-gray-500">
+                  No hay desafíos disponibles para esta etapa
+                </p>
+              </div>
+            )}
 
-          {currentStage.stage_number < totalStages && (
-            <div className="mt-6 sm:mt-8 px-2 sm:px-4">
-              <button
-                onClick={() => navigateToStage(currentStage.stage_number + 1)}
-                disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    <span>Cargando...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>
-                      Continuar a Fase {currentStage.stage_number + 1}
-                    </span>
-                    <svg
-                      className="w-4 h-4 sm:w-5 sm:h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </>
-                )}
-              </button>
-            </div>
-          )}
+            {currentStage.stage_number < totalStages && (
+              <div className="mt-6 sm:mt-8 px-2 sm:px-4 pb-4">
+                <button
+                  onClick={() => navigateToStage(currentStage.stage_number + 1)}
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Cargando...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>
+                        Continuar a Fase {currentStage.stage_number + 1}
+                      </span>
+                      <svg
+                        className="w-4 h-4 sm:w-5 sm:h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
