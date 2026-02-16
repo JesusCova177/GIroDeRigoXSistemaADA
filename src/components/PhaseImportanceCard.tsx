@@ -25,7 +25,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
   };
 
   return (
-    <div className="flex rounded-2xl bg-white p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
+    <div className="flex rounded-2xl bg-white  border-l-4 border-blue-500 p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
       <div className="space-y-4 sm:space-y-6">
         {content.sections.map((section, index) => (
           <div key={index}>
