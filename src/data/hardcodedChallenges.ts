@@ -9,14 +9,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Evaluación Inicial',
       preamble: 'Antes de comenzar cualquier proceso de transformación, necesitas saber exactamente dónde estás parado. Esta evaluación inicial te dará una línea base clara y te permitirá medir tu progreso de manera objetiva. No se trata de juzgarte, sino de tener datos concretos para tomar decisiones informadas.',
-      items: [
-        'Toma tu peso en ayunas durante 3 días consecutivos y calcula el promedio',
-        'Mide tu porcentaje de grasa corporal (báscula bioimpedancia o mediciones de pliegues)',
-        'Registra tus medidas clave: cintura, cadera, muslo, brazo',
-        'Toma fotos de referencia (frente, lado, espalda) con buena iluminación',
-        'Evalúa tu nivel de energía actual en tus entrenamientos (escala 1-10)',
-        'Registra tu potencia FTP actual o tiempo en un esfuerzo de referencia'
-      ]
+      
     },
     order_index: -5,
     created_at: new Date().toISOString()
