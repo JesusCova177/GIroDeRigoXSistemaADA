@@ -22,7 +22,7 @@ export interface Stage {
 export interface Challenge {
   id: string;
   stage_id: string;
-  type: 'checklist' | 'reflection' | 'combined' | 'phase_importance' | 'action_plan';
+  type: 'checklist' | 'reflection' | 'combined' | 'phase_importance' | 'action_plan' | 'cta';
   title: string;
   content: string[] | {
     subtitle?: string;
@@ -39,6 +39,20 @@ export interface Challenge {
       title: string;
       items: string[];
     }>;
+    message?: string;
+    options?: Array<{
+      title: string;
+      subtitle: string;
+      description: string;
+      buttonText: string;
+      buttonUrl: string;
+      isPrimary: boolean;
+    }>;
+    transition?: {
+      text: string;
+      buttonText: string;
+      buttonUrl: string;
+    };
   };
   order_index: number;
   created_at: string;

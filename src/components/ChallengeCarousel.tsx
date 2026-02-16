@@ -7,6 +7,7 @@ import { IntroCard } from "./IntroCard";
 import { PhaseImportanceCard } from "./PhaseImportanceCard";
 import { TestimonialCard } from "./TestimonialCard";
 import ActionPlanCard from "./ActionPlanCard";
+import CTACard from "./CTACard";
 import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -182,6 +183,15 @@ export function ChallengeCarousel({
                         : { keyTakeaways: [], phases: [] }
                     }
                   />
+                ) : challenge.type === "cta" ? (
+                  <CTACard
+                    content={
+                      typeof challenge.content === "object" &&
+                      "message" in challenge.content
+                        ? challenge.content
+                        : { message: "", options: [], transition: { text: "", buttonText: "", buttonUrl: "" } }
+                    }
+                  />
                 ) : challenge.type === "combined" ? (
                   <CombinedChallengeCard
                     title={challenge.title}
@@ -281,11 +291,15 @@ export function ChallengeCarousel({
                 <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                   {challenge.type === "phase_importance"
                     ? "📌 Información clave"
-                    : challenge.type === "combined"
-                      ? "🎯 Sub-bloque"
-                      : challenge.type === "checklist"
-                        ? "✓ Lista"
-                        : "💭 Reflexión"}
+                    : challenge.type === "action_plan"
+                      ? "📋 Plan de acción"
+                      : challenge.type === "cta"
+                        ? "🚀 Call to Action"
+                        : challenge.type === "combined"
+                          ? "🎯 Sub-bloque"
+                          : challenge.type === "checklist"
+                            ? "✓ Lista"
+                            : "💭 Reflexión"}
                 </span>
               </button>
             );
