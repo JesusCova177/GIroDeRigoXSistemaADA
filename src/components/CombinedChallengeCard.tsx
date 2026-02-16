@@ -105,6 +105,60 @@ export function CombinedChallengeCard({ title, subtitle, checklist, reflections 
                 </div>
               </div>
             </div>
+
+            <div className="mt-4 pt-4 border-t border-orange-200">
+              <p className="text-xs font-semibold text-gray-600 mb-3 text-center">Marcas que uso:</p>
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
+                  <div className="text-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
+                      <span className="text-xl sm:text-2xl">🥚</span>
+                    </div>
+                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Huevos 100%</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
+                  <div className="text-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
+                      <span className="text-xl sm:text-2xl">🌽</span>
+                    </div>
+                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Don Maíz</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
+                  <div className="text-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
+                      <span className="text-xl sm:text-2xl">🍗</span>
+                    </div>
+                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Friko</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
+                  <div className="text-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
+                      <span className="text-xl sm:text-2xl">🍚</span>
+                    </div>
+                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Arroz Sonora</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
+                  <div className="text-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
+                      <span className="text-xl sm:text-2xl">🥑</span>
+                    </div>
+                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">Corpohass</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md">
+                  <div className="text-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-1">
+                      <span className="text-xl sm:text-2xl">🍝</span>
+                    </div>
+                    <p className="text-[10px] sm:text-xs font-bold text-gray-700">La Muñeca</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
