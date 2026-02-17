@@ -9,7 +9,14 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Evaluación Inicial',
       preamble: 'Antes de comenzar cualquier proceso de transformación, necesitas saber exactamente dónde estás parado. Esta evaluación inicial te dará una línea base clara y te permitirá medir tu progreso de manera objetiva. No se trata de juzgarte, sino de tener datos concretos para tomar decisiones informadas.',
-      'Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing. Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso). Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.'
+      items: [
+        'Toma tu peso en ayunas durante 3 días consecutivos y calcula el promedio',
+        'Mide tu porcentaje de grasa corporal (báscula bioimpedancia o mediciones de pliegues)',
+        'Registra tus medidas clave: cintura, cadera, muslo, brazo',
+        'Toma fotos de referencia (frente, lado, espalda) con buena iluminación',
+        'Evalúa tu nivel de energía actual en tus entrenamientos (escala 1-10)',
+        'Registra tu potencia FTP actual o tiempo en un esfuerzo de referencia'
+      ]
     },
     order_index: -5,
     created_at: new Date().toISOString()
@@ -21,7 +28,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     title: 'Configuración del Déficit Calórico',
     content: {
       title: 'Configuración del Déficit Calórico',
-      preamble: 'El déficit calórico es la base para perder grasa, pero como ciclista necesitas un enfoque inteligente. Muy agresivo y perderás potencia; muy conservador y el progreso será lento. Aquí encontrarás el punto dulce: suficiente déficit para ver resultados, pero manteniendo tu rendimiento en la bici.',
+      preamble: 'El déficit calórico es la base para perder grasa, pero como ciclista necesitas un enfoque inteligente. Muy agresivo y perderás potencia; muy conservador y el progreso será lento. Aquí encontrarás el punto dulce: suficiente déficit para ver resultados, pero manteniendo tu rendimiento en la bici.\n\nDesde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing. Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso). Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.',
       items: [
         'Calcula tu TDEE (gasto energético diario total) usando una calculadora confiable',
         'Establece un déficit del 10-15% (NO más del 20% si entrenas regularmente)',
