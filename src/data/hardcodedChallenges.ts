@@ -115,19 +115,12 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: 'hardcoded-4',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'preamble_checklist',
+    type: 'intro',
     title: 'Preparación del Entorno',
     content: {
       title: 'Preparación del Entorno',
-      preamble: 'El éxito no depende solo de tu fuerza de voluntad. Tu entorno puede ser tu mejor aliado o tu peor enemigo. Preparar tu cocina, tu rutina y tus sistemas de apoyo multiplicará exponencialmente tus probabilidades de éxito. Piensa en esto como preparar tu bici antes de una carrera importante.',
-      items: [
-        'Limpia tu cocina: retira tentaciones innecesarias y dona lo que no necesitas',
-        'Compra contenedores para meal prep (al menos 7-10 recipientes)',
-        'Invierte en una báscula de cocina digital (precisión al gramo)',
-        'Prepara una botella de agua de 1L que llevarás contigo siempre',
-        'Crea una lista de snacks saludables pre-aprobados para emergencias',
-        'Habla con tu familia/pareja sobre tus objetivos y pide su apoyo'
-      ]
+  
+ 
     },
     order_index: 3,
     created_at: new Date().toISOString()
