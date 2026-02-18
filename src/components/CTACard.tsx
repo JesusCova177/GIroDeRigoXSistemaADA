@@ -30,7 +30,6 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
   return (
     <div className="float bg-gradient-to-br from-slate-950 via-slate-900 to-black backdrop-blur-xl rounded-3xl p-8 card-glow border border-yellow-600/10 transition-all duration-500">
       <div className="flex items-center gap-3 mb-6">
-       
         <h3 className="text-large sm:text-2xl font-bold text-white">
           Antes de pasar a la Fase 2, no quiero que esto se quede en “qué bonito leer”. Quiero que lo hagás con estructura, y que lo sostengás.
         </h3>
@@ -41,16 +40,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
           Dentro del Sistema ADA tenés dos caminos:
         </p>
 
-        <div className="space-y-4">
-          {content.options.map((option, index) => (
-            <div
-              key={index}
-              className={`rounded-xl p-5 border-2 transition-all hover:scale-[1.02] ${
-                option.isPrimary
-                  ? 'bg-gradient-to-br from-emerald-600 to-teal-700 border-emerald-400 shadow-lg'
-                  : 'bg-slate-800/50 border-slate-700 hover:border-slate-600'
-              }`}
-            >
+        
               <div className="flex items-start gap-3 mb-3">
                 {option.isPrimary ? (
                   <Users className="w-6 h-6 flex-shrink-0 mt-1 text-emerald-200" />
