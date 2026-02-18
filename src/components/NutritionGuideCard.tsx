@@ -32,17 +32,20 @@ export function NutritionGuideCard({
         <h3 className="text-lg sm:text-xl font-titling font-black text-[#31563C] italic">{title}</h3>
       </div>
 
-      <div className="mb-6 bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-400 rounded-lg p-4">
-        <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-          {concept}
-        </p>
-      </div>
-
-      <div className="mb-4">
-        <div className="flex items-center gap-2 mb-4">
-          <Utensils className="w-5 h-5 text-green-600 flex-shrink-0" />
-          <h4 className="text-sm sm:text-base font-bold text-gray-800">{practicalHeading}</h4>
+      {concept && (
+        <div className="mb-6 bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-400 rounded-lg p-4">
+          <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+            {concept}
+          </p>
         </div>
+      )}
+
+      {practicalHeading && (
+        <div className="mb-4">
+          <div className="flex items-center gap-2 mb-4">
+            <Utensils className="w-5 h-5 text-green-600 flex-shrink-0" />
+            <h4 className="text-sm sm:text-base font-bold text-gray-800">{practicalHeading}</h4>
+          </div>
 
         <div className="space-y-4">
           {scenarios.map((scenario, scenarioIndex) => (
@@ -79,7 +82,8 @@ export function NutritionGuideCard({
             </div>
           ))}
         </div>
-      </div>
+        </div>
+      )}
 
       <div className="mt-6 pt-4 border-t border-gray-200">
         <div className="flex items-start gap-3 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-yellow-400 rounded-lg p-4">
