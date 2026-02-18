@@ -50,12 +50,6 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
                   : 'bg-slate-800/50 border-slate-700 hover:border-slate-600'
               }`}
             >
-              
-
-              <p className="text-sm sm:text-base leading-relaxed mb-4 opacity-95">
-                {option.description}
-              </p>
-
               <a
                 href={option.buttonUrl}
                 className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all hover:gap-3 ${
@@ -65,7 +59,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
                 }`}
               >
                Para entender como perder peso y aplicarlo a tu ritmo, sin improvisar.
-                <ArrowRight className="w-4 h-4" />
+                
               </a>
             </div>
           ))}
