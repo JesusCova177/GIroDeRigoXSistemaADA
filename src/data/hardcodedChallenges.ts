@@ -11,7 +11,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         'Comer menos para pesar menos: la fórmula “perfecta”. Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”. El problema es que esa película dura poquito. La realidad me pegó de frente cuando le metí intensidad al entrenamiento y él cuerpo empezó a hablarme claro, pero yo no le pararle bolas.',
       ]
     },
-    order_index: 0,
+    
     created_at: new Date().toISOString()
   },
    {
