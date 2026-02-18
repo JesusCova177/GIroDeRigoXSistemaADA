@@ -42,6 +42,18 @@ export const hardcodedStage1Challenges: Challenge[] = [
     created_at: new Date().toISOString()
   },
   {
+    id: 'hardcoded-2',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'intro',
+    content: {
+      title: 'Configuración del Déficit Calórico',
+      paragraphs: [ 'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.\n\nAplicando esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.'
+      ]
+    },
+    order_index: 1,
+    created_at: new Date().toISOString()
+  },
+  {
     id: 'hardcoded-3',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
