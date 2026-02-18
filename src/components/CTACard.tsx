@@ -36,12 +36,11 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
         <h3 className="text-xl sm:text-2xl font-bold text-white">
           Antes de pasar a la Fase 2, no quiero que esto se quede en “qué bonito leer”. Quiero que lo hagás con estructura, y que lo sostengás.
         </h3>
-        <h4>Dentro del Sistema ADA tenés dos caminos:</h4>
       </div>
 
       <div className="flex-1 overflow-y-auto space-y-6">
         <p className="text-base sm:text-lg leading-relaxed text-gray-200 whitespace-pre-line">
-          {content.message}
+          Dentro del Sistema ADA tenés dos caminos:
         </p>
 
         <div className="space-y-4">
