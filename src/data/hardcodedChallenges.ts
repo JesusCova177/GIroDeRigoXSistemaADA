@@ -15,6 +15,19 @@ export const hardcodedStage1Challenges: Challenge[] = [
     order_index: 0,
     created_at: new Date().toISOString()
   },
+   {
+    id: 'hardcoded-1',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'intro',
+    content: {
+      title: 'bajar grasa sin quedarte vacío',
+      paragraphs: [
+        'Y la embarré. Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba. Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias. Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo. Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa. '
+      ]
+    },
+    order_index: 0,
+    created_at: new Date().toISOString()
+  },
   {
     id: 'hardcoded-2',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
