@@ -41,11 +41,7 @@ export function ChallengeCarousel({
       })
     : challenges;
 
-  const introChallenges = visibleChallenges.filter(c => c.type === 'intro');
-  const testimonialChallenge = visibleChallenges.find(c => c.type === 'testimonial');
-  const ctaChallenge = visibleChallenges.find(c => c.type === 'cta');
-  const regularChallenges = visibleChallenges.filter(c => c.type !== 'cta' && c.type !== 'intro' && c.type !== 'testimonial');
-  const totalCards = introChallenges.length + regularChallenges.length + (testimonialChallenge ? 1 : 0) + (ctaChallenge ? 1 : 0);
+  const totalCards = visibleChallenges.length;
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -182,22 +178,47 @@ export function ChallengeCarousel({
               transform: `translateX(calc(-${currentIndex * 100}% + ${translateX}px))`,
             }}
           >
-            {introChallenges.map((introChallenge) => (
-              <div key={introChallenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
-                <IntroCard
-                  content={
-                    typeof introChallenge.content === "object" &&
-                    "title" in introChallenge.content &&
-                    "paragraphs" in introChallenge.content
-                      ? introChallenge.content
-                      : { title: "", paragraphs: [] }
-                  }
-                />
-              </div>
-            ))}
-            {regularChallenges.map((challenge) => (
+            {visibleChallenges.map((challenge) => (
               <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
-                {challenge.type === "bifurcation" ? (
+                {challenge.type === "intro" ? (
+                  <IntroCard
+                    content={
+                      typeof challenge.content === "object" &&
+                      "title" in challenge.content &&
+                      "paragraphs" in challenge.content
+                        ? challenge.content
+                        : { title: "", paragraphs: [] }
+                    }
+                  />
+                ) : challenge.type === "testimonial" ? (
+                  <TestimonialCard
+                    content={
+                      typeof challenge.content === "object" &&
+                      "title" in challenge.content &&
+                      "subtitle" in challenge.content
+                        ? challenge.content
+                        : {
+                            title: "",
+                            subtitle: "",
+                            intro: "",
+                            person: { name: "", initial: "", duration: "" },
+                            metrics: [],
+                            description: "",
+                            strategy: { intro: "", items: [], conclusion: "" },
+                            footer: { title: "", message: "" }
+                          }
+                    }
+                  />
+                ) : challenge.type === "cta" ? (
+                  <CTACard
+                    content={
+                      typeof challenge.content === "object" &&
+                      "message" in challenge.content
+                        ? challenge.content
+                        : { message: "", options: [], transition: { text: "", buttonText: "", buttonUrl: "" } }
+                    }
+                  />
+                ) : challenge.type === "bifurcation" ? (
                   <BifurcationCard
                     content={{
                       question: typeof challenge.content === "object" && "question" in challenge.content ? (challenge.content.question as string) : '',
@@ -366,148 +387,74 @@ export function ChallengeCarousel({
                 ) : null}
               </div>
             ))}
-            {testimonialChallenge && (
-              <div className="w-full flex-shrink-0 px-2 sm:px-4">
-                <TestimonialCard
-                  content={
-                    typeof testimonialChallenge.content === "object" &&
-                    "title" in testimonialChallenge.content &&
-                    "subtitle" in testimonialChallenge.content
-                      ? testimonialChallenge.content
-                      : {
-                          title: "",
-                          subtitle: "",
-                          intro: "",
-                          person: { name: "", initial: "", duration: "" },
-                          metrics: [],
-                          description: "",
-                          strategy: { intro: "", items: [], conclusion: "" },
-                          footer: { title: "", message: "" }
-                        }
-                  }
-                />
-              </div>
-            )}
-            {ctaChallenge && (
-              <div className="w-full flex-shrink-0 px-2 sm:px-4">
-                <CTACard
-                  content={
-                    typeof ctaChallenge.content === "object" &&
-                    "message" in ctaChallenge.content
-                      ? ctaChallenge.content
-                      : { message: "", options: [], transition: { text: "", buttonText: "", buttonUrl: "" } }
-                  }
-                />
-              </div>
-            )}
           </div>
         </div>
       </div>
 
       {totalCards > 1 && (
         <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6">
-          {introChallenges.map((introChallenge, introIndex) => (
-            <button
-              key={introChallenge.id}
-              onClick={() => {
-                setCurrentIndex(introIndex);
-                setShowHint(false);
-              }}
-              className={`group relative transition-all duration-300 rounded-full ${
-                introIndex === currentIndex
-                  ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
-                  : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
-              }`}
-              aria-label={`Ir a la introducción ${introIndex + 1}`}
-            >
-              {introIndex === currentIndex && (
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
-              )}
-              <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                📖 Introducción {introIndex + 1}
-              </span>
-            </button>
-          ))}
-          {regularChallenges.map((challenge, index) => {
-            const cardIndex = introChallenges.length + index;
+          {visibleChallenges.map((challenge, index) => {
+            const getCardLabel = () => {
+              switch (challenge.type) {
+                case "intro":
+                  return "📖 Introducción";
+                case "testimonial":
+                  return "💬 Testimonio";
+                case "cta":
+                  return "🚀 Call to Action";
+                case "phase_importance":
+                  return "📌 Información clave";
+                case "action_plan":
+                  return "📋 Plan de acción";
+                case "combined":
+                  return "🎯 Sub-bloque";
+                case "preamble_checklist":
+                  return "📝 Lista con preámbulo";
+                case "nutrition_guide":
+                  return "🍽️ Guía nutricional";
+                case "checklist":
+                  return "✓ Lista";
+                case "reflection":
+                  return "💭 Reflexión";
+                case "bifurcation":
+                  return "🔀 Bifurcación";
+                case "route":
+                  return "🗺️ Ruta";
+                default:
+                  return "📄 Tarjeta";
+              }
+            };
+
+            const getCardColor = () => {
+              if (challenge.type === "intro") return "from-blue-500 to-blue-600";
+              if (challenge.type === "testimonial") return "from-emerald-500 to-emerald-600";
+              if (challenge.type === "cta") return "from-orange-500 to-amber-600";
+              return "from-blue-500 to-blue-600";
+            };
+
             return (
               <button
                 key={challenge.id}
                 onClick={() => {
-                  setCurrentIndex(cardIndex);
+                  setCurrentIndex(index);
                   setShowHint(false);
                 }}
                 className={`group relative transition-all duration-300 rounded-full ${
-                  cardIndex === currentIndex
-                    ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
+                  index === currentIndex
+                    ? `w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r ${getCardColor()} shadow-lg`
                     : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
                 }`}
-                aria-label={`Ir al desafío ${index + 1}`}
+                aria-label={`Ir a ${getCardLabel()}`}
               >
-                {cardIndex === currentIndex && (
+                {index === currentIndex && (
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
                 )}
                 <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                  {challenge.type === "phase_importance"
-                    ? "📌 Información clave"
-                    : challenge.type === "action_plan"
-                      ? "📋 Plan de acción"
-                      : challenge.type === "combined"
-                        ? "🎯 Sub-bloque"
-                        : challenge.type === "preamble_checklist"
-                          ? "📝 Lista con preámbulo"
-                          : challenge.type === "nutrition_guide"
-                            ? "🍽️ Guía nutricional"
-                            : challenge.type === "checklist"
-                              ? "✓ Lista"
-                              : "💭 Reflexión"}
+                  {getCardLabel()}
                 </span>
               </button>
             );
           })}
-          {testimonialChallenge && (
-            <button
-              onClick={() => {
-                const testimonialIndex = introChallenges.length + regularChallenges.length;
-                setCurrentIndex(testimonialIndex);
-                setShowHint(false);
-              }}
-              className={`group relative transition-all duration-300 rounded-full ${
-                introChallenges.length + regularChallenges.length === currentIndex
-                  ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg"
-                  : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
-              }`}
-              aria-label="Ir al testimonio"
-            >
-              {introChallenges.length + regularChallenges.length === currentIndex && (
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
-              )}
-              <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                💬 Testimonio
-              </span>
-            </button>
-          )}
-          {ctaChallenge && (
-            <button
-              onClick={() => {
-                setCurrentIndex(totalCards - 1);
-                setShowHint(false);
-              }}
-              className={`group relative transition-all duration-300 rounded-full ${
-                totalCards - 1 === currentIndex
-                  ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-orange-500 to-amber-600 shadow-lg"
-                  : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
-              }`}
-              aria-label="Ir al Call to Action"
-            >
-              {totalCards - 1 === currentIndex && (
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
-              )}
-              <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                🚀 Call to Action
-              </span>
-            </button>
-          )}
         </div>
       )}
     </div>
