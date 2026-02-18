@@ -112,19 +112,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     order_index: 6,
     created_at: new Date().toISOString()
   },
-  {
-    id: 'hardcoded-4',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'intro',
-    title: 'Preparación del Entorno',
-    content: {
-      title: 'Preparación del Entorno',
   
- 
-    },
-    order_index: 7,
-    created_at: new Date().toISOString()
-  },
   {
     id: 'hardcoded-5',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
