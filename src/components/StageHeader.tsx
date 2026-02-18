@@ -52,7 +52,7 @@ export function StageHeader({
             </div>
           )}
           <div className="ml-auto">
-            <span className="text-xs sm:text-sm font-large text-white/90">
+            <span className="text-medium sm:text-sm font-medium text-white/90">
               By SISTEMAADA
             </span>
           </div>
