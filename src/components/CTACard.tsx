@@ -33,7 +33,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
         <div className="bg-gradient-to-br from-amber-500 to-orange-600 p-3 rounded-xl">
           <Sparkles className="w-6 h-6 text-white" />
         </div>
-        <h3 className="text-xl sm:text-2xl font-bold">
+        <h3 className="text-xl sm:text-2xl font-bold text-white">
           Es hora de actuar
         </h3>
       </div>
