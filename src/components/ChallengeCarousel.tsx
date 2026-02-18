@@ -40,11 +40,11 @@ export function ChallengeCarousel({
       })
     : challenges;
 
-  const introChallenge = visibleChallenges.find(c => c.type === 'intro');
+  const introChallenges = visibleChallenges.filter(c => c.type === 'intro');
   const testimonialChallenge = visibleChallenges.find(c => c.type === 'testimonial');
   const ctaChallenge = visibleChallenges.find(c => c.type === 'cta');
   const regularChallenges = visibleChallenges.filter(c => c.type !== 'cta' && c.type !== 'intro' && c.type !== 'testimonial');
-  const totalCards = regularChallenges.length + (introChallenge ? 1 : 0) + (testimonialChallenge ? 1 : 0) + (ctaChallenge ? 1 : 0);
+  const totalCards = introChallenges.length + regularChallenges.length + (testimonialChallenge ? 1 : 0) + (ctaChallenge ? 1 : 0);
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -181,8 +181,8 @@ export function ChallengeCarousel({
               transform: `translateX(calc(-${currentIndex * 100}% + ${translateX}px))`,
             }}
           >
-            {introChallenge && (
-              <div className="w-full flex-shrink-0 px-2 sm:px-4">
+            {introChallenges.map((introChallenge) => (
+              <div key={introChallenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
                 <IntroCard
                   content={
                     typeof introChallenge.content === "object" &&
@@ -193,7 +193,7 @@ export function ChallengeCarousel({
                   }
                 />
               </div>
-            )}
+            ))}
             {regularChallenges.map((challenge) => (
               <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
                 {challenge.type === "bifurcation" ? (
@@ -367,29 +367,30 @@ export function ChallengeCarousel({
 
       {totalCards > 1 && (
         <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6">
-          {introChallenge && (
+          {introChallenges.map((introChallenge, introIndex) => (
             <button
+              key={introChallenge.id}
               onClick={() => {
-                setCurrentIndex(0);
+                setCurrentIndex(introIndex);
                 setShowHint(false);
               }}
               className={`group relative transition-all duration-300 rounded-full ${
-                0 === currentIndex
+                introIndex === currentIndex
                   ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
                   : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
               }`}
-              aria-label="Ir a la introducción"
+              aria-label={`Ir a la introducción ${introIndex + 1}`}
             >
-              {0 === currentIndex && (
+              {introIndex === currentIndex && (
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
               )}
               <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                📖 Introducción
+                📖 Introducción {introIndex + 1}
               </span>
             </button>
-          )}
+          ))}
           {regularChallenges.map((challenge, index) => {
-            const cardIndex = introChallenge ? index + 1 : index;
+            const cardIndex = introChallenges.length + index;
             return (
               <button
                 key={challenge.id}
@@ -426,18 +427,18 @@ export function ChallengeCarousel({
           {testimonialChallenge && (
             <button
               onClick={() => {
-                const testimonialIndex = (introChallenge ? 1 : 0) + regularChallenges.length;
+                const testimonialIndex = introChallenges.length + regularChallenges.length;
                 setCurrentIndex(testimonialIndex);
                 setShowHint(false);
               }}
               className={`group relative transition-all duration-300 rounded-full ${
-                (introChallenge ? 1 : 0) + regularChallenges.length === currentIndex
+                introChallenges.length + regularChallenges.length === currentIndex
                   ? "w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg"
                   : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
               }`}
               aria-label="Ir al testimonio"
             >
-              {(introChallenge ? 1 : 0) + regularChallenges.length === currentIndex && (
+              {introChallenges.length + regularChallenges.length === currentIndex && (
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
               )}
               <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
