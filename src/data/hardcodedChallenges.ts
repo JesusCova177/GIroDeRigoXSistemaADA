@@ -129,7 +129,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         'Encuentra un compañero de accountability o únete a una comunidad'
       ]
     },
-    order_index: 4,
+    order_index: 7,
     created_at: new Date().toISOString()
   }
 ];
