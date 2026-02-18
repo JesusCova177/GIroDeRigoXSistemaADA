@@ -34,7 +34,8 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
          
         </div>
         <h3 className="text-xl sm:text-2xl font-bold text-white">
-          Es hora de actuar
+          Antes de pasar a la Fase 2, no quiero que esto se quede en “qué bonito leer”. Quiero que lo hagás con estructura, y que lo sostengás.
+
         </h3>
       </div>
 
