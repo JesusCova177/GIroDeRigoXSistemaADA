@@ -28,7 +28,7 @@ interface CTACardProps {
 
 const CTACard: React.FC<CTACardProps> = ({ content }) => {
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl p-6 sm:p-8 h-full flex flex-col text-white">
+    <div className="float bg-gradient-to-br from-slate-950 via-slate-900 to-black backdrop-blur-xl rounded-3xl p-8 card-glow border border-yellow-600/10 transition-all duration-500">
       <div className="flex items-center gap-3 mb-6">
         <div className="bg-gradient-to-br from-amber-500 to-orange-600 p-3 rounded-xl">
           <Sparkles className="w-6 h-6 text-white" />
