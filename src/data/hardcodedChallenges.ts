@@ -80,7 +80,7 @@ meals: [
         {name:'Desayuno:',
          items: ['Huevos 100%' + 'una arepa Don Maíz + fruta.']},
   {name:'Almuerzo',items:["Pechuga de pollo FRIKO", "Verduras", "Porción controlada de Arroz Sonora"]}
-pechuga de pollo FRIKO + verduras + porción controlada de Arroz Sonora.'
+
         }
 Si el entreno es más intenso: le sumo aguacate Corpohass, aumento el carbohidrato y lo varío con Pastas La Muñeca, papa o yuca.
     },
