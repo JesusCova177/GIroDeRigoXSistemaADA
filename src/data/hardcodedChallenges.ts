@@ -18,7 +18,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: 'hardcoded-2',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'preamble_checklist',
+    type: 'intro',
     title: 'Configuración del Déficit Calórico',
     content: {
       title: 'Configuración del Déficit Calórico',
