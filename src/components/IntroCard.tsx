@@ -20,7 +20,7 @@ export function IntroCard({ content }: IntroCardProps) {
     <div className=" h-[70dvh] flex rounded-2xl bg-white  border-l-4 border-blue-500 p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
       <div className="flex items-center justify-center gap-4 mb-4 sm:mb-6">
         <div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-[#31563C] text-center mb-2 italic uppercase tracking-widest">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-[#31563C] text-center mb-2 italic uppercase ">
             {title}
           </h2>
         </div>
