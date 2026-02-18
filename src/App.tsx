@@ -76,7 +76,7 @@ function App() {
       if (challengesError) throw challengesError;
 
       const allChallenges = stage.stage_number === 1
-        ? [...hardcodedStage1Challenges, ...(challengesData || [])]
+        ? [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index)
         : (challengesData || []);
 
       setChallenges(allChallenges);
@@ -112,7 +112,7 @@ function App() {
       if (challengesError) throw challengesError;
 
       const allChallenges = stage.stage_number === 1
-        ? [...hardcodedStage1Challenges, ...(challengesData || [])]
+        ? [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index)
         : (challengesData || []);
 
       setChallenges(allChallenges);
