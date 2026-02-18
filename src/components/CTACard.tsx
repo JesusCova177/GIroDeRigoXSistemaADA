@@ -33,7 +33,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
         <div className="icon-container w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-yellow-600/30">
          
         </div>
-        <h3 className="text-xl sm:text-2xl font-bold text-white">
+        <h4 className="text-xl sm:text-2xl font-bold text-white">
           Antes de pasar a la Fase 2, no quiero que esto se quede en “qué bonito leer”. Quiero que lo hagás con estructura, y que lo sostengás.
         </h3>
       </div>
