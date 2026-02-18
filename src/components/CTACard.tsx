@@ -31,7 +31,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
     <div className="float bg-gradient-to-br from-slate-950 via-slate-900 to-black backdrop-blur-xl rounded-3xl p-8 card-glow border border-yellow-600/10 transition-all duration-500">
       <div className="flex items-center gap-3 mb-6">
         <div className="bg-gradient-to-br from-amber-500 to-orange-600 p-3 rounded-xl">
-          <Zap className="w-6 h-6 text-white" />
+         
         </div>
         <h3 className="text-xl sm:text-2xl font-bold text-white">
           Es hora de actuar
