@@ -107,7 +107,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     ],
       microTransition: 'El siguiente paso es dejar de pelearse con el carbo y empezar a usarlos'
     },
-    order_index: 6,
+
     created_at: new Date().toISOString()
   },
   {
