@@ -69,7 +69,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: 'hardcoded-4',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'practical_example',
+    type: 'nutrition_guide',
     title: 'Distribución de Macronutrientes',
     content: {
       title: 'Distribución de Macronutrientes',
