@@ -23,7 +23,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
       title: 'Configuración del Déficit Calórico',
       paragraphs: [
         'Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.',
-        'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso). Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.\n\nAplicando esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.','Por eso esta fase es tan importante… porque lo que yo construya entre febrero y mayo define el resto del año. Yo aquí no estoy buscando que vos “adelgacés a las malas”. Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.'
+        'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso). Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.\n\nAplicando esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.','Por eso esta fase es tan importante… porque lo que yo construya entre febrero y mayo define el resto del año. Yo aquí no estoy buscando que vos “adelgacés a las malas”'
       ]
     },
     order_index: 1,
