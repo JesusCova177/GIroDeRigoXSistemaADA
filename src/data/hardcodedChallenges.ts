@@ -47,7 +47,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: 'intro',
     content: {
       title: 'Configuración del Déficit Calórico',
-      paragraphs: [ 'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.\n\nAplicando esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.'
+      paragraphs: [ 'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.\n\nAplicando esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.','Yo aquí no estoy buscando que vos “adelgacés a las malas”','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”. Eso es gasolina directa para la pálida. La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.'
       ]
     },
     order_index: 1,
@@ -60,7 +60,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Configuración del Déficit Calórico',
       paragraphs: [
-        'Yo aquí no estoy buscando que vos “adelgacés a las malas”','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”. Eso es gasolina directa para la pálida. La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
+        ,' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
       ]
     },
     order_index: 1,
