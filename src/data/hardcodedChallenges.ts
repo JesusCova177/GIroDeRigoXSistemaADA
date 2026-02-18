@@ -18,12 +18,17 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: 'hardcoded-2',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'intro',
+    type: 'preamble_checklist',
     content: {
       title: 'Configuración del Déficit Calórico',
-      paragraphs: [
-        'Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.',
-        'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso). Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.'
+      preamble: 'Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing. Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso). Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.',
+      items: [
+        'Calcula tu TDEE (gasto calórico diario total) usando una calculadora online',
+        'En días de descanso o rodadas suaves: resta 300-500 calorías a tu TDEE',
+        'En días de entrenamiento intenso: come en tu TDEE o ligeramente por encima',
+        'Planifica tu semana con antelación: identifica días de déficit vs días de combustible',
+        'Pésate 3 veces por semana en las mismas condiciones y calcula el promedio',
+        'Ajusta tu déficit si pierdes más de 0.5-1% de tu peso corporal por semana'
       ]
     },
     order_index: 1,
