@@ -12,7 +12,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         '\n\nY la embarré. Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba. Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias. Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo. Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa. '
       ]
     },
-    order_index: -5,
+    order_index: 0,
     created_at: new Date().toISOString()
   },
   {
@@ -25,7 +25,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
       preamble: 'Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing. Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso). Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy “vacío”, el cuerpo no solo no rinde… también se descontrola después.',
      
     },
-    order_index: -4,
+    order_index: 1,
     created_at: new Date().toISOString()
   },
   {
@@ -45,7 +45,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         'Identifica tus mejores fuentes de cada macro y crea tu lista de compras'
       ]
     },
-    order_index: -3,
+    order_index: 2,
     created_at: new Date().toISOString()
   },
   {
@@ -65,7 +65,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         'Habla con tu familia/pareja sobre tus objetivos y pide su apoyo'
       ]
     },
-    order_index: -2,
+    order_index: 3,
     created_at: new Date().toISOString()
   },
   {
@@ -85,7 +85,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         'Encuentra un compañero de accountability o únete a una comunidad'
       ]
     },
-    order_index: -1,
+    order_index: 4,
     created_at: new Date().toISOString()
   }
 ];
@@ -108,7 +108,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
         'Evalúa tu FTP cada 3-4 semanas para medir progreso'
       ]
     },
-    order_index: 0,
+    order_index: 5,
     created_at: new Date().toISOString()
   }
 ];
@@ -131,7 +131,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         'Mantén registros detallados de tu respuesta a diferentes intensidades'
       ]
     },
-    order_index: 0,
+    order_index: 6,
     created_at: new Date().toISOString()
   }
 ];
@@ -154,7 +154,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
         'Practica tu estrategia de carrera mentalmente'
       ]
     },
-    order_index: 0,
+    order_index: 7,
     created_at: new Date().toISOString()
   }
 ];
