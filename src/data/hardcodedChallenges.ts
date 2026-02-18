@@ -115,10 +115,10 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: 'hardcoded-5',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'preamble_checklist',
+    type: 'intro',
     title: 'Mentalidad y Compromiso',
     content: {
-      title: 'Mentalidad y Compromiso',
+      title: 'Carbohidratos con estrategia (no con miedo)',
       preamble: 'La transformación física comienza en tu mente. No se trata de motivación temporal, sino de crear un sistema de compromiso sostenible. Los mejores ciclistas no entrenan solo cuando tienen ganas; entrenan porque es parte de quiénes son. Aquí construiremos esa misma mentalidad para tu nutrición.',
       items: [
         'Define tu "por qué" profundo: ¿por qué quieres esto realmente?',
