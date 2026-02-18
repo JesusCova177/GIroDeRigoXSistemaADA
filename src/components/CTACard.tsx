@@ -50,17 +50,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
                   : 'bg-slate-800/50 border-slate-700 hover:border-slate-600'
               }`}
             >
-              <a
-                href={option.buttonUrl}
-                className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all hover:gap-3 ${
-                  option.isPrimary
-                    ? 'bg-white text-emerald-700 hover:bg-emerald-50'
-                    : 'bg-amber-500 text-slate-900 hover:bg-amber-400'
-                }`}
-              >
-               Para entender como perder peso y aplicarlo a tu ritmo, sin improvisar.
-                
-              </a>
+              
             </div>
           ))}
         </div>
