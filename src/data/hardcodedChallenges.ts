@@ -110,27 +110,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
 
     created_at: new Date().toISOString()
   },
-  {
-    id: 'hardcoded-5',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'preamble_checklist',
-    title: 'Mentalidad y Compromiso',
-    content: {
-      title: 'Mentalidad y Compromiso',
-      preamble: 'La transformación física comienza en tu mente. No se trata de motivación temporal, sino de crear un sistema de compromiso sostenible. Los mejores ciclistas no entrenan solo cuando tienen ganas; entrenan porque es parte de quiénes son. Aquí construiremos esa misma mentalidad para tu nutrición.',
-      items: [
-        'Define tu "por qué" profundo: ¿por qué quieres esto realmente?',
-        'Establece expectativas realistas: 0.5-1% de peso corporal por semana',
-        'Identifica tus 3 mayores obstáculos y crea un plan para cada uno',
-        'Decide cómo medirás el progreso más allá de la báscula',
-        'Comprométete con un período mínimo: 8 semanas sin abandonar',
-        'Encuentra un compañero de accountability o únete a una comunidad'
-      ]
-    },
-    order_index: 4,
-    created_at: new Date().toISOString()
-  }
-];
+  
 
 export const hardcodedStage2Challenges: Challenge[] = [
   {
