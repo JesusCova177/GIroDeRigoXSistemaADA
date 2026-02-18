@@ -53,7 +53,7 @@ export function StageHeader({
           )}
           <div className="ml-auto">
             <span className="text-medium sm:text-sm font-medium text-white/90">
-              By SISTEMAADA
+              By SISTEMA<span className="color-yellow">ADA</span>
             </span>
           </div>
         </div>
