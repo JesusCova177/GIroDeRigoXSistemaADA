@@ -677,21 +677,288 @@ export const hardcodedStage4Challenges: Challenge[] = [
   {
     id: 'hardcoded-stage4-1',
     stage_id: '997d041d-857e-4183-a063-ba238caeed00',
-    type: 'preamble_checklist',
-    title: 'Protocolo de Tapering',
+    type: 'intro',
     content: {
-      title: 'Protocolo de Tapering',
-      preamble: 'El trabajo duro está hecho. Ahora se trata de llegar fresco y en tu mejor forma al día del evento. El tapering bien ejecutado puede mejorar tu rendimiento un 2-3%, mientras que uno mal ejecutado puede arruinar meses de preparación.',
+      title: 'Tapering final: llegar fresco, hidratado y con depósitos llenos',
+      paragraphs: [
+        'Esta semana yo no estoy "mejorando la forma". Eso ya se hizo. Esta semana yo estoy asegurando el resultado.',
+        'El error más común: la gente se enreda — recorta comida "pa\' llegar liviano", mete entreno extra "pa\' sentirse seguro", hace cargas raras sin agua… y llega con fatiga, estómago sensible y depósitos a medias.',
+        'En la semana del Giro yo me enfoco en tres cosas: descanso, hidratación y glucógeno lleno. Y hago algo que parece simple, pero cambia todo: organizo todo dos días antes. Porque el estrés también cansa… y cuando uno está estresado, come peor, duerme peor y llega con la cabeza vuelta nada.'
+      ]
+    },
+    order_index: 0,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-2',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'phase_importance',
+    content: {
+      title: 'Qué cambia en esta fase y por qué',
+      points: [
+        {
+          title: 'Bajo volumen de entreno',
+          description: 'Protejo energía, no la recorto a lo loco'
+        },
+        {
+          title: 'Quiero depósitos llenos',
+          description: 'Subo carbo con comida simple'
+        },
+        {
+          title: 'Quiero estómago tranquilo',
+          description: 'Evito experimentos y bajo fibra/grasas pesadas cerca del evento'
+        }
+      ]
+    },
+    order_index: 1,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-3',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'intro',
+    content: {
+      title: 'Regla madre: esta semana NO es para bajar peso',
+      paragraphs: [
+        'Qué hago: no busco déficit. Busco energía estable.'
+      ]
+    },
+    order_index: 2,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-4',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Checklist de enfoque semanal',
+      preamble: 'Esta semana es para repetir lo que ya funcionó, no para inventar.',
       items: [
-        'Reduce el volumen de entrenamiento en un 40-60%',
-        'Mantén la intensidad pero acorta los intervalos',
-        'Aumenta ligeramente los carbohidratos los últimos 3 días',
-        'Prioriza el sueño: objetivo de 8-9 horas por noche',
-        'Revisa tu equipo y prepara tu logística para el evento',
-        'Practica tu estrategia de carrera mentalmente'
+        '¿Estoy comiendo para rendir o para castigarme?',
+        '¿Dormí mejor que la semana pasada?',
+        '¿Estoy más tranquilo o más ansioso?'
+      ]
+    },
+    order_index: 3,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-5',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'intro',
+    content: {
+      title: 'Descanso y organización (48 horas antes)',
+      paragraphs: [
+        'Kit, ropa, ruta, transporte, nutrición y líquidos listos.'
+      ]
+    },
+    order_index: 4,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-6',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Checklist 48 horas antes',
+      preamble: 'Dos días antes del evento, verificá que todo esté listo.',
+      items: [
+        'Kit completo y revisado',
+        'Nutrición definida (qué llevo y en qué orden lo uso)',
+        'Botellas/termos listos y medidos'
+      ]
+    },
+    order_index: 5,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-7',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'intro',
+    content: {
+      title: 'Hidratación simple y constante',
+      paragraphs: [
+        'Agua durante el día (no "toda en la noche"). Si hay calor/sudor: electrolitos en un momento del día o en una botella.'
+      ]
+    },
+    order_index: 6,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-8',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Checklist de hidratación',
+      preamble: 'Mantené una hidratación constante durante toda la semana.',
+      items: [
+        '¿Tomé agua desde la mañana?',
+        '¿Hoy toca electrolitos?',
+        '¿Me voy a dormir ya hidratado?'
       ]
     },
     order_index: 7,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-9',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Depósitos llenos: subir carbohidratos sin exagerar',
+      concept: 'Últimos 2–3 días: subo porción de carbo (arroz, pasta, papa, pan, arepa, frutas). Mantengo proteína normal. Bajo fibra y grasas pesadas el día previo.\n\nRegla para bebida con carbo (la que salva): Por cada litro de agua, no paso de 90 g de carbohidratos.',
+      practicalHeading: 'Ejemplos de carga de carbohidratos:',
+      scenarios: [
+        {
+          condition: 'Desayuno',
+          meals: [
+            {
+              name: 'Opción alta en carbo',
+              items: ['Arepa con mermelada', 'Jugo de frutas', 'Banano']
+            }
+          ]
+        },
+        {
+          condition: 'Almuerzo',
+          meals: [
+            {
+              name: 'Plato principal',
+              items: ['Arroz abundante', 'Pollo o carne magra', 'Ensalada simple']
+            }
+          ]
+        },
+        {
+          condition: 'Cena',
+          meals: [
+            {
+              name: 'Última carga',
+              items: ['Pasta', 'Proteína magra', 'Verduras cocidas']
+            }
+          ]
+        }
+      ],
+      microTransition: 'El objetivo es llenar los depósitos sin sentirte pesado.'
+    },
+    order_index: 8,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-10',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'intro',
+    content: {
+      title: 'Día previo: menos es más',
+      paragraphs: [
+        'Comida conocida, simple. Evito fritos, comidas raras, exceso de fibra, salsas pesadas.'
+      ]
+    },
+    order_index: 9,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-11',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Día del Giro: ejecución',
+      concept: 'El día del evento es para ejecutar, no para improvisar. Seguí el plan que ya practicaste.',
+      practicalHeading: 'Protocolo del día del evento:',
+      scenarios: [
+        {
+          condition: 'Desayuno',
+          meals: [
+            {
+              name: 'Alto en carbo, simple',
+              items: ['Sin exceso de grasa/fibra', '2-3 horas antes de salir']
+            }
+          ]
+        },
+        {
+          condition: 'Durante el evento',
+          meals: [
+            {
+              name: 'Como por reloj',
+              items: ['Ajusto por intensidad (Fase 3)', 'Respeto los tiempos de alimentación']
+            }
+          ]
+        },
+        {
+          condition: 'Abastecimientos',
+          meals: [
+            {
+              name: 'Con cabeza',
+              items: ['Recargo si toca', 'No me detengo más de lo necesario']
+            }
+          ]
+        }
+      ],
+      microTransition: 'La clave está en la ejecución, no en la improvisación.'
+    },
+    order_index: 10,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-12',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'action_plan',
+    content: {
+      title: 'Plan de acción rápido (semana del evento)',
+      actions: [
+        '3–4 días antes: sueño ordenado + hidratación constante + carbo subiendo suave',
+        '2 días antes: todo organizado + comidas simples',
+        '1 día antes: carbo más alto, fibra baja, descanso',
+        'Día del Giro: desayuno simple + ejecución por reloj + abastecimientos inteligentes'
+      ]
+    },
+    order_index: 11,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-13',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'testimonial',
+    content: {
+      quote: 'Era mi primer Giro, y mi temor real era sufrir demasiado o no completar el reto. Lo que hizo la diferencia no fue "motivación", sino estrategia: acompañamiento y una estrategia de alimentación diseñada para los días previos, el día previo y el día del evento. Pude hacer el Giro con la dificultad normal del reto, lo disfruté y llegué. Gran parte fue "irse nutriendo durante cada uno de los momentos del evento" con un plan estructurado, no improvisado.',
+      author: 'Juan Camilo',
+      context: 'Primer Giro'
+    },
+    order_index: 12,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-14',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'cta',
+    content: {
+      title: 'Si querés tener todo esto organizado y explicado paso a paso',
+      description: 'Elegí la opción que mejor se adapte a tus necesidades:',
+      options: [
+        {
+          title: 'Quiero solo la plataforma educativa',
+          description: 'Sistema ADA completo con todos los módulos y recursos.',
+          buttonText: 'Acceder al Sistema ADA'
+        },
+        {
+          title: 'Quiero educación + plan personalizado',
+          description: 'Sistema ADA + plan de alimentación diseñado específicamente para vos.',
+          buttonText: 'Quiero el Plan Completo'
+        }
+      ]
+    },
+    order_index: 13,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage4-15',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'intro',
+    content: {
+      title: 'Nos vemos en la línea de salida',
+      paragraphs: [
+        'Tanque lleno, cabeza tranquila y ejecución simple.'
+      ]
+    },
+    order_index: 14,
     created_at: new Date().toISOString()
   }
 ];
