@@ -442,6 +442,211 @@ export const hardcodedStage2Challenges: Challenge[] = [
     },
     order_index: 12,
     created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-14',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Entrenar el intestino: cómo llego a 60–90 g/h (progresivo)',
+      concept: 'Si querés llegar a 60–90 g de carbo por hora, la clave no es "meter más de una". Es entrenarlo: subir de a poco y repartirlo mejor.\n\nRegla simple: subo 10–15 g/h cada 1–2 semanas (si todo me pasa bien).',
+      practicalHeading: 'Escalera práctica (4 semanas):',
+      scenarios: [
+        {
+          condition: 'Semana 1',
+          meals: [
+            {
+              name: '30–40 g/h',
+              items: ['Base en Z3']
+            }
+          ]
+        },
+        {
+          condition: 'Semana 2',
+          meals: [
+            {
+              name: '40–50 g/h',
+              items: ['Mejor repartido: cada 20 min entra algo']
+            }
+          ]
+        },
+        {
+          condition: 'Semana 3',
+          meals: [
+            {
+              name: '50–60 g/h',
+              items: ['Ya "casi carrera"']
+            }
+          ]
+        },
+        {
+          condition: 'Semana 4',
+          meals: [
+            {
+              name: '60–70 g/h',
+              items: ['En una salida clave']
+            }
+          ]
+        },
+        {
+          condition: '¿Y 80–90 g/h?',
+          meals: [
+            {
+              name: 'Solo si 70 g/h ya te pasa fácil',
+              items: ['Funciona mejor con líquidos + gel/compota', 'En intensidad alta masticar cuesta y lo sólido estorba']
+            }
+          ]
+        }
+      ],
+      microTransition: 'Nota importante: si sentís que se te pone pesado o te revuelve, devolvete 10–15 g/h, repartí mejor (en tandas más pequeñas) y volvé a probar en el próximo entreno. Esto no se estrena el día del Giro: se practica acá, hasta que sea automático.'
+    },
+    order_index: 13,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-15',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Checklist de progresión intestinal',
+      preamble: 'Al entrenar tu intestino, verificá que estés avanzando de manera controlada.',
+      items: [
+        '¿Estoy cambiando una cosa a la vez?',
+        '¿Estoy probando en entreno, no en evento?',
+        '¿Estoy registrando qué me cayó bien/mal?'
+      ]
+    },
+    order_index: 14,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-16',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Post: El entreno no acaba en la bici',
+      concept: 'Cuando terminás de montar, tu cuerpo queda en modo reposición: vaciaste parte del glucógeno y dejaste el músculo "pidiendo" reparación. En esa primera ventana (sobre todo la primera hora), lo que hagas define dos cosas:\n\n• Cómo te recuperás para el siguiente entreno (si reponés bien, volvés a entrenar con energía)\n• Qué tan fácil es mantener el plan (si no reponés, te llega el hambre y la ansiedad más tarde… y ahí es cuando se desordena el día)\n\nRegla simple: En la primera hora post-entreno yo meto carbo + proteína. No perfecto, pero sí a tiempo. Si el post queda resuelto, el resto del día se vuelve mucho más fácil.',
+      practicalHeading: 'Ejemplos prácticos:',
+      scenarios: [
+        {
+          condition: 'Opción 1',
+          meals: [
+            {
+              name: 'Plato completo',
+              items: ['Arroz Sonora + pollo FRIKO + ensalada']
+            }
+          ]
+        },
+        {
+          condition: 'Opción 2',
+          meals: [
+            {
+              name: 'Plato completo',
+              items: ['Pasta La Muñeca + Carne Magra US MEAT + verduras']
+            }
+          ]
+        }
+      ],
+      microTransition: 'Y para que el cuerpo no cobre la factura al llegar a casa: post-entreno claro.'
+    },
+    order_index: 15,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-17',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'intro',
+    content: {
+      title: 'Kit del fondo: lo que yo empaco para no improvisar',
+      paragraphs: [
+        'El kit no es para llevar "muchas cosas". Es para que mi plan por hora se pueda cumplir.\n\nMi kit base tiene 4 piezas:\n\n1. Energía por hora (lo que ya definiste para tu intensidad)\n2. Hidratación por hora (agua + electrolitos si toca)\n3. Textura alternativa (por si lo dulce te satura o te cuesta masticar)\n4. Plan B: 1 extra (si se alarga, si se cae algo, o si un tramo se complica)',
+      ]
+    },
+    order_index: 16,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-18',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Checklist del kit de fondo',
+      preamble: 'Antes de salir, asegurate de tener todo lo necesario para cumplir tu plan.',
+      items: [
+        '¿Me alcanza para toda la duración?',
+        '¿Tengo líquidos/electrolitos listos según el clima?',
+        '¿Tengo "1 extra" sí o sí?'
+      ]
+    },
+    order_index: 17,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-19',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'testimonial',
+    content: {
+      quote: 'Venía de deportes distintos y pensaba que con "un bocadillito" estaba listo, pero me sorprendió cómo cambia la experiencia, el rendimiento y la energía cuando uno come lo que el cuerpo realmente necesita y lo trabaja "minuto a minuto".',
+      author: 'Marcelo',
+      context: 'Fase 2'
+    },
+    order_index: 18,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-20',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'action_plan',
+    content: {
+      title: 'Plan de acción',
+      actions: [
+        'En cada salida larga: desde el minuto 30, meté algo cada 30–40 min + agua a sorbos todo el tiempo',
+        'Si el ritmo es suave: podés usar más sólido. Si el ritmo sube: pasate a cosas más fáciles de tragar',
+        'Si hace calor o sudás duro: meté electrolitos (y si la salida es larga o fuerte, una bebida con carbo puede ayudarte)',
+        'Después de montar: en la primera hora, carbo + proteína para recuperar y no desordenarte después',
+        'En la semana: practicá esto en 1 salida larga y 1 salida más exigente. Con eso el estómago aprende'
+      ]
+    },
+    order_index: 19,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-21',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'reflection',
+    content: {
+      title: 'Si solo recordás 3 cosas de esta fase…',
+      points: [
+        'El estómago también se entrena (no se improvisa el día clave)',
+        'Yo como por hora según la intensidad, no por impulso',
+        'Yo hidrato con un mínimo claro y meto electrolitos cuando toca'
+      ]
+    },
+    order_index: 20,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-22',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'cta',
+    content: {
+      title: 'Si querés hacer esto bien, sin adivinar y sin repetir errores que se pagan caro en carrera',
+      description: 'Dentro del Sistema ADA tenés dos caminos:',
+      options: [
+        {
+          title: 'Opción 1 — Plataforma educativa',
+          description: 'Para seguir con estructura y claridad.',
+          buttonText: 'Quiero acceso a la Plataforma Educativa'
+        },
+        {
+          title: 'Opción 2 — Educación + plan de alimentación personalizado',
+          description: 'Para ejecutar con un plan hecho para vos y llegar más seguro a la línea de salida.',
+          buttonText: 'Quiero el Combo: Educación + Plan Personalizado'
+        }
+      ]
+    },
+    order_index: 21,
+    created_at: new Date().toISOString()
   }
 ];
 
