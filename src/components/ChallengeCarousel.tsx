@@ -11,6 +11,7 @@ import ActionPlanCard from "./ActionPlanCard";
 import CTACard from "./CTACard";
 import { PreambleChecklistCard } from "./PreambleChecklistCard";
 import { BifurcationCard } from "./BifurcationCard";
+import { NutritionGuideCard } from "./NutritionGuideCard";
 import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -288,6 +289,44 @@ export function ChallengeCarousel({
                         : []
                     }
                   />
+                ) : challenge.type === "nutrition_guide" ? (
+                  <NutritionGuideCard
+                    title={
+                      typeof challenge.content === "object" &&
+                      "title" in challenge.content &&
+                      typeof challenge.content.title === "string"
+                        ? challenge.content.title
+                        : challenge.title
+                    }
+                    concept={
+                      typeof challenge.content === "object" &&
+                      "concept" in challenge.content &&
+                      typeof challenge.content.concept === "string"
+                        ? challenge.content.concept
+                        : ""
+                    }
+                    practicalHeading={
+                      typeof challenge.content === "object" &&
+                      "practicalHeading" in challenge.content &&
+                      typeof challenge.content.practicalHeading === "string"
+                        ? challenge.content.practicalHeading
+                        : "Ejemplo práctico:"
+                    }
+                    scenarios={
+                      typeof challenge.content === "object" &&
+                      "scenarios" in challenge.content &&
+                      Array.isArray(challenge.content.scenarios)
+                        ? challenge.content.scenarios
+                        : []
+                    }
+                    microTransition={
+                      typeof challenge.content === "object" &&
+                      "microTransition" in challenge.content &&
+                      typeof challenge.content.microTransition === "string"
+                        ? challenge.content.microTransition
+                        : ""
+                    }
+                  />
                 ) : challenge.type === "checklist" ? (
                   <ChecklistCard
                     title={
@@ -417,9 +456,11 @@ export function ChallengeCarousel({
                         ? "🎯 Sub-bloque"
                         : challenge.type === "preamble_checklist"
                           ? "📝 Lista con preámbulo"
-                          : challenge.type === "checklist"
-                            ? "✓ Lista"
-                            : "💭 Reflexión"}
+                          : challenge.type === "nutrition_guide"
+                            ? "🍽️ Guía nutricional"
+                            : challenge.type === "checklist"
+                              ? "✓ Lista"
+                              : "💭 Reflexión"}
                 </span>
               </button>
             );
