@@ -5,7 +5,7 @@ import { ChallengeCarousel } from "./components/ChallengeCarousel";
 import { LoginPage } from "./components/LoginPage";
 import { Loader2, AlertCircle } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
-import { hardcodedStage1Challenges, hardcodedStage2Challenges } from "./data/hardcodedChallenges";
+import { hardcodedStage1Challenges, hardcodedStage2Challenges, hardcodedStage3Challenges, hardcodedStage4Challenges } from "./data/hardcodedChallenges";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -81,6 +81,10 @@ function App() {
         allChallenges = [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
       } else if (stage.stage_number === 2) {
         allChallenges = [...hardcodedStage2Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+      } else if (stage.stage_number === 3) {
+        allChallenges = [...hardcodedStage3Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+      } else if (stage.stage_number === 4) {
+        allChallenges = [...hardcodedStage4Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
       } else {
         allChallenges = challengesData || [];
       }
@@ -123,6 +127,10 @@ function App() {
         allChallenges = [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
       } else if (stage.stage_number === 2) {
         allChallenges = [...hardcodedStage2Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+      } else if (stage.stage_number === 3) {
+        allChallenges = [...hardcodedStage3Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+      } else if (stage.stage_number === 4) {
+        allChallenges = [...hardcodedStage4Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
       } else {
         allChallenges = challengesData || [];
       }
