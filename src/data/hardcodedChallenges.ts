@@ -83,32 +83,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: 'nutrition_guide',
     content: {
       practicalHeading: "Ejemplo práctico (lo que yo hago):",
-      scenarios: [
-      {
-        condition: "Si hoy tengo un entrenamiento suave o es día de descanso, lo aprovecho para comer más limpio y estable:",
-        meals: [
-          {
-            name: "Desayuno",
-            items: ["Huevos 100%", "Arepa Don Maíz", "Fruta"]
-          },
-          {
-            name: "Almuerzo",
-            items: ["Pechuga de pollo FRIKO", "Verduras", "Porción controlada de Arroz Sonora"]
-          }
-        ]
-      },
-      {
-        condition: "Si el entreno es más intenso:",
-        meals: [
-          {
-            name: "Le sumo",
-            items: ["Aguacate Corpohass", "Más carbohidrato", "Pastas La Muñeca", "Papa", "Yuca"]
-          }
-        ]
-      }
-    ],
-      microTransition: 'El siguiente paso es dejar de pelearse con el carbo y empezar a usarlos'
-    },
+      
     order_index: 6,
     created_at: new Date().toISOString()
   },
