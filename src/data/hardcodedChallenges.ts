@@ -15,13 +15,39 @@ export const hardcodedStage1Challenges: Challenge[] = [
     created_at: new Date().toISOString()
   },
    {
-    id: 'hardcoded-2',
+    id: 'hardcoded-1',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
       title: 'bajar grasa sin quedarte vacío',
       paragraphs: [
         'Y la embarré. Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba. Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias. Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo. Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa. '
+      ]
+    },
+    order_index: 0,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-2',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'intro',
+    content: {
+      title: 'Configuración del Déficit Calórico',
+      paragraphs: [
+        'Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.',
+        'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso).'
+      ]
+    },
+    order_index: 1,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-2',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'intro',
+    content: {
+      title: 'Configuración del Déficit Calórico',
+      paragraphs: [ 'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.\n\nAplicando esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.','Yo aquí no estoy buscando que vos “adelgacés a las malas”'
       ]
     },
     order_index: 1,
@@ -34,77 +60,30 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Configuración del Déficit Calórico',
       paragraphs: [
-        'Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.',
-        'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso).'
+        'Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”. Eso es gasolina directa para la pálida. La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
       ]
     },
-    order_index: 2,
+    order_index: 1,
     created_at: new Date().toISOString()
   },
   {
     id: 'hardcoded-4',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'intro',
-    content: {
-      title: 'Configuración del Déficit Calórico',
-      paragraphs: [ 'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.\n\nAplicando esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.','Yo aquí no estoy buscando que vos “adelgacés a las malas”'
-      ]
-    },
-    order_index: 3,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-5',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'intro',
-    content: {
-      title: 'Configuración del Déficit Calórico',
-      paragraphs: [
-        'Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”. Eso es gasolina directa para la pálida. La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
-      ]
-    },
-    order_index: 4,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-6',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'nutrition_guide',
     content: {
       title: 'Mi norte: “bajar grasa con energía”',
       concept: 'No todas las calorías son iguales. La distribución correcta de proteína, carbohidratos y grasas marcará la diferencia entre perder grasa preservando músculo (y rendimiento) o perder peso a costa de tu potencia. Para ciclistas, los carbohidratos son combustible, la proteína es recuperación, y las grasas son salud hormonal.',
     },
-    order_index: 5,
+    order_index: 2,
     created_at: new Date().toISOString()
   },
    {
-    id: 'hardcoded-7',
+    id: 'hardcoded-4',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'nutrition_guide',
     content: {
       practicalHeading: "Ejemplo práctico (lo que yo hago):",
-      
-    order_index: 6,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-6',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Mi norte: “bajar grasa con energía”',
-      concept: 'No todas las calorías son iguales. La distribución correcta de proteína, carbohidratos y grasas marcará la diferencia entre perder grasa preservando músculo (y rendimiento) o perder peso a costa de tu potencia. Para ciclistas, los carbohidratos son combustible, la proteína es recuperación, y las grasas son salud hormonal.',
-    },
-    order_index: 5,
-    created_at: new Date().toISOString()
-  },
-   {
-    id: 'hardcoded-7',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'nutrition_guide',
-    content: {
-      practicalHeading: "Ejemplo práctico (lo que yo hago):",
-      scenarios: [
+      scenarios: [ 
       {
         condition: "Si hoy tengo un entrenamiento suave o es día de descanso, lo aprovecho para comer más limpio y estable:",
         meals: [
@@ -130,16 +109,36 @@ export const hardcodedStage1Challenges: Challenge[] = [
     ],
       microTransition: 'El siguiente paso es dejar de pelearse con el carbo y empezar a usarlos'
     },
-    order_index: 6,
+    order_index: 2,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-4',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'preamble_checklist',
+    title: 'Preparación del Entorno',
+    content: {
+      title: 'Preparación del Entorno',
+      preamble: 'El éxito no depende solo de tu fuerza de voluntad. Tu entorno puede ser tu mejor aliado o tu peor enemigo. Preparar tu cocina, tu rutina y tus sistemas de apoyo multiplicará exponencialmente tus probabilidades de éxito. Piensa en esto como preparar tu bici antes de una carrera importante.',
+      items: [
+        'Limpia tu cocina: retira tentaciones innecesarias y dona lo que no necesitas',
+        'Compra contenedores para meal prep (al menos 7-10 recipientes)',
+        'Invierte en una báscula de cocina digital (precisión al gramo)',
+        'Prepara una botella de agua de 1L que llevarás contigo siempre',
+        'Crea una lista de snacks saludables pre-aprobados para emergencias',
+        'Habla con tu familia/pareja sobre tus objetivos y pide su apoyo'
+      ]
+    },
+    order_index: 3,
     created_at: new Date().toISOString()
   },
   {
     id: 'hardcoded-5',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'intro',
+    type: 'preamble_checklist',
     title: 'Mentalidad y Compromiso',
     content: {
-      title: 'Carbohidratos con estrategia (no con miedo)',
+      title: 'Mentalidad y Compromiso',
       preamble: 'La transformación física comienza en tu mente. No se trata de motivación temporal, sino de crear un sistema de compromiso sostenible. Los mejores ciclistas no entrenan solo cuando tienen ganas; entrenan porque es parte de quiénes son. Aquí construiremos esa misma mentalidad para tu nutrición.',
       items: [
         'Define tu "por qué" profundo: ¿por qué quieres esto realmente?',
@@ -150,7 +149,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         'Encuentra un compañero de accountability o únete a una comunidad'
       ]
     },
-    order_index: 7,
+    order_index: 4,
     created_at: new Date().toISOString()
   }
 ];
@@ -221,5 +220,5 @@ export const hardcodedStage4Challenges: Challenge[] = [
     },
     order_index: 7,
     created_at: new Date().toISOString()
-  } 
+  }
 ];
