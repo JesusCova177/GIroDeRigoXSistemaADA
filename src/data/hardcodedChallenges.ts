@@ -8,7 +8,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     title: 'bajar grasa sin quedarte vacío',
     content: {
       title: 'bajar grasa sin quedarte vacío',
-      preamble: 'Antes de comenzar cualquier proceso de transformación, necesitas saber exactamente dónde estás parado. Esta evaluación inicial te dará una línea base clara y te permitirá medir tu progreso de manera objetiva. No se trata de juzgarte, sino de tener datos concretos para tomar decisiones informadas.',
+      preamble: 'Comer menos para pesar menos: la fórmula “perfecta”. Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”. El problema es que esa película dura poquito. La realidad me pegó de frente cuando le metí intensidad al entrenamiento y él cuerpo empezó a hablarme claro, pero yo no le pararle bolas.
+',
       items: [
         
       ]
