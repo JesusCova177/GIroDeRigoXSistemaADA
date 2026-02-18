@@ -5,7 +5,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     id: 'hardcoded-1',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'preamble_checklist',
-    title: 'Evaluación Inicial',
+    title: 'bajar grasa sin quedarte vacío',
     content: {
       title: 'Evaluación Inicial',
       preamble: 'Antes de comenzar cualquier proceso de transformación, necesitas saber exactamente dónde estás parado. Esta evaluación inicial te dará una línea base clara y te permitirá medir tu progreso de manera objetiva. No se trata de juzgarte, sino de tener datos concretos para tomar decisiones informadas.',
