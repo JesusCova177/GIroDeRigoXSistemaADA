@@ -73,6 +73,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Mi norte: “bajar grasa con energía”',
       concept: 'No todas las calorías son iguales. La distribución correcta de proteína, carbohidratos y grasas marcará la diferencia entre perder grasa preservando músculo (y rendimiento) o perder peso a costa de tu potencia. Para ciclistas, los carbohidratos son combustible, la proteína es recuperación, y las grasas son salud hormonal.',
+      practicalHeading: "Ejemplo práctico (lo que yo hago):",
       items: [
         'Establece tu proteína: 1.8-2.2g por kg de peso corporal (prioridad #1)',
         'Calcula tus grasas: 0.8-1g por kg de peso corporal (nunca menos de 50g)',
