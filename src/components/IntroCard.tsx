@@ -26,26 +26,7 @@ export function IntroCard({ content }: IntroCardProps) {
         </div>
       </div>
 
-      <div className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed">
-        {paragraphs.map((paragraph, index) => (
-          <p
-            key={index}
-            className={index === 0 ? "text-base sm:text-lg md:text-xl" : "text-sm sm:text-base"}
-            dangerouslySetInnerHTML={{ __html: paragraph.replace(
-              /\*\*(.*?)\*\*/g,
-              '<strong class="text-gray-900">$1</strong>'
-            )}}
-          />
-        ))}
-
-        {callout && (
-          <div className={`bg-gradient-to-r ${callout.bgColor || 'from-green-50 to-emerald-50'} border-l-4 ${callout.borderColor || 'border-green-500'} p-3 sm:p-4 rounded-r-xl my-4 sm:my-6`}>
-            <p className={`${callout.textColor || 'text-green-900'} font-semibold text-sm sm:text-base`}>
-              {callout.text}
-            </p>
-          </div>
-        )}
-      </div>
+      
     </div>
   );
 }
