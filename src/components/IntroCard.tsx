@@ -25,8 +25,6 @@ export function IntroCard({ content }: IntroCardProps) {
           </h2>
         </div>
       </div>
-
-      
     </div>
   );
 }
