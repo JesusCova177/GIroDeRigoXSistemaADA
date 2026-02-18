@@ -74,7 +74,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
       title: 'Mi norte: “bajar grasa con energía”',
       concept: 'No todas las calorías son iguales. La distribución correcta de proteína, carbohidratos y grasas marcará la diferencia entre perder grasa preservando músculo (y rendimiento) o perder peso a costa de tu potencia. Para ciclistas, los carbohidratos son combustible, la proteína es recuperación, y las grasas son salud hormonal.',
       practicalHeading: "Ejemplo práctico (lo que yo hago):",
-     scenarios:{
+     scenarios:[{
        condition: 'Si hoy tengo un entrenamiento suave o es día de descanso, lo aprovecho para comer más limpio y estable:',
 meals: [
         {name:'Desayuno:',
@@ -83,7 +83,7 @@ meals: [
 
         }
 Si el entreno es más intenso: le sumo aguacate Corpohass, aumento el carbohidrato y lo varío con Pastas La Muñeca, papa o yuca.
-    },
+    }],
     order_index: 2,
     created_at: new Date().toISOString()
   },
