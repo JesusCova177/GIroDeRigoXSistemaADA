@@ -40,22 +40,17 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
           Dentro del Sistema ADA tenés dos caminos:
         </p>
 
-        
-              <div className="flex items-start gap-3 mb-3">
-                {option.isPrimary ? (
-                  <Users className="w-6 h-6 flex-shrink-0 mt-1 text-emerald-200" />
-                ) : (
-                  <BookOpen className="w-6 h-6 flex-shrink-0 mt-1 text-amber-400" />
-                )}
-                <div>
-                  <h4 className="text-lg font-bold">
-                    {option.title}
-                  </h4>
-                  <p className="text-sm opacity-90">
-                    {option.subtitle}
-                  </p>
-                </div>
-              </div>
+        <div className="space-y-4">
+          {content.options.map((option, index) => (
+            <div
+              key={index}
+              className={`rounded-xl p-5 border-2 transition-all hover:scale-[1.02] ${
+                option.isPrimary
+                  ? 'bg-gradient-to-br from-emerald-600 to-teal-700 border-emerald-400 shadow-lg'
+                  : 'bg-slate-800/50 border-slate-700 hover:border-slate-600'
+              }`}
+            >
+              
 
               <p className="text-sm sm:text-base leading-relaxed mb-4 opacity-95">
                 {option.description}
