@@ -102,3 +102,72 @@ export const hardcodedStage1Challenges: Challenge[] = [
     created_at: new Date().toISOString()
   }
 ];
+
+export const hardcodedStage2Challenges: Challenge[] = [
+  {
+    id: 'hardcoded-stage2-1',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'preamble_checklist',
+    title: 'Transición a Base Aeróbica',
+    content: {
+      title: 'Transición a Base Aeróbica',
+      preamble: 'Has optimizado tu composición corporal. Ahora es momento de construir la base aeróbica sólida que sostendrá todo tu rendimiento. Esta fase se enfoca en acumular volumen de manera inteligente mientras mantienes tus nuevos hábitos nutricionales.',
+      items: [
+        'Aumenta el volumen de entrenamiento progresivamente (10% por semana)',
+        'Mantén la mayoría de tus rodadas en Zona 2 (conversacional)',
+        'Ajusta tu ingesta calórica para soportar el aumento de volumen',
+        'Monitorea tu frecuencia cardíaca en reposo como indicador de recuperación',
+        'Programa al menos un día completo de descanso por semana',
+        'Evalúa tu FTP cada 3-4 semanas para medir progreso'
+      ]
+    },
+    order_index: 0,
+    created_at: new Date().toISOString()
+  }
+];
+
+export const hardcodedStage3Challenges: Challenge[] = [
+  {
+    id: 'hardcoded-stage3-1',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'preamble_checklist',
+    title: 'Preparación para Simulación de Carrera',
+    content: {
+      title: 'Preparación para Simulación de Carrera',
+      preamble: 'El Giro de Rigo se acerca. Esta fase integra todo lo trabajado: tu nueva composición corporal, tu base aeróbica, y ahora agregas la intensidad específica que necesitas para rendir al máximo en situaciones de carrera.',
+      items: [
+        'Incrementa la proporción de entrenamientos de alta intensidad',
+        'Practica tu estrategia de nutrición durante el esfuerzo',
+        'Realiza salidas largas con perfil similar al del evento',
+        'Afina tu FTP y practica esfuerzos sostenidos al umbral',
+        'Simula condiciones de carrera (grupos, ataques, sprints)',
+        'Mantén registros detallados de tu respuesta a diferentes intensidades'
+      ]
+    },
+    order_index: 0,
+    created_at: new Date().toISOString()
+  }
+];
+
+export const hardcodedStage4Challenges: Challenge[] = [
+  {
+    id: 'hardcoded-stage4-1',
+    stage_id: '997d041d-857e-4183-a063-ba238caeed00',
+    type: 'preamble_checklist',
+    title: 'Protocolo de Tapering',
+    content: {
+      title: 'Protocolo de Tapering',
+      preamble: 'El trabajo duro está hecho. Ahora se trata de llegar fresco y en tu mejor forma al día del evento. El tapering bien ejecutado puede mejorar tu rendimiento un 2-3%, mientras que uno mal ejecutado puede arruinar meses de preparación.',
+      items: [
+        'Reduce el volumen de entrenamiento en un 40-60%',
+        'Mantén la intensidad pero acorta los intervalos',
+        'Aumenta ligeramente los carbohidratos los últimos 3 días',
+        'Prioriza el sueño: objetivo de 8-9 horas por noche',
+        'Revisa tu equipo y prepara tu logística para el evento',
+        'Practica tu estrategia de carrera mentalmente'
+      ]
+    },
+    order_index: 0,
+    created_at: new Date().toISOString()
+  }
+];
