@@ -5,7 +5,7 @@ import { ChallengeCarousel } from "./components/ChallengeCarousel";
 import { LoginPage } from "./components/LoginPage";
 import { Loader2, AlertCircle } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
-import { hardcodedStage1Challenges } from "./data/hardcodedChallenges";
+import { hardcodedStage1Challenges, hardcodedStage2Challenges } from "./data/hardcodedChallenges";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -75,9 +75,15 @@ function App() {
 
       if (challengesError) throw challengesError;
 
-      const allChallenges = stage.stage_number === 1
-        ? [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index)
-        : (challengesData || []);
+      let allChallenges: Challenge[] = [];
+
+      if (stage.stage_number === 1) {
+        allChallenges = [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+      } else if (stage.stage_number === 2) {
+        allChallenges = [...hardcodedStage2Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+      } else {
+        allChallenges = challengesData || [];
+      }
 
       setChallenges(allChallenges);
     } catch (err) {
@@ -111,9 +117,15 @@ function App() {
 
       if (challengesError) throw challengesError;
 
-      const allChallenges = stage.stage_number === 1
-        ? [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index)
-        : (challengesData || []);
+      let allChallenges: Challenge[] = [];
+
+      if (stage.stage_number === 1) {
+        allChallenges = [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+      } else if (stage.stage_number === 2) {
+        allChallenges = [...hardcodedStage2Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+      } else {
+        allChallenges = challengesData || [];
+      }
 
       setChallenges(allChallenges);
       setShowStageSelector(false);
