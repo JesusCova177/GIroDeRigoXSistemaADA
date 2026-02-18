@@ -5,10 +5,12 @@ import { ReflectionCard } from "./ReflectionCard";
 import { CombinedChallengeCard } from "./CombinedChallengeCard";
 import { IntroCard } from "./IntroCard";
 import { PhaseImportanceCard } from "./PhaseImportanceCard";
+import { RouteCard } from "./RouteCard";
 import { TestimonialCard } from "./TestimonialCard";
 import ActionPlanCard from "./ActionPlanCard";
 import CTACard from "./CTACard";
 import { PreambleChecklistCard } from "./PreambleChecklistCard";
+import { BifurcationCard } from "./BifurcationCard";
 import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -23,22 +25,42 @@ export function ChallengeCarousel({
   const [startX, setStartX] = useState(0);
   const [translateX, setTranslateX] = useState(0);
   const [showHint, setShowHint] = useState(true);
+  const [selectedRoute, setSelectedRoute] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const introChallenge = challenges.find(c => c.type === 'intro');
-  const testimonialChallenge = challenges.find(c => c.type === 'testimonial');
-  const ctaChallenge = challenges.find(c => c.type === 'cta');
-  const regularChallenges = challenges.filter(c => c.type !== 'cta' && c.type !== 'intro' && c.type !== 'testimonial');
+  const hasBifurcation = challenges.some(c => c.type === 'bifurcation');
+
+  const visibleChallenges = hasBifurcation
+    ? challenges.filter(c => {
+        if (c.type === 'phase_importance' && typeof c.content === 'object' && !Array.isArray(c.content) && 'variant' in c.content && c.content.variant) {
+          if (!selectedRoute) return false;
+          return c.content.variant === selectedRoute;
+        }
+        return true;
+      })
+    : challenges;
+
+  const introChallenge = visibleChallenges.find(c => c.type === 'intro');
+  const testimonialChallenge = visibleChallenges.find(c => c.type === 'testimonial');
+  const ctaChallenge = visibleChallenges.find(c => c.type === 'cta');
+  const regularChallenges = visibleChallenges.filter(c => c.type !== 'cta' && c.type !== 'intro' && c.type !== 'testimonial');
   const totalCards = regularChallenges.length + (introChallenge ? 1 : 0) + (testimonialChallenge ? 1 : 0) + (ctaChallenge ? 1 : 0);
 
   useEffect(() => {
     setCurrentIndex(0);
     setTranslateX(0);
     setShowHint(true);
+    setSelectedRoute(null);
 
     const timer = setTimeout(() => setShowHint(false), 3000);
     return () => clearTimeout(timer);
   }, [challenges]);
+
+  useEffect(() => {
+    if (currentIndex >= totalCards && totalCards > 0) {
+      setCurrentIndex(totalCards - 1);
+    }
+  }, [totalCards, currentIndex]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsDragging(true);
@@ -174,15 +196,38 @@ export function ChallengeCarousel({
             )}
             {regularChallenges.map((challenge) => (
               <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
-                {challenge.type === "phase_importance" ? (
-                  <PhaseImportanceCard
-                    content={
-                      typeof challenge.content === "object" &&
-                      "sections" in challenge.content
-                        ? challenge.content
-                        : { sections: [] }
-                    }
+                {challenge.type === "bifurcation" ? (
+                  <BifurcationCard
+                    content={{
+                      question: typeof challenge.content === "object" && "question" in challenge.content ? (challenge.content.question as string) : '',
+                      options: typeof challenge.content === "object" && "options" in challenge.content ? (challenge.content.options as Array<{ id: string; label: string; icon: string; description: string; color: string }>) : [],
+                    }}
+                    selectedOption={selectedRoute}
+                    onSelect={setSelectedRoute}
                   />
+                ) : challenge.type === "phase_importance" ? (
+                  typeof challenge.content === "object" && "variant" in challenge.content && "header" in challenge.content ? (
+                    <RouteCard
+                      content={{
+                        variant: challenge.content.variant as string,
+                        header: challenge.content.header as { distance: string; ascent: string; maxAlt: string; label: string },
+                        intro: (challenge.content.intro as string) || '',
+                        sections: (challenge.content.sections as Array<{ icon: string; title: string; content: string }>) || [],
+                      }}
+                    />
+                  ) : (
+                    <PhaseImportanceCard
+                      content={{
+                        sections: typeof challenge.content === "object" && "sections" in challenge.content
+                          ? (challenge.content.sections as Array<{ icon?: string; title: string; text?: string; content?: string }>).map(s => ({
+                              icon: s.icon,
+                              title: s.title,
+                              text: s.text || s.content || '',
+                            }))
+                          : []
+                      }}
+                    />
+                  )
                 ) : challenge.type === "action_plan" ? (
                   <ActionPlanCard
                     content={
