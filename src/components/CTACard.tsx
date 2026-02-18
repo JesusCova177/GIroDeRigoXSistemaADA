@@ -27,9 +27,7 @@ interface CTACardProps {
 }
 
 const CTACard: React.FC<CTACardProps> = ({ content }) => {
-  return (
-
-    <div class="float bg-gradient-to-br from-slate-950 via-slate-900 to-black backdrop-blur-xl rounded-3xl p-8 card-glow border border-yellow-600/10 transition-all duration-500" style="background: linear-gradient(to right bottom, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.8), rgba(0, 0, 0, 0.9));"><!-- Icon -->
+  return (<div class="float bg-gradient-to-br from-slate-950 via-slate-900 to-black backdrop-blur-xl rounded-3xl p-8 card-glow border border-yellow-600/10 transition-all duration-500" style="background: linear-gradient(to right bottom, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.8), rgba(0, 0, 0, 0.9));"><!-- Icon -->
      <div class="icon-container w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-yellow-600/30">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#iconGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><defs>
         <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
