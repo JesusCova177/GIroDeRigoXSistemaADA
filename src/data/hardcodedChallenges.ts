@@ -23,14 +23,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Configuración del Déficit Calórico',
       preamble: 'Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing. Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso). Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy “vacío”, el cuerpo no solo no rinde… también se descontrola después.',
-      items: [
-        'Calcula tu TDEE (gasto energético diario total) usando una calculadora confiable',
-        'Establece un déficit del 10-15% (NO más del 20% si entrenas regularmente)',
-        'Divide tu objetivo calórico: días de entrenamiento vs días de descanso',
-        'Configura una app de seguimiento (MyFitnessPal, Cronometer, o similar)',
-        'Define tu estrategia: ¿contarás calorías exactas o usarás el método de la mano?',
-        'Planifica una revisión semanal para ajustar según resultados y energía'
-      ]
+     
     },
     order_index: -4,
     created_at: new Date().toISOString()
