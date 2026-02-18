@@ -30,9 +30,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
   return (
     <div className="float bg-gradient-to-br from-slate-950 via-slate-900 to-black backdrop-blur-xl rounded-3xl p-8 card-glow border border-yellow-600/10 transition-all duration-500">
       <div className="flex items-center gap-3 mb-6">
-        <div className="icon-container w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-yellow-600/30">
-         
-        </div>
+       
         <h3 className="text-large sm:text-2xl font-bold text-white">
           Antes de pasar a la Fase 2, no quiero que esto se quede en “qué bonito leer”. Quiero que lo hagás con estructura, y que lo sostengás.
         </h3>
