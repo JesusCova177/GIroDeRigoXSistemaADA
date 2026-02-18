@@ -27,36 +27,7 @@ interface CTACardProps {
 }
 
 const CTACard: React.FC<CTACardProps> = ({ content }) => {
-  return (<div class="float bg-gradient-to-br from-slate-950 via-slate-900 to-black backdrop-blur-xl rounded-3xl p-8 card-glow border border-yellow-600/10 transition-all duration-500" style="background: linear-gradient(to right bottom, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.8), rgba(0, 0, 0, 0.9));"><!-- Icon -->
-     <div class="icon-container w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-yellow-600/30">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#iconGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><defs>
-        <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-         <stop offset="0%" stop-color="#f5c856"></stop>
-         <stop offset="100%" stop-color="#E8AB38"></stop>
-        </linearGradient>
-       </defs> <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-      </svg>
-     </div><!-- Content -->
-     <header class="mb-6">
-      <h2 id="card-title" class="text-2xl font-semibold text-white mb-3 leading-tight" style="color: rgb(255, 255, 255); font-size: 24px;">Potencia tu productividad</h2>
-      <p id="card-subtitle" class="text-slate-400 text-base leading-relaxed" style="font-size: 16px;">Descubre herramientas inteligentes diseñadas para transformar tu flujo de trabajo y alcanzar tus metas más rápido.</p>
-     </header><!-- Features list -->
-     <ul class="space-y-3 mb-8">
-      <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-gradient-to-r from-yellow-600/20 to-yellow-600/10 flex items-center justify-center flex-shrink-0">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8AB38" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline>
-        </svg></span> <span class="text-slate-300 text-sm">Automatización inteligente</span></li>
-      <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-gradient-to-r from-yellow-600/20 to-yellow-600/10 flex items-center justify-center flex-shrink-0">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8AB38" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline>
-        </svg></span> <span class="text-slate-300 text-sm">Colaboración en tiempo real</span></li>
-      <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-full bg-gradient-to-r from-yellow-600/20 to-yellow-600/10 flex items-center justify-center flex-shrink-0">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8AB38" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline>
-        </svg></span> <span class="text-slate-300 text-sm">Análisis avanzado de datos</span></li>
-     </ul><!-- CTA Button --> <button id="cta-button" class="btn-gradient w-full py-4 px-6 rounded-xl text-white font-medium text-base flex items-center justify-center gap-2 group" style="background: linear-gradient(135deg, rgb(232, 171, 56) 0%, rgb(245, 200, 86) 100%);"> <span id="button-text" style="font-size: 16px;">Comenzar gratis</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"></line> <polyline points="12 5 19 12 12 19"></polyline>
-      </svg></button> <!-- Footer note -->
-     <p class="text-center text-slate-500 text-xs mt-4">Sin tarjeta de crédito • Cancela cuando quieras</p>
-    </div>
-    
+  return (
     <div className="float bg-gradient-to-br from-slate-950 via-slate-900 to-black backdrop-blur-xl rounded-3xl p-8 card-glow border border-yellow-600/10 transition-all duration-500">
       <div className="flex items-center gap-3 mb-6">
         <div className="icon-container w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-yellow-600/30">
