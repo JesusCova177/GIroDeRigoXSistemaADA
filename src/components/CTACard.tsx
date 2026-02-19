@@ -100,12 +100,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
       ))}
     </div>
 
-    <div className="mt-8 pt-6 border-t border-slate-700/50">
-      <p className="text-base sm:text-lg font-medium leading-relaxed text-gray-100 mb-5">
-        {content.transition.text}
-      </p>
-     
-    </div>
+   
   </div>
 </div>
   );
