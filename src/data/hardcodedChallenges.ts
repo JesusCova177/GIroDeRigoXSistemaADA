@@ -46,8 +46,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
-      title: 'Con esta estrategia',
-      paragraphs: [ 'En mi caso, logré perder más de 22 kg en menos de 10 meses.','Yo aquí no estoy buscando que vos “adelgacés a las malas”','Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”'
+      title: 'r',
+      paragraphs: [ 'Con esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.','Yo aquí no estoy buscando que vos “adelgacés a las malas”','Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”'
       ]
     },
     order_index: 1,
