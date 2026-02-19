@@ -50,7 +50,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
   )}
 
   {/* Este contenedor controla el scroll interno si el contenido supera el 60dvh */}
-  <div className="flex-1 overflow-y-auto space-y-6 pr-2 overflow-hidden"> 
+  <div className="flex-1 overflow-y-auto space-y-6 pr-2"> 
     <p className="text-base sm:text-lg leading-relaxed text-gray-200 whitespace-pre-line">
       Dentro del Sistema ADA tenés dos caminos:
     </p>
