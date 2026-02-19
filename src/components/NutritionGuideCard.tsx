@@ -86,7 +86,5 @@ export function NutritionGuideCard({
           <ChevronRight className="w-5 h-5 text-yellow-500 flex-shrink-0" />
         </div>
       </div>
-    </div>
-        </div>
   );
 }
