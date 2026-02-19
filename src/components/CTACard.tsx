@@ -104,20 +104,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
       <p className="text-base sm:text-lg font-medium leading-relaxed text-gray-100 mb-5">
         {content.transition.text}
       </p>
-      <div className="flex flex-col items-center gap-4">
-        <a
-          href={content.transition.buttonUrl}
-          className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 hover:from-amber-300 hover:to-orange-400 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-orange-900/20"
-        >
-          {content.transition.buttonText}
-          <ArrowRight className="w-6 h-6" />
-        </a>
-        {content.footerSubtext && (
-          <p className="text-xs text-gray-400 font-medium pb-4">
-            {content.footerSubtext}
-          </p>
-        )}
-      </div>
+     
     </div>
   </div>
 </div>
