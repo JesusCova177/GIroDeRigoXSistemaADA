@@ -32,7 +32,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
-      title: ,
+      title: 'hola',
       paragraphs: [
         
         'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso).',
