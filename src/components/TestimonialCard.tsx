@@ -1,4 +1,4 @@
-oranimport { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Quote, TrendingDown, Zap, Trophy, LucideIcon, Lightbulb, ChevronRight } from 'lucide-react';
 
 interface Metric {
