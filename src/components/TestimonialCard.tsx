@@ -81,7 +81,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
 
       <div className="relative z-10">
         <div className="flex items-start gap-3 mb-4 sm:mb-6">
-          <div className="p-2 sm:p-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl shadow-lg flex-shrink-0"> 
+          <div className="p-2 sm:p-3 bg-gradient-to-br from-orenge-500 to-yellow-600 rounded-xl shadow-lg flex-shrink-0"> 
             <Quote className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
           </div>
           <div className="flex-1">
