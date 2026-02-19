@@ -53,19 +53,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     order_index: 1,
     created_at: new Date().toISOString()
   },
-  {
-    id: 'hardcoded-3',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'intro',
-    content: {
-      title: 'Eso es gasolina directa para la pálida.',
-      paragraphs: [
-        'Eso es gasolina directa para la pálida.', 'La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
-      ]
-    },
-    order_index: 1,
-    created_at: new Date().toISOString()
-  },
+  
   {
     id: 'hardcoded-4',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
