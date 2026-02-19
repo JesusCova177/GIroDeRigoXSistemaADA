@@ -29,7 +29,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="h-dvh bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center p-4 overflow-hidden">
+    <div className="h-dvh bg-[#31563C] from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center p-4 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full opacity-10 blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-400 rounded-full opacity-10 blur-3xl" />
@@ -37,16 +37,14 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
       <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full relative z-10">
         <div className="flex items-center justify-center mb-8">
-          <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-4 rounded-2xl">
-            <Zap className="w-10 h-10 text-yellow-400" fill="currentColor" />
-          </div>
+         
         </div>
 
         <h1 className="text-4xl font-titling font-black text-[#31563C] text-center mb-3 italic uppercase tracking-tight">
-          Start Your Journey
+         Inicio de sesion
         </h1>
         <p className="text-gray-600 text-center mb-8">
-          Enter your email to begin
+          Ingrese su correo electronico
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -55,7 +53,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               htmlFor="email"
               className="block text-sm font-semibold text-gray-700 mb-2"
             >
-              Email Address
+              correo electronico
             </label>
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -96,12 +94,6 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             )}
           </button>
         </form>
-
-        <div className="mt-8 pt-6 border-t border-gray-100">
-          <p className="text-xs text-gray-500 text-center">
-            No password required. Just enter your email to continue.
-          </p>
-        </div>
       </div>
     </div>
   );

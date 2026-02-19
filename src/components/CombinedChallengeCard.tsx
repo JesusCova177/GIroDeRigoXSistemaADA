@@ -43,7 +43,7 @@ export function CombinedChallengeCard({ title, subtitle, preamble, checklist, re
   const isComplete = checkedItems.size === checklist.length && answeredReflections.size === reflections.length;
 
   return (
-    <div className="flex-shrink-0 w-full bg-gradient-to-br from-white via-white to-blue-50 rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8 border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+    <div className="flex-shrink-0 w-full bg-gradient-to-br from-white via-white to-blue-50 rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8 border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 relative overflow-hidden h-[60vh]">
       <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-br from-blue-100 to-green-100 rounded-full opacity-20 blur-3xl -mr-16 sm:-mr-32 -mt-16 sm:-mt-32" />
       <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-48 sm:h-48 bg-gradient-to-tr from-yellow-100 to-orange-100 rounded-full opacity-20 blur-3xl -ml-12 sm:-ml-24 -mb-12 sm:-mb-24" />
 

@@ -42,7 +42,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const colorMap: Record<string, { border: string; text: string; hover: string }> = {
-  emerald: { border: 'border-emerald-200', text: 'text-emerald-600', hover: 'hover:border-emerald-300' },
+  emerald: { border: 'border-yellow-200', text: 'text-yellow-600', hover: 'hover:border-yellow-300' },
   blue: { border: 'border-blue-200', text: 'text-blue-600', hover: 'hover:border-blue-300' },
   yellow: { border: 'border-yellow-200', text: 'text-yellow-600', hover: 'hover:border-yellow-300' },
 };
@@ -75,14 +75,14 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
   }, [videoId]);
 
   return (
-    <div className="flex-shrink-0 w-full bg-gradient-to-br from-emerald-50 via-white to-blue-50 rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8 border-2 border-emerald-200 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-br from-emerald-200 to-blue-200 rounded-full opacity-20 blur-3xl -mr-16 sm:-mr-32 -mt-16 sm:-mt-32" />
-      <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-48 sm:h-48 bg-gradient-to-tr from-green-100 to-emerald-100 rounded-full opacity-20 blur-3xl -ml-12 sm:-ml-24 -mb-12 sm:-mb-24" />
+    <div className="flex-shrink-0 w-full bg-gradient-to-br from-yellow-50 via-white to-blue-50 rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8 border-2 border-yellow-200 hover:shadow-2xl transition-all duration-300 relative overflow-hidden h-[60dvh]">
+      <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-br from-yellow-200 to-blue-200 rounded-full opacity-20 blur-3xl -mr-16 sm:-mr-32 -mt-16 sm:-mt-32" />
+      <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-48 sm:h-48 bg-gradient-to-tr from-green-100 to-yellow-100 rounded-full opacity-20 blur-3xl -ml-12 sm:-ml-24 -mb-12 sm:-mb-24" />
 
       <div className="relative z-10">
         <div className="flex items-start gap-3 mb-4 sm:mb-6">
-          <div className="p-2 sm:p-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl shadow-lg flex-shrink-0">
-            <Quote className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+          <div className="p-2 sm:p-3 bg-gradient-to-br from-orenge-500 to-yellow-600 rounded-xl shadow-lg flex-shrink-0"> 
+            <Quote className="w-5 h-5 sm:w-7 sm:h-7 text-yellow" /> 
           </div>
           <div className="flex-1">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-titling font-black text-[#31563C] tracking-tight italic mb-1">
@@ -94,7 +94,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
           </div>
         </div>
 
-        <div className="bg-white/80 rounded-xl p-4 sm:p-6 border-2 border-emerald-100 shadow-inner mb-4 sm:mb-6">
+        <div className="bg-white/80 rounded-xl p-4 sm:p-6 border-2 border-yellow-100 shadow-inner mb-4 sm:mb-6">
           {intro && (
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
               {intro}
@@ -104,7 +104,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
           <div className="mb-4 sm:mb-6">
             {person.name && (
               <div className="flex items-start gap-2 sm:gap-3 mb-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                   <span className="text-lg sm:text-xl font-bold text-white">{person.initial}</span>
                 </div>
                 <div className="flex-1">
@@ -133,7 +133,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
             )}
 
             {description && (
-              <div className="bg-white/90 rounded-xl p-4 sm:p-5 border border-emerald-100 shadow-sm">
+              <div className="bg-white/90 rounded-xl p-4 sm:p-5 border border-yellow-100 shadow-sm">
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                   {description}
                 </p>
@@ -142,9 +142,9 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
 
             {videoId && (
               <div className="mb-4">
-                <div className="relative w-full max-w-[320px] mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-emerald-100">
+                <div className="relative w-full max-w-[320px] mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-yellow-100">
                   <div 
-                    className="w-full h-full bg-black flex items-center justify-center"
+                    className="w-full  bg-black flex items-center justify-center"
                     dangerouslySetInnerHTML={{ 
                       __html: `<vturb-smartplayer id="vid-${videoId}" style="display: block; width: 100%; height: 100%; object-fit: cover;"></vturb-smartplayer>` 
                     }} 

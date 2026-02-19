@@ -31,23 +31,23 @@ interface CTACardProps {
 
 const CTACard: React.FC<CTACardProps> = ({ content }) => {
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl p-6 sm:p-8 h-full flex flex-col text-white">
-      {(content.title || content.icon) && (
-        <div className="flex items-center gap-3 mb-6">
-          <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-3 rounded-xl shadow-[0_0_20px_rgba(251,191,36,0.3)]">
-            {content.icon === 'zap' ? (
-              <Zap className="w-6 h-6 text-slate-900 fill-slate-900" />
-            ) : content.icon === 'rocket' ? (
-              <Rocket className="w-6 h-6 text-white" />
-            ) : (
-              <Sparkles className="w-6 h-6 text-white" />
-            )}
-          </div>
-          <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
-            {content.title}
-          </h3>
-        </div>
-      )}
+  <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl p-6 sm:p-8 h-[60dvh] flex flex-col text-white overflow-hidden">
+  {(content.title || content.icon) && (
+    <div className="flex-shrink-0 flex items-center gap-3 mb-6"> {/* flex-shrink-0 evita que el título se aplaste */}
+      <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-3 rounded-xl shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+        {content.icon === 'zap' ? (
+          <Zap className="w-6 h-6 text-slate-900 fill-slate-900" />
+        ) : content.icon === 'rocket' ? (
+          <Rocket className="w-6 h-6 text-white" />
+        ) : (
+          <Sparkles className="w-6 h-6 text-white" />
+        )}
+      </div>
+      <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
+        {content.title}
+      </h3>
+    </div>
+  )}
 
       <div className="flex-1 overflow-y-auto space-y-6">
         {content.message && (

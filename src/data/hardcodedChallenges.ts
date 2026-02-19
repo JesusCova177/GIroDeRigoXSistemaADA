@@ -1,4 +1,4 @@
-﻿import { Challenge } from "../lib/supabase";
+import { Challenge } from "../lib/supabase";
 
 export const hardcodedStage1Challenges: Challenge[] = [
   {
@@ -8,7 +8,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'bajar grasa sin quedarte vacío',
       paragraphs: [
-        'Comer menos para pesar menos: la fórmula “perfecta”. Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”. El problema es que esa película dura poquito. La realidad me pegó de frente cuando le metí intensidad al entrenamiento y él cuerpo empezó a hablarme claro, pero yo no le pararle bolas.',
+        'Comer menos para pesar menos: la fórmula “perfecta”.','Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”.','El problema es que esa película dura poquito.','La realidad me pegó de frente cuando le metí intensidad al entrenamiento y él cuerpo empezó a hablarme claro, pero yo no le pararle bolas.', 'Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba.'
       ]
     },
     order_index: 0,
@@ -21,7 +21,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Y la embarré...',
       paragraphs: [
-        'Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba. Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias. Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo. Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa. '
+        'Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias.','Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo.','Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa.','Desde ese momento yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.'
       ]
     },
     order_index: 0,
@@ -32,11 +32,10 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
-      title: 'Desde ese momento',
+      title: 'Mi estrategia',
       paragraphs: [
-        'Yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.',
         'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso).',
-        'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.'
+        'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.', 'Con esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.'
       ]
     },
     order_index: 1,
@@ -47,33 +46,20 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
-      title: 'Con esta estrategia',
-      paragraphs: [ 'En mi caso, logré perder más de 22 kg en menos de 10 meses.','Yo aquí no estoy buscando que vos “adelgacés a las malas”','Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”'
+      title: 'Mi objetivo',
+      paragraphs: [ 'Yo aquí no estoy buscando que vos “adelgacés a las malas” Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”', 'Eso es gasolina directa para la pálida. La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
       ]
     },
     order_index: 1,
     created_at: new Date().toISOString()
   },
-  {
+ {
     id: 'hardcoded-3',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'intro',
-    content: {
-      title: 'Eso es gasolina directa para la pálida.',
-      paragraphs: [
-        'La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
-      ]
-    },
-    order_index: 1,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-4',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'nutrition_guide',
     content: {
       title: 'Mi norte: “bajar grasa con energía”',
-      concept: 'No todas las calorías son iguales. La distribución correcta de proteína, carbohidratos y grasas marcará la diferencia entre perder grasa preservando músculo (y rendimiento) o perder peso a costa de tu potencia. Para ciclistas, los carbohidratos son combustible, la proteína es recuperación, y las grasas son salud hormonal.',
+      concept: 'No todas las calorías son iguales. \n\nLa distribución correcta de proteína, carbohidratos y grasas marcará la diferencia entre perder grasa preservando músculo (y rendimiento) o perder peso a costa de tu potencia. Para ciclistas, los carbohidratos son combustible, la proteína es recuperación, y las grasas son salud hormonal.',
     },
     order_index: 2,
     created_at: new Date().toISOString()

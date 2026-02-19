@@ -36,12 +36,11 @@ export function StageHeader({
           background: stage.primary_color,
         }}
       >
-        <div className="w-full flex  sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
+        <div className="w-full flex  sm:flex-row justify-around items-center sm:items-center gap-2 sm:gap-3">
           {userEmail && onLogout && (
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
               <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
-                {userEmail}
               </span>
               <button
                 onClick={onLogout}
@@ -52,8 +51,8 @@ export function StageHeader({
             </div>
           )}
           <div className="ml-auto">
-            <span className="text-medium sm:text-sm font-medium text-white/90">
-              By SISTEMA<span className="text-yellow">ADA</span>
+            <span className="text-xl sm:text-sm font-medium text-white/90 block">
+              By SISTEMA<span className="text-[#ffcc00]">ADA</span>
             </span>
           </div>
         </div>
@@ -69,7 +68,7 @@ export function StageHeader({
         </div>
 
         {showStageSelector && (
-          <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-xl">
+          <div className="flex items-center justify-center gap-2 bg-white/10 font-titling backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-xl">
             <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#31563C] flex-shrink-0" />
             <p className="text-[#31563C] font-medium text-sm sm:text-base md:text-lg text-center">
               {stage.description}
