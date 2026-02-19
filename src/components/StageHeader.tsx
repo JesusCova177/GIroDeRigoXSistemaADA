@@ -68,7 +68,7 @@ export function StageHeader({
         </div>
 
         {showStageSelector && (
-          <div className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-xl">
+          <div className="flex items-center justify-center gap-2 bg-white/10 font-titling backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-xl">
             <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#31563C] flex-shrink-0" />
             <p className="text-[#31563C] font-medium text-sm sm:text-base md:text-lg text-center">
               {stage.description}
