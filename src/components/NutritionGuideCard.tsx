@@ -26,18 +26,7 @@ export function NutritionGuideCard({
   microTransition
 }: NutritionGuideCardProps) {
   return (
-    <div className="flex-shrink-0 w-full bg-white rounded-2xl shadow-lg p-4 sm:p-6 border-l-4 border-green-500 hover:shadow-xl transition-all duration-300">
-      <div className="flex items-center gap-2 mb-4">
-        <Flame className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500 flex-shrink-0" />
-        <h3 className="text-lg sm:text-xl font-titling font-black text-[#31563C] italic">{title}</h3>
-      </div>
-
-      {concept && (
-        <div className="mb-6 bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-400 rounded-lg p-4">
-          <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-            {concept}
-          </p>
-        </div>
+   <div className="flex flex-col w-full bg-white rounded-2xl shadow-xl ring-1 ring-black/5 p-5 sm:p-6 border-l-4 border-green-500 hover:shadow-2xl transition-all duration-300"> {/* Header */} <div className="flex items-center gap-3 mb-4"> <Flame className="w-6 h-6 text-orange-500 flex-shrink-0" /> <h3 className="text-xl sm:text-2xl font-titling font-black text-[#31563C] italic tracking-tight"> {title} </h3> </div> {/* Concept Box */} {concept && ( <div className="mb-5 bg-gradient-to-r from-green-50/70 to-emerald-50/70 border border-green-300 rounded-xl p-4 shadow-inner"> <p className="text-sm sm:text-base text-gray-700 leading-relaxed"> {concept} </p> </div> )} {/* Children or extra content slot */} <div className="mt-2"> {children} </div> </div>
       )}
 
       {practicalHeading && (
