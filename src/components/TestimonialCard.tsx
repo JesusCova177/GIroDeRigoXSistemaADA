@@ -75,7 +75,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
   }, [videoId]);
 
   return (
-    <div className="flex-shrink-0 w-full bg-gradient-to-br from-yellow-50 via-white to-blue-50 rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8 border-2 border-yellow-200 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+    <div className="flex-shrink-0 w-full bg-gradient-to-br from-yellow-50 via-white to-blue-50 rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8 border-2 border-yellow-200 hover:shadow-2xl transition-all duration-300 relative overflow-hidden h-[60dvh]">
       <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-br from-emerald-200 to-blue-200 rounded-full opacity-20 blur-3xl -mr-16 sm:-mr-32 -mt-16 sm:-mt-32" />
       <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-48 sm:h-48 bg-gradient-to-tr from-green-100 to-emerald-100 rounded-full opacity-20 blur-3xl -ml-12 sm:-ml-24 -mb-12 sm:-mb-24" />
 
