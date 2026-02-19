@@ -50,7 +50,7 @@ export function StageHeader({
               </button>
             </div>
           )}
-          <div className="ml-auto flex justify-around items-center">
+          <div className="ml-auto">
             <span className="text-medium sm:text-sm font-medium text-white/90 block">
               By SISTEMA<span className="text-[#ffcc00]">ADA</span>
             </span>
