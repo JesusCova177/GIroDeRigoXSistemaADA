@@ -21,7 +21,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Y la embarré...',
       paragraphs: [
-        'Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias.','Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo.','Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa. '
+        'Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias.','Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo.','Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa.','Desde ese momento yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.''
       ]
     },
     order_index: 0,
@@ -32,9 +32,9 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
-      title: 'Desde ese momento',
+      title: ,
       paragraphs: [
-        'Yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.',
+        
         'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso).',
         'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.'
       ]
