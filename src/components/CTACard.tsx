@@ -51,7 +51,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
 
       <div className="flex-1 overflow-y-auto space-y-6">
         <p className="text-base sm:text-lg leading-relaxed text-gray-200 whitespace-pre-line">
-          {content.message}
+          Dentro del Sistema ADA tenés dos caminos:
         </p>
 
         <div className="space-y-4">
