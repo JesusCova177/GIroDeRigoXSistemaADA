@@ -104,7 +104,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
           <div className="mb-4 sm:mb-6">
             {person.name && (
               <div className="flex items-start gap-2 sm:gap-3 mb-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                   <span className="text-lg sm:text-xl font-bold text-white">{person.initial}</span>
                 </div>
                 <div className="flex-1">
