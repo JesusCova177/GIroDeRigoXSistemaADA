@@ -43,10 +43,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         </div>
 
         <h1 className="text-4xl font-titling font-black text-[#31563C] text-center mb-3 italic uppercase tracking-tight">
-          Start Your Journey
+         Inicio de sesion
         </h1>
         <p className="text-gray-600 text-center mb-8">
-          Enter your email to begin
+          Correo electronico
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
