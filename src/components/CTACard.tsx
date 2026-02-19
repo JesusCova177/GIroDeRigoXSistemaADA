@@ -99,8 +99,6 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
         </div>
       ))}
     </div>
-
-   
   </div>
 </div>
   );
