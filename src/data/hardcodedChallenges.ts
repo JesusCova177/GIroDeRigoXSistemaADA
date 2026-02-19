@@ -47,7 +47,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: 'intro',
     content: {
       title: 'Mi objetivo',
-      paragraphs: [ 'Yo aquí no estoy buscando que vos “adelgacés a las malas”','Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”'
+      paragraphs: [ 'Yo aquí no estoy buscando que vos “adelgacés a las malas”','Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera.', 'La semana del evento no es para “recortar” ni para “compensar aguantando hambre”'
       ]
     },
     order_index: 1,
