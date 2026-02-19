@@ -46,7 +46,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
          Inicio de sesion
         </h1>
         <p className="text-gray-600 text-center mb-8">
-          Correo electronico
+          Ingrese su correo electronico
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -55,7 +55,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               htmlFor="email"
               className="block text-sm font-semibold text-gray-700 mb-2"
             >
-              Email Address
+              correo electronico
             </label>
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
