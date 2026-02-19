@@ -42,7 +42,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const colorMap: Record<string, { border: string; text: string; hover: string }> = {
-  emerald: { border: 'border-emerald-200', text: 'text-emerald-600', hover: 'hover:border-emerald-300' },
+  emerald: { border: 'border-yellow-200', text: 'text-yellow-600', hover: 'hover:border-yellow-300' },
   blue: { border: 'border-blue-200', text: 'text-blue-600', hover: 'hover:border-blue-300' },
   yellow: { border: 'border-yellow-200', text: 'text-yellow-600', hover: 'hover:border-yellow-300' },
 };
