@@ -51,7 +51,7 @@ export function StageHeader({
             </div>
           )}
           <div className="ml-auto flex justify-around">
-            <span className="text-xl sm:text-sm font-medium text-white/90 block">
+            <span className="text-2xl sm:text-sm font-medium text-white/90 block">
               By SISTEMA<span className="text-[#ffcc00]">ADA</span>
             </span>
           </div>
