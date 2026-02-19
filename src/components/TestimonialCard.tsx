@@ -144,9 +144,9 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
               <div className="mb-4">
                 <div className="relative w-full max-w-[320px] mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-emerald-100">
                   <div 
-                    className="w-full h-[80%] bg-black flex items-center justify-center"
+                    className="w-full  bg-black flex items-center justify-center"
                     dangerouslySetInnerHTML={{ 
-                      __html: `<vturb-smartplayer id="vid-${videoId}" style="display: block; width: 100%; height: 100%; object-fit: cover;"></vturb-smartplayer>` 
+                      __html: `<vturb-smartplayer id="vid-${videoId}" style="display: block; width: 100%; height: 80%; object-fit: cover;"></vturb-smartplayer>` 
                     }} 
                   />
                 </div>
