@@ -21,7 +21,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Y la embarré...',
       paragraphs: [
-        'Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias.','Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo.','Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa.','Desde ese momento yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.''
+        'Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias.','Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo.','Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa.','Desde ese momento yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.'
       ]
     },
     order_index: 0,
