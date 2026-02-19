@@ -105,7 +105,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
             {person.name && (
               <div className="flex items-start gap-2 sm:gap-3 mb-3">
                
-                  <span className="text-lg sm:text-xl font-bold text-white">{person.initial}</span>
+                
                
                 <div className="flex-1">
                   <p className="font-bold text-base sm:text-lg text-gray-900">{person.name}</p>
