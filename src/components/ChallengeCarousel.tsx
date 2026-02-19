@@ -130,7 +130,7 @@ export function ChallengeCarousel({
   };
 
   return (
-    <div className="w-full flex">
+    <div className="w-full flex items-center justify-center">
       {showHint && totalCards > 1 && (
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
           <div className="bg-gray-900/90 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-2xl flex items-center gap-2 animate-bounce">
