@@ -5,6 +5,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Built Titling';
+  src: url('./assets/fonts/built titling bd it.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
 @layer base {
   html, body {
     height: 100dvh;
