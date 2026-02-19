@@ -194,19 +194,9 @@ export function ChallengeCarousel({
                   <TestimonialCard
                     content={
                       typeof challenge.content === "object" &&
-                      "title" in challenge.content &&
-                      "subtitle" in challenge.content
-                        ? challenge.content
-                        : {
-                            title: "",
-                            subtitle: "",
-                            intro: "",
-                            person: { name: "", initial: "", duration: "" },
-                            metrics: [],
-                            description: "",
-                            strategy: { intro: "", items: [], conclusion: "" },
-                            footer: { title: "", message: "" }
-                          }
+                      !Array.isArray(challenge.content)
+                        ? (challenge.content as any)
+                        : ({} as any)
                     }
                   />
                 ) : challenge.type === "cta" ? (
@@ -309,6 +299,13 @@ export function ChallengeCarousel({
                         ? challenge.content.items
                         : []
                     }
+                    microTransition={
+                      typeof challenge.content === "object" &&
+                      "microTransition" in challenge.content &&
+                      typeof challenge.content.microTransition === "string"
+                        ? challenge.content.microTransition
+                        : undefined
+                    }
                   />
                 ) : challenge.type === "nutrition_guide" ? (
                   <NutritionGuideCard
@@ -331,7 +328,7 @@ export function ChallengeCarousel({
                       "practicalHeading" in challenge.content &&
                       typeof challenge.content.practicalHeading === "string"
                         ? challenge.content.practicalHeading
-                        : "Ejemplo práctico:"
+                        : undefined
                     }
                     scenarios={
                       typeof challenge.content === "object" &&
@@ -346,6 +343,13 @@ export function ChallengeCarousel({
                       typeof challenge.content.microTransition === "string"
                         ? challenge.content.microTransition
                         : ""
+                    }
+                    headerEmoji={
+                      typeof challenge.content === "object" &&
+                      "headerEmoji" in challenge.content &&
+                      typeof challenge.content.headerEmoji === "string"
+                        ? challenge.content.headerEmoji
+                        : undefined
                     }
                   />
                 ) : challenge.type === "checklist" ? (
@@ -382,6 +386,22 @@ export function ChallengeCarousel({
                         : Array.isArray(challenge.content)
                         ? challenge.content
                         : []
+                    }
+                    microTransition={
+                      typeof challenge.content === "object" &&
+                      "microTransition" in challenge.content &&
+                      typeof challenge.content.microTransition === "string"
+                        ? challenge.content.microTransition
+                        : undefined
+                    }
+                  />
+                ) : challenge.type === "testimonial" ? (
+                  <TestimonialCard
+                    content={
+                      typeof challenge.content === "object" &&
+                      !Array.isArray(challenge.content)
+                        ? (challenge.content as any)
+                        : ({} as any)
                     }
                   />
                 ) : null}

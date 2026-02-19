@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { MessageCircle, Lightbulb, BookOpen, Star } from 'lucide-react';
+import { MessageCircle, Lightbulb, BookOpen, Star, ChevronRight } from 'lucide-react';
 
 interface ReflectionCardProps {
   title: string;
   questions: string[];
+  microTransition?: string;
 }
 
-export function ReflectionCard({ title, questions }: ReflectionCardProps) {
+export function ReflectionCard({ title, questions, microTransition }: ReflectionCardProps) {
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const [answeredCount, setAnsweredCount] = useState(0);
 
@@ -96,6 +97,18 @@ export function ReflectionCard({ title, questions }: ReflectionCardProps) {
               <p className="font-bold text-sm sm:text-base text-gray-800">¡Reflexión Completa!</p>
               <p className="text-xs sm:text-sm text-gray-600">Has respondido todas las preguntas</p>
             </div>
+          </div>
+        </div>
+      )}
+
+      {microTransition && (
+        <div className="mt-4 pt-4 border-t border-yellow-200 relative z-10">
+          <div className="flex items-start gap-3 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-yellow-400 rounded-lg p-4">
+            <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+            <p className="text-xs sm:text-sm text-gray-700 font-medium flex-1">
+              {microTransition}
+            </p>
+            <ChevronRight className="w-5 h-5 text-yellow-500 flex-shrink-0" />
           </div>
         </div>
       )}

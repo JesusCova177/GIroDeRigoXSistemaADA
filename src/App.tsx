@@ -78,13 +78,13 @@ function App() {
       let allChallenges: Challenge[] = [];
 
       if (stage.stage_number === 1) {
-        allChallenges = [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage1Challenges].sort((a, b) => a.order_index - b.order_index);
       } else if (stage.stage_number === 2) {
-        allChallenges = [...hardcodedStage2Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage2Challenges].sort((a, b) => a.order_index - b.order_index);
       } else if (stage.stage_number === 3) {
-        allChallenges = [...hardcodedStage3Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage3Challenges].sort((a, b) => a.order_index - b.order_index);
       } else if (stage.stage_number === 4) {
-        allChallenges = [...hardcodedStage4Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage4Challenges].sort((a, b) => a.order_index - b.order_index);
       } else {
         allChallenges = challengesData || [];
       }
@@ -124,13 +124,13 @@ function App() {
       let allChallenges: Challenge[] = [];
 
       if (stage.stage_number === 1) {
-        allChallenges = [...hardcodedStage1Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage1Challenges].sort((a, b) => a.order_index - b.order_index);
       } else if (stage.stage_number === 2) {
-        allChallenges = [...hardcodedStage2Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage2Challenges].sort((a, b) => a.order_index - b.order_index);
       } else if (stage.stage_number === 3) {
-        allChallenges = [...hardcodedStage3Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage3Challenges].sort((a, b) => a.order_index - b.order_index);
       } else if (stage.stage_number === 4) {
-        allChallenges = [...hardcodedStage4Challenges, ...(challengesData || [])].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage4Challenges].sort((a, b) => a.order_index - b.order_index);
       } else {
         allChallenges = challengesData || [];
       }

@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { Check, CheckCircle2, Trophy, Sparkles, BookOpen } from 'lucide-react';
+import { Check, CheckCircle2, Trophy, Sparkles, BookOpen, Lightbulb, ChevronRight } from 'lucide-react';
 
 interface PreambleChecklistCardProps {
   title: string;
-  preamble: string;
+  preamble?: string;
   items: string[];
+  microTransition?: string;
 }
 
-export function PreambleChecklistCard({ title, preamble, items }: PreambleChecklistCardProps) {
+export function PreambleChecklistCard({ title, preamble, items, microTransition }: PreambleChecklistCardProps) {
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
   const [justChecked, setJustChecked] = useState<number | null>(null);
 
@@ -44,14 +45,16 @@ export function PreambleChecklistCard({ title, preamble, items }: PreambleCheckl
         )}
       </div>
 
-      <div className="mb-4 sm:mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-400 rounded-lg p-3 sm:p-4">
-        <div className="flex items-start gap-2 sm:gap-3">
-          <BookOpen className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-          <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-            {preamble}
-          </p>
+      {preamble && (
+        <div className="mb-4 sm:mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-400 rounded-lg p-3 sm:p-4">
+          <div className="flex items-start gap-2 sm:gap-3">
+            <BookOpen className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+              {preamble}
+            </p>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="space-y-2 sm:space-y-3">
         {items.map((item, index) => (
@@ -62,6 +65,7 @@ export function PreambleChecklistCard({ title, preamble, items }: PreambleCheckl
                 ? 'bg-blue-50'
                 : 'hover:bg-gray-50'
             } ${justChecked === index ? 'scale-105 bg-green-50' : ''}`}
+            onClick={() => toggleItem(index)}
           >
             <div
               className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 rounded-lg border-2 transition-all duration-200 flex items-center justify-center ${
@@ -69,7 +73,6 @@ export function PreambleChecklistCard({ title, preamble, items }: PreambleCheckl
                   ? 'bg-gradient-to-br from-blue-500 to-blue-600 border-blue-500 shadow-lg scale-110'
                   : 'border-gray-300 group-hover:border-blue-400 group-hover:scale-110'
               }`}
-              onClick={() => toggleItem(index)}
             >
               {checkedItems.has(index) && (
                 <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white animate-scale-in" strokeWidth={3} />
@@ -120,6 +123,18 @@ export function PreambleChecklistCard({ title, preamble, items }: PreambleCheckl
           )}
         </div>
       </div>
+
+      {microTransition && (
+        <div className="mt-4 pt-4 border-t border-gray-200">
+          <div className="flex items-start gap-3 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-yellow-400 rounded-lg p-4">
+            <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+            <p className="text-xs sm:text-sm text-gray-700 font-medium flex-1">
+              {microTransition}
+            </p>
+            <ChevronRight className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

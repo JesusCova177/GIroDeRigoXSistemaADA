@@ -1,4 +1,4 @@
-import { Challenge } from "../lib/supabase";
+﻿import { Challenge } from "../lib/supabase";
 
 export const hardcodedStage1Challenges: Challenge[] = [
   {
@@ -19,9 +19,9 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
-      title: 'bajar grasa sin quedarte vacío',
+      title: 'Y la embarré...',
       paragraphs: [
-        'Y la embarré. Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba. Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias. Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo. Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa. '
+        'Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba. Me descompensé y terminé con una desorientación tan grave que me tocó irme para urgencias. Ahí entendí algo que me cambió el rumbo: esto no se trata de castigar el cuerpo, se trata de estructurarlo. Si yo quería rendir en la bici y además perder grasa, tenía que aprender a comer con intención, no con culpa. '
       ]
     },
     order_index: 0,
@@ -32,10 +32,11 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
-      title: 'Configuración del Déficit Calórico',
+      title: 'Desde ese momento',
       paragraphs: [
-        'Desde ese momento, yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.',
-        'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso).'
+        'Yo dejé de hacer lo que hace casi todo el mundo: comer igual todos los días, entrenara o no entrenara. Empecé a jugar el verdadero partido: el timing.',
+        'Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso).',
+        'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.'
       ]
     },
     order_index: 1,
@@ -46,8 +47,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
-      title: 'Configuración del Déficit Calórico',
-      paragraphs: [ 'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.\n\nAplicando esta estrategia, en mi caso, logré perder más de 22 kg en menos de 10 meses.','Yo aquí no estoy buscando que vos “adelgacés a las malas”'
+      title: 'Con esta estrategia',
+      paragraphs: [ 'En mi caso, logré perder más de 22 kg en menos de 10 meses.','Yo aquí no estoy buscando que vos “adelgacés a las malas”','Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”'
       ]
     },
     order_index: 1,
@@ -58,9 +59,9 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
-      title: 'Configuración del Déficit Calórico',
+      title: 'Eso es gasolina directa para la pálida.',
       paragraphs: [
-        'Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”. Eso es gasolina directa para la pálida. La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
+        'La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
       ]
     },
     order_index: 1,
@@ -78,11 +79,12 @@ export const hardcodedStage1Challenges: Challenge[] = [
     created_at: new Date().toISOString()
   },
    {
-    id: 'hardcoded-4',
+    id: 'hardcoded-4-b',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'nutrition_guide',
     content: {
-      practicalHeading: "Ejemplo práctico (lo que yo hago):",
+      title: 'Ejemplo práctico (lo que yo hago):',
+      practicalHeading: 'Según el día:',
       scenarios: [ 
       {
         condition: "Si hoy tengo un entrenamiento suave o es día de descanso, lo aprovecho para comer más limpio y estable:",
@@ -107,49 +109,576 @@ export const hardcodedStage1Challenges: Challenge[] = [
         ]
       }
     ],
-      microTransition: 'El siguiente paso es dejar de pelearse con el carbo y empezar a usarlos'
-    },
-    order_index: 2,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-4',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'preamble_checklist',
-    title: 'Preparación del Entorno',
-    content: {
-      title: 'Preparación del Entorno',
-      preamble: 'El éxito no depende solo de tu fuerza de voluntad. Tu entorno puede ser tu mejor aliado o tu peor enemigo. Preparar tu cocina, tu rutina y tus sistemas de apoyo multiplicará exponencialmente tus probabilidades de éxito. Piensa en esto como preparar tu bici antes de una carrera importante.',
-      items: [
-        'Limpia tu cocina: retira tentaciones innecesarias y dona lo que no necesitas',
-        'Compra contenedores para meal prep (al menos 7-10 recipientes)',
-        'Invierte en una báscula de cocina digital (precisión al gramo)',
-        'Prepara una botella de agua de 1L que llevarás contigo siempre',
-        'Crea una lista de snacks saludables pre-aprobados para emergencias',
-        'Habla con tu familia/pareja sobre tus objetivos y pide su apoyo'
-      ]
     },
     order_index: 3,
+    created_at: new Date().toISOString()
+  },
+  
+  {
+    id: 'hardcoded-4-c',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Carbohidratos con estrategia (no con miedo)',
+      concept: 'Yo no elimino carbohidratos. Yo aprendo a usarlos. El carbohidrato es gasolina. El error es usarlo "a lo loco" en ultraprocesados todo el día, o intentar entrenar duro sin él. Yo lo vuelvo herramienta: poco cuando toca poco, y suficiente cuando toca rendir.',
+    },
+    order_index: 4,
+    created_at: new Date().toISOString()
+  },
+   {
+    id: 'hardcoded-4-d',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Ejemplo práctico (día de intensidad / series):',
+      practicalHeading: 'Antes del entreno yo meto un pre entreno simple:',
+      scenarios: [
+        {
+          condition: "Pre entreno:",
+          meals: [
+            {
+              name: "",
+              items: ["Harina/crema de arroz", "Banano", "Yogur griego o scoop de proteína"]
+            }
+          ]
+        },
+        {
+          condition: "Durante (si el entreno es intenso y largo):",
+          meals: [
+            {
+              name: "",
+              items: ["Bebida deportiva tipo Gatorade", "Geles de carbohidrato"]
+            }
+          ]
+        }
+      ],
+      microTransition: 'En salidas largas no podemos depender solo de las reservas. En Fase 2 y 3 te lo explico mejor.'
+    },
+    order_index: 5,
     created_at: new Date().toISOString()
   },
   {
     id: 'hardcoded-5',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'preamble_checklist',
-    title: 'Mentalidad y Compromiso',
     content: {
-      title: 'Mentalidad y Compromiso',
-      preamble: 'La transformación física comienza en tu mente. No se trata de motivación temporal, sino de crear un sistema de compromiso sostenible. Los mejores ciclistas no entrenan solo cuando tienen ganas; entrenan porque es parte de quiénes son. Aquí construiremos esa misma mentalidad para tu nutrición.',
+      title: 'Mini checklist: carbohidratos',
+      preamble: 'Antes de seguir, responde estas preguntas. Son la clave para saber si tu carbo te está ayudando o traicionando.',
       items: [
-        'Define tu "por qué" profundo: ¿por qué quieres esto realmente?',
-        'Establece expectativas realistas: 0.5-1% de peso corporal por semana',
-        'Identifica tus 3 mayores obstáculos y crea un plan para cada uno',
-        'Decide cómo medirás el progreso más allá de la báscula',
-        'Comprométete con un período mínimo: 8 semanas sin abandonar',
-        'Encuentra un compañero de accountability o únete a una comunidad'
+        '¿Mi entreno de hoy es suave (Z1–Z2) o intenso (Z3–Z5)?',
+        '¿Estoy usando carbo "para rendir" o "para calmar ansiedad"?',
+        '¿Estoy eligiendo carbo real (arroz, papa, yuca, pasta) más que ultraprocesado?'
+      ],
+      microTransition: 'Y ojo pues... aquí se define la semana: el post-entreno.'
+    },
+    order_index: 6,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-6',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'La ventana post-entreno (donde yo gano o pierdo la semana)',
+      concept: 'Después de montar yo tengo una ventana brutal para recuperar y para no activar la ansiedad. Mucha gente se estrella aquí: termina de montar, llega con hambre de perro y decide por impulso.\n\nYo lo hago diferente: en la primera hora post-entreno yo como proteína + carbo real. Ahí es donde yo construyo el cuerpo que quiero.',
+    },
+    order_index: 7,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-6-b',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Ejemplo práctico (post-entreno real):',
+      concept: 'Si estoy apurado, un batido con fruta me salva… pero mi base es comida real.',
+      practicalHeading: 'Según el día:',
+      scenarios: [
+        {
+          condition: 'Opción 1:',
+          meals: ['Arroz Sonora', 'pechuga FRIKO', 'ensalada']
+        },
+        {
+          condition: 'Opción 2:',
+          meals: ['Pasta La Muñeca (porción medida)', 'carne magra US MEAT', 'verduras']
+        }
+      ],
+    },
+    order_index: 8,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-6-c',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Mini checklist:',
+      preamble: 'Responde antes de cerrar el día de entrenamiento.',
+      items: [
+        '¿Yo ya tengo listo "qué voy a comer" al terminar?',
+        '¿Mi comida post tiene proteína sí o sí?'
+      ],
+    },
+    order_index: 9,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-6-d',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'reflection',
+    content: {
+      title: 'Preguntas de reflexión (2):',
+      questions: [
+        '¿Qué hago normalmente apenas llego a casa de montar?',
+        '¿Mi post-entreno me deja estable… o me deja con más hambre?'
+      ],
+      microTransition: 'Si querés bajar grasa sin perder motor, la proteína es ley.',
+    },
+    order_index: 10,
+    created_at: new Date().toISOString()
+  },
+  
+  {
+    id: 'hardcoded-8',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Proteína como ancla (para no perder músculo)',
+      concept: 'Si yo pierdo músculo, pierdo motor. Entonces proteína todos los días (y ojalá magra: FRIKO o US MEAT la mayoría del tiempo).',
+    },
+    order_index: 12,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-8-b',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Ejemplo práctico (día normal):',
+      practicalHeading: 'Distribución del día:',
+      scenarios: [
+        {
+          condition: 'Desayuno:',
+          meals: ['Huevos 100%']
+        },
+        {
+          condition: 'Almuerzo:',
+          meals: ['pollo FRIKO', 'carne magra US MEAT']
+        },
+        {
+          condition: 'Cena:',
+          meals: ['proteína limpia + verduras', 'carbo según el entreno']
+        }
+      ],
+    },
+    order_index: 13,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-8-c',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Mini checklist:',
+      preamble: 'Revisa antes de cerrar el día.',
+      items: [
+        '¿Mi desayuno tiene proteína?',
+        '¿En cada comida hay una fuente clara de proteína?',
+        '¿Estoy eligiendo cortes más magros la mayor parte del tiempo?'
+      ],
+      microTransition: 'Ahora: Ejercicio de fuerza. Porque el cuerpo no se sostiene solo con "comer bien".'
+    },
+    order_index: 14,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-9',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Fuerza para perder grasa y rendir más (sí o sí)',
+      concept: 'La fuerza no es solo para verse bien. Sirve para rendir, para protegerse de lesiones y para que el cuerpo guarde más energía útil en el músculo.',
+      headerEmoji: '🏋️',
+    },
+    order_index: 16,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-9-b',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Ejemplo práctico (mi enfoque simple):',
+      headerEmoji: '🏋️',
+      practicalHeading: '2 sesiones por semana:',
+      scenarios: [
+        { condition: '1 tren inferior + core', meals: [] },
+        { condition: '1 tren superior + core', meals: [] }
+      ],
+      concept: 'Acá hay que aplicar Constancia más que perfección.',
+    },
+    order_index: 17,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-9-c',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Mini checklist:',
+      preamble: 'Chequea tu semana de fuerza.',
+      items: [
+        '¿Tengo 2 espacios esta semana para fuerza?',
+        '¿Estoy cuidando core y estabilidad?'
+      ],
+    },
+    order_index: 18,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-9-d',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'reflection',
+    content: {
+      title: 'Preguntas de reflexión:',
+      questions: [
+        '¿Yo quiero ser más liviano… o más liviano y más fuerte?'
+      ],
+      microTransition: 'Y el factor silencioso que te dispara antojos: hidratación.',
+    },
+    order_index: 19,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-10',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Hidratación que baja antojos (y mejora rendimiento)',
+      concept: 'Muchas veces lo que yo llamo "hambre" es sed o deshidratación. Y si yo estoy deshidratado: más fatiga, más antojo de dulce y menos control.',
+      headerEmoji: 'water',
+    },
+    order_index: 20,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-10-b',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Ejemplo práctico (mi regla del día a día):',
+      headerEmoji: 'water',
+      practicalHeading: 'Mi regla diaria:',
+      scenarios: [
+        {
+          condition: 'Base (día normal): apunto a 30–35 ml de líquidos por kilo al día, repartidos desde la mañana (no todo en la tarde).',
+          meals: []
+        },
+        {
+          condition: 'Si entreno y sudo: mantengo esa base y meto electrolitos cuando hay calor, sudor alto o sesión larga.',
+          meals: []
+        },
+        {
+          condition: 'Si el entreno lo pide (largo/intenso): una bebida tipo Gatorade entra con estrategia — hidratar + carbo + sales.',
+          meals: []
+        },
+      ],
+    },
+    order_index: 21,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-10-c',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'preamble_checklist',
+    title: 'Mini checklist:',
+    content: {
+      title: 'Mini checklist:',
+      items: [
+        '¿Hoy ya tomé agua desde la mañana?',
+        '¿Estoy hidratándome todo el día o solo "cuando me da sed"?',
+        '¿En entreno largo estoy metiendo sales/electrolitos?'
       ]
     },
-    order_index: 4,
+    order_index: 22,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-10-d',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'reflection',
+    content: {
+      title: 'Reflexión:',
+      questions: [
+        '¿Tomo suficiente agua a lo largo del día, o solo cuando recuerdo?'
+      ],
+      microTransition: 'Falta el punto donde más gente se cae: lo social + compensar con hambre.',
+    },
+    order_index: 23,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-11',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Antojos, eventos sociales y el error mortal: "compensar con hambre"',
+      concept: 'Evento, salida, reunión… y entonces: "no como en todo el día pa\' compensar". Eso termina en atrácón nocturno, ansiedad y culpa. Yo ya no hago eso. Yo cumplo mi plan normal. Y si quiero un gusto, lo planeo.',
+    },
+    order_index: 24,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-11-b',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Ejemplo práctico (vida real):',
+      practicalHeading: 'Cómo lo manejo:',
+      scenarios: [
+        {
+          condition: 'Yo como normal antes de salir. No me salto comidas.',
+          meals: []
+        },
+        {
+          condition: 'Si sé que la comida va a ser tarde, meto una "comida ancla" 60–90 min antes: algo pequeño pero responsable (proteína + un carbo fácil). Ej: yogur + fruta, sanduche sencillo, arepita con huevo, o arroz con algo de proteína (poquito, sin llenarme).',
+          meals: []
+        },
+        {
+          condition: 'En el evento, yo decido con cabeza: como lo que hay, pero moderado. No tengo que llegar a "recuperar todo lo que no comí", porque ese es el grave error.',
+          meals: []
+        },
+      ],
+    },
+    order_index: 25,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-11-c',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'preamble_checklist',
+    title: 'Mini checklist:',
+    content: {
+      title: 'Mini checklist:',
+      items: [
+        '¿Comí normal en el día o estoy llegando vacío?',
+        '¿Necesito una comida ancla antes de salir?',
+        '¿Estoy comiendo por decisión… o por desespero?'
+      ],
+      microTransition: 'La meta no es prohibirse. La meta es no llegar con el tanque en cero.'
+    },
+    order_index: 26,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-11-d',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'reflection',
+    content: {
+      title: 'Reflexión:',
+      questions: [
+        '¿Cuándo fue la última vez que llegué a un evento con hambre y lo usé como excusa para comer de más?'
+      ],
+      microTransition: 'Y para que veás que esto no es teoría, te lo muestro con un caso real.',
+    },
+    order_index: 27,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-12',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'testimonial',
+    content: {
+      title: 'Testimonio real (Fase 1)',
+      subtitle: 'Kevin - 3 meses en el sistema',
+      intro: 'Kevin llevaba alrededor de tres meses en el sistema y cont\u00f3 que baj\u00f3 aproximadamente 5 kilos, se sent\u00eda m\u00e1s fuerte en la bici y ya no andaba cansado todo el d\u00eda.',
+
+      metrics: [
+        { label: 'Peso bajado', value: '~5 kg', icon: 'TrendingDown', color: 'emerald' },
+        { label: 'Energ\u00eda en bici', value: 'M\u00e1s fuerte', icon: 'Zap', color: 'blue' },
+        { label: 'Logro en carrera', value: 'Mejor tiempo', icon: 'Trophy', color: 'yellow' }
+      ]
+    },
+    order_index: 28,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-13',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'testimonial',
+    content: {
+      title: 'Testimonio real (Fase 1)',
+      subtitle: 'Kevin - El resultado en carrera',
+      intro: 'Sobre su participaci\u00f3n en eventos:',
+      description: 'En una carrera (muy poquito tiempo despu\u00e9s de empezar) sigui\u00f3 una estrategia puntual de qu\u00e9 comer, cu\u00e1ndo usar geles y sales, y hasta cu\u00e1ntos carbohidratos meter por bid\u00f3n\u2026 y le fue demasiado bien, incluso mejorando su tiempo en esa misma carrera.',
+      footer: {
+        title: 'Microtransici\u00f3n',
+        message: 'Cerramos la fase con lo que no se te puede olvidar.'
+      }
+    },
+    order_index: 29,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-14',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'testimonial',
+    content: {
+      title: 'Testimonio en video',
+      subtitle: 'Kevin - Su experiencia directa',
+      videoId: '698a8fd8f17bd82f6aeda3a2',
+      footer: {
+        title: 'Microtransici\u00f3n',
+        message: '\u00a1Ahora es tu turno de lograr estos resultados!'
+      }
+    },
+    order_index: 30,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-15',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Resumen Fase 1',
+      preamble: 'Si solo record\u00e1s 3 cosas de esta Fase 1...',
+      items: [
+        'Yo no elimino carbohidratos: los uso con estrategia seg\u00fan el entreno.',
+        'Yo protejo mi m\u00fasculo con prote\u00edna y fuerza.',
+        'Yo no entreno a punta de hambre. Y al evento no llego en d\u00e9ficit: llego con combustible.'
+      ],
+      microTransition: '\u00a1Fase 1 completada con \u00e9xito!'
+    },
+    order_index: 31,
+    created_at: new Date().toISOString()
+  },
+
+  {
+    id: 'hardcoded-16',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'action_plan',
+    content: {
+      keyTakeaways: [],
+      phases: [
+        {
+          title: 'D\u00eda 1\u20133 (arranque):',
+          items: [
+            'Defino horarios de comida (simple, sin perfeccionismo).',
+            'Organizo mercado base: prote\u00edna (Huevos 100%, FRIKO, US MEAT), carbo real (Arroz Sonora, Pasta La Mu\u00f1eca, papa/yuca), grasas buenas (Corpohass), snacks controlados (Crake\u00f1as).'
+          ]
+        }
+      ]
+    },
+    order_index: 32,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-17',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'action_plan',
+    content: {
+      keyTakeaways: [],
+      phases: [
+        {
+          title: 'D\u00eda 4\u201310 (estructura):',
+          items: [
+            'D\u00eda suave/descanso = d\u00e9ficit suave, estable',
+            'D\u00eda intenso/fondo = combustible + buena recuperaci\u00f3n',
+            'Meto 2 sesiones de fuerza (aunque sean cortas).'
+          ]
+        }
+      ]
+    },
+    order_index: 33,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-18',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'action_plan',
+    content: {
+      keyTakeaways: [],
+      phases: [
+        {
+          title: 'D\u00eda 11\u201314 (ajuste):',
+          items: [
+            'Reviso energ\u00eda, hambre, sue\u00f1o, rendimiento.',
+            'Ajusto porciones, no me castigo.'
+          ]
+        }
+      ]
+    },
+    order_index: 34,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-19',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'cta',
+    content: {
+      title: 'Tu camino en el Sistema ADA',
+      icon: 'rocket',
+      message: 'Antes de pasar a la Fase 2, no quiero que esto se quede en \u201cqu\u00e9 bonito leer\u201d. Quiero que lo hag\u00e1s con estructura, y que lo sosteng\u00e1s.\n\nEn la siguiente tarjeta te cuento c\u00f3mo podemos hacerlo.',
+      options: [],
+      transition: {
+        text: 'Opciones en la siguiente card',
+        buttonText: 'Ver opciones',
+        buttonUrl: '#'
+      },
+      footerSubtext: 'Paso a paso \u2022 Sin complicaciones'
+    },
+    order_index: 35,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-20',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'cta',
+    content: {
+      message: 'Dentro del Sistema ADA ten\u00e9s dos caminos:',
+      options: [
+        {
+          title: 'Opci\u00f3n 1 \u2014 Plataforma Educativa',
+          subtitle: 'A tu ritmo, sin improvisar',
+          description: 'Para entender como perder peso y aplicarlo a tu ritmo, sin improvisar.',
+          buttonText: 'Quiero acceso a la Plataforma Educativa',
+          buttonUrl: '#',
+          isPrimary: false
+        },
+        {
+          title: 'Opci\u00f3n 2 \u2014 Plan Personalizado',
+          subtitle: 'Educaci\u00f3n + Plan de alimentaci\u00f3n',
+          description: 'Acelerar resultados sin adivinar porciones ni el tiempo exacto de cada comida.',
+          buttonText: 'Quiero el Combo: Educaci\u00f3n + Plan Personalizado',
+          buttonUrl: '#',
+          isPrimary: true
+        }
+      ],
+      transition: {
+        text: 'Tu transformaci\u00f3n apenas comienza.',
+        buttonText: 'Siguiente',
+        buttonUrl: '#'
+      },
+      footerSubtext: 'Sin compromiso \u2022 Resultados reales \u2022 Soporte constante'
+    },
+    order_index: 36,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-21',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'cta',
+    content: {
+      message: 'Ahora el foco cambia: ya no es solo bajar grasa... es entrenar el est\u00f3mago y la resistencia para que en fondos largos no te d\u00e9 la p\u00e1lida y pod\u00e1s sostener energ\u00eda de principio a fin.',
+      options: [],
+      transition: {
+        text: '\u00a1Preparate para el siguiente nivel!',
+        buttonText: 'Ir a la Fase 2',
+        buttonUrl: '#'
+      },
+      footerSubtext: 'Sistema ADA \u2022 Fase 2'
+    },
+    order_index: 37,
     created_at: new Date().toISOString()
   }
 ];
@@ -160,9 +689,9 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'intro',
     content: {
-      title: 'Adaptación y resistencia: entrenar el estómago para fondos largos',
+      title: 'Apertura (mi historia)',
       paragraphs: [
-        'Hubo una época en la que yo pensaba que la nutrición en la bici era "algo que se resuelve": un banano, un bocadillo, agüita… y chao. Y mientras las salidas eran cortas, esa idea me funcionaba… o por lo menos creía que me funcionaba.',
+        'Hubo una \u00e9poca en la que yo pensaba que la nutrici\u00f3n en la bici era \u201calgo que se resuelve\u201d: un banano, un bocadillo, ag\u00fcita\u2026 y chao. Y mientras las salidas eran cortas, esa idea me funcionaba\u2026 o por lo menos cre\u00eda que me funcionaba.'
       ]
     },
     order_index: 0,
@@ -173,9 +702,9 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'intro',
     content: {
-      title: 'Adaptación y resistencia: entrenar el estómago para fondos largos',
+      title: 'El problema apareció',
       paragraphs: [
-        'El problema apareció cuando empecé a hacer fondos de verdad. Esos en los que al comienzo todo es alegría… y de repente el cuerpo cambia de idioma. A mí me pasaba así: iba bien, y en una hora específica la energía se me iba. No era cansancio normal, era como si me apagaran el motor. Y ahí yo entraba en modo "a ver qué aparece": paro en una tienda, compro cualquier cosa, me tomo algo dulce, me meto lo que sea… y sigo. Pero eso no era estrategia.',
+        'El problema apareci\u00f3 cuando empec\u00e9 a hacer fondos de verdad. Esos en los que al comienzo todo es alegr\u00eda\u2026 y de repente el cuerpo cambia de idioma. A m\u00ed me pasaba as\u00ed: iba bien, y en una hora espec\u00edfica la energ\u00eda se me iba. No era cansancio normal, era como si me apagaran el motor. Y ah\u00ed yo entraba en modo \u201ca ver qu\u00e9 aparece\u201d: paro en una tienda, compro cualquier cosa, me tomo algo dulce, me meto lo que sea\u2026 y sigo. Pero eso no era estrategia.'
       ]
     },
     order_index: 1,
@@ -186,9 +715,9 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'intro',
     content: {
-      title: 'Adaptación y resistencia: entrenar el estómago para fondos largos',
+      title: 'Lo que entendí',
       paragraphs: [
-        'Lo que entendí me cambió la forma de ver las cosas: el estómago también se entrena. No es solo "qué comer", es cuánto por hora, cada cuánto, y cómo lo reparto para sostener energía sin reventarme por dentro. Y lo más importante: esto no se estrena el día del Giro, se practica en los entrenos.',
+        'Lo que entend\u00ed me cambi\u00f3 la forma de ver las cosas: el est\u00f3mago tambi\u00e9n se entrena. No es solo \u201cqu\u00e9 comer\u201d, es cu\u00e1nto por hora, cada cu\u00e1nto, y c\u00f3mo lo reparto para sostener energ\u00eda sin reventarme por dentro. Y lo m\u00e1s importante: esto no se estrena el d\u00eda del Giro, se practica en los entrenos.'
       ]
     },
     order_index: 2,
@@ -197,10 +726,13 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: 'hardcoded-stage2-4',
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'nutrition_guide',
+    type: 'intro',
     content: {
       title: 'Cada cosa tiene su momento',
-      concept: 'En el bolsillo (energía fácil de dosificar): ahí sí me sirven una Gomitas Grizzly, porque es práctico, rápido y lo puedo partir en tandas.\n\nEn la caramañola (cuando el entreno lo pide): si hace calor, sudo mucho o la sesión es larga/intensa, una bebida tipo Gatorade puede ser una herramienta porque trae líquido + carbo + sales. No es necesario meter bebidas con carbo "porque sí" en una salida corta y suave donde con agua vas bien.\n\nSólido (solo si la intensidad lo permite): en un fondo suave (Z2) y si yo tolero sólido, algo controlado tipo Crakeñas puede funcionar. Eso sí, evitar masticar galletas en series o subidas duras cuando la respiración está arriba (ahí manda lo fácil de absorber).\n\nAl terminar (recuperación de verdad): yo no "veo qué aparece". Yo recupero con comida real: Arroz Sonora + pollo FRIKO, o Pasta La Muñeca + proteína magra US MEAT. No llegar a improvisar con fritos o cualquier cosa porque "me lo gané".',
+      paragraphs: [
+        '\u2022 En el bolsillo (energ\u00eda f\u00e1cil de dosificar): ah\u00ed s\u00ed me sirven una Gomitas Grizzly, porque es pr\u00e1ctico, r\u00e1pido y lo puedo partir en tandas.',
+        '\u2022 En la carama\u00f1ola (cuando el entreno lo pide): si hace calor, sudo mucho o la sesi\u00f3n es larga/intensa, una bebida tipo Gatorade puede ser una herramienta porque trae l\u00edquido + carbo + sales. no es necesario meter bebidas con carbo \u201cporque s\u00ed\u201d en una salida corta y suave donde con agua vas bien.',
+      ]
     },
     order_index: 3,
     created_at: new Date().toISOString()
@@ -210,442 +742,16 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'intro',
     content: {
-      title: 'Qué cambia en esta fase y por qué',
+      title: 'Cada cosa tiene su momento',
       paragraphs: [
-        'En Fase 2 yo paso de "comer cuando me acuerdo" a tener un protocolo:\n\nYo hago pre-entreno según la zona (suave vs intenso).\n\nYo defino cuánto comer por hora según intensidad (Z3 vs Z4–Z5).\n\nYo respeto un mínimo de hidratación por hora y meto electrolitos cuando toca.\n\nMicro-regla de oro: yo no estreno estrategia el día del Giro; yo la entreno aquí.',
-      ]
+        '\u2022 S\u00f3lido (solo si la intensidad lo permite): en un fondo suave (Z2) y si yo tolero s\u00f3lido, algo controlado tipo Crake\u00f1as puede funcionar. Eso s\u00ed, evitar masticar galletas en series o subidas duras cuando la respiraci\u00f3n est\u00e1 arriba (ah\u00ed manda lo f\u00e1cil de absorber).',
+        '\u2022 Al terminar (recuperaci\u00f3n de verdad): yo no \u201cveo qu\u00e9 aparece\u201d. Yo recupero con comida real: Arroz Sonora + pollo FRIKO, o Pasta La Mu\u00f1eca + prote\u00edna magra US MEAT. No llegar a improvisar con fritos o cualquier cosa porque \u201cme lo gan\u00e9\u201d.'
+      ],
+      callout: {
+        text: 'Se acab\u00f3 el \u201ca ver qu\u00e9 aparece\u201d.'
+      }
     },
     order_index: 4,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-6',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'nutrition_guide',
-    content: {
-      title: 'El principio que manda: "la salida larga se alimenta"',
-      concept: 'Si yo espero a tener hambre, ya voy tarde. El objetivo es sostener energía para que no se dispare la fatiga.\n\nRegla (para cualquier salida larga): desde el minuto 30, meto algo cada 30–40 min + agua a sorbos todo el tiempo.',
-      practicalHeading: 'Escenarios de alimentación:',
-      scenarios: [
-        {
-          condition: 'Escenario A — Baja intensidad (Z2 / fondo suave)',
-          meals: [
-            {
-              name: 'Qué llevo',
-              items: ['1–2 bananos', 'Bocadillo', '½ sánduche sencillo (pan con banano y miel)']
-            },
-            {
-              name: 'Líquidos',
-              items: ['Agua constante', 'Si hace calor: una botella con electrolitos']
-            }
-          ]
-        },
-        {
-          condition: 'Escenario B — Sube la intensidad (Z3–Z4 / subidas / ritmo fuerte)',
-          meals: [
-            {
-              name: 'Qué llevo',
-              items: ['Geles o compota de fruta', 'Gomitas Grizzly']
-            },
-            {
-              name: 'Líquidos',
-              items: ['Agua constante', 'Bebida tipo Gatorade (líquido + carbo + sales)']
-            }
-          ]
-        }
-      ],
-      microTransition: 'Con eso ya no salís a "ver qué pasa": salís con plan.'
-    },
-    order_index: 5,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-7',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'preamble_checklist',
-    content: {
-      title: 'Checklist de salida larga',
-      preamble: 'Antes de salir, asegurate de tener todo listo para no improvisar en el camino.',
-      items: [
-        '¿Mi salida pasa de 90 min? Si sí, ¿llevo plan?',
-        '¿Tengo algo para energía + algo para hidratación?',
-        '¿Tengo plan B por si algo se me cae o no me pasa?'
-      ]
-    },
-    order_index: 6,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-8',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Pre-entreno: yo como según la zona (suave vs intenso)',
-      concept: 'El pre no es "comer por comer"; es preparar el cuerpo para lo que voy a hacer, sin que la digestión estorbe.',
-      practicalHeading: 'Cómo lo hago (por escenarios):',
-      scenarios: [
-        {
-          condition: 'Z1–Z2 menos de 90 min (suave)',
-          meals: [
-            {
-              name: 'Estrategia',
-              items: ['Liviano (o incluso en ayunas si ya estás adaptado)']
-            }
-          ]
-        },
-        {
-          condition: 'Z3 (tempo / más largo)',
-          meals: [
-            {
-              name: 'Ejemplo',
-              items: ['Arroz Sonora + Huevos 100%']
-            }
-          ]
-        },
-        {
-          condition: 'Z4–Z5 (series / PR)',
-          meals: [
-            {
-              name: 'Ejemplo',
-              items: ['Crema de arroz + banano + miel']
-            },
-            {
-              name: 'Extra útil',
-              items: ['Rigobeet (nitratos para flujo sanguíneo)', 'Se prueba en entreno, NO se estrena el día del Giro']
-            }
-          ]
-        }
-      ],
-      microTransition: 'Para que eso funcione, el pre-entreno cambia según el tipo de salida.'
-    },
-    order_index: 7,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-9',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'preamble_checklist',
-    content: {
-      title: 'Checklist de pre-entreno',
-      preamble: 'Antes de cada salida, verificá que tu alimentación esté alineada con el tipo de entreno.',
-      items: [
-        '¿Hoy es Z2 suave, Z3 tempo o Z4–Z5 series?',
-        '¿Mi pre me da energía o me deja pesado?',
-        'Si uso Rigobeet: ¿sentí cómo me recuperaba mejor?'
-      ]
-    },
-    order_index: 8,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-10',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Durante: cuánto meto por hora',
-      concept: 'Yo dejo de comer por impulso y paso a un rango por hora. Porque si yo "espero el bajón", ya voy tarde.\n\nRangos que yo uso en mi sistema (se entrenan):\n• Z3 (tempo / sostenido): 30–40 g de carbohidrato por hora\n• Z4–Z5 (series / subidas duras): 50–90 g de carbohidrato por hora (esto se entrena, no se prueba el día del evento)',
-      practicalHeading: 'Cómo lo aterrizo en 3 pasos:',
-      scenarios: [
-        {
-          condition: 'Paso 1: Defino mi rango para hoy (Z3 o Z4–Z5)',
-          meals: []
-        },
-        {
-          condition: 'Paso 2: Leo la tabla nutricional de lo que voy a usar',
-          meals: [
-            {
-              name: 'Ahí dice',
-              items: ['Cuántos gramos de carbohidrato por porción tiene']
-            }
-          ]
-        },
-        {
-          condition: 'Paso 3: Armo la hora con porciones que sumen mi meta',
-          meals: [
-            {
-              name: 'Lo reparto',
-              items: ['Cada 30–45 minutos meto una parte', 'No se me acumula todo de una']
-            }
-          ]
-        }
-      ],
-      microTransition: 'Qué funciona mejor según el tipo de esfuerzo:'
-    },
-    order_index: 9,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-11',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Qué funciona mejor según el tipo de esfuerzo',
-      concept: 'Si sube la intensidad (Z4–Z5): la sangre se va a las piernas y la digestión se pone más delicada. Por eso yo elijo cosas con poca fibra y poca grasa: pasan más rápido, me dejan sostener el ritmo y reducen la posibilidad de que el estómago se me "rebele".\n\nEjemplos típicos: geles, compota, Gomitas Grizzly, bebida con carbohidrato Gatorade, miel, etc.\n\nSi es largo y suave (Z2–Z3 estable): acá sí puedo tolerar más sólido, y hasta un poquito más de fibra/grasa si me cae bien, porque la energía sostenida pesa más que la velocidad de absorción.\n\nEjemplos típicos: banano, bocadillo, sánduche sencillo, galletas Krakeñas, barritas caseras, etc.',
-    },
-    order_index: 10,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-12',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'preamble_checklist',
-    content: {
-      title: 'Checklist de nutrición durante',
-      preamble: 'Durante el entreno, verificá que estás ejecutando tu estrategia correctamente.',
-      items: [
-        '¿Ya sé mi objetivo por hora para hoy?',
-        '¿Estoy repartiendo (no todo en 5 minutos)?',
-        '¿Estoy practicando esto en entreno?'
-      ]
-    },
-    order_index: 11,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-13',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Hidratación: el mínimo que yo no negocio',
-      concept: 'Mi regla base: 400–500 ml por hora mínimo, ajustando por calor/sudor.\n\nSi hay intensidad: líquido con carbohidratos + electrolitos.\n\nSi es suave: agua + sales si hace falta.\n\nRegla de oro: el carbohidrato necesita agua suficiente para "pasar". Si concentrás mucho la bebida, se pone pesada. Por eso no me paso de 9% de carbohidrato en la botella: máximo 90 g por litro.',
-      practicalHeading: 'Referencia de concentración:',
-      scenarios: [
-        {
-          condition: 'Botella 500 ml',
-          meals: [
-            {
-              name: 'Máximo',
-              items: ['45 g de carbo']
-            }
-          ]
-        },
-        {
-          condition: 'Botella 600 ml',
-          meals: [
-            {
-              name: 'Máximo',
-              items: ['54 g de carbo']
-            }
-          ]
-        },
-        {
-          condition: 'Botella 750 ml',
-          meals: [
-            {
-              name: 'Máximo',
-              items: ['67 g de carbo']
-            }
-          ]
-        }
-      ],
-      microTransition: 'Si el carbo es gasolina, el líquido es el que permite que esa gasolina "pase".'
-    },
-    order_index: 12,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-14',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Entrenar el intestino: cómo llego a 60–90 g/h (progresivo)',
-      concept: 'Si querés llegar a 60–90 g de carbo por hora, la clave no es "meter más de una". Es entrenarlo: subir de a poco y repartirlo mejor.\n\nRegla simple: subo 10–15 g/h cada 1–2 semanas (si todo me pasa bien).',
-      practicalHeading: 'Escalera práctica (4 semanas):',
-      scenarios: [
-        {
-          condition: 'Semana 1',
-          meals: [
-            {
-              name: '30–40 g/h',
-              items: ['Base en Z3']
-            }
-          ]
-        },
-        {
-          condition: 'Semana 2',
-          meals: [
-            {
-              name: '40–50 g/h',
-              items: ['Mejor repartido: cada 20 min entra algo']
-            }
-          ]
-        },
-        {
-          condition: 'Semana 3',
-          meals: [
-            {
-              name: '50–60 g/h',
-              items: ['Ya "casi carrera"']
-            }
-          ]
-        },
-        {
-          condition: 'Semana 4',
-          meals: [
-            {
-              name: '60–70 g/h',
-              items: ['En una salida clave']
-            }
-          ]
-        },
-        {
-          condition: '¿Y 80–90 g/h?',
-          meals: [
-            {
-              name: 'Solo si 70 g/h ya te pasa fácil',
-              items: ['Funciona mejor con líquidos + gel/compota', 'En intensidad alta masticar cuesta y lo sólido estorba']
-            }
-          ]
-        }
-      ],
-      microTransition: 'Nota importante: si sentís que se te pone pesado o te revuelve, devolvete 10–15 g/h, repartí mejor (en tandas más pequeñas) y volvé a probar en el próximo entreno. Esto no se estrena el día del Giro: se practica acá, hasta que sea automático.'
-    },
-    order_index: 13,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-15',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'preamble_checklist',
-    content: {
-      title: 'Checklist de progresión intestinal',
-      preamble: 'Al entrenar tu intestino, verificá que estés avanzando de manera controlada.',
-      items: [
-        '¿Estoy cambiando una cosa a la vez?',
-        '¿Estoy probando en entreno, no en evento?',
-        '¿Estoy registrando qué me cayó bien/mal?'
-      ]
-    },
-    order_index: 14,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-16',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Post: El entreno no acaba en la bici',
-      concept: 'Cuando terminás de montar, tu cuerpo queda en modo reposición: vaciaste parte del glucógeno y dejaste el músculo "pidiendo" reparación. En esa primera ventana (sobre todo la primera hora), lo que hagas define dos cosas:\n\n• Cómo te recuperás para el siguiente entreno (si reponés bien, volvés a entrenar con energía)\n• Qué tan fácil es mantener el plan (si no reponés, te llega el hambre y la ansiedad más tarde… y ahí es cuando se desordena el día)\n\nRegla simple: En la primera hora post-entreno yo meto carbo + proteína. No perfecto, pero sí a tiempo. Si el post queda resuelto, el resto del día se vuelve mucho más fácil.',
-      practicalHeading: 'Ejemplos prácticos:',
-      scenarios: [
-        {
-          condition: 'Opción 1',
-          meals: [
-            {
-              name: 'Plato completo',
-              items: ['Arroz Sonora + pollo FRIKO + ensalada']
-            }
-          ]
-        },
-        {
-          condition: 'Opción 2',
-          meals: [
-            {
-              name: 'Plato completo',
-              items: ['Pasta La Muñeca + Carne Magra US MEAT + verduras']
-            }
-          ]
-        }
-      ],
-      microTransition: 'Y para que el cuerpo no cobre la factura al llegar a casa: post-entreno claro.'
-    },
-    order_index: 15,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-17',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'intro',
-    content: {
-      title: 'Kit del fondo: lo que yo empaco para no improvisar',
-      paragraphs: [
-        'El kit no es para llevar "muchas cosas". Es para que mi plan por hora se pueda cumplir.\n\nMi kit base tiene 4 piezas:\n\n1. Energía por hora (lo que ya definiste para tu intensidad)\n2. Hidratación por hora (agua + electrolitos si toca)\n3. Textura alternativa (por si lo dulce te satura o te cuesta masticar)\n4. Plan B: 1 extra (si se alarga, si se cae algo, o si un tramo se complica)',
-      ]
-    },
-    order_index: 16,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-18',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'preamble_checklist',
-    content: {
-      title: 'Checklist del kit de fondo',
-      preamble: 'Antes de salir, asegurate de tener todo lo necesario para cumplir tu plan.',
-      items: [
-        '¿Me alcanza para toda la duración?',
-        '¿Tengo líquidos/electrolitos listos según el clima?',
-        '¿Tengo "1 extra" sí o sí?'
-      ]
-    },
-    order_index: 17,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-19',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'testimonial',
-    content: {
-      quote: 'Venía de deportes distintos y pensaba que con "un bocadillito" estaba listo, pero me sorprendió cómo cambia la experiencia, el rendimiento y la energía cuando uno come lo que el cuerpo realmente necesita y lo trabaja "minuto a minuto".',
-      author: 'Marcelo',
-      context: 'Fase 2'
-    },
-    order_index: 18,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-20',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'action_plan',
-    content: {
-      title: 'Plan de acción',
-      actions: [
-        'En cada salida larga: desde el minuto 30, meté algo cada 30–40 min + agua a sorbos todo el tiempo',
-        'Si el ritmo es suave: podés usar más sólido. Si el ritmo sube: pasate a cosas más fáciles de tragar',
-        'Si hace calor o sudás duro: meté electrolitos (y si la salida es larga o fuerte, una bebida con carbo puede ayudarte)',
-        'Después de montar: en la primera hora, carbo + proteína para recuperar y no desordenarte después',
-        'En la semana: practicá esto en 1 salida larga y 1 salida más exigente. Con eso el estómago aprende'
-      ]
-    },
-    order_index: 19,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-21',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'reflection',
-    content: {
-      title: 'Si solo recordás 3 cosas de esta fase…',
-      points: [
-        'El estómago también se entrena (no se improvisa el día clave)',
-        'Yo como por hora según la intensidad, no por impulso',
-        'Yo hidrato con un mínimo claro y meto electrolitos cuando toca'
-      ]
-    },
-    order_index: 20,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage2-22',
-    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
-    type: 'cta',
-    content: {
-      title: 'Si querés hacer esto bien, sin adivinar y sin repetir errores que se pagan caro en carrera',
-      description: 'Dentro del Sistema ADA tenés dos caminos:',
-      options: [
-        {
-          title: 'Opción 1 — Plataforma educativa',
-          description: 'Para seguir con estructura y claridad.',
-          buttonText: 'Quiero acceso a la Plataforma Educativa'
-        },
-        {
-          title: 'Opción 2 — Educación + plan de alimentación personalizado',
-          description: 'Para ejecutar con un plan hecho para vos y llegar más seguro a la línea de salida.',
-          buttonText: 'Quiero el Combo: Educación + Plan Personalizado'
-        }
-      ]
-    },
-    order_index: 21,
     created_at: new Date().toISOString()
   }
 ];

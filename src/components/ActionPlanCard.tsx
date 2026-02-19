@@ -29,22 +29,24 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
       </div>
 
       <div className="flex-1 overflow-y-auto space-y-6">
-        <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-5 border-2 border-amber-200">
-          <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <span className="text-amber-600">💡</span>
-            Si solo recordás 3 cosas de esta Fase 1…
-          </h4>
-          <ul className="space-y-3">
-            {content.keyTakeaways.map((takeaway, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                <span className="text-sm sm:text-base text-gray-800 leading-relaxed font-medium">
-                  {takeaway}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {content.keyTakeaways && content.keyTakeaways.length > 0 && (
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-5 border-2 border-amber-200">
+            <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="text-amber-600">💡</span>
+              Si solo recordás 3 cosas de esta Fase 1…
+            </h4>
+            <ul className="space-y-3">
+              {content.keyTakeaways.map((takeaway, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-gray-800 leading-relaxed font-medium">
+                    {takeaway}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div className="space-y-4">
           {content.phases.map((phase, phaseIndex) => (

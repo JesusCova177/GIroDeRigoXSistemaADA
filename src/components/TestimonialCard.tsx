@@ -1,4 +1,5 @@
-import { Quote, TrendingDown, Zap, Trophy, LucideIcon } from 'lucide-react';
+import { useEffect } from 'react';
+import { Quote, TrendingDown, Zap, Trophy, LucideIcon, Lightbulb, ChevronRight } from 'lucide-react';
 
 interface Metric {
   label: string;
@@ -23,6 +24,7 @@ interface TestimonialContent {
     items: string[];
     conclusion: string;
   };
+  videoId?: string;
   footer: {
     title: string;
     message: string;
@@ -46,7 +48,31 @@ const colorMap: Record<string, { border: string; text: string; hover: string }> 
 };
 
 export function TestimonialCard({ content }: TestimonialCardProps) {
-  const { title, subtitle, intro, person, metrics, description, strategy, footer } = content;
+  const {
+    title = '',
+    subtitle = '',
+    intro = '',
+    person = { name: '', initial: '', duration: '' },
+    metrics = [],
+    description = '',
+    strategy = { intro: '', items: [], conclusion: '' },
+    videoId = '',
+    footer = { title: '', message: '' }
+  } = content || {};
+
+  useEffect(() => {
+    if (videoId) {
+      const script = document.createElement("script");
+      script.src = `https://scripts.converteai.net/cb2c2efc-2fa0-413a-8d5e-f3514b127b3f/players/${videoId}/v4/player.js`;
+      script.async = true;
+      document.head.appendChild(script);
+      return () => {
+        if (document.head.contains(script)) {
+          document.head.removeChild(script);
+        }
+      };
+    }
+  }, [videoId]);
 
   return (
     <div className="flex-shrink-0 w-full bg-gradient-to-br from-emerald-50 via-white to-blue-50 rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8 border-2 border-emerald-200 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
@@ -62,90 +88,116 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
             <h3 className="text-xl sm:text-2xl md:text-3xl font-titling font-black text-[#31563C] tracking-tight italic mb-1">
               {title}
             </h3>
-            <p className="text-xs sm:text-sm text-gray-600 font-medium">
+            <p className="text-sm sm:text-base text-gray-600 font-medium">
               {subtitle}
             </p>
           </div>
         </div>
 
         <div className="bg-white/80 rounded-xl p-4 sm:p-6 border-2 border-emerald-100 shadow-inner mb-4 sm:mb-6">
-          <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
-            {intro}
-          </p>
+          {intro && (
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
+              {intro}
+            </p>
+          )}
 
-          <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-lg p-4 sm:p-5 mb-4 border-2 border-emerald-200">
-            <div className="flex items-start gap-2 sm:gap-3 mb-3">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg">
-                <span className="text-lg sm:text-xl font-bold text-white">{person.initial}</span>
+          <div className="mb-4 sm:mb-6">
+            {person.name && (
+              <div className="flex items-start gap-2 sm:gap-3 mb-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <span className="text-lg sm:text-xl font-bold text-white">{person.initial}</span>
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold text-base sm:text-lg text-gray-900">{person.name}</p>
+                  <p className="text-xs sm:text-sm text-gray-600">{person.duration}</p>
+                </div>
               </div>
-              <div className="flex-1">
-                <p className="font-bold text-base sm:text-lg text-gray-900">{person.name}</p>
-                <p className="text-xs sm:text-sm text-gray-600">{person.duration}</p>
-              </div>
-            </div>
+            )}
 
-            <div className={`grid grid-cols-1 ${metrics.length === 3 ? 'sm:grid-cols-3' : metrics.length === 2 ? 'sm:grid-cols-2' : ''} gap-3 mb-4`}>
-              {metrics.map((metric, index) => {
-                const Icon = iconMap[metric.icon] || Zap;
-                const colors = colorMap[metric.color] || colorMap.emerald;
-                return (
-                  <div key={index} className={`bg-white rounded-lg p-3 border-2 ${colors.border} ${colors.hover} transition-all duration-200`}>
-                    <div className="flex items-center gap-2 mb-1">
-                      <Icon className={`w-4 h-4 ${colors.text}`} />
-                      <span className="text-xs font-semibold text-gray-600">{metric.label}</span>
+            {metrics.length > 0 && (
+              <div className="grid grid-cols-1 gap-3 mb-4">
+                {metrics.map((metric, index) => {
+                  const Icon = iconMap[metric.icon] || Zap;
+                  const colors = colorMap[metric.color] || colorMap.emerald;
+                  return (
+                    <div key={index} className={`bg-white rounded-lg p-3 border-2 ${colors.border} ${colors.hover} transition-all duration-200`}>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Icon className={`w-4 h-4 ${colors.text}`} />
+                        <span className="text-sm font-semibold text-gray-600">{metric.label}</span>
+                      </div>
+                      <p className={`text-xl sm:text-2xl font-bold ${colors.text}`}>{metric.value}</p>
                     </div>
-                    <p className={`text-lg sm:text-xl font-bold ${colors.text}`}>{metric.value}</p>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            )}
 
-            <div className="bg-white/90 rounded-lg p-3 sm:p-4 border border-gray-200">
-              <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                {description}
-              </p>
-            </div>
+            {description && (
+              <div className="bg-white/90 rounded-xl p-4 sm:p-5 border border-emerald-100 shadow-sm">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  {description}
+                </p>
+              </div>
+            )}
+
+            {videoId && (
+              <div className="mb-4">
+                <div className="relative w-full max-w-[320px] mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-emerald-100">
+                  <div 
+                    className="w-full h-full bg-black flex items-center justify-center"
+                    dangerouslySetInnerHTML={{ 
+                      __html: `<vturb-smartplayer id="vid-${videoId}" style="display: block; width: 100%; height: 100%; object-fit: cover;"></vturb-smartplayer>` 
+                    }} 
+                  />
+                </div>
+                <p className="text-center text-[10px] sm:text-xs text-gray-400 mt-3 italic font-medium">
+                  Pulsa para ver el video testimonial completo
+                </p>
+              </div>
+            )}
           </div>
 
-          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-4 border-2 border-yellow-200">
-            <p
-              className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-3"
-              dangerouslySetInnerHTML={{
-                __html: strategy.intro.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-orange-600">$1</span>')
-              }}
-            />
-            <ul className="space-y-2 text-xs sm:text-sm text-gray-700">
-              {strategy.items.map((item, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <span className="text-orange-500 font-bold flex-shrink-0">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p
-              className="text-xs sm:text-sm text-gray-700 leading-relaxed mt-3"
-              dangerouslySetInnerHTML={{
-                __html: strategy.conclusion.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-orange-600">$1</span>')
-              }}
-            />
-          </div>
+            {strategy.intro && (
+              <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-4 border-2 border-yellow-200">
+                <p
+                  className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-3"
+                  dangerouslySetInnerHTML={{
+                    __html: strategy.intro.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-orange-600">$1</span>')
+                  }}
+                />
+                <ul className="space-y-2 text-xs sm:text-sm text-gray-700">
+                  {strategy.items.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold flex-shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p
+                  className="text-xs sm:text-sm text-gray-700 leading-relaxed mt-3"
+                  dangerouslySetInnerHTML={{
+                    __html: strategy.conclusion.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-orange-600">$1</span>')
+                  }}
+                />
+              </div>
+            )}
         </div>
 
-        <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl p-4 sm:p-5 shadow-lg">
-          <div className="flex items-start gap-3">
-            <div className="p-2 bg-white/20 rounded-lg flex-shrink-0">
-              <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-            </div>
-            <div className="flex-1">
-              <p className="text-sm sm:text-base font-bold text-white mb-1">
-                {footer.title}
-              </p>
-              <p className="text-xs sm:text-sm text-white/95">
-                {footer.message}
-              </p>
+
+        {footer.message && (
+          <div className="mt-6 pt-4 border-t border-gray-200">
+            <div className="flex items-start gap-3 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-yellow-400 rounded-lg p-4">
+              <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-gray-600 mb-1">{footer.title}</p>
+                <p className="text-sm sm:text-base text-gray-700 font-medium">
+                  {footer.message}
+                </p>
+              </div>
+              <ChevronRight className="w-5 h-5 text-yellow-500 flex-shrink-0" />
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

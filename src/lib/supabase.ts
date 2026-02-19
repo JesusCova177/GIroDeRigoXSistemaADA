@@ -22,9 +22,10 @@ export interface Stage {
 export interface Challenge {
   id: string;
   stage_id: string;
-  type: 'checklist' | 'reflection' | 'combined' | 'phase_importance' | 'action_plan' | 'cta';
-  title: string;
+  type: 'checklist' | 'reflection' | 'combined' | 'phase_importance' | 'action_plan' | 'cta' | 'intro' | 'nutrition_guide' | 'preamble_checklist' | 'testimonial';
+  title?: string;
   content: string[] | {
+    title?: string;
     subtitle?: string;
     preamble?: string;
     checklist?: string[];
@@ -42,16 +43,48 @@ export interface Challenge {
     message?: string;
     options?: Array<{
       title: string;
-      subtitle: string;
+      subtitle?: string;
       description: string;
       buttonText: string;
-      buttonUrl: string;
-      isPrimary: boolean;
+      buttonUrl?: string;
+      isPrimary?: boolean;
     }>;
     transition?: {
       text: string;
       buttonText: string;
       buttonUrl: string;
+    };
+    footerSubtext?: string;
+    icon?: string;
+    paragraphs?: string[];
+    concept?: string;
+    practicalHeading?: string;
+    scenarios?: Array<{
+      condition: string;
+      meals: Array<{
+        name: string;
+        items: string[];
+      }> | string[];
+    }>;
+    microTransition?: string;
+    quote?: string;
+    author?: string;
+    context?: string;
+    actions?: string[];
+    points?: Array<{ title: string; description: string }> | string[];
+    items?: string[];
+    questions?: string[];
+    intro?: string;
+    videoId?: string;
+    headerEmoji?: string;
+    description?: string;
+    metrics?: Array<{ label: string; value: string; icon?: string; color?: string }>;
+    footer?: string | { title: string; message: string };
+    callout?: {
+      text: string;
+      bgColor?: string;
+      borderColor?: string;
+      textColor?: string;
     };
   };
   order_index: number;
