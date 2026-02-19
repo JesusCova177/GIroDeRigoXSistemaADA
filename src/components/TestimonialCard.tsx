@@ -94,7 +94,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
           </div>
         </div>
 
-        <div className="bg-white/80 rounded-xl p-4 sm:p-6 border-2 border-emerald-100 shadow-inner mb-4 sm:mb-6">
+        <div className="bg-white/80 rounded-xl p-4 sm:p-6 border-2 border-yellow-100 shadow-inner mb-4 sm:mb-6">
           {intro && (
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
               {intro}
