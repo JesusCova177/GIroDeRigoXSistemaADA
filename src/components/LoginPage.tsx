@@ -35,13 +35,18 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-400 rounded-full opacity-10 blur-3xl" />
       </div>
 
-     
+      <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full relative z-10">
+        <div className="flex items-center justify-center mb-8">
+          <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-4 rounded-2xl">
+            <Zap className="w-10 h-10 text-yellow-400" fill="currentColor" />
+          </div>
+        </div>
 
         <h1 className="text-4xl font-titling font-black text-[#31563C] text-center mb-3 italic uppercase tracking-tight">
-         Bienvenido
+          Start Your Journey
         </h1>
         <p className="text-gray-600 text-center mb-8">
-          Ingrese su correo electronico
+          Enter your email to begin
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -91,12 +96,6 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             )}
           </button>
         </form>
-
-        <div className="mt-8 pt-6 border-t border-gray-100">
-          <p className="text-xs text-gray-500 text-center">
-            No password required. Just enter your email to continue.
-          </p>
-        </div>
       </div>
     </div>
   );
