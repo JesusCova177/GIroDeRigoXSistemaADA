@@ -146,7 +146,7 @@ function App() {
 
   if (authLoading) {
     return (
-      <div className="h-dvh bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+      <div className="h-[80dvh] bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
           <p className="text-gray-600 text-lg">Loading...</p>
