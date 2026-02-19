@@ -60,7 +60,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'Eso es gasolina directa para la pálida.',
       paragraphs: [
-        'La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
+        'Eso es gasolina directa para la pálida.','La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
       ]
     },
     order_index: 1,
