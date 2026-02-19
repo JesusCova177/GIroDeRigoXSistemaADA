@@ -87,5 +87,6 @@ export function NutritionGuideCard({
         </div>
       </div>
     </div>
+        </div>
   );
 }
