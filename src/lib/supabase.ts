@@ -22,7 +22,7 @@ export interface Stage {
 export interface Challenge {
   id: string;
   stage_id: string;
-  type: 'checklist' | 'reflection' | 'combined' | 'phase_importance' | 'action_plan' | 'cta' | 'intro' | 'nutrition_guide' | 'preamble_checklist' | 'testimonial';
+  type: 'checklist' | 'reflection' | 'combined' | 'phase_importance' | 'action_plan' | 'cta' | 'intro' | 'nutrition_guide' | 'preamble_checklist' | 'testimonial' | 'bifurcation' | 'route';
   title?: string;
   content: string[] | {
     title?: string;
@@ -54,7 +54,7 @@ export interface Challenge {
       buttonText: string;
       buttonUrl: string;
     };
-    footerSubtext?: string;
+    list?: string[];
     icon?: string;
     paragraphs?: string[];
     concept?: string;
@@ -70,14 +70,18 @@ export interface Challenge {
     quote?: string;
     author?: string;
     context?: string;
-    actions?: string[];
+    actions?: Array<{ title: string; description: string }> | string[];
     points?: Array<{ title: string; description: string }> | string[];
     items?: string[];
     questions?: string[];
     intro?: string;
     videoId?: string;
+    routes?: Array<{ routeId: string; name: string; description: string; details?: any }>;
+    question?: string;
     headerEmoji?: string;
     description?: string;
+    finalNote?: string;
+    role?: string;
     metrics?: Array<{ label: string; value: string; icon?: string; color?: string }>;
     footer?: string | { title: string; message: string };
     callout?: {

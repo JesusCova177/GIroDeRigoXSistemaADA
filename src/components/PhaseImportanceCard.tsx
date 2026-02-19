@@ -7,6 +7,8 @@ interface PhaseImportanceCardProps {
       text: string;
       icon?: string;
     }[];
+    callout?: { text: string };
+    footer?: string | { title: string; message: string };
   };
 }
 
@@ -42,7 +44,25 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
             </div>
           </div>
         ))}
+
       </div>
+      
+      {content.callout && (
+        <div className="mt-6 sm:mt-8 bg-blue-50 p-4 rounded-xl border border-blue-100">
+           <p className="text-gray-800 font-medium">
+             <span className="font-bold block mb-1">Regla táctica:</span>
+             {content.callout.text}
+           </p>
+        </div>
+      )}
+
+      {content.footer && (
+         <div className="mt-6 pt-4 border-t border-gray-100">
+            <p className="text-sm text-gray-500 italic">
+              {typeof content.footer === 'string' ? content.footer : content.footer.message}
+            </p>
+         </div>
+      )}
     </div>
   );
 }

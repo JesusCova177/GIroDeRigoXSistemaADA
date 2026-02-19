@@ -625,7 +625,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         buttonText: 'Ver opciones',
         buttonUrl: '#'
       },
-      footerSubtext: 'Paso a paso \u2022 Sin complicaciones'
+      footer: 'Paso a paso \u2022 Sin complicaciones'
     },
     order_index: 35,
     created_at: new Date().toISOString()
@@ -659,7 +659,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         buttonText: 'Siguiente',
         buttonUrl: '#'
       },
-      footerSubtext: 'Sin compromiso \u2022 Resultados reales \u2022 Soporte constante'
+      footer: 'Sin compromiso \u2022 Resultados reales \u2022 Soporte constante'
     },
     order_index: 36,
     created_at: new Date().toISOString()
@@ -676,7 +676,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         buttonText: 'Ir a la Fase 2',
         buttonUrl: '#'
       },
-      footerSubtext: 'Sistema ADA \u2022 Fase 2'
+      footer: 'Sistema ADA \u2022 Fase 2'
     },
     order_index: 37,
     created_at: new Date().toISOString()
@@ -753,6 +753,671 @@ export const hardcodedStage2Challenges: Challenge[] = [
     },
     order_index: 4,
     created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-6',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'intro',
+    content: {
+      title: 'Qu\u00e9 cambia en esta fase y por qu\u00e9',
+      paragraphs: [
+        'En Fase 2 yo paso de \u201ccomer cuando me acuerdo\u201d a tener un protocolo:',
+        '\u2022 Yo hago pre-entreno seg\u00fan la zona (suave vs intenso).',
+        '\u2022 Yo defino cu\u00e1nto comer por hora seg\u00fan intensidad (Z3 vs Z4\u2013Z5).',
+        '\u2022 Yo respeto un m\u00ednimo de hidrataci\u00f3n por hora y meto electrolitos cuando toca.'
+      ],
+      callout: {
+        text: 'Micro-regla de oro: yo no estreno estrategia el d\u00eda del Giro; yo la entreno aqu\u00ed.'
+      }
+    },
+    order_index: 5,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-7',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Pre-entreno: yo como seg\u00fan la zona (suave vs intenso)',
+      concept: 'El pre no es \u201ccomer por comer\u201d; es preparar el cuerpo para lo que voy a hacer, sin que la digesti\u00f3n estorbe.',
+      practicalHeading: 'C\u00f3mo lo hago (por escenarios):',
+      scenarios: [
+        {
+          condition: 'Z1\u2013Z2 menos de 90 min (suave)',
+          meals: [
+            {
+              name: 'Estrategia',
+              items: ['Liviano (o incluso en ayunas si ya est\u00e1s adaptado)']
+            }
+          ]
+        },
+        {
+          condition: 'Z3 (tempo / m\u00e1s largo)',
+          meals: [
+            {
+              name: 'Preparo tanque sin caer pesado',
+              items: ['Arroz Sonora', 'Huevos 100% (esto nunca le falla a los ciclistas)']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 6,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-7b',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Extra \u00fatil para intensidad: Rigobeet',
+      concept: 'La remolacha aporta nitratos, que el cuerpo convierte en \u00f3xido n\u00edtrico: ayuda al flujo sangu\u00edneo y puede mejorar la eficiencia del esfuerzo en trabajos fuertes.',
+      practicalHeading: 'Funci\u00f3n:',
+      scenarios: [
+        {
+          condition: 'Z4\u2013Z5 (series / PR)',
+          meals: [
+            {
+              name: 'R\u00e1pida absorci\u00f3n (poca grasa/fibra)',
+              items: ['Crema de arroz', 'banano', 'miel']
+            }
+          ]
+        },
+        {
+          condition: 'Regla de oro',
+          meals: [
+            {
+              name: 'Se prueba en entreno',
+              items: ['No se estrena el d\u00eda del Giro']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 7,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-8',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Mini checklist',
+      items: [
+        '\u00bfHoy es Z2 suave, Z3 tempo o Z4\u2013Z5 series?',
+        '\u00bfMi pre me da energ\u00eda o me deja pesado?',
+        'Si uso Rigobeet: \u00bfsent\u00ed como me recuperaba mejor?'
+      ],
+      microTransition: 'Bien. El resto se define ac\u00e1: cu\u00e1nto com\u00e9s y tom\u00e1s por hora.'
+    },
+    order_index: 8,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-9',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Subbloque 3 — Durante: cu\u00e1nto meto por hora',
+      concept: 'Yo dejo de comer por impulso y paso a un rango por hora. Porque si yo \u201cespero el baj\u00f3n\u201d, ya voy tarde.',
+      practicalHeading: 'Rangos que yo uso en mi sistema (se entrenan):',
+      scenarios: [
+        {
+          condition: 'Z3 (tempo / sostenido)',
+          meals: [
+            {
+              name: 'Meta',
+              items: ['30\u201340 g de carbohidrato por hora']
+            }
+          ]
+        },
+        {
+          condition: 'Z4\u2013Z5 (series / subidas duras)',
+          meals: [
+            {
+              name: 'Meta elevada',
+              items: ['50\u201390 g de carbohidrato por hora', '(esto se entrena, no se prueba el d\u00eda del evento)']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 9,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-10',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'phase_importance',
+    content: {
+      sections: [
+        {
+          title: '1. Defino mi rango para hoy',
+          content: '(Z3 o Z4\u2013Z5)',
+          icon: 'target'
+        },
+        {
+          title: '2. Leo la tabla nutricional',
+          content: 'De lo que voy a usar: ah\u00ed dice cu\u00e1ntos gramos de carbohidrato por porci\u00f3n tiene.',
+          icon: 'search'
+        },
+        {
+          title: '3. Armo la hora',
+          content: 'Con porciones que sumen mi meta, y lo reparto: cada 30\u201345 minutos meto una parte para que no se me acumule todo de una.',
+          icon: 'clock'
+        }
+      ]
+    },
+    order_index: 10,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-11',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Qu\u00e9 funciona mejor seg\u00fan el tipo de esfuerzo',
+      practicalHeading: 'Opciones:',
+      scenarios: [
+        {
+          condition: 'Si sube la intensidad (Z4\u2013Z5)',
+          meals: [
+            {
+              name: 'La sangre se va a las piernas',
+              items: ['Poca fibra y poca grasa', 'Geles', 'Compota', 'Gomitas Grizzly', 'Bebida con carbohidrato Gatorade', 'Miel']
+            }
+          ]
+        },
+        {
+          condition: 'Si es largo y suave (Z2\u2013Z3 estable)',
+          meals: [
+            {
+              name: 'Puedo tolerar m\u00e1s s\u00f3lido',
+              items: ['Banano', 'Bocadillo', 'S\u00e1nduche sencillo', 'Galletas Krake\u00f1as', 'Barritas caseras']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 11,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-12',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Mini checklist',
+      items: [
+        '\u00bfYa s\u00e9 mi objetivo por hora para hoy?',
+        '\u00bfEstoy repartiendo (no todo en 5 minutos)?',
+        '\u00bfEstoy practicando esto en entreno?'
+      ],
+      microTransition: 'Si el carbo es gasolina, el l\u00edquido es el que permite que esa gasolina \u201cpase\u201d.'
+    },
+    order_index: 12,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-13',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Subbloque 4 \u2014 Hidrataci\u00f3n: el m\u00ednimo que yo no negocio',
+      concept: 'Mi regla base: 400\u2013500 ml por hora m\u00ednimo, ajustando por calor/sudor.',
+      practicalHeading: 'Criterio:',
+      scenarios: [
+        {
+          condition: 'Si hay intensidad',
+          meals: [
+            {
+              name: 'Mezcla',
+              items: ['L\u00edquido con carbohidratos + electrolitos']
+            }
+          ]
+        },
+        {
+          condition: 'Si es suave',
+          meals: [
+            {
+              name: 'B\u00e1sico',
+              items: ['Agua + sales si hace falta']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 13,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-14',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Regla de oro: el carbohidrato necesita agua suficiente para \u201cpasar\u201d',
+      concept: 'Si concentr\u00e1s mucho la bebida, se pone pesada. Por eso no me paso de 9% de carbohidrato en la botella: m\u00e1ximo 90 g por litro.',
+      practicalHeading: 'Regla:',
+      scenarios: [
+        {
+          condition: 'L\u00edmite seguro',
+          meals: [
+            {
+              name: 'Concentraci\u00f3n',
+              items: ['M\u00e1ximo 9%']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 14,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-15',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Ejemplos por botella (M\u00e1ximo 9%)',
+      practicalHeading: 'L\u00edmites por tama\u00f1o:',
+      scenarios: [
+        {
+          condition: 'Botella 500 ml',
+          meals: [
+            {
+              name: 'L\u00edmite',
+              items: ['Hasta 45 g de carbo']
+            }
+          ]
+        },
+        {
+          condition: 'Botella 600 ml',
+          meals: [
+            {
+              name: 'L\u00edmite',
+              items: ['Hasta 54 g de carbo']
+            }
+          ]
+        },
+        {
+          condition: 'Botella 750 ml',
+          meals: [
+            {
+              name: 'L\u00edmite',
+              items: ['Hasta 67 g de carbo']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 15,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-16',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'F\u00f3rmula f\u00e1cil',
+      concept: 'Si us\u00e1s polvos o mezclas, hac\u00e9 este c\u00e1lculo r\u00e1pido para no pasarte.',
+      practicalHeading: 'Tu f\u00f3rmula:',
+      scenarios: [
+        {
+          condition: 'C\u00e1lculo',
+          meals: [
+            {
+              name: 'Matem\u00e1tica simple',
+              items: ['Gramos m\u00e1ximos = ml de la botella \u00d7 0.09']
+            }
+          ]
+        }
+      ],
+      microTransition: 'Ahora s\u00ed: A entrenar el est\u00f3mago. Para que el d\u00eda del Giro todo te pase bien.'
+    },
+    order_index: 16,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-17',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Subbloque 5 \u2014 Entrenar el intestino: progresivo',
+      concept: 'Si quer\u00e9s llegar a 60\u201390 g/h, no es \u201cmeter m\u00e1s de una\u201d. Es entrenarlo: subir 10\u201315 g/h cada 1\u20132 semanas si todo pasa bien.',
+      practicalHeading: 'Escalera pr\u00e1ctica (Parte 1):',
+      scenarios: [
+        {
+          condition: 'Semana 1',
+          meals: [
+            {
+              name: '30\u201340 g/h',
+              items: ['Base en Z3']
+            }
+          ]
+        },
+        {
+          condition: 'Semana 2',
+          meals: [
+            {
+              name: '40\u201350 g/h',
+              items: ['Mejor repartido: cada 20 min entra algo']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 17,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-17b',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Escalera pr\u00e1ctica (Parte 2)',
+      practicalHeading: 'Semanas clave:',
+      scenarios: [
+        {
+          condition: 'Semana 3',
+          meals: [
+            {
+              name: '50\u201360 g/h',
+              items: ['Ya \u201ccasi carrera\u201d']
+            }
+          ]
+        },
+        {
+          condition: 'Semana 4',
+          meals: [
+            {
+              name: '60\u201370 g/h',
+              items: ['En una salida clave']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 18,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-18',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: '\u00bfY 80\u201390 g/h?',
+      concept: 'Solo si 70 g/h ya te pasa f\u00e1cil. Ah\u00ed normalmente funciona mejor con l\u00edquidos + gel/compota, porque en intensidad alta masticar cuesta y lo s\u00f3lido estorba.',
+      practicalHeading: 'Condici\u00f3n:',
+      scenarios: [
+        {
+          condition: 'Nivel Avanzado',
+          meals: [
+            {
+              name: 'Requisito',
+              items: ['Haber dominado 70 g/h sin molestias']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 19,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-19',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Mini checklist',
+      preamble: 'Nota importante (la que te salva): si sent\u00eds que se te pone pesado, devolvete 10\u201315 g/h, repart\u00ed mejor (tandas m\u00e1s peque\u00f1as) y volv\u00e9 a probar en el pr\u00f3ximo entreno.',
+      items: [
+        '\u00bfEstoy cambiando una cosa a la vez?',
+        '\u00bfEstoy probando en entreno, no en evento?',
+        '\u00bfEstoy registrando qu\u00e9 me cay\u00f3 bien/mal?'
+      ],
+      microTransition: 'Y para que el cuerpo no cobre la factura al llegar a casa: post-entreno claro.'
+    },
+    order_index: 20,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-20',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Subbloque 6 \u2014 Post: El entreno no acaba en la bici',
+      concept: 'Cuando termin\u00e1s de montar, tu cuerpo queda en modo reposici\u00f3n: vaciaste parte del gluc\u00f3geno y dejaste el m\u00fasculo \u201cpidiendo\u201d reparaci\u00f3n. En esa primera ventana (sobre todo la primera hora), lo que hagas define dos cosas:',
+      practicalHeading: 'Prop\u00f3sito:',
+      scenarios: [
+        {
+          condition: '1. Recuperaci\u00f3n',
+          meals: [
+            {
+              name: 'Para el siguiente entreno',
+              items: ['Si repon\u00e9s bien, volv\u00e9s a entrenar con energ\u00eda']
+            }
+          ]
+        },
+        {
+          condition: '2. Mantener el plan',
+          meals: [
+            {
+              name: 'Control de hambre',
+              items: ['Si no repon\u00e9s, te llega el hambre y la ansiedad m\u00e1s tarde... y ah\u00ed es cuando se desordena el d\u00eda']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 21,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-21',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Regla simple y ejemplos pr\u00e1cticos',
+      concept: 'En la primera hora post-entreno yo meto carbo + prote\u00edna. No perfecto, pero s\u00ed a tiempo. Si el post queda resuelto, el resto del d\u00eda se vuelve mucho m\u00e1s f\u00e1cil.',
+      practicalHeading: 'Comidas reales:',
+      scenarios: [
+        {
+          condition: 'Opci\u00f3n 1',
+          meals: [
+            {
+              name: 'Arroz Sonora',
+              items: ['+ Pollo FRIKO', '+ Ensalada']
+            }
+          ]
+        },
+        {
+          condition: 'Opci\u00f3n 2',
+          meals: [
+            {
+              name: 'Pasta La Mu\u00f1eca',
+              items: ['+ Carne magra US MEAT', '+ Verduras']
+            }
+          ]
+        }
+      ],
+      microTransition: 'Microtransici\u00f3n: Si no va en el bolsillo, no existe: armemos kit.'
+    },
+    order_index: 22,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-23',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Subbloque 7 \u2014 Kit del fondo: lo que yo empaco (Parte 1)',
+      concept: 'El kit no es para llevar \u201cmuchas cosas\u201d. Es para que mi plan por hora se pueda cumplir. Empecemos por la base:',
+      practicalHeading: 'Lo innegociable:',
+      scenarios: [
+        {
+          condition: '1. Energ\u00eda por hora',
+          meals: [
+            {
+              name: 'Lo que ya definiste',
+              items: ['Para tu intensidad']
+            }
+          ]
+        },
+        {
+          condition: '2. Hidrataci\u00f3n por hora',
+          meals: [
+            {
+              name: 'L\u00edquido',
+              items: ['Agua + electrolitos si toca']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 23,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-24',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Kit del fondo: Estrategia (Parte 2)',
+      concept: 'No solo es comida y agua. Necesit\u00e1s opciones para cuando las cosas cambian o se complican.',
+      practicalHeading: 'La estrategia:',
+      scenarios: [
+        {
+          condition: '3. Textura alternativa',
+          meals: [
+            {
+              name: 'Variedad',
+              items: ['Por si lo dulce te satura', 'Por si te cuesta masticar']
+            }
+          ]
+        },
+        {
+          condition: '4. Plan B: 1 extra',
+          meals: [
+            {
+              name: 'Seguridad',
+              items: ['Si se alarga', 'Si se cae algo', 'Si un tramo se complica']
+            }
+          ]
+        }
+      ]
+    },
+    order_index: 24,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-25',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'preamble_checklist',
+    content: {
+      title: 'Mini checklist (3)',
+      items: [
+        '\u00bfMe alcanza para toda la duraci\u00f3n?',
+        '\u00bfTengo l\u00edquidos/electrolitos listos seg\u00fan el clima?',
+        '\u00bfTengo \u201c1 extra\u201d s\u00ed o s\u00ed?'
+      ],
+      microTransition: 'Listo. Ahora s\u00ed: un ejemplo real de c\u00f3mo se siente cuando dej\u00e1s de improvisar.'
+    },
+    order_index: 25,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-26',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'testimonial',
+    content: {
+      title: 'Testimonio (Fase 2) \u2014 Marcelo',
+      subtitle: 'Marcelo \u2014 El cambio real',
+      intro: 'Marcelo lo dice clarito: ven\u00eda de deportes distintos y pensaba que con \u201cun bocadillito\u201d estaba listo, pero se sorprendi\u00f3 de c\u00f3mo cambia la experiencia, el rendimiento y la energ\u00eda cuando uno come lo que el cuerpo realmente necesita y lo trabaja \u201cminuto a minuto\u201d.'
+    },
+    order_index: 26,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-27',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'testimonial',
+    content: {
+      title: 'Testimonio en video',
+      subtitle: 'Escuch\u00e1 su experiencia:',
+      videoId: '698a8fe143730f8baa98d2ea',
+      footer: {
+        title: 'Microtransici\u00f3n',
+        message: '\u00a1Ahora es tu turno de lograr estos resultados! Pasemos a la Fase 3.'
+      }
+    },
+    order_index: 27,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-28',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'action_plan',
+    content: {
+      keyTakeaways: [],
+      phases: [
+        {
+          title: 'Plan de acci\u00f3n (Fase 2)',
+          items: [
+            'En cada salida larga: desde el minuto 30, met\u00e9 algo cada 30\u201340 min + agua a sorbos todo el tiempo.',
+            'Si el ritmo es suave: pod\u00e9s usar m\u00e1s s\u00f3lido. Si el ritmo sube: pasate a cosas m\u00e1s f\u00e1ciles de tragar.',
+            'Si hace calor o sud\u00e1s duro: met\u00e9 electrolitos (y si la salida es larga o fuerte, una bebida con carbo puede ayudarte).',
+            'Despu\u00e9s de montar: en la primera hora, carbo + prote\u00edna para recuperar y no desordenarte despu\u00e9s.',
+            'En la semana: practic\u00e1 esto en 1 salida larga y 1 salida m\u00e1s exigente. Con eso el est\u00f3mago aprende.'
+          ]
+        }
+      ]
+    },
+    order_index: 28,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-29',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'cta',
+    content: {
+      title: 'Tu siguiente paso',
+      message: 'Si quer\u00e9s hacer esto bien, sin adivinar y sin repetir errores que se pagan caro en carrera, dentro del Sistema ADA ten\u00e9s dos caminos:',
+      options: [
+        {
+          title: 'Opci\u00f3n 1 \u2014 Plataforma educativa',
+          subtitle: 'Para seguir con estructura y claridad.',
+          description: '',
+          buttonText: 'Quiero acceso a la Plataforma Educativa',
+          buttonUrl: 'https://form.typeform.com/to/ABCDEF',
+          isPrimary: false
+        },
+        {
+          title: 'Opci\u00f3n 2 \u2014 Educaci\u00f3n + plan de alimentaci\u00f3n personalizado',
+          subtitle: 'Para ejecutar con un plan hecho para vos y llegar m\u00e1s seguro a la l\u00ednea de salida.',
+          description: '',
+          buttonText: 'Quiero el Combo: Educaci\u00f3n + Plan Personalizado',
+          buttonUrl: 'https://form.typeform.com/to/GHIJKL',
+          isPrimary: true
+        }
+      ]
+    },
+    order_index: 29,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage2-30',
+    stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
+    type: 'cta',
+    content: {
+      title: 'Transici\u00f3n a Fase 3',
+      transition: {
+        text: 'Cuando ya s\u00e9 sostener energ\u00eda y mi est\u00f3mago responde, paso a Fase 3 \u2014 Simulaci\u00f3n de carrera: practico la carga, el ritmo y la estrategia real del d\u00eda del Giro.',
+        buttonText: 'Continuar a Fase 3',
+        buttonUrl: '#'
+      }
+    },
+    order_index: 30,
+    created_at: new Date().toISOString()
   }
 ];
 
@@ -762,14 +1427,32 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
     type: 'intro',
     content: {
-      title: 'Simulación de Carrera — Giro de Rigo 2026',
+      title: 'Simulación de Carrera — Giro de Rigo 2026 (Sep–Oct)',
       paragraphs: [
+        'TRONCO COMÚN (aplica para todos)',
         'He aprendido que el Giro no se define solo por piernas. Se define por qué tan bien sostenés la energía cuando ya vas cansado.',
-        'En septiembre y octubre dejamos de "salir a entrenar" y pasamos a simular: ensayamos el guion que vas a ejecutar el día del evento.',
-        'No salgas a rodar "a lo que salga". Probá lo que vas a hacer cuando: estás en una subida larga y el pulso va arriba, hace calor y sentís que el cuerpo se seca, el dulce ya no te provoca, o te pasa lo típico: se te pierde un gel o algo no te entra como esperabas.'
+        'En septiembre y octubre dejamos de “salir a entrenar” y pasamos a **simular**: ensayamos el guion que vas a ejecutar el día del evento.'
       ]
     },
     order_index: 0,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-1b',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'intro',
+    content: {
+      title: 'Tu lista de chequeo para simular',
+      paragraphs: ['No salgas a rodar “a lo que salga”. Probá lo que vas a hacer cuando:'],
+      list: [
+        'estás en una subida larga y el pulso va arriba',
+        'hace calor y sentís que el cuerpo se seca',
+        'el dulce ya no te provoca',
+        'o te pasa lo típico: **se te pierde un gel** o algo no te entra como esperabas'
+      ],
+      footer: 'Listo. Esta fase no es para inventar: es para llegar con un plan probado.'
+    },
+    order_index: 1,
     created_at: new Date().toISOString()
   },
   {
@@ -778,303 +1461,29 @@ export const hardcodedStage3Challenges: Challenge[] = [
     type: 'phase_importance',
     content: {
       title: 'Las 3 reglas de oro de esta fase',
-      points: [
+      sections: [
         {
+          icon: 'clock',
           title: 'Planifico por horas de esfuerzo',
-          description: 'La velocidad cambia con el terreno. El gasto energético no negocia: depende del tiempo.'
+          content: 'La velocidad cambia con el terreno. El gasto energético no negocia: depende del tiempo.'
         },
         {
+          icon: 'activity',
           title: 'Ajusto por intensidad',
-          description: 'Entre más duro voy, más manda lo que pasa fácil. En subidas y ritmo fuerte, masticar cuesta y lo sólido se vuelve secundario.'
+          content: 'Entre más duro voy, más manda lo que pasa fácil. En subidas y ritmo fuerte, masticar cuesta y lo sólido se vuelve secundario.'
         },
         {
+          icon: 'zap',
           title: 'Uso el GPX para ubicar "ventanas"',
-          description: 'Identifico dónde puedo masticar (descensos / planos controlados) y dónde debo depender de líquidos y geles (subidas largas / ritmo fuerte).'
+          content: 'Identifico dónde puedo masticar (descensos / planos controlados) y dónde debo depender de líquidos y geles (subidas largas / ritmo fuerte).'
         }
-      ]
-    },
-    order_index: 1,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-3',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'intro',
-    content: {
-      title: 'Regla táctica',
-      paragraphs: [
-        'Si esperás a tener hambre, ya vas tarde. Comemos por reloj, no por sensación.'
-      ]
+      ],
+      callout: {
+        text: 'Si esperás a tener hambre, ya vas tarde. Comemos por reloj, no por sensación.'
+      },
+      footer: 'Microtransición: Perfecto. Ahora sí: elegí tu reto y te doy tus ventanas.'
     },
     order_index: 2,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-4',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'bifurcation',
-    content: {
-      title: '¿Cuál reto vas a hacer en La Sucursal?',
-      question: 'Elegí tu desafío para el Giro de Rigo 2026',
-      routes: [
-        {
-          routeId: 'cana',
-          name: 'Reto Caña',
-          description: 'Distancia: 69.7 km | Ascenso: 1,670 m | Altitud máxima: 1,986 m',
-          details: {
-            title: 'Lectura táctica del Reto Caña',
-            description: 'Caña tiene el esfuerzo adelantado. Si te vaciás por ego en la primera subida fuerte, el resto se vuelve una cuenta larga de fatiga.',
-            windows: [
-              {
-                title: 'Ventana 1 — Arranque',
-                description: 'Empezá a comer a los 20 minutos, aunque te sintás fuerte. El gasto arranca alto.'
-              },
-              {
-                title: 'Ventana 2 — Zona de recarga',
-                description: 'Aprovechá para meter algo más "masticable" si te pasa bien, porque el pulso baja y el cuerpo lo tolera mejor.'
-              },
-              {
-                title: 'Ventana 3 — Último repecho',
-                description: 'Acá se simplifica. Si el estómago está sensible, pasás a Plan B: líquido/gel, sin pelear con la masticada.'
-              }
-            ]
-          }
-        },
-        {
-          routeId: 'salsa',
-          name: 'Reto Salsa',
-          description: 'Distancia: 180.1 km | Ascenso: 3,151 m | Altitud máxima: 1,986 m',
-          details: {
-            title: 'Lectura táctica del Reto Salsa',
-            description: 'Salsa es una batalla de horas. No gana el más fuerte al inicio; gana el que mantiene el tanque alto cuando pasan 5–6 horas.',
-            windows: [
-              {
-                title: 'Ventana 1 — Inicio',
-                description: 'Paciencia inteligente. Sostener el plan desde temprano.'
-              },
-              {
-                title: 'Ventana 2 — "Zona de sombra"',
-                description: 'Aquí aparece el rechazo a lo dulce. No es falta de ganas: es fatiga + saturación. Tener alternativas de textura salva el día.'
-              },
-              {
-                title: 'Ventana 3 — Final',
-                description: 'Si cuesta tragar, pasás a carbohidrato en líquido y a decisiones simples: sostener, sostener, sostener.'
-              }
-            ]
-          }
-        }
-      ]
-    },
-    order_index: 3,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-5',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'intro',
-    content: {
-      title: 'Ejecución fina',
-      paragraphs: [
-        'Ya vimos la ruta. Ahora pasemos a la base que no perdona: hidratación y sodio.'
-      ]
-    },
-    order_index: 4,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-6',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Hidratación + sodio (el combustible invisible)',
-      concept: 'Mínimo en la bici: 400–500 ml por hora (ajustás por calor/sudor).\n\nSodio por hora: rango práctico 300–600 mg según sudoración y clima (lo entrenás, no lo adivinás).',
-      practicalHeading: 'Regla de oro (vaciado gástrico):',
-      scenarios: [
-        {
-          condition: 'Si metés el carbo muy concentrado',
-          meals: [
-            {
-              name: 'Problema',
-              items: ['Se queda pesado y no "pasa"']
-            },
-            {
-              name: 'Solución',
-              items: ['Máximo 9% → 90 g de carbo por litro', 'Si sentís pesadez: más agua / menos concentración / mejor repartido']
-            }
-          ]
-        }
-      ],
-      microTransition: 'El carbo también necesita su agua para pasar.'
-    },
-    order_index: 5,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-7',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'intro',
-    content: {
-      title: 'Energía por hora',
-      paragraphs: [
-        'En salidas largas suaves podés moverte en un rango más moderado.',
-        'En simulaciones tipo carrera, esta fase busca que tu cuerpo tolere rango alto (eso se entrena en septiembre).'
-      ]
-    },
-    order_index: 6,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-8',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Cafeína (si la usás, que sea entrenada)',
-      concept: 'No es obligatoria. Si la usás, que sea probada en entreno, en dosis baja al inicio.',
-      practicalHeading: 'Mirando dos cosas:',
-      scenarios: [
-        {
-          condition: 'Evaluación',
-          meals: [
-            {
-              name: 'Preguntas clave',
-              items: ['¿Me mejora el enfoque o me acelera de más?', '¿Me daña el sueño o el estómago?']
-            }
-          ]
-        }
-      ],
-      microTransition: 'Ahora sí: Plan B con sentido, no con desespero.'
-    },
-    order_index: 7,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-9',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Plan B (para cuando no pasa sólido, o se pierde un gel)',
-      concept: 'Plan B no es "cualquier cosa". Es una salida práctica para seguir cumpliendo el plan por hora cuando: no querés masticar, te saturaste de dulce denso, se te perdió algo, o el estómago se puso delicado.',
-      practicalHeading: 'Opciones de rescate:',
-      scenarios: [
-        {
-          condition: 'Rescate rápido',
-          meals: [
-            {
-              name: 'Manzana Postobón',
-              items: ['Líquido + azúcar fácil', 'Idealmente acompañada de tu estrategia de sales/electrolitos']
-            },
-            {
-              name: 'Gatorade',
-              items: ['Combina líquido + carbo + sales', 'Funciona muy bien cuando el calor aprieta o el ritmo está alto']
-            }
-          ]
-        }
-      ],
-      microTransition: 'Y para que todo esto no dependa de orgullo: abastecimientos inteligentes.'
-    },
-    order_index: 8,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-10',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'intro',
-    content: {
-      title: 'Abastecimientos (cero ego)',
-      paragraphs: [
-        'Perder 2 minutos recargando es una inversión. La regla es simple: salir del punto con el siguiente tramo resuelto (líquido listo + energía a mano).',
-        'Prefiero "perder" 2 minutos recargando que no sufrir 2h - 3h deshidratado.'
-      ]
-    },
-    order_index: 9,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-11',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Rigobeet (herramienta para días fuertes)',
-      concept: 'Si vas a usar Rigobeet, que sea como debe ser: probado en entreno, en días de intensidad o simulación de subida.',
-      practicalHeading: 'Evaluación:',
-      scenarios: [
-        {
-          condition: 'Antes de usar en carrera',
-          meals: [
-            {
-              name: 'Preguntas clave',
-              items: ['¿Me cae bien?', '¿Siento que me ayuda cuando el esfuerzo sube?']
-            }
-          ]
-        }
-      ],
-      microTransition: 'Todo esto se integra en tu plan de acción semanal.'
-    },
-    order_index: 10,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-12',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'action_plan',
-    content: {
-      title: 'Plan de acción (simple para Sep–Oct)',
-      preamble: 'Cada semana ajustás una sola cosa (reparto / textura / sales), no diez.',
-      actions: [
-        {
-          title: '1 simulación larga por semana',
-          description: 'Practicando tu guion (energía por hora + hidratación por hora)'
-        },
-        {
-          title: '1 salida exigente por semana',
-          description: 'Donde practiques "lo fácil de pasar" (menos masticar)'
-        },
-        {
-          title: '1 ensayo general',
-          description: 'Un fondo largo (según tu reto) con el mismo plan que usarías el día del Giro'
-        }
-      ],
-      finalNote: 'Con esto llegás a la semana del evento con tranquilidad: no vas a adivinar, vas a ejecutar.'
-    },
-    order_index: 11,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-13',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'testimonial',
-    content: {
-      quote: 'El año pasado entré al Sistema ADA y antes del Giro 2025 alcancé a bajar unos kilos. Le dije a Daniel: "parce, ayúdeme que necesito ir fino a ese fondo". Me explicó exactamente qué comer y cada cuánto, y también cómo hidratarme. Resultado: terminé el Giro 2025 estupendo, y quedé clasificado en el corral race. Este año voy más motivado a entrenar y a llegar más fuerte, pero sobre todo a alimentarme como debe ser. Recomendado al 100%.',
-      author: 'Hugo Peláez',
-      role: 'Participante Giro 2025'
-    },
-    order_index: 12,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'hardcoded-stage3-14',
-    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
-    type: 'cta',
-    content: {
-      title: 'Ya viste el punto: el que llega con guion, llega con gasolina',
-      options: [
-        {
-          title: 'Plataforma educativa',
-          description: 'Si querés el paso a paso por módulos para armar tu estrategia y ejecutarla sin improvisar, entrá a la plataforma educativa del Sistema ADA.',
-          buttonText: 'Quiero acceso a la plataforma educativa',
-          buttonUrl: '#',
-          isPrimary: false
-        },
-        {
-          title: 'Plataforma educativa + plan personalizado',
-          description: 'Si querés irte a la fija: te acompañamos y te armamos tu plan de alimentación personalizado, según tu caso real.',
-          buttonText: 'Quiero mi plan personalizado + plataforma educativa',
-          buttonUrl: '#',
-          isPrimary: true
-        }
-      ]
-    },
-    order_index: 13,
     created_at: new Date().toISOString()
   }
 ];

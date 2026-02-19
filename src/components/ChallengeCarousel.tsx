@@ -203,7 +203,7 @@ export function ChallengeCarousel({
                   <CTACard
                     content={
                       typeof challenge.content === "object" &&
-                      "message" in challenge.content
+                      ("message" in challenge.content || "transition" in challenge.content || "options" in challenge.content)
                         ? challenge.content
                         : { message: "", options: [], transition: { text: "", buttonText: "", buttonUrl: "" } }
                     }
