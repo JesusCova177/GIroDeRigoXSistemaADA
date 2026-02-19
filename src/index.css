@@ -7,10 +7,11 @@
 
 @layer base {
   html, body {
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     margin: 0;
     padding: 0;
+    
   }
 
   #root {
@@ -19,7 +20,7 @@
   }
 
   .font-titling {
-    font-family: 'Bebas Neue', 'Inter', sans-serif;
+    font-family: 'Bebas Neue';
     font-weight: 400;
     letter-spacing: 0.05em;
   }
