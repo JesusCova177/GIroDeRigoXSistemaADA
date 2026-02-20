@@ -38,7 +38,12 @@ export function StageHeader({
       >
         <div className="w-full flex  sm:flex-row justify-around items-center sm:items-center gap-2 sm:gap-3">
           {userEmail && onLogout && (
-          
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate"> 
+              </span>
+              
+            </div>
           )}
           <div className="ml-auto">
             <span className="text-xl sm:text-sm font-medium text-white/90 block">
