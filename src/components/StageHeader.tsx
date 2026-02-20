@@ -48,9 +48,7 @@ export function StageHeader({
             </div>
           )}
           <div className="ml-auto">
-            <span className="text-xl sm:text-sm font-medium text-white/90 block">
-            Roadmap de Alimentación Giro de Rigo 2026 By SISTEMA<span className="text-[#ffcc00]">ADA</span>
-            </span>
+            
           </div>
         </div>
 
