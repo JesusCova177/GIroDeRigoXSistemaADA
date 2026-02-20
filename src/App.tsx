@@ -161,7 +161,7 @@ function App() {
       <div className="h-[100dvh] bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-[#31563C]-600 animate-spin mx-auto mb-4" />
-          <p className="text-gray-600 text-lg">Cargando..</p>
+          <p className="text-gray-600 text-lg">Cargando...</p>
         </div>
       </div>
     );
