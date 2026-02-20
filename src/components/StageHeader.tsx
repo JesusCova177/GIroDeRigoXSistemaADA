@@ -54,7 +54,7 @@ export function StageHeader({
           </div>
         </div>
 
-        <div>
+        <div> 
           <h1 className={`tracking-wide text-center font-titling font-black text-[#31563C] tracking-tight px-2 italic uppercase transition-all duration-300 ${
             showStageSelector
               ? 'text-3xl sm:text-4xl md:text-5xl'
