@@ -1,3 +1,5 @@
+import { saveAdaResponse } from '../lib/supabase';
+
 interface BifurcationOption {
   id: string;
   label: string;
@@ -15,9 +17,11 @@ interface BifurcationCardProps {
   content: BifurcationCardContent;
   selectedOption: string | null;
   onSelect: (optionId: string) => void;
+  adaUserId?: number | null;
+  stagesCardsId?: number | null;
 }
 
-export function BifurcationCard({ content, selectedOption, onSelect }: BifurcationCardProps) {
+export function BifurcationCard({ content, selectedOption, onSelect, adaUserId, stagesCardsId }: BifurcationCardProps) {
   const { question, options } = content;
 
   const getColorClasses = (color: string, isSelected: boolean) => {
@@ -58,10 +62,21 @@ export function BifurcationCard({ content, selectedOption, onSelect }: Bifurcati
           const isSelected = selectedOption === option.id;
           const colors = getColorClasses(option.color, isSelected);
 
+          const handleSelect = async () => {
+             console.log('[BifurcationCard] Option selected:', option.label, { adaUserId, stagesCardsId });
+             onSelect(option.id);
+             if (adaUserId && stagesCardsId) {
+               console.log('[BifurcationCard] Attempting to save to DB...');
+               await saveAdaResponse(adaUserId, 3, stagesCardsId, { bifurcacion: option.label });
+             } else {
+               console.warn('[BifurcationCard] Cannot save: missing IDs', { adaUserId, stagesCardsId });
+             }
+          };
+
           return (
             <button
               key={option.id}
-              onClick={() => onSelect(option.id)}
+              onClick={handleSelect}
               className={`relative flex flex-col items-center text-center p-5 sm:p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${colors.border} ${colors.bg} ${isSelected ? `ring-2 ${colors.ring} ring-offset-2 shadow-lg scale-[1.02]` : 'shadow-sm hover:shadow-md'}`}
             >
               {isSelected && (

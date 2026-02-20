@@ -1,18 +1,28 @@
 import { useState } from 'react';
 import { Check, CheckCircle2, Trophy, Sparkles, BookOpen, Lightbulb, ChevronRight } from 'lucide-react';
+import { saveAdaResponse } from '../lib/supabase';
 
 interface PreambleChecklistCardProps {
   title: string;
   preamble?: string;
   items: string[];
   microTransition?: string;
+  adaUserId?: number | null;
+  stagesCardsId?: number | null;
 }
 
-export function PreambleChecklistCard({ title, preamble, items, microTransition }: PreambleChecklistCardProps) {
+export function PreambleChecklistCard({ 
+  title, 
+  preamble, 
+  items, 
+  microTransition,
+  adaUserId,
+  stagesCardsId 
+}: PreambleChecklistCardProps) {
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
   const [justChecked, setJustChecked] = useState<number | null>(null);
 
-  const toggleItem = (index: number) => {
+  const toggleItem = async (index: number) => {
     const newChecked = new Set(checkedItems);
     if (newChecked.has(index)) {
       newChecked.delete(index);
@@ -22,6 +32,18 @@ export function PreambleChecklistCard({ title, preamble, items, microTransition 
       setTimeout(() => setJustChecked(null), 600);
     }
     setCheckedItems(newChecked);
+
+    // Save to Supabase
+    if (adaUserId && stagesCardsId) {
+      const resUser = items.reduce((acc: Record<string, string>, item, idx) => {
+        if (newChecked.has(idx)) {
+          acc[item] = "true";
+        }
+        return acc;
+      }, {});
+      
+      await saveAdaResponse(adaUserId, 1, stagesCardsId, resUser);
+    }
   };
 
   const progress = (checkedItems.size / items.length) * 100;

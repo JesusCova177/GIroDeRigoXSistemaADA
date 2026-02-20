@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase, Stage, Challenge } from "./lib/supabase";
+import { supabase, upsertAdaUser, getStageCardMapping, Stage, Challenge } from "./lib/supabase";
 import { StageHeader } from "./components/StageHeader";
 import { ChallengeCarousel } from "./components/ChallengeCarousel";
 import { LoginPage } from "./components/LoginPage";
@@ -16,6 +16,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showStageSelector, setShowStageSelector] = useState(true);
+  const [adaUserId, setAdaUserId] = useState<number | null>(null);
+  const [adaMapping, setAdaMapping] = useState<Record<string, number>>({});
 
   useEffect(() => {
     checkUser();
@@ -26,6 +28,8 @@ function App() {
       const storedEmail = localStorage.getItem("userEmail");
       if (storedEmail) {
         setUser({ email: storedEmail } as User);
+        const id = await upsertAdaUser(storedEmail);
+        setAdaUserId(id);
         await fetchStageData();
       }
     } catch (err) {
@@ -38,6 +42,8 @@ function App() {
   async function handleLogin(email: string) {
     localStorage.setItem("userEmail", email);
     setUser({ email } as User);
+    const id = await upsertAdaUser(email);
+    setAdaUserId(id);
     await fetchStageData();
   }
 
@@ -52,6 +58,9 @@ function App() {
     try {
       setLoading(true);
       setError(null);
+
+      // Fetch mapping concurrently
+      getStageCardMapping().then(mapping => setAdaMapping(mapping));
 
       const { data: stages, error: stagesError } = await supabase
         .from("stages")
@@ -214,6 +223,9 @@ function App() {
               {challenges.length > 0 ? (
                 <ChallengeCarousel
                   challenges={challenges}
+                  adaUserId={adaUserId}
+                  adaMapping={adaMapping}
+                  currentStageName={currentStage?.name || "Fase 1"}
                 />
               ) : (
                 <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">

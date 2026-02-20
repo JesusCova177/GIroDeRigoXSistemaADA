@@ -2,11 +2,14 @@ import { Target, Zap, TrendingUp } from "lucide-react";
 
 interface PhaseImportanceCardProps {
   content: {
+    title?: string;
+    intro?: string;
     sections: {
       title: string;
-      text: string;
+      content: string;
       icon?: string;
     }[];
+    sectionsTitle?: string;
     callout?: { text: string };
     footer?: string | { title: string; message: string };
   };
@@ -28,6 +31,24 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
 
   return (
     <div className="flex rounded-2xl bg-white  border-l-4 border-blue-500 p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
+      {content.title && (
+        <h2 className="text-2xl sm:text-3xl font-titling font-black mb-6 sm:mb-8 uppercase italic">
+          {content.title}
+        </h2>
+      )}
+
+      {content.intro && (
+        <div className="mb-6 sm:mb-8 text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line">
+          {content.intro}
+        </div>
+      )}
+
+      {content.sectionsTitle && (
+        <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] italic mb-4 uppercase">
+          {content.sectionsTitle}
+        </h3>
+      )}
+
       <div className="space-y-4 sm:space-y-6">
         {content.sections.map((section, index) => (
           <div key={index}>
@@ -39,7 +60,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
             </div>
             <div className="pl-0 sm:pl-9">
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line">
-                {section.text}
+                {section.content}
               </p>
             </div>
           </div>
@@ -58,9 +79,11 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
 
       {content.footer && (
          <div className="mt-6 pt-4 border-t border-gray-100">
-            <p className="text-sm text-gray-500 italic">
-              {typeof content.footer === 'string' ? content.footer : content.footer.message}
-            </p>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 shadow-sm">
+               <p className="text-sm sm:text-base font-black text-yellow-900 uppercase italic text-center tracking-wide leading-relaxed">
+                 {typeof content.footer === 'string' ? content.footer : content.footer.message}
+               </p>
+            </div>
          </div>
       )}
     </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Check, CheckCircle2, Lightbulb, Sparkles, Target, MessageCircle } from 'lucide-react';
+import { saveAdaResponse } from '../lib/supabase';
 
 interface CombinedChallengeCardProps {
   title: string;
@@ -7,14 +8,45 @@ interface CombinedChallengeCardProps {
   preamble?: string;
   checklist: string[];
   reflections: string[];
+  adaUserId?: number | null;
+  stagesCardsId?: number | null;
 }
 
-export function CombinedChallengeCard({ title, subtitle, preamble, checklist, reflections }: CombinedChallengeCardProps) {
+export function CombinedChallengeCard({ 
+  title, 
+  subtitle, 
+  preamble, 
+  checklist, 
+  reflections,
+  adaUserId,
+  stagesCardsId 
+}: CombinedChallengeCardProps) {
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
   const [answeredReflections, setAnsweredReflections] = useState<Set<number>>(new Set());
+  const [reflectionAnswers, setReflectionAnswers] = useState<Record<number, string>>({});
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
 
-  const toggleItem = (index: number) => {
+  const saveData = async (newChecked: Set<number>, newAnswers: Record<number, string>) => {
+    if (adaUserId && stagesCardsId) {
+      const resUser: Record<string, string> = {};
+      
+      // Combine checklist
+      checklist.forEach((item, idx) => {
+        if (newChecked.has(idx)) {
+          resUser[item] = "true";
+        }
+      });
+
+      // Combine reflections
+      reflections.forEach((question, idx) => {
+        resUser[question] = newAnswers[idx] || "";
+      });
+
+      await saveAdaResponse(adaUserId, 1, stagesCardsId, resUser); // Using Type 1 as default for combined
+    }
+  };
+
+  const toggleItem = async (index: number) => {
     const newChecked = new Set(checkedItems);
     if (newChecked.has(index)) {
       newChecked.delete(index);
@@ -22,9 +54,13 @@ export function CombinedChallengeCard({ title, subtitle, preamble, checklist, re
       newChecked.add(index);
     }
     setCheckedItems(newChecked);
+    await saveData(newChecked, reflectionAnswers);
   };
 
-  const handleReflectionChange = (index: number, value: string) => {
+  const handleReflectionChange = async (index: number, value: string) => {
+    const newAnswers = { ...reflectionAnswers, [index]: value };
+    setReflectionAnswers(newAnswers);
+
     const hasContent = value.trim().length > 0;
     const newAnswered = new Set(answeredReflections);
 
@@ -35,6 +71,7 @@ export function CombinedChallengeCard({ title, subtitle, preamble, checklist, re
     }
 
     setAnsweredReflections(newAnswered);
+    await saveData(checkedItems, newAnswers);
   };
 
   const checklistProgress = (checkedItems.size / checklist.length) * 100;

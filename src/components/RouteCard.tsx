@@ -13,8 +13,10 @@ interface RouteSection {
 
 interface RouteCardContent {
   variant: string;
+  title?: string; // Added title
   header: RouteHeader;
   intro: string;
+  image?: string; // Added image for graph
   sections: RouteSection[];
 }
 
@@ -23,7 +25,29 @@ interface RouteCardProps {
 }
 
 export function RouteCard({ content }: RouteCardProps) {
-  const { header, intro, sections, variant } = content;
+  // Debug log to see what data we are receiving
+  console.log('[RouteCard] Rendering with content:', content);
+
+  if (!content) {
+    console.error('[RouteCard] Error: content is undefined');
+    return (
+      <div className="flex rounded-2xl bg-white border-l-4 border-red-500 p-6 mb-8 flex-col">
+        <p className="text-red-500 font-bold italic">Error: Datos de ruta no encontrados.</p>
+      </div>
+    );
+  }
+
+  const { header, intro, sections, variant, title, image } = content;
+
+  if (!header || !header.label) {
+    console.error('[RouteCard] Error: header or header.label is missing', { header });
+    return (
+      <div className="flex rounded-2xl bg-white border-l-4 border-amber-500 p-6 mb-8 flex-col">
+        <p className="text-amber-600 font-bold italic">Cargando detalles de la ruta...</p>
+        <p className="text-xs text-gray-400 mt-2 italic">Si el error persiste, selecciona el reto nuevamente.</p>
+      </div>
+    );
+  }
 
   const isCanã = variant === 'cana';
   const accentColor = isCanã ? '#d97706' : '#e11d48';
@@ -37,6 +61,12 @@ export function RouteCard({ content }: RouteCardProps) {
   return (
     <div className={`flex rounded-2xl bg-white border-l-4 ${borderColor} p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col`}>
       <div className="mb-4 sm:mb-5">
+        {title && (
+          <h2 className="text-xl sm:text-2xl font-titling font-black text-[#31563C] italic uppercase mb-4">
+            {title}
+          </h2>
+        )}
+
         <span className={`inline-block text-sm font-bold px-3 py-1 rounded-full border ${badgeBg} ${badgeText} ${badgeBorder} mb-3`}>
           {header.label}
         </span>
@@ -56,16 +86,24 @@ export function RouteCard({ content }: RouteCardProps) {
           </div>
         </div>
 
-        <p className="text-sm sm:text-base text-gray-700 leading-relaxed italic border-l-4 pl-3 py-1"
+        {image && (
+          <div className="mb-4 rounded-xl overflow-hidden shadow-sm border border-gray-100">
+             <img src={image} alt="Perfil Altimétrico" className="w-full h-auto object-cover" />
+          </div>
+        )}
+
+        <p className="text-sm sm:text-base text-gray-700 leading-relaxed italic border-l-4 pl-3 py-1 whitespace-pre-line"
           style={{ borderColor: accentColor }}>
           {intro}
         </p>
       </div>
 
       <div className="space-y-4 sm:space-y-5">
-        <h3 className="text-base sm:text-lg font-titling font-black text-[#31563C] italic uppercase">
-          Ventanas críticas
-        </h3>
+        {sections.length > 0 && (
+          <h3 className="text-base sm:text-lg font-titling font-black text-[#31563C] italic uppercase">
+            Ventanas críticas
+          </h3>
+        )}
         {sections.map((section, index) => (
           <div key={index} className="flex gap-3">
             <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-lg sm:text-xl"

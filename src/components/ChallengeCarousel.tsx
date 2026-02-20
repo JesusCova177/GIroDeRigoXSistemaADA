@@ -16,10 +16,16 @@ import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
 
 interface ChallengeCarouselProps {
   challenges: Challenge[];
+  adaUserId: number | null;
+  adaMapping: Record<string, number>;
+  currentStageName: string;
 }
 
 export function ChallengeCarousel({
   challenges,
+  adaUserId,
+  adaMapping,
+  currentStageName,
 }: ChallengeCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -29,11 +35,14 @@ export function ChallengeCarousel({
   const [selectedRoute, setSelectedRoute] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const hasBifurcation = challenges.some(c => c.type === 'bifurcation');
+  const bifurcationIndex = challenges.findIndex(c => c.type === 'bifurcation');
+  const hasBifurcation = bifurcationIndex !== -1;
 
   const visibleChallenges = hasBifurcation
-    ? challenges.filter(c => {
-        if (c.type === 'phase_importance' && typeof c.content === 'object' && !Array.isArray(c.content) && 'variant' in c.content && c.content.variant) {
+    ? challenges.filter((c, index) => {
+        if (!selectedRoute && index > bifurcationIndex) return false; // Block everything after bifurcation if not selected
+        
+        if ((c.type === 'phase_importance' || c.type === 'route') && typeof c.content === 'object' && !Array.isArray(c.content) && 'variant' in c.content && c.content.variant) {
           if (!selectedRoute) return false;
           return c.content.variant === selectedRoute;
         }
@@ -124,9 +133,22 @@ export function ChallengeCarousel({
 
   const goToNext = () => {
     if (currentIndex < totalCards - 1) {
+      const currentChallenge = visibleChallenges[currentIndex];
+      if (currentChallenge.type === 'bifurcation' && !selectedRoute) {
+         // Shake animation or visual feedback could correspond here
+         return;
+      }
       setCurrentIndex(currentIndex + 1);
       setShowHint(false);
     }
+  };
+
+  const isNextDisabled = () => {
+      const currentChallenge = visibleChallenges[currentIndex];
+      if (currentChallenge && currentChallenge.type === 'bifurcation' && !selectedRoute) {
+          return true;
+      }
+      return false;
   };
 
   return (
@@ -154,7 +176,8 @@ export function ChallengeCarousel({
         {totalCards > 1 && currentIndex < totalCards - 1 && (
           <button
             onClick={goToNext}
-            className="flex absolute right-2 sm:right-0 top-[-1%] -translate-y-1/2 sm:translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center opacity-25 hover:opacity-100"
+            disabled={isNextDisabled()}
+            className={`flex absolute right-2 sm:right-0 top-[-1%] -translate-y-1/2 sm:translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center ${isNextDisabled() ? 'opacity-25 cursor-not-allowed' : 'opacity-25 hover:opacity-100'}`}
             aria-label="Siguiente"
           >
             <ChevronRight className="w-6 h-6" />
@@ -178,235 +201,100 @@ export function ChallengeCarousel({
               transform: `translateX(calc(-${currentIndex * 100}% + ${translateX}px))`,
             }}
           >
-            {visibleChallenges.map((challenge) => (
-              <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
-                {challenge.type === "intro" ? (
-                  <IntroCard
-                    content={
-                      typeof challenge.content === "object" &&
-                      "title" in challenge.content &&
-                      "paragraphs" in challenge.content
-                        ? challenge.content
-                        : { title: "", paragraphs: [] }
-                    }
-                  />
-                ) : challenge.type === "testimonial" ? (
-                  <TestimonialCard
-                    content={
-                      typeof challenge.content === "object" &&
-                      !Array.isArray(challenge.content)
-                        ? (challenge.content as any)
-                        : ({} as any)
-                    }
-                  />
-                ) : challenge.type === "cta" ? (
-                  <CTACard
-                    content={
-                      typeof challenge.content === "object" &&
-                      ("message" in challenge.content || "transition" in challenge.content || "options" in challenge.content)
-                        ? challenge.content
-                        : { message: "", options: [], transition: { text: "", buttonText: "", buttonUrl: "" } }
-                    }
-                  />
-                ) : challenge.type === "bifurcation" ? (
-                  <BifurcationCard
-                    content={{
-                      question: typeof challenge.content === "object" && "question" in challenge.content ? (challenge.content.question as string) : '',
-                      options: typeof challenge.content === "object" && "options" in challenge.content ? (challenge.content.options as Array<{ id: string; label: string; icon: string; description: string; color: string }>) : [],
-                    }}
-                    selectedOption={selectedRoute}
-                    onSelect={setSelectedRoute}
-                  />
-                ) : challenge.type === "phase_importance" ? (
-                  typeof challenge.content === "object" && "variant" in challenge.content && "header" in challenge.content ? (
-                    <RouteCard
-                      content={{
-                        variant: challenge.content.variant as string,
-                        header: challenge.content.header as { distance: string; ascent: string; maxAlt: string; label: string },
-                        intro: (challenge.content.intro as string) || '',
-                        sections: (challenge.content.sections as Array<{ icon: string; title: string; content: string }>) || [],
-                      }}
+            {visibleChallenges.map((challenge) => {
+              const content = challenge.content as any;
+              const challengeTitle = challenge.title || content?.title || "";
+              const mappingKey = `${currentStageName}:${challengeTitle}`;
+              const stagesCardsId = adaMapping[mappingKey] || null;
+
+              if (challenge.type === 'bifurcation' || challenge.type === 'preamble_checklist' || challenge.type === 'checklist' || challenge.type === 'reflection') {
+                console.log(`[ChallengeCarousel] Card Mapping: "${mappingKey}" -> ID:`, stagesCardsId);
+              }
+
+              return (
+                <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
+                  {challenge.type === "intro" ? (
+                    <IntroCard 
+                      content={content} 
                     />
+                  ) : challenge.type === "bifurcation" ? (
+                    <BifurcationCard
+                      content={{
+                        question: content?.question || "",
+                        options: (content?.options || []) as any[],
+                      }}
+                      selectedOption={selectedRoute}
+                      onSelect={(optionId) => setSelectedRoute(optionId)}
+                      adaUserId={adaUserId}
+                      stagesCardsId={stagesCardsId}
+                    />
+                  ) : challenge.type === "combined" ? (
+                    <CombinedChallengeCard
+                      title={challengeTitle}
+                      subtitle={content?.subtitle}
+                      preamble={content?.preamble}
+                      checklist={content?.checklist || []}
+                      reflections={content?.reflections || []}
+                      adaUserId={adaUserId}
+                      stagesCardsId={stagesCardsId}
+                    />
+                  ) : challenge.type === "preamble_checklist" ? (
+                    <PreambleChecklistCard
+                      title={challengeTitle}
+                      preamble={content?.preamble}
+                      items={content?.items || []}
+                      microTransition={content?.microTransition}
+                      adaUserId={adaUserId}
+                      stagesCardsId={stagesCardsId}
+                    />
+                  ) : challenge.type === "nutrition_guide" ? (
+                    <NutritionGuideCard
+                      title={challengeTitle}
+                      concept={content?.concept || ""}
+                      practicalHeading={content?.practicalHeading}
+                      scenarios={content?.scenarios || []}
+                      microTransition={content?.microTransition || ""}
+                      headerEmoji={content?.headerEmoji}
+                    />
+                  ) : challenge.type === "checklist" ? (
+                    <ChecklistCard
+                      title={challengeTitle}
+                      items={content?.items || (Array.isArray(challenge.content) ? challenge.content : [])}
+                      adaUserId={adaUserId}
+                      stagesCardsId={stagesCardsId}
+                    />
+                  ) : challenge.type === "reflection" ? (
+                    <ReflectionCard
+                      title={challengeTitle}
+                      questions={content?.questions || (Array.isArray(challenge.content) ? challenge.content : [])}
+                      microTransition={content?.microTransition}
+                      adaUserId={adaUserId}
+                      stagesCardsId={stagesCardsId}
+                    />
+                  ) : challenge.type === "testimonial" ? (
+                    <TestimonialCard
+                      content={content}
+                    />
+                  ) : challenge.type === "action_plan" ? (
+                    <ActionPlanCard
+                      content={content}
+                    />
+                  ) : challenge.type === "route" || challenge.type === "phase_importance" ? (
+                    (content?.variant && content?.header) ? (
+                      <RouteCard content={content} />
+                    ) : (
+                      <PhaseImportanceCard content={content} />
+                    )
+                  ) : challenge.type === "cta" ? (
+                    <CTACard content={content} />
                   ) : (
-                    <PhaseImportanceCard
-                      content={{
-                        sections: typeof challenge.content === "object" && "sections" in challenge.content
-                          ? (challenge.content.sections as Array<{ icon?: string; title: string; text?: string; content?: string }>).map(s => ({
-                              icon: s.icon,
-                              title: s.title,
-                              text: s.text || s.content || '',
-                            }))
-                          : []
-                      }}
-                    />
-                  )
-                ) : challenge.type === "action_plan" ? (
-                  <ActionPlanCard
-                    content={
-                      typeof challenge.content === "object" &&
-                      "keyTakeaways" in challenge.content
-                        ? challenge.content
-                        : { keyTakeaways: [], phases: [] }
-                    }
-                  />
-                ) : challenge.type === "combined" ? (
-                  <CombinedChallengeCard
-                    title={challenge.title}
-                    subtitle={
-                      typeof challenge.content === "object" &&
-                      "subtitle" in challenge.content
-                        ? challenge.content.subtitle
-                        : undefined
-                    }
-                    preamble={
-                      typeof challenge.content === "object" &&
-                      "preamble" in challenge.content
-                        ? challenge.content.preamble
-                        : undefined
-                    }
-                    checklist={
-                      typeof challenge.content === "object" &&
-                      "checklist" in challenge.content
-                        ? challenge.content.checklist
-                        : []
-                    }
-                    reflections={
-                      typeof challenge.content === "object" &&
-                      "reflections" in challenge.content
-                        ? challenge.content.reflections
-                        : []
-                    }
-                  />
-                ) : challenge.type === "preamble_checklist" ? (
-                  <PreambleChecklistCard
-                    title={
-                      typeof challenge.content === "object" &&
-                      "title" in challenge.content
-                        ? challenge.content.title
-                        : challenge.title
-                    }
-                    preamble={
-                      typeof challenge.content === "object" &&
-                      "preamble" in challenge.content &&
-                      typeof challenge.content.preamble === "string"
-                        ? challenge.content.preamble
-                        : ""
-                    }
-                    items={
-                      typeof challenge.content === "object" &&
-                      "items" in challenge.content &&
-                      Array.isArray(challenge.content.items)
-                        ? challenge.content.items
-                        : []
-                    }
-                    microTransition={
-                      typeof challenge.content === "object" &&
-                      "microTransition" in challenge.content &&
-                      typeof challenge.content.microTransition === "string"
-                        ? challenge.content.microTransition
-                        : undefined
-                    }
-                  />
-                ) : challenge.type === "nutrition_guide" ? (
-                  <NutritionGuideCard
-                    title={
-                      typeof challenge.content === "object" &&
-                      "title" in challenge.content &&
-                      typeof challenge.content.title === "string"
-                        ? challenge.content.title
-                        : challenge.title
-                    }
-                    concept={
-                      typeof challenge.content === "object" &&
-                      "concept" in challenge.content &&
-                      typeof challenge.content.concept === "string"
-                        ? challenge.content.concept
-                        : ""
-                    }
-                    practicalHeading={
-                      typeof challenge.content === "object" &&
-                      "practicalHeading" in challenge.content &&
-                      typeof challenge.content.practicalHeading === "string"
-                        ? challenge.content.practicalHeading
-                        : undefined
-                    }
-                    scenarios={
-                      typeof challenge.content === "object" &&
-                      "scenarios" in challenge.content &&
-                      Array.isArray(challenge.content.scenarios)
-                        ? challenge.content.scenarios
-                        : []
-                    }
-                    microTransition={
-                      typeof challenge.content === "object" &&
-                      "microTransition" in challenge.content &&
-                      typeof challenge.content.microTransition === "string"
-                        ? challenge.content.microTransition
-                        : ""
-                    }
-                    headerEmoji={
-                      typeof challenge.content === "object" &&
-                      "headerEmoji" in challenge.content &&
-                      typeof challenge.content.headerEmoji === "string"
-                        ? challenge.content.headerEmoji
-                        : undefined
-                    }
-                  />
-                ) : challenge.type === "checklist" ? (
-                  <ChecklistCard
-                    title={
-                      typeof challenge.content === "object" &&
-                      "title" in challenge.content
-                        ? challenge.content.title
-                        : challenge.title
-                    }
-                    items={
-                      typeof challenge.content === "object" &&
-                      "items" in challenge.content &&
-                      Array.isArray(challenge.content.items)
-                        ? challenge.content.items
-                        : Array.isArray(challenge.content)
-                        ? challenge.content
-                        : []
-                    }
-                  />
-                ) : challenge.type === "reflection" ? (
-                  <ReflectionCard
-                    title={
-                      typeof challenge.content === "object" &&
-                      "title" in challenge.content
-                        ? challenge.content.title
-                        : challenge.title
-                    }
-                    questions={
-                      typeof challenge.content === "object" &&
-                      "questions" in challenge.content &&
-                      Array.isArray(challenge.content.questions)
-                        ? challenge.content.questions
-                        : Array.isArray(challenge.content)
-                        ? challenge.content
-                        : []
-                    }
-                    microTransition={
-                      typeof challenge.content === "object" &&
-                      "microTransition" in challenge.content &&
-                      typeof challenge.content.microTransition === "string"
-                        ? challenge.content.microTransition
-                        : undefined
-                    }
-                  />
-                ) : challenge.type === "testimonial" ? (
-                  <TestimonialCard
-                    content={
-                      typeof challenge.content === "object" &&
-                      !Array.isArray(challenge.content)
-                        ? (challenge.content as any)
-                        : ({} as any)
-                    }
-                  />
-                ) : null}
-              </div>
-            ))}
+                    <div className="bg-white rounded-2xl shadow p-6">
+                      <p className="text-gray-500">Card type {challenge.type} not implemented yet.</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

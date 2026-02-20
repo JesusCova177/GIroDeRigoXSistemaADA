@@ -1,17 +1,24 @@
 import { useState } from 'react';
-import { MessageCircle, Lightbulb, BookOpen, Star, ChevronRight } from 'lucide-react';
+import { Lightbulb, BookOpen, Star, ChevronRight } from 'lucide-react';
+import { saveAdaResponse } from '../lib/supabase';
 
 interface ReflectionCardProps {
   title: string;
   questions: string[];
   microTransition?: string;
+  adaUserId?: number | null;
+  stagesCardsId?: number | null;
 }
 
-export function ReflectionCard({ title, questions, microTransition }: ReflectionCardProps) {
+export function ReflectionCard({ title, questions, microTransition, adaUserId, stagesCardsId }: ReflectionCardProps) {
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const [answeredCount, setAnsweredCount] = useState(0);
+  const [answers, setAnswers] = useState<Record<number, string>>({});
 
-  const handleTextChange = (index: number, value: string) => {
+  const handleTextChange = async (index: number, value: string) => {
+    const newAnswers = { ...answers, [index]: value };
+    setAnswers(newAnswers);
+
     const textarea = document.querySelector(`textarea[data-index="${index}"]`) as HTMLTextAreaElement;
     if (textarea) {
       const hasContent = value.trim().length > 0;
@@ -24,6 +31,16 @@ export function ReflectionCard({ title, questions, microTransition }: Reflection
         setAnsweredCount(prev => Math.max(0, prev - 1));
         textarea.dataset.hasContent = 'false';
       }
+    }
+
+    // Save to Supabase
+    if (adaUserId && stagesCardsId) {
+      const resUser = questions.reduce((acc: Record<string, string>, q, idx) => {
+        acc[q] = newAnswers[idx] || "";
+        return acc;
+      }, {});
+      
+      await saveAdaResponse(adaUserId, 2, stagesCardsId, resUser);
     }
   };
 

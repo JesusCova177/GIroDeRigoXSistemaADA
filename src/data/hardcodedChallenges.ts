@@ -15,7 +15,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     created_at: new Date().toISOString()
   },
    {
-    id: 'hardcoded-1',
+    id: 'hardcoded-1b',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
@@ -42,7 +42,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     created_at: new Date().toISOString()
   },
   {
-    id: 'hardcoded-2',
+    id: 'hardcoded-2b',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'intro',
     content: {
@@ -198,7 +198,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'preamble_checklist',
     content: {
-      title: 'Mini checklist:',
+      title: 'Mini checklist: post-entreno',
       preamble: 'Responde antes de cerrar el día de entrenamiento.',
       items: [
         '¿Yo ya tengo listo "qué voy a comer" al terminar?',
@@ -213,7 +213,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'reflection',
     content: {
-      title: 'Preguntas de reflexión (2):',
+      title: 'Reflexión: post-entreno',
       questions: [
         '¿Qué hago normalmente apenas llego a casa de montar?',
         '¿Mi post-entreno me deja estable… o me deja con más hambre?'
@@ -265,7 +265,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'preamble_checklist',
     content: {
-      title: 'Mini checklist:',
+      title: 'Mini checklist: proteína',
       preamble: 'Revisa antes de cerrar el día.',
       items: [
         '¿Mi desayuno tiene proteína?',
@@ -311,7 +311,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'preamble_checklist',
     content: {
-      title: 'Mini checklist:',
+      title: 'Mini checklist: fuerza',
       preamble: 'Chequea tu semana de fuerza.',
       items: [
         '¿Tengo 2 espacios esta semana para fuerza?',
@@ -326,7 +326,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'reflection',
     content: {
-      title: 'Preguntas de reflexión:',
+      title: 'Reflexión: fuerza',
       questions: [
         '¿Yo quiero ser más liviano… o más liviano y más fuerte?'
       ],
@@ -379,7 +379,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: 'preamble_checklist',
     title: 'Mini checklist:',
     content: {
-      title: 'Mini checklist:',
+      title: 'Mini checklist: hidratación',
       items: [
         '¿Hoy ya tomé agua desde la mañana?',
         '¿Estoy hidratándome todo el día o solo "cuando me da sed"?',
@@ -394,7 +394,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'reflection',
     content: {
-      title: 'Reflexión:',
+      title: 'Reflexión: hidratación',
       questions: [
         '¿Tomo suficiente agua a lo largo del día, o solo cuando recuerdo?'
       ],
@@ -498,7 +498,6 @@ export const hardcodedStage1Challenges: Challenge[] = [
       intro: 'Sobre su participaci\u00f3n en eventos:',
       description: 'En una carrera (muy poquito tiempo despu\u00e9s de empezar) sigui\u00f3 una estrategia puntual de qu\u00e9 comer, cu\u00e1ndo usar geles y sales, y hasta cu\u00e1ntos carbohidratos meter por bid\u00f3n\u2026 y le fue demasiado bien, incluso mejorando su tiempo en esa misma carrera.',
       footer: {
-        title: 'Microtransici\u00f3n',
         message: 'Cerramos la fase con lo que no se te puede olvidar.'
       }
     },
@@ -828,7 +827,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'preamble_checklist',
     content: {
-      title: 'Mini checklist',
+      title: 'Mini checklist: Zonas y Rigobeet',
       items: [
         '\u00bfHoy es Z2 suave, Z3 tempo o Z4\u2013Z5 series?',
         '\u00bfMi pre me da energ\u00eda o me deja pesado?',
@@ -933,7 +932,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'preamble_checklist',
     content: {
-      title: 'Mini checklist',
+      title: 'Mini checklist: Objetivo por hora',
       items: [
         '\u00bfYa s\u00e9 mi objetivo por hora para hoy?',
         '\u00bfEstoy repartiendo (no todo en 5 minutos)?',
@@ -1154,7 +1153,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'preamble_checklist',
     content: {
-      title: 'Mini checklist',
+      title: 'Mini checklist: Kit del fondo',
       preamble: 'Nota importante (la que te salva): si sent\u00eds que se te pone pesado, devolvete 10\u201315 g/h, repart\u00ed mejor (tandas m\u00e1s peque\u00f1as) y volv\u00e9 a probar en el pr\u00f3ximo entreno.',
       items: [
         '\u00bfEstoy cambiando una cosa a la vez?',
@@ -1300,7 +1299,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'preamble_checklist',
     content: {
-      title: 'Mini checklist (3)',
+      title: 'Mini checklist: Duración y Plan B',
       items: [
         '\u00bfMe alcanza para toda la duraci\u00f3n?',
         '\u00bfTengo l\u00edquidos/electrolitos listos seg\u00fan el clima?',
@@ -1415,7 +1414,6 @@ export const hardcodedStage3Challenges: Challenge[] = [
     content: {
       title: 'Simulación de Carrera — Giro de Rigo 2026 (Sep–Oct)',
       paragraphs: [
-        'TRONCO COMÚN (aplica para todos)',
         'He aprendido que el Giro no se define solo por piernas. Se define por qué tan bien sostenés la energía cuando ya vas cansado.',
         'En septiembre y octubre dejamos de “salir a entrenar” y pasamos a **simular**: ensayamos el guion que vas a ejecutar el día del evento.'
       ]
@@ -1434,7 +1432,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         'estás en una subida larga y el pulso va arriba',
         'hace calor y sentís que el cuerpo se seca',
         'el dulce ya no te provoca',
-        'o te pasa lo típico: **se te pierde un gel** o algo no te entra como esperabas'
+        'o te pasa lo típico: se te pierde un gel o algo no te entra como esperabas'
       ],
       footer: 'Listo. Esta fase no es para inventar: es para llegar con un plan probado.'
     },
@@ -1471,6 +1469,421 @@ export const hardcodedStage3Challenges: Challenge[] = [
     },
     order_index: 2,
     created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-5',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'bifurcation',
+    content: {
+      title: 'Bifurcación: Selección de Reto',
+      question: '¿Cuál reto vas a hacer en La Sucursal?',
+      options: [
+        {
+          id: 'cana',
+          label: 'Reto Caña',
+          icon: '🌾',
+          description: '69.7 km',
+          color: 'amber'
+        },
+        {
+          id: 'salsa',
+          label: 'Reto Salsa',
+          icon: '💃',
+          description: '180.1 km',
+          color: 'rose'
+        }
+      ]
+    },
+    order_index: 3,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-cana-1',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'phase_importance', // Using PhaseImportanceCard for the "Route Stats + Graph" card as it's cleaner for now, OR I can use RouteCard if I map it correctly.
+                            // Actually, let's use RouteCard via 'phase_importance' type with 'variant' property as seen in ChallengeCarousel.
+                            // Wait, ChallengeCarousel uses RouteCard if type is 'phase_importance' AND has 'variant'.
+    content: {
+      variant: 'cana',
+      title: 'BIFURCACIÓN 1: Reto Caña',
+      header: {
+        distance: '69.7 km',
+        ascent: '1,670 m',
+        maxAlt: '1,986 m',
+        label: 'Tu ruta (GPX oficial)'
+      },
+      image: '/src/assets/img/Screenshot_1.png', // Placeholder or upload? I'll use a placeholder for now or ask user.
+      intro: 'Caña tiene el esfuerzo adelantado. Si te vaciás por ego en la primera subida fuerte, el resto se vuelve una cuenta larga de fatiga.',
+      sections: [] // No sections in the first card.
+    },
+    order_index: 4,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-cana-2',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'phase_importance',
+    content: {
+      variant: 'cana',
+      title: 'Lectura táctica',
+      sections: [
+        {
+          title: 'Ventana 1 — Arranque (primer tramo exigente)',
+          content: 'Empezá a comer a los 20 minutos, aunque te sintás fuerte. El gasto arranca alto.',
+          icon: 'zap'
+        },
+        {
+          title: 'Ventana 2 — Zona de recarga (descenso / transición)',
+          content: 'Aprovechá para meter algo más "masticable" si te pasa bien, porque el pulso baja y el cuerpo lo tolera mejor.',
+          icon: 'zap'
+        },
+        {
+          title: 'Ventana 3 — Último repecho antes de meta',
+          content: 'Acá se simplifica. Si el estómago está sensible, pasás a Plan B: líquido/gel, sin pelear con la masticada.',
+          icon: 'zap'
+        }
+      ],
+      footer: 'Microtransición: Bueno... ya vimos la ruta. Ahora pasemos a la base que no perdona: hidratación y sodio.'
+    },
+    order_index: 5,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-salsa-1',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'phase_importance',
+    content: {
+      variant: 'salsa',
+      title: 'BIFURCACIÓN 2: Reto Salsa',
+      header: {
+        distance: '180.1 km',
+        ascent: '3,151 m',
+        maxAlt: '1,986 m',
+        label: 'Tu ruta (GPX oficial)'
+      },
+      image: '/src/assets/img/Screenshot_2.png', // Placeholder
+      intro: 'Salsa es una batalla de horas. No gana el más fuerte al inicio; gana el que mantiene el tanque alto cuando pasan 5–6 horas.',
+      sections: []
+    },
+    order_index: 6,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-salsa-2',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'phase_importance',
+    content: {
+      variant: 'salsa',
+      title: 'Lectura táctica',
+      intro: '',
+      sectionsTitle: 'Ventanas críticas (para sostener)',
+      sections: [
+        {
+          title: 'Ventana 1 — Inicio (primeras horas)',
+          content: 'Paciencia inteligente. Sostener el plan desde temprano.',
+          icon: 'zap'
+        },
+        {
+          title: 'Ventana 2 — “Zona de sombra” (mitad de carrera)',
+          content: 'Aquí aparece el rechazo a lo dulce. No es falta de ganas: es fatiga + saturación. Tener alternativas de textura salva el día.',
+          icon: 'zap'
+        },
+        {
+          title: 'Ventana 3 — Final (cuando la cabeza manda)',
+          content: 'Si cuesta tragar, pasás a carbohidrato en líquido y a decisiones simples: sostener, sostener, sostener.',
+          icon: 'zap'
+        }
+      ],
+      footer: 'Bueno... ya vimos la ruta. Ahora pasemos a la base que no perdona: hidratación y sodio.'
+    },
+    order_index: 7,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-1',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'intro',
+    content: {
+      title: 'Hidratación + sodio (el combustible invisible)',
+      paragraphs: [],
+      list: [
+        'Mínimo en la bici: 400–500 ml por hora (ajustás por calor/sudor).',
+        'Sodio por hora: rango práctico 300–600 mg según sudoración y clima (lo entrenás, no lo adivinás).'
+      ],
+      footer: 'Y ojo con esto: el carbo también necesita su agua para pasar.'
+    },
+    order_index: 8,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-1b',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'intro',
+    content: {
+      title: 'Regla de oro (vaciado gástrico)',
+      paragraphs: [
+        'Si metés el carbo muy concentrado, se queda pesado y no "pasa".',
+        'Por eso no concentrés de más: máximo 9% → 90 g de carbo por litro.',
+        'Si sentís pesadez: más agua / menos concentración / mejor repartido.'
+      ],
+      callout: {
+        text: '¡Ojo! El carbo necesita su agua para pasar.',
+        bgColor: 'bg-yellow-50',
+        borderColor: 'border-yellow-200',
+        textColor: 'text-yellow-900'
+      }
+    },
+    order_index: 9,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-2',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'intro',
+    content: {
+      title: 'Energía por hora',
+      paragraphs: [
+        'En salidas largas suaves podés moverte en un rango más moderado.',
+        'En simulaciones tipo carrera, esta fase busca que tu cuerpo tolere rango alto (eso se entrena en septiembre).'
+      ],
+      footer: 'Si ya tenés líquido y energía claros, lo siguiente es lo que te salva cuando algo se descuadra: Plan B, abajo te lo explico.'
+    },
+    order_index: 10,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-3',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'intro',
+    content: {
+      title: 'Cafeína (si la usás, que sea entrenada)',
+      paragraphs: [
+        'No es obligatoria. Si la usás, que sea probada en entreno, en dosis baja al inicio, y mirando dos cosas:'
+      ],
+      list: [
+        '¿me mejora el enfoque o me acelera de más?',
+        '¿me daña el sueño o el estómago?'
+      ],
+      footer: 'Ahora sí: Plan B con sentido, no con desespero.'
+    },
+    order_index: 11,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-4',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'intro',
+    content: {
+      title: 'Plan B (para cuando no pasa sólido)',
+      paragraphs: [
+        'Plan B no es "cualquier cosa". Es una salida práctica para seguir cumpliendo el plan por hora cuando:',
+        'Aquí puede entrar una Manzana Postobón, en momentos puntuales: te aporta líquido + azúcar fácil cuando necesitás rescatar energía rápido. Idealmente acompañada de tu estrategia de sales/electrolitos.',
+        'Y si el calor aprieta o el ritmo está alto, Gatorade funciona muy bien porque combina líquido + carbo + sales en un formato fácil.'
+      ],
+      list: [
+        'no querés masticar',
+        'te saturaste de dulce denso',
+        'se te perdió algo',
+        'o el estómago se puso delicado'
+      ],
+      footer: 'Y para que todo esto no dependa de orgullo: abastecimientos inteligentes.'
+    },
+    order_index: 12,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-5',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'intro',
+    content: {
+      title: 'Abastecimientos (cero ego)',
+      paragraphs: [
+        'Perder 2 minutos recargando es una inversión. La regla es simple: salir del punto con el siguiente tramo resuelto (líquido listo + energía a mano). Prefiero "perder" 2 minutos recargando que no sufrir 2h - 3h deshidratado.'
+      ]
+    },
+    order_index: 13,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-6',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'intro',
+    content: {
+      title: 'Rigobeet (herramienta para días fuertes)',
+      paragraphs: [
+        'Si vas a usar Rigobeet, que sea como debe ser: probado en entreno, en días de intensidad o simulación de subida, mirando:'
+      ],
+      list: [
+        '¿me cae bien?',
+        '¿siento que me ayuda cuando el esfuerzo sube?'
+      ]
+    },
+    order_index: 14,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-7a',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'action_plan',
+    content: {
+      keyTakeaways: [
+        'Plan de acción (1/3): Semana Tipo'
+      ],
+      phases: [
+        {
+          title: 'Estructura Semanal',
+          items: [
+            '1 simulación larga por semana practicando tu guion (energía por hora + hidratación por hora).',
+            '1 salida exigente por semana donde practiques "lo fácil de pasar" (menos masticar).'
+          ]
+        }
+      ]
+    },
+    order_index: 15,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-7b',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'action_plan',
+    content: {
+      keyTakeaways: [
+        'Plan de acción (2/3): Ensayo General'
+      ],
+      phases: [
+        {
+          title: 'El gran fondo',
+          items: [
+            '1 ensayo general: un fondo largo (según tu reto) con el mismo plan que usarías el día del Giro.',
+            'Es el momento de probar todo tal cual será el evento.'
+          ]
+        }
+      ]
+    },
+    order_index: 16,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-7c',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'action_plan',
+    content: {
+      keyTakeaways: [
+        'Plan de acción (3/3): Ajustes'
+      ],
+      phases: [
+        {
+          title: 'Regla de ajustes',
+          items: [
+            'Y cada semana ajustás una sola cosa (reparto / textura / sales), no diez.'
+          ]
+        }
+      ],
+      footer: 'Esto no es carreta. Mirá cómo suena cuando alguien lo vive en el evento.'
+    },
+    order_index: 17,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-8-text',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'testimonial',
+    content: {
+      title: 'Testimonio (Fase 3) — Hugo Peláez',
+      subtitle: '',
+      intro: '',
+      person: {
+        name: 'Hugo Peláez',
+        initial: 'H',
+        duration: 'Ciclista Amateur'
+      },
+      metrics: [],
+      description: 'El año pasado entré al Sistema ADA y antes del Giro 2025 alcancé a bajar unos kilos. Le dije a Daniel: "parce, ayúdeme que necesito ir fino a ese fondo". Me explicó exactamente qué comer y cada cuánto, y también cómo hidratarme. Resultado: terminé el Giro 2025 estupendo, y quedé clasificado en el corral race. Este año voy más motivado a entrenar y a llegar más fuerte, pero sobre todo a alimentarme como debe ser. Recomendado al 100%.',
+      strategy: {
+        intro: '',
+        items: [],
+        conclusion: ''
+      },
+      footer: {
+        title: '',
+        message: ''
+      }
+    },
+    order_index: 18,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-8-video',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'testimonial',
+    content: {
+      title: 'Testimonio en video',
+      subtitle: '',
+      intro: '',
+      person: {
+        name: 'Hugo Peláez',
+        initial: 'H',
+        duration: 'Ciclista Amateur'
+      },
+      metrics: [],
+      description: '',
+      strategy: {
+        intro: '',
+        items: [],
+        conclusion: ''
+      },
+      videoEmbed: '<vturb-smartplayer id="vid-698aaa3e6e05f1df885b2f62" style="display: block; margin: 0 auto; width: 100%; height: 100%; object-fit: contain; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/cb2c2efc-2fa0-413a-8d5e-f3514b127b3f/players/698aaa3e6e05f1df885b2f62/v4/player.js", s.async=!0,document.head.appendChild(s); </script>',
+      footer: {
+        title: '',
+        message: 'Listo. Ya viste el punto: el que llega con guion, llega con gasolina.'
+      }
+    },
+    order_index: 19,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-9',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'cta',
+    content: {
+      title: 'Tu siguiente paso',
+      message: 'Si querés el paso a paso completo o que te lo armemos nosotros:',
+      options: [
+        {
+          title: 'Opción 1 — Plataforma educativa',
+          subtitle: 'Si querés el paso a paso **por módulos** para armar tu estrategia y ejecutarla sin improvisar, entrá a la plataforma educativa del **Sistema ADA**.',
+          description: '',
+          buttonText: 'Quiero acceso a la plataforma educativa (solo info)',
+          buttonUrl: 'https://form.typeform.com/to/ABCDEF',
+          isPrimary: false
+        },
+        {
+          title: 'Opción 2 — Plataforma educativa + plan de alimentación personalizado',
+          subtitle: 'Si querés irte a la fija: te acompañamos y te armamos **tu plan de alimentación personalizado**, según tu caso real.',
+          description: '',
+          buttonText: 'Quiero mi plan personalizado + plataforma educativa',
+          buttonUrl: 'https://form.typeform.com/to/GHIJKL',
+          isPrimary: true
+        }
+      ]
+    },
+    order_index: 20,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'hardcoded-stage3-common-10',
+    stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
+    type: 'cta',
+    content: {
+      title: 'Transición a Fase 4',
+      transition: {
+        text: 'Microtransición: Y ahora viene lo que separa al que entrena... del que llega fino: **la semana del evento**.\n\nEn **Fase 4** bajamos el entrenamiento y subimos la ejecución: **descanso, hidratación y depósitos llenos**, sin inventos de última hora.',
+        buttonText: 'Continuar a Fase 4 (Semana del evento)',
+        buttonUrl: '#'
+      }
+    },
+    order_index: 21,
+    created_at: new Date().toISOString()
   }
 ];
 
@@ -1496,18 +1909,21 @@ export const hardcodedStage4Challenges: Challenge[] = [
     type: 'phase_importance',
     content: {
       title: 'Qué cambia en esta fase y por qué',
-      points: [
+      sections: [
         {
+          icon: 'zap',
           title: 'Bajo volumen de entreno',
-          description: 'Protejo energía, no la recorto a lo loco'
+          content: 'Protejo energía, no la recorto a lo loco'
         },
         {
+          icon: 'zap',
           title: 'Quiero depósitos llenos',
-          description: 'Subo carbo con comida simple'
+          content: 'Subo carbo con comida simple'
         },
         {
+          icon: 'zap',
           title: 'Quiero estómago tranquilo',
-          description: 'Evito experimentos y bajo fibra/grasas pesadas cerca del evento'
+          content: 'Evito experimentos y bajo fibra/grasas pesadas cerca del evento'
         }
       ]
     },
@@ -1607,38 +2023,9 @@ export const hardcodedStage4Challenges: Challenge[] = [
     type: 'nutrition_guide',
     content: {
       title: 'Depósitos llenos: subir carbohidratos sin exagerar',
-      concept: 'Últimos 2–3 días: subo porción de carbo (arroz, pasta, papa, pan, arepa, frutas). Mantengo proteína normal. Bajo fibra y grasas pesadas el día previo.\n\nRegla para bebida con carbo (la que salva): Por cada litro de agua, no paso de 90 g de carbohidratos.',
-      practicalHeading: 'Ejemplos de carga de carbohidratos:',
-      scenarios: [
-        {
-          condition: 'Desayuno',
-          meals: [
-            {
-              name: 'Opción alta en carbo',
-              items: ['Arepa con mermelada', 'Jugo de frutas', 'Banano']
-            }
-          ]
-        },
-        {
-          condition: 'Almuerzo',
-          meals: [
-            {
-              name: 'Plato principal',
-              items: ['Arroz abundante', 'Pollo o carne magra', 'Ensalada simple']
-            }
-          ]
-        },
-        {
-          condition: 'Cena',
-          meals: [
-            {
-              name: 'Última carga',
-              items: ['Pasta', 'Proteína magra', 'Verduras cocidas']
-            }
-          ]
-        }
-      ],
-      microTransition: 'El objetivo es llenar los depósitos sin sentirte pesado.'
+      concept: 'Últimos 2–3 días: subo porción de carbo (arroz, pasta, papa, pan, arepa, frutas). Mantengo proteína normal. Bajo fibra y grasas pesadas el día previo.\n\nRegla para bebida con carbo: Por cada litro de agua, no paso de 90 g de carbohidratos.',
+      practicalHeading: '',
+      microTransition: ''
     },
     order_index: 8,
     created_at: new Date().toISOString()
@@ -1719,9 +2106,25 @@ export const hardcodedStage4Challenges: Challenge[] = [
     stage_id: '997d041d-857e-4183-a063-ba238caeed00',
     type: 'testimonial',
     content: {
-      quote: 'Era mi primer Giro, y mi temor real era sufrir demasiado o no completar el reto. Lo que hizo la diferencia no fue "motivación", sino estrategia: acompañamiento y una estrategia de alimentación diseñada para los días previos, el día previo y el día del evento. Pude hacer el Giro con la dificultad normal del reto, lo disfruté y llegué. Gran parte fue "irse nutriendo durante cada uno de los momentos del evento" con un plan estructurado, no improvisado.',
-      author: 'Juan Camilo',
-      context: 'Primer Giro'
+      title: 'Testimonio (Fase 4)',
+      subtitle: 'Juan Camilo (primer Giro)',
+      intro: 'Juan Camilo llegó con un miedo normal: era su primer Giro, y su temor real era sufrir demasiado o no completar el reto. Lo que él resalta no es "motivación", sino estrategia: acompañamiento y una estrategia de alimentación diseñada para los días previos, el día previo y el día del evento.',
+      person: {
+        name: 'Juan Camilo',
+        initial: 'J',
+        duration: 'Primer Giro'
+      },
+      description: 'Resultado: pudo hacer el Giro con la dificultad normal del reto, lo disfrutó y llegué. Y lo dice claro: gran parte fue "irse nutriendo durante cada uno de los momentos del evento" con un plan estructurado, no improvisado.',
+      metrics: [],
+       strategy: {
+        intro: '',
+        items: [],
+        conclusion: ''
+      },
+      footer: {
+        title: '',
+        message: ''
+      }
     },
     order_index: 12,
     created_at: new Date().toISOString()
@@ -1729,22 +2132,28 @@ export const hardcodedStage4Challenges: Challenge[] = [
   {
     id: 'hardcoded-stage4-14',
     stage_id: '997d041d-857e-4183-a063-ba238caeed00',
-    type: 'cta',
+    type: 'testimonial',
     content: {
-      title: 'Si querés tener todo esto organizado y explicado paso a paso',
-      description: 'Elegí la opción que mejor se adapte a tus necesidades:',
-      options: [
-        {
-          title: 'Quiero solo la plataforma educativa',
-          description: 'Sistema ADA completo con todos los módulos y recursos.',
-          buttonText: 'Acceder al Sistema ADA'
-        },
-        {
-          title: 'Quiero educación + plan personalizado',
-          description: 'Sistema ADA + plan de alimentación diseñado específicamente para vos.',
-          buttonText: 'Quiero el Plan Completo'
-        }
-      ]
+      title: 'Testimonio en video',
+      subtitle: '',
+      intro: '',
+      person: {
+        name: 'Juan Camilo',
+        initial: 'J',
+        duration: 'Primer Giro'
+      },
+      metrics: [],
+      description: '',
+      strategy: {
+        intro: '',
+        items: [],
+        conclusion: ''
+      },
+      footer: {
+        title: '',
+        message: ''
+      },
+      videoEmbed: '<vturb-smartplayer id="vid-698a8fddd36ca2951c49c407" style="display: block; margin: 0 auto; width: 100%; height: 100%; object-fit: contain; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/cb2c2efc-2fa0-413a-8d5e-f3514b127b3f/players/698a8fddd36ca2951c49c407/v4/player.js", s.async=!0,document.head.appendChild(s); </script>'
     },
     order_index: 13,
     created_at: new Date().toISOString()
@@ -1752,12 +2161,29 @@ export const hardcodedStage4Challenges: Challenge[] = [
   {
     id: 'hardcoded-stage4-15',
     stage_id: '997d041d-857e-4183-a063-ba238caeed00',
-    type: 'intro',
+    type: 'cta',
     content: {
-      title: 'Nos vemos en la línea de salida',
-      paragraphs: [
-        'Tanque lleno, cabeza tranquila y ejecución simple.'
-      ]
+      title: 'CTA final + cierre',
+      message: 'Si querés tener todo esto organizado y explicado paso a paso:',
+      options: [
+        {
+          title: 'Opción 1 — Plataforma educativa',
+          subtitle: 'Sistema ADA',
+          description: 'Si querés el paso a paso **por módulos** para armar tu estrategia y ejecutarla sin improvisar, entrá a la plataforma educativa del **Sistema ADA**.',
+          buttonText: 'Quiero acceso a la plataforma educativa (solo info)',
+          buttonUrl: 'https://form.typeform.com/to/ABCDEF',
+          isPrimary: false
+        },
+        {
+          title: 'Opción 2 — Plataforma educativa + plan de alimentación personalizado',
+          subtitle: '',
+          description: 'Si querés irte a la fija: te acompañamos y te armamos **tu plan de alimentación personalizado**, según tu caso real.',
+          buttonText: 'Quiero mi plan personalizado + plataforma educativa',
+          buttonUrl: 'https://form.typeform.com/to/GHIJKL',
+          isPrimary: true
+        }
+      ],
+      footerSubtext: 'Cierre: Nos vemos en la línea de salida: tanque lleno, cabeza tranquila y ejecución simple.'
     },
     order_index: 14,
     created_at: new Date().toISOString()

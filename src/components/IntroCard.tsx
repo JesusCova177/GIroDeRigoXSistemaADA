@@ -19,7 +19,7 @@ export function IntroCard({ content }: IntroCardProps) {
   const { title, paragraphs, list, footer, callout } = content;
 
   return (
-    <div className="flexflex-col items-center  rounded-2xl bg-white border-l-4 border-blue-500 p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 overflow-y-auto h-[60vh] shadow-xl w-full">
+    <div className="flexflex-col items-center  rounded-2xl bg-white border-l-4 border-blue-500 p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl w-full">
       <div className="flex items-center justify-center gap-4 mb-4 sm:mb-6">
         <div>
           <h2 className="tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-[#31563C] text-center mb-2 italic uppercase">
@@ -48,9 +48,11 @@ export function IntroCard({ content }: IntroCardProps) {
 
       {footer && (
         <div className="mt-8 pt-4 border-t border-gray-100">
-          <p className="text-sm sm:text-base font-semibold text-gray-800 italic text-center text-blue-900/80">
-            {footer}
-          </p>
+           <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 shadow-sm">
+              <p className="text-sm sm:text-base font-black text-yellow-900 uppercase italic text-center tracking-wide leading-relaxed">
+                {footer}
+              </p>
+           </div>
         </div>
       )}
 

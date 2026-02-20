@@ -31,33 +31,33 @@ interface CTACardProps {
 
 const CTACard: React.FC<CTACardProps> = ({ content }) => {
   return (
-  <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl p-6 sm:p-8 h-[60dvh] flex flex-col text-white overflow-hidden">
+  <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl p-4 sm:p-6 min-h-[50dvh] h-auto flex flex-col text-white overflow-hidden">
   {(content.title || content.icon) && (
-    <div className="flex-shrink-0 flex items-center gap-3 mb-6"> {/* flex-shrink-0 evita que el título se aplaste */}
-      <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-3 rounded-xl shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+    <div className="flex-shrink-0 flex items-center gap-3 mb-3"> {/* flex-shrink-0 evita que el título se aplaste */}
+      <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-2 rounded-lg shadow-[0_0_20px_rgba(251,191,36,0.3)]">
         {content.icon === 'zap' ? (
-          <Zap className="w-6 h-6 text-slate-900 fill-slate-900" />
+          <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 fill-slate-900" />
         ) : content.icon === 'rocket' ? (
-          <Rocket className="w-6 h-6 text-white" />
+          <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
         ) : (
-          <Sparkles className="w-6 h-6 text-white" />
+          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
         )}
       </div>
-      <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
+      <h3 className="text-lg sm:text-xl font-bold tracking-tight">
         {content.title}
       </h3>
     </div>
   )}
 
-      <div className="flex-1 overflow-y-auto space-y-6">
+      <div className="flex-1 space-y-3 sm:space-y-4">
         {content.message && (
-          <p className="text-base sm:text-lg leading-relaxed text-gray-200 whitespace-pre-line">
+          <p className="text-sm sm:text-base leading-relaxed text-gray-200 whitespace-pre-line">
             {content.message}
           </p>
         )}
 
         {content.options && content.options.length > 0 && (
-          <div className="space-y-4">
+          <div className="space-y-3">
             {content.options.map((option, index) => (
               <div
                 key={index}
@@ -105,9 +105,12 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
 
         {content.transition && (
           <div className={`pt-6 ${content.options && content.options.length > 0 ? 'mt-8 border-t border-slate-700/50' : ''}`}>
-            <p className="text-base sm:text-lg font-medium leading-relaxed text-gray-100 mb-5">
-              {content.transition.text}
-            </p>
+            <p 
+              className="text-base sm:text-lg font-medium leading-relaxed text-gray-100 mb-5"
+              dangerouslySetInnerHTML={{
+                __html: content.transition.text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>').replace(/\n/g, '<br/>')
+              }}
+            />
             <div className="flex flex-col items-center gap-4">
               <a
                 href={content.transition.buttonUrl}

@@ -2,11 +2,13 @@ import React from 'react';
 import { CheckCircle2, Target } from 'lucide-react';
 
 interface ActionPlanContent {
-  keyTakeaways: string[];
-  phases: {
+  keyTakeaways?: string[];
+  phases?: {
     title: string;
     items: string[];
   }[];
+  actions?: string[];
+  footer?: string;
 }
 
 interface ActionPlanCardProps {
@@ -49,7 +51,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
         )}
 
         <div className="space-y-4">
-          {content.phases.map((phase, phaseIndex) => (
+          {content.phases && content.phases.map((phase, phaseIndex) => (
             <div
               key={phaseIndex}
               className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-xl p-5 border border-gray-200"
@@ -71,8 +73,36 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
               </ul>
             </div>
           ))}
+
+          {/* Soportar lista simple de acciones */}
+          {content.actions && content.actions.length > 0 && (
+             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 border border-blue-200">
+               <ul className="space-y-4">
+                 {content.actions.map((action, index) => (
+                   <li key={index} className="flex items-start gap-3">
+                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs mt-0.5 border border-blue-200">
+                       {index + 1}
+                     </span>
+                     <span className="text-sm sm:text-base text-gray-800 leading-relaxed font-medium">
+                       {action}
+                     </span>
+                   </li>
+                 ))}
+               </ul>
+             </div>
+          )}
         </div>
       </div>
+
+      {content.footer && (
+        <div className="mt-auto pt-6 border-t border-gray-100">
+           <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 shadow-sm">
+              <p className="text-sm sm:text-base font-black text-yellow-900 uppercase italic text-center tracking-wide leading-relaxed">
+                {content.footer}
+              </p>
+           </div>
+        </div>
+      )}
     </div>
   );
 };
