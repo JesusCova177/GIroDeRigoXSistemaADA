@@ -76,7 +76,7 @@ export function NutritionGuideCard({
           {(scenarios ?? []).map((scenario, scenarioIndex) => (
             <div
               key={scenarioIndex}
-              className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-green-300 transition-all duration-200"
+              className="bg-[#31563C]-50 rounded-lg p-4 border border-gray-200 hover:border-green-300 transition-all duration-200"
             >
               {scenario.condition && (
                 <div className="flex items-start gap-2 mb-3">
