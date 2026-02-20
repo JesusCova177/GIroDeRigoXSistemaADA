@@ -40,7 +40,7 @@ export function StageHeader({
           {userEmail && onLogout && (
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow">
               <div className="" />
-              <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
+             
               </span>
               <button
                 onClick={onLogout}
