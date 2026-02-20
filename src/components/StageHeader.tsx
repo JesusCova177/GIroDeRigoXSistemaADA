@@ -90,7 +90,7 @@ export function StageHeader({
                             </div>
                           )}
                         </div>
-
+<div></div>
                         <span
                           className={`text-xs sm:text-sm font-semibold ${
                             stage.stage_number === stageNum
