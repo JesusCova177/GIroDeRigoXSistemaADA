@@ -41,7 +41,7 @@ export function StageHeader({
             <div >
               <button
                 onClick={onLogout}
-                className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
+                className=""
               >
                 
               </button>
