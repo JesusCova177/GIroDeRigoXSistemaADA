@@ -25,7 +25,7 @@ export function StageHeader({
   const progressPercentage = (stage.stage_number / totalStages) * 100;
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center shadow">
       <div
         className={`flex flex-col items-center justify-start py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
           showStageSelector
@@ -36,7 +36,7 @@ export function StageHeader({
           background: stage.primary_color,
         }}
       >
-        <div className="w-full flex  sm:flex-row justify-around items-center sm:items-center gap-2 sm:gap-3 shadow">
+        <div className="w-full flex  sm:flex-row justify-around items-center sm:items-center gap-2 sm:gap-3">
           {userEmail && onLogout && (
             <div className="flex items-center bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow">
               <button
