@@ -39,12 +39,7 @@ export function StageHeader({
         <div className="w-full">
           {userEmail && onLogout && (
             <div >
-              <button
-                onClick={onLogout}
-                className=""
-              >
-                
-              </button>
+              
             </div>
           )}
          
