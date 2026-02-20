@@ -106,7 +106,6 @@ export function StageHeader({
                   )}
                 </div>
               </div>
-              <div></div>
             </div>
         
           ) : (
