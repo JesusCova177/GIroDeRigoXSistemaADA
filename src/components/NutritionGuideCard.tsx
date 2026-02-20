@@ -47,7 +47,7 @@ export function NutritionGuideCard({
       </div>
 
       {concept && (
-          <p className="text-base sm:text-sm text-[#31563C] leading-relaxed">
+          <p className="text-base sm:text-sm text-gray-700 leading-relaxed">
             {concept}
           </p>
       )}
@@ -69,7 +69,7 @@ export function NutritionGuideCard({
             ) : (
               <Utensils className="w-5 h-5 text-green-600 flex-shrink-0" />
             )}
-            <h4 className="text-sm sm:text-base font-bold text-gray-800">{practicalHeading}</h4>
+            <h4 className="text-sm sm:text-base font-bold text-[#31563C]">{practicalHeading}</h4>
           </div>
 
         <div className="space-y-4">
