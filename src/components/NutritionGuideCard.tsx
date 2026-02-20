@@ -100,7 +100,7 @@ export function NutritionGuideCard({
                       <path d="M4 9h2M18 9h2" />
                     </svg>
                   ) : (
-                    <TrendingUp className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
+                    <TrendingUp className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                   )}
                   <p className="text-xs sm:text-sm font-semibold text-gray-700 italic">
                     {scenario.condition}
