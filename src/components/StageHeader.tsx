@@ -100,12 +100,15 @@ export function StageHeader({
                           Etapa {stageNum}
                         </span>
                       </button>
+                      
 
                     ),
                   )}
                 </div>
               </div>
+              <div></div>
             </div>
+        
           ) : (
             <button
               onClick={onToggleStageSelector}
