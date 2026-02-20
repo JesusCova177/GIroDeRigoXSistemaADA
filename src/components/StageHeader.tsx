@@ -47,9 +47,7 @@ export function StageHeader({
               </button>
             </div>
           )}
-          <div className="ml-auto">
-            
-          </div>
+         
         </div>
 
         <div>
