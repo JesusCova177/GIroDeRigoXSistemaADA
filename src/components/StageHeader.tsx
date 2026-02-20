@@ -43,7 +43,7 @@ export function StageHeader({
                 onClick={onLogout}
                 className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
               >
-                <LogOut className="w-4 h-4 text-[#31563C]" />
+                
               </button>
             </div>
           )}
