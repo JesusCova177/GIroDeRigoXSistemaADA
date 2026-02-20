@@ -157,7 +157,7 @@ export function ChallengeCarousel({
         <div className="absolute top-1/4 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20 pointer-events-none">
           <div className="bg-gray-900/90 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-2xl flex items-center gap-2">
             <span className="text-xs sm:text-sm font-semibold">Desliza para ver más &rarr;</span>
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+          
           </div>
         </div>
       )}
