@@ -18,6 +18,9 @@ function App() {
   const [showStageSelector, setShowStageSelector] = useState(true);
   const [adaUserId, setAdaUserId] = useState<number | null>(null);
   const [adaMapping, setAdaMapping] = useState<Record<string, number>>({});
+  
+  // Normalize stage name for mapping lookup (ensures it matches "Fase X" format)
+  const mappingStageName = currentStage ? `Fase ${currentStage.stage_number}` : "";
 
   useEffect(() => {
     checkUser();
@@ -225,7 +228,7 @@ function App() {
                   challenges={challenges}
                   adaUserId={adaUserId}
                   adaMapping={adaMapping}
-                  currentStageName={currentStage?.name || "Fase 1"}
+                  currentStageName={mappingStageName}
                 />
               ) : (
                 <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">
