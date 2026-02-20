@@ -36,7 +36,7 @@ export function StageHeader({
           background: stage.primary_color,
         }}
       >
-        <div className="w-full flex  sm:flex-row justify-around items-center sm:items-center gap-2 sm:gap-3">
+        <div className="w-full">
           {userEmail && onLogout && (
             <div >
               <button
