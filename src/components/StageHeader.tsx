@@ -38,12 +38,12 @@ export function StageHeader({
       >
         <div className="w-full flex  sm:flex-row justify-around items-center sm:items-center gap-2 sm:gap-3">
           {userEmail && onLogout && (
-            <div /*className="flex items-center bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow"*/>
+            <div >
               <button
                 onClick={onLogout}
-                {/* className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200" */}
+                className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
               >
-                {/* <LogOut className="w-4 h-4 text-[#31563C]" /> */}
+                <LogOut className="w-4 h-4 text-[#31563C]" />
               </button>
             </div>
           )}
