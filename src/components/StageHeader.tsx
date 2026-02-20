@@ -41,7 +41,7 @@ export function StageHeader({
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow">
               <div className="" />
              
-              </span>
+              
               <button
                 onClick={onLogout}
                 className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
