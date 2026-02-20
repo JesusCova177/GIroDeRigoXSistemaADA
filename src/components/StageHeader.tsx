@@ -49,12 +49,12 @@ export function StageHeader({
           )}
           <div className="ml-auto">
             <span className="text-xl sm:text-sm font-medium text-white/90 block">
-              By SISTEMA<span className="text-[#ffcc00]">ADA</span>
+            Roadmap de Alimentación Giro de Rigo 2026  By SISTEMA<span className="text-[#ffcc00]">ADA</span>
             </span>
           </div>
         </div>
 
-        <div> 
+        <div>
           <h1 className={`tracking-wide text-center font-titling font-black text-[#31563C] tracking-tight px-2 italic uppercase transition-all duration-300 ${
             showStageSelector
               ? 'text-3xl sm:text-4xl md:text-5xl'
@@ -65,7 +65,7 @@ export function StageHeader({
         </div>
 
         {showStageSelector && (
-          <div className="flex items-center justify-center gap-2 bg-white/10 font-titling backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3">
+          <div className="flex items-center justify-center gap-2 bg-white/10 font-titling backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-xl">
             <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#31563C] flex-shrink-0" />
             <p className="text-[#31563C] font-medium text-sm sm:text-base md:text-lg text-center">
               {stage.description}
