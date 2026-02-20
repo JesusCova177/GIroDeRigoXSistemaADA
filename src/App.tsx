@@ -208,6 +208,9 @@ function App() {
 
   return (
     <div className="h-vh bg-[#fff] overflow-hidden flex flex-col">
+       <span className="text-xl sm:text-sm font-medium text-white/90 block">
+            Roadmap de Alimentación Giro de Rigo 2026 By SISTEMA<span className="text-[#ffcc00]">ADA</span>
+            </span>
       <div className="flex-1 min-h-0 overflow-y-auto">
         <div className="h-dvh max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 overflow-hidden">
           <StageHeader
