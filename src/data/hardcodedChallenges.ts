@@ -674,7 +674,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'intro',
     content: {
-      title: 'Apertura (mi historia)',
+      title: 'Mi historia',
       paragraphs: [
         'Hubo una \u00e9poca en la que yo pensaba que la nutrici\u00f3n en la bici era \u201calgo que se resuelve\u201d: un banano, un bocadillo, ag\u00fcita\u2026 y chao. Y mientras las salidas eran cortas, esa idea me funcionaba\u2026 o por lo menos cre\u00eda que me funcionaba.'
       ]
