@@ -38,8 +38,7 @@ export function StageHeader({
       >
         <div className="w-full flex  sm:flex-row justify-around items-center sm:items-center gap-2 sm:gap-3">
           {userEmail && onLogout && (
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-xl shadow">
-            </div>
+         
           )}
           <div className="ml-auto">
             <span className="text-xl sm:text-sm font-medium text-white/90 block">
