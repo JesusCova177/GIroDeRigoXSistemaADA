@@ -46,7 +46,7 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
 
   return (
     <div className="flex-shrink-0 w-full  rounded-2xl shadow-lg p-4 sm:p-6 border-2 border-yellow-500 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-yellow-200 rounded-full opacity-20 blur-3xl" />
+      <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-yellow-200 rounded-full opacity-20 blur-3xl font-[Montserrat-Light]" />
 
       <div className="flex items-center justify-between mb-3 sm:mb-4 relative z-10">
         <div className="flex items-center gap-2">
