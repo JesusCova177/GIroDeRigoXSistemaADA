@@ -40,7 +40,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
          
         </div>
  <h1 className="text-2xl text-[#F8A3C9] block self-center justify-self-center text-center tracking-wide">
-            Roadmap de Alimentación Giro de Rigo 2026 by <span className="text-white">SISTEMA</span><span className="text-[#ffcc00]">ADA</span>
+            Roadmap de Alimentación Giro de Rigo 2026 by <span className="text-black">SISTEMA</span><span className="text-[#ffcc00]">ADA</span>
             </h1>
         <h2 className="text-xl font-titling font-black text-white text-center mb-3 italic uppercase tracking-tight tracking-wide">
          Inicio de sesion
