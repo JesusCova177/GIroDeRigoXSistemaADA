@@ -46,13 +46,14 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
 
   return (
     <div className="flex-shrink-0 w-full  rounded-2xl shadow-lg p-4 sm:p-6 border-2 border-yellow-500 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-yellow-200 rounded-full opacity-20 blur-3xl" /> 
+      <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-yellow-200 rounded-full opacity-20 blur-3xl" />
+
       <div className="flex items-center justify-between mb-3 sm:mb-4 relative z-10">
         <div className="flex items-center gap-2">
           <div className="p-1.5 sm:p-2 bg-yellow-100 rounded-lg">
             <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600" />
           </div>
-          <h3 className="text-lg sm:text-xl font-titling font-yellow text-[#31563C] italic">{title}</h3>
+          <h3 className="text-lg sm:text-xl font-titling font-black text-yellow-500 italic">{title}</h3>
         </div>
         {answeredCount > 0 && (
           <div className="flex items-center gap-1 bg-yellow-100 px-2 sm:px-3 py-1 rounded-full">
