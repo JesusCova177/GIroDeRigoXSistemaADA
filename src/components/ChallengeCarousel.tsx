@@ -196,8 +196,8 @@ export function ChallengeCarousel({
             };
 
             const getCardColor = () => {
-              if (challenge.type === "intro") return "from-blue-500 to-blue-600";
-              if (challenge.type === "testimonial") return "from-emerald-500 to-emerald-600";
+              if (challenge.type === "intro") return "from-[#F8A3C9]-500 to-[#F8A3C9]-600";
+              if (challenge.type === "testimonial") return "from-yellow-500 to-emerald-600";
               if (challenge.type === "cta") return "from-orange-500 to-amber-600";
               return "from-blue-500 to-blue-600";
             };
