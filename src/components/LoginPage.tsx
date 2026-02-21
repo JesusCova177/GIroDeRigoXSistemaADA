@@ -29,7 +29,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="h-dvh bg-[#31563C] from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center p-4 overflow-hidden">
+    <div className="h-dvh bg-white from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center p-4 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full opacity-10 blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-400 rounded-full opacity-10 blur-3xl" />
