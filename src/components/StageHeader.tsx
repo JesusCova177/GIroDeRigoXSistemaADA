@@ -106,6 +106,18 @@ export function StageHeader({
               <span className="text-sm sm:text-base font-semibold text-[#31563C]">
                 Ver todas las etapas
               </span>
+                {userEmail && onLogout && (
+            <div>
+       <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
+              </span>
+              <button
+                onClick={onLogout}
+                className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
+              >
+                <LogOut className="w-4 h-4 text-[#31563C]" />
+              </button>
+            </div>
+          )}
             </button>
           )}
         </div>
