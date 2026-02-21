@@ -35,14 +35,14 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-400 rounded-full opacity-10 blur-3xl" />
       </div>
 
-      <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full relative z-10">
+      <div className="bg-[#41563F] rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full relative z-10">
         <div className="flex items-center justify-center mb-8">
          
         </div>
  <h1 className="text-2xl text-[#F8A3C9] block self-center justify-self-center text-center">
             Roadmap de Alimentación Giro de Rigo 2026 by <span className="text-black">SISTEMA</span><span className="text-[#ffcc00]">ADA</span>
             </h1>
-        <h2 className="text-xl font-titling font-black text-[#41563F] text-center mb-3 italic uppercase tracking-tight">
+        <h2 className="text-xl font-titling font-black text-[#31563C] text-center mb-3 italic uppercase tracking-tight">
          Inicio de sesion
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
