@@ -106,10 +106,8 @@ export function StageHeader({
               <span className="text-sm sm:text-base font-semibold text-[#31563C]">
                 Ver todas las etapas
               </span>
-                
-            </button>
-        {userEmail && onLogout && (
-            <div>
+                {userEmail && onLogout && (
+            <div> 
        <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
               </span>
               <button
@@ -120,6 +118,7 @@ export function StageHeader({
               </button>
             </div>
           )}
+            </button>
           )}
         </div>
       </div>
