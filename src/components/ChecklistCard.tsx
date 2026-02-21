@@ -41,7 +41,7 @@ export function ChecklistCard({ title, items, adaUserId, stagesCardsId }: Checkl
   const isComplete = checkedItems.size === items.length;
 
   return (
-    <div className="flex-shrink-0 w-full bg-white rounded-2xl shadow-lg p-4 sm:p-6 border-2 border-blue-500 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+    <div className="flex-shrink-0 w-full bg-white rounded-2xl shadow-lg p-4 sm:p-6 border-2  hover:shadow-xl transition-all duration-300 relative overflow-hidden">
       {isComplete && (
         <div className="absolute top-0 right-0 p-2 sm:p-4">
           <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500 animate-bounce" />
