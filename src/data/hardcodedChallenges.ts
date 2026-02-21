@@ -223,6 +223,25 @@ export const hardcodedStage1Challenges: Challenge[] = [
     created_at: new Date().toISOString()
   },
   {
+    id: 'hardcoded-6-b1',
+    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
+    type: 'nutrition_guide',
+    content: {
+      title: 'Ejemplo práctico (post-entreno real):',
+      concept: 'Si estoy apurado, un batido con fruta me salva… pero mi base es comida real.',
+      practicalHeading: 'Según el día:',
+      scenarios: [
+       
+        {
+          condition: 'Opción 2:',
+          meals: ['Pasta La Muñeca (porción medida)', 'carne magra US MEAT', 'verduras']
+        }
+      ],
+    },
+    order_index: 8,
+    created_at: new Date().toISOString()
+  },
+  {
     id: 'hardcoded-6-c',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'preamble_checklist',
