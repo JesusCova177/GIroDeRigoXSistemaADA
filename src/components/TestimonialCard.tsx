@@ -168,6 +168,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
                 
               </div>
             )}
+              </div>
           </div>
 
             {(strategy.intro || strategy.items.length > 0) && (
