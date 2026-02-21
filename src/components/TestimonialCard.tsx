@@ -109,7 +109,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
             <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] tracking-tight italic mb-0">
               {title}
             </h3>
-            <p className="text-xs sm:text-sm text-gray-600 font-medium leading-tight">
+            <p className="text-xs sm:text-sm text-gray-600 font-medium leading-tight font-montserrat">
               {subtitle}
             </p>
           </div>
