@@ -164,9 +164,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
                     }} 
                   />
                 </div>
-                <p className="text-center text-[10px] sm:text-xs text-gray-400 mt-2 italic font-medium">
-                  Pulsa para ver el video testimonial completo
-                </p>
+                
               </div>
             )}
           </div>
