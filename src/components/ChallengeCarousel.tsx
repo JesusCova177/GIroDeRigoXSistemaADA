@@ -12,13 +12,15 @@ import CTACard from "./CTACard";
 import { PreambleChecklistCard } from "./PreambleChecklistCard";
 import { BifurcationCard } from "./BifurcationCard";
 import { NutritionGuideCard } from "./NutritionGuideCard";
-import { ChevronLeft, ChevronRight, Hand } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ChallengeCarouselProps {
   challenges: Challenge[];
   adaUserId: number | null;
   adaMapping: Record<string, number>;
   currentStageName: string;
+  initialCardIndex?: number;
+  onCardChange?: (index: number) => void;
 }
 
 export function ChallengeCarousel({
@@ -26,8 +28,10 @@ export function ChallengeCarousel({
   adaUserId,
   adaMapping,
   currentStageName,
+  initialCardIndex = 0,
+  onCardChange,
 }: ChallengeCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(initialCardIndex);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [translateX, setTranslateX] = useState(0);
@@ -53,14 +57,26 @@ export function ChallengeCarousel({
   const totalCards = visibleChallenges.length;
 
   useEffect(() => {
-    setCurrentIndex(0);
-    setTranslateX(0);
+    // Only reset if the challenges actually changed (new stage)
+    // Avoid resetting if we just reloaded the same stage
+    if (currentIndex >= challenges.length) {
+      setCurrentIndex(0);
+      setTranslateX(0);
+    }
+    
     setShowHint(true);
     setSelectedRoute(null);
 
     const timer = setTimeout(() => setShowHint(false), 3000);
     return () => clearTimeout(timer);
   }, [challenges]);
+
+  // Save progress when index changes
+  useEffect(() => {
+    if (onCardChange) {
+      onCardChange(currentIndex);
+    }
+  }, [currentIndex, onCardChange]);
 
   useEffect(() => {
     if (currentIndex >= totalCards && totalCards > 0) {

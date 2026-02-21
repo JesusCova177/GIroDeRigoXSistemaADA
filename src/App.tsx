@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase, upsertAdaUser, getStageCardMapping, Stage, Challenge } from "./lib/supabase";
+import { supabase, upsertAdaUser, updateUserStageProgress, getUserStageProgress, getStageCardMapping, Stage, Challenge } from "./lib/supabase";
 import { StageHeader } from "./components/StageHeader";
 import { ChallengeCarousel } from "./components/ChallengeCarousel";
 import { LoginPage } from "./components/LoginPage";
@@ -17,6 +17,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [showStageSelector, setShowStageSelector] = useState(true);
   const [adaUserId, setAdaUserId] = useState<number | null>(null);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [adaMapping, setAdaMapping] = useState<Record<string, number>>({});
   
   // Normalize stage name for mapping lookup (ensures it matches "Fase X" format)
@@ -31,9 +32,15 @@ function App() {
       const storedEmail = localStorage.getItem("userEmail");
       if (storedEmail) {
         setUser({ email: storedEmail } as User);
-        const id = await upsertAdaUser(storedEmail);
-        setAdaUserId(id);
-        await fetchStageData();
+        const userProgress = await upsertAdaUser(storedEmail);
+        if (userProgress) {
+          setAdaUserId(userProgress.id);
+          // For now, always start at Stage 1 as per initial requirement,
+          // but we will fetch its specific card progress.
+          await fetchStageData(1, userProgress.id);
+        } else {
+          await fetchStageData(1);
+        }
       }
     } catch (err) {
       console.error("Error checking user:", err);
@@ -45,9 +52,13 @@ function App() {
   async function handleLogin(email: string) {
     localStorage.setItem("userEmail", email);
     setUser({ email } as User);
-    const id = await upsertAdaUser(email);
-    setAdaUserId(id);
-    await fetchStageData();
+    const userProgress = await upsertAdaUser(email);
+    if (userProgress) {
+      setAdaUserId(userProgress.id);
+      await fetchStageData(1, userProgress.id);
+    } else {
+      await fetchStageData(1);
+    }
   }
 
   async function handleLogout() {
@@ -57,10 +68,12 @@ function App() {
     setChallenges([]);
   }
 
-  async function fetchStageData() {
+  async function fetchStageData(targetStageNumber: number = 1, userIdOverride?: number) {
     try {
       setLoading(true);
       setError(null);
+
+      const actualUserId = userIdOverride || adaUserId;
 
       // Fetch mapping concurrently
       getStageCardMapping().then(mapping => setAdaMapping(mapping));
@@ -76,8 +89,21 @@ function App() {
       }
 
       setTotalStages(stages.length);
-      const stage = stages[0];
+      
+      let stage = stages.find(s => s.stage_number === targetStageNumber) || stages[0];
       setCurrentStage(stage);
+
+      // Fetch progress for this specific stage
+      if (actualUserId) {
+        const progress = await getUserStageProgress(actualUserId, stage.stage_number);
+        if (progress) {
+          setCurrentCardIndex(progress.last_card_index);
+        } else {
+          setCurrentCardIndex(0);
+        }
+      } else {
+        setCurrentCardIndex(0);
+      }
 
       const { data: challengesData, error: challengesError } = await supabase
         .from("challenges")
@@ -109,6 +135,15 @@ function App() {
     }
   }
 
+  async function handleCardChange(index: number) {
+    if (adaUserId && currentStage) {
+      setCurrentCardIndex(index);
+      // Determine if it's the last card (simplified check, can be improved)
+      const isCompleted = challenges.length > 0 && index === challenges.length - 1;
+      await updateUserStageProgress(adaUserId, currentStage.stage_number, index, isCompleted);
+    }
+  }
+
   async function navigateToStage(stageNumber: number) {
     try {
       setLoading(true);
@@ -124,6 +159,14 @@ function App() {
       if (!stage) throw new Error("Stage not found");
 
       setCurrentStage(stage);
+
+      // Fetch progress for the target stage
+      if (adaUserId) {
+        const progress = await getUserStageProgress(adaUserId, stageNumber);
+        setCurrentCardIndex(progress?.last_card_index || 0);
+      } else {
+        setCurrentCardIndex(0);
+      }
 
       const { data: challengesData, error: challengesError } = await supabase
         .from("challenges")
@@ -192,7 +235,7 @@ function App() {
           </h2>
           <p className="text-gray-600 text-center mb-4">{error}</p>
           <button
-            onClick={fetchStageData}
+            onClick={() => fetchStageData()}
             className="w-full bg-gradient-to-r from-[#31563C] to-[#2a4833] hover:from-[#2a4833] hover:to-[#1f3626] text-white font-titling font-black py-3 px-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl italic uppercase tracking-wide"
           >
             Intentar de nuevo
@@ -229,6 +272,8 @@ function App() {
                   adaUserId={adaUserId}
                   adaMapping={adaMapping}
                   currentStageName={mappingStageName}
+                  initialCardIndex={currentCardIndex}
+                  onCardChange={handleCardChange}
                 />
               ) : (
                 <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">

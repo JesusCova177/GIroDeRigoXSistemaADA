@@ -36,7 +36,16 @@ export async function getStageCardMapping(): Promise<Record<string, number>> {
   }
 }
 
-export async function upsertAdaUser(email: string): Promise<number | null> {
+export interface AdaUserProgress {
+  id: number;
+}
+
+export interface StageProgress {
+  last_card_index: number;
+  complete_date: string | null;
+}
+
+export async function upsertAdaUser(email: string): Promise<AdaUserProgress | null> {
   try {
     // 1. Check if user exists
     const { data: existingUser, error: searchError } = await supabase
@@ -61,10 +70,10 @@ export async function upsertAdaUser(email: string): Promise<number | null> {
       
       if (updateError) throw updateError;
       console.log('ADA User updated:', existingUser.id);
-      return existingUser.id;
+      return { id: existingUser.id };
     } else {
       // 3. Insert new user
-      const { data: newUser, error: insertError } = await supabase
+      const { data: newUser, error } = await supabase
         .from('ada_users')
         .insert({
           correo: email,
@@ -75,13 +84,69 @@ export async function upsertAdaUser(email: string): Promise<number | null> {
         .select('id')
         .single();
       
-      if (insertError) throw insertError;
-      console.log('ADA User created');
-      return newUser?.id || null;
+      if (error) throw error;
+      
+      if (newUser) {
+        return { id: newUser.id };
+      }
+      return null;
     }
   } catch (error) {
     console.error('Error upserting ADA user:', error);
     return null;
+  }
+}
+
+export async function getUserStageProgress(
+  userId: number,
+  stageNumber: number
+): Promise<StageProgress | null> {
+  try {
+    const { data, error } = await supabase
+      .from('ada_user_stage_progress')
+      .select('last_card_index, complete_date')
+      .eq('user_id', userId)
+      .eq('stage_number', stageNumber)
+      .maybeSingle();
+
+    if (error) throw error;
+    return data || { last_card_index: 0, complete_date: null };
+  } catch (error) {
+    console.error('Error fetching stage progress:', error);
+    return null;
+  }
+}
+
+export async function updateUserStageProgress(
+  userId: number,
+  stageNumber: number,
+  cardIndex: number,
+  isCompleted?: boolean
+) {
+  try {
+    const updateData: any = {
+      last_card_index: cardIndex,
+      update_at: new Date().toISOString()
+    };
+
+    if (isCompleted) {
+      updateData.complete_date = new Date().toISOString();
+    }
+
+    const { error } = await supabase
+      .from('ada_user_stage_progress')
+      .upsert({
+        user_id: userId,
+        stage_number: stageNumber,
+        ...updateData
+      }, {
+        onConflict: 'user_id, stage_number'
+      });
+
+    if (error) throw error;
+    console.log('[updateUserStageProgress] Progress saved:', { stageNumber, cardIndex, isCompleted });
+  } catch (error) {
+    console.error('Error updating user stage progress:', error);
   }
 }
 
