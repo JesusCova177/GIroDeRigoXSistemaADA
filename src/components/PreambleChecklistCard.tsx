@@ -78,7 +78,7 @@ export function PreambleChecklistCard({
         </div>
       )}
 
-      <div className="space-y-2 sm:space-y-3">
+      <div className="space-y-2 sm:space-y-3 font-[Montserrat-Light]">
         {items.map((item, index) => (
           <label
             key={index}
