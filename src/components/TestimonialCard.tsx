@@ -151,7 +151,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
               </div>
             )}
             {videoEmbed ? (
-              <div className="relative w-full max-w-[260px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-yellow-100 mb-2" style={{ aspectRatio: '9/16' }}>
+              <div className="relative w-full max-w-[230px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-yellow-100 mb-2" style={{ aspectRatio: '9/16' }}>
                  <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: videoEmbed }} />
               </div>
             ) : videoId && (
