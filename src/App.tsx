@@ -240,37 +240,7 @@ function App() {
 
               {currentStage.stage_number < totalStages && (
                 <div className="mt-6 sm:mt-8 px-2 sm:px-4 pb-4">
-                  <button
-                    onClick={() => navigateToStage(currentStage.stage_number + 1)}
-                    disabled={loading}
-                    className="w-full bg-gradient-to-r from-[#31563C] to-[#2a4833] hover:from-[#2a4833] hover:to-[#1f3626] text-white font-titling font-black py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base italic uppercase tracking-wide"
-                  >
-                    {loading ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        <span>Cargando...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>
-                          Continuar a Fase {currentStage.stage_number + 1}
-                        </span>
-                        <svg
-                          className="w-4 h-4 sm:w-5 sm:h-5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M13 7l5 5m0 0l-5 5m5-5H6"
-                          />
-                        </svg>
-                      </>
-                    )}
-                  </button>
+                  
                 </div>
               )}
             </div>
