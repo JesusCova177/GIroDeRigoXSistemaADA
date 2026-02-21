@@ -124,7 +124,7 @@ export function NutritionGuideCard({
                   return (
                     <div key={mealIndex} className="space-y-1">
                       {meal.name && (
-                        <p className="text-xs sm:text-sm font-bold text-gray-800">
+                        <p className="leading-relaxed text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line font-[Montserrat-Light]">
                           {meal.name}:
                         </p>
                       )}
