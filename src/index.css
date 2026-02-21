@@ -72,4 +72,7 @@
   --breakpoint-3xl: 120rem;
 }
 
-.no-scrollbar { scrollbar-width:none }
+.no-scrollbar { 
+  scrollbar-width: none;
+  overflow-y: auto
+}
