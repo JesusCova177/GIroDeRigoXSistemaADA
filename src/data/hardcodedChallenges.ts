@@ -1476,7 +1476,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     type: 'bifurcation',
     content: {
       title: 'Bifurcación: Selección de Reto',
-      question: '¿Cuál reto vas a hacer en La Sucursal?',
+      question: ' ',
       options: [
         {
           id: 'cana',
