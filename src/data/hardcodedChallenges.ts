@@ -142,7 +142,6 @@ export const hardcodedStage1Challenges: Challenge[] = [
             }
           ]
         },
-       
       ],
     },
     order_index: 5,
