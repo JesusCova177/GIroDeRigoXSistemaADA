@@ -729,7 +729,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title: 'Cada cosa tiene su momento',
       paragraphs: [
-        '\u2022 S\u00f3lido (solo si la intensidad lo permite): en un fondo suave (Z2) y si yo tolero s\u00f3lido, algo controlado tipo Crake\u00f1as puede funcionar. Eso s\u00ed, evitar masticar galletas en series o subidas duras cuando la respiraci\u00f3n est\u00e1 arriba (ah\u00ed manda lo f\u00e1cil de absorber).',
+        '\u2022 S\u00f3lido (solo si la intensidad lo permite): en un fondo suave (Z2) y si yo tolero s\u00f3lido, algo controlado tipo Crake\u00f1as puede funcionar. Eso sí, evitar masticar galletas en series o subidas duras cuando la respiraci\u00f3n est\u00e1 arriba (ah\u00ed manda lo f\u00e1cil de absorber).',
         '\u2022 Al terminar (recuperaci\u00f3n de verdad): yo no \u201cveo qu\u00e9 aparece\u201d. Yo recupero con comida real: Arroz Sonora + pollo FRIKO, o Pasta La Mu\u00f1eca + prote\u00edna magra US MEAT. No llegar a improvisar con fritos o cualquier cosa porque \u201cme lo gan\u00e9\u201d.'
       ],
       callout: {
