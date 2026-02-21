@@ -142,39 +142,21 @@ export const hardcodedStage1Challenges: Challenge[] = [
             }
           ]
         },
-        {
-          condition: "Durante (si el entreno es intenso y largo):",
-          meals: [
-            {
-              name: "",
-              items: ["Bebida deportiva tipo Gatorade", "Geles de carbohidrato"]
-            }
-          ]
-        }
+       
       ],
-      microTransition: 'En salidas largas no podemos depender solo de las reservas. En Fase 2 y 3 te lo explico mejor.'
     },
     order_index: 5,
     created_at: new Date().toISOString()
   },
 
    {
-    id: 'hardcoded-4-d',
+    id: 'hardcoded-4-d1',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'nutrition_guide',
     content: {
       title: 'Ejemplo práctico (día de intensidad / series):',
       practicalHeading: 'Antes del entreno yo meto un pre-entreno simple:',
       scenarios: [
-        {
-          condition: "Pre entreno:",
-          meals: [
-            {
-              name: "",
-              items: ["Harina/crema de arroz", "Banano", "Yogur griego o scoop de proteína"]
-            }
-          ]
-        },
         {
           condition: "Durante (si el entreno es intenso y largo):",
           meals: [
