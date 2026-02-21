@@ -72,5 +72,4 @@
   --breakpoint-3xl: 120rem;
 }
 
-.no-scrollbar::-webkit-scrollbar { display: none; }
-}
+.no-scrollbar { display: none; }
