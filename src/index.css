@@ -17,7 +17,7 @@
 @font-face {
   font-family: 'Montserrat-Medium';
   /* La ruta sube un nivel para entrar en assets/fonts */
-  src: url('./assets/fonts/Montserrat-Light.ttf') format('truetype');
+  src: url('./assets/fonts/Montserrat-Medium.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
