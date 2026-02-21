@@ -19,7 +19,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex flex-col">
       <div className="flex items-center gap-3 mb-6">
-        <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-3 rounded-xl">
+        <div className="bg-gradient-to-br from-red-500 to-teal-600 p-3 rounded-xl">
           
         </div>
         <div>
