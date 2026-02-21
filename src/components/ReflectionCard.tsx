@@ -123,7 +123,7 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
               }`}>
                 {index + 1}
               </div>
-              <p className="text-xs sm:text-sm font-semibold text-gray-800 flex-1 font-Montserrat-Medium">
+              <p className="text-xs sm:text-sm font-semibold text-gray-800 flex-1 font-montserrat">
                 {question}
               </p>
               {focusedIndex === index && (
