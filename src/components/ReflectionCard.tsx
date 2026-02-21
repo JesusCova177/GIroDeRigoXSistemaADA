@@ -53,7 +53,7 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
           <div className="p-1.5 sm:p-2 bg-yellow-100 rounded-lg">
             <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600" />
           </div>
-          <h3 className="text-lg sm:text-xl font-titling font-black text-yellow-500 italic">{title}</h3>
+          <h3 className="text-lg sm:text-xl font-titling font-black text-yellow-400 italic">{title}</h3>
         </div>
         {answeredCount > 0 && (
           <div className="flex items-center gap-1 bg-yellow-100 px-2 sm:px-3 py-1 rounded-full">
