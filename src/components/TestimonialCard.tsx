@@ -143,7 +143,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
               </div>
             )}
 
-          {description && (
+            {{description && (
               <div className="bg-white/90 rounded-xl p-4 sm:p-5 border border-yellow-100 shadow-sm">
                 <p className="font-montserrat text-sm sm:text-base text-gray-700 leading-relaxed">
                   {description}
@@ -152,7 +152,6 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
             )}
             {videoEmbed ? (
               <div className="relative w-full max-w-[260px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-yellow-100 mb-2" style={{ aspectRatio: '9/16' }}>
-              <div className="relative w-full  mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-yellow-100 mb-2" style={{ aspectRatio: '9/16' }}>
                  <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: videoEmbed }} />
               </div>
             ) : videoId && (
@@ -165,7 +164,6 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
                     }} 
                   />
                 </div>
-                
               </div>
             )}
           </div>
