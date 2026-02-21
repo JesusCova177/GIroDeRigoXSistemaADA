@@ -162,6 +162,73 @@ export function ChallengeCarousel({
         </div>
       )}
 
+      {totalCards > 1 && (
+        <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6">
+          {visibleChallenges.map((challenge, index) => {
+            const getCardLabel = () => {
+              switch (challenge.type) {
+                case "intro":
+                  return "📖 Introducción";
+                case "testimonial":
+                  return "💬 Testimonio";
+                case "cta":
+                  return "🚀 Call to Action";
+                case "phase_importance":
+                  return "📌 Información clave";
+                case "action_plan":
+                  return "📋 Plan de acción";
+                case "combined":
+                  return "🎯 Sub-bloque";
+                case "preamble_checklist":
+                  return "📝 Lista con preámbulo";
+                case "nutrition_guide":
+                  return "🍽️ Guía nutricional";
+                case "checklist":
+                  return "✓ Lista";
+                case "reflection":
+                  return "💭 Reflexión";
+                case "bifurcation":
+                  return "🔀 Bifurcación";
+                case "route":
+                  return "🗺️ Ruta";
+                default:
+                  return "📄 Tarjeta";
+              }
+            };
+
+            const getCardColor = () => {
+              if (challenge.type === "intro") return "from-blue-500 to-blue-600";
+              if (challenge.type === "testimonial") return "from-emerald-500 to-emerald-600";
+              if (challenge.type === "cta") return "from-orange-500 to-amber-600";
+              return "from-blue-500 to-blue-600";
+            };
+
+            return (
+              <button
+                key={challenge.id}
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setShowHint(false);
+                }}
+                className={`group relative transition-all duration-300 rounded-full ${
+                  index === currentIndex
+                    ? `w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r ${getCardColor()} shadow-lg`
+                    : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
+                }`}
+                aria-label={`Ir a ${getCardLabel()}`}
+              >
+                {index === currentIndex && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
+                )}
+                <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                  {getCardLabel()}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       <div className="relative">
         {totalCards > 1 && currentIndex > 0 && (
           <button
