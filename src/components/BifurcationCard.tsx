@@ -50,7 +50,7 @@ export function BifurcationCard({ content, selectedOption, onSelect, adaUserId, 
     <div className="flex rounded-2xl bg-white border-l-4 border-[#31563C] p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
       <div className="mb-6 sm:mb-8 text-center">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-titling font-black text-[#31563C] italic uppercase mb-2">
-          ¿Cuál reto vas a hacer?
+          ¿Cuál reto vas a hacer en La Sucursal?
         </h2>
         <p className="text-sm sm:text-base text-gray-600">
           {question}
