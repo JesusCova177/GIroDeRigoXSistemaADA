@@ -213,10 +213,6 @@ export const hardcodedStage1Challenges: Challenge[] = [
           condition: 'Opción 1:',
           meals: ['Arroz Sonora', 'pechuga FRIKO', 'ensalada']
         },
-        {
-          condition: 'Opción 2:',
-          meals: ['Pasta La Muñeca (porción medida)', 'carne magra US MEAT', 'verduras']
-        }
       ],
     },
     order_index: 8,
