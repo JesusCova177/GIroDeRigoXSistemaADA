@@ -231,7 +231,6 @@ export const hardcodedStage1Challenges: Challenge[] = [
       concept: 'Si estoy apurado, un batido con fruta me salva… pero mi base es comida real.',
       practicalHeading: 'Según el día:',
       scenarios: [
-       
         {
           condition: 'Opción 2:',
           meals: ['Pasta La Muñeca (porción medida)', 'carne magra US MEAT', 'verduras']
