@@ -1412,7 +1412,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
     type: 'intro',
     content: {
-      title: 'Simulación de Carrera — Giro de Rigo 2026 (Sep–Oct)',
+      title: 'Simulación de Carrera',
       paragraphs: [
         'He aprendido que el Giro no se define solo por piernas. Se define por qué tan bien sostenés la energía cuando ya vas cansado.',
         'En septiembre y octubre dejamos de “salir a entrenar” y pasamos a **simular**: ensayamos el guion que vas a ejecutar el día del evento.'
