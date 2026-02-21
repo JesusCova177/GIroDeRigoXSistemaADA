@@ -87,7 +87,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             ) : (
               <>
                 <Mail className="w-5 h-5" />
-                Continue with Email
+               Continuar con correo electronico
               </>
             )}
           </button>
