@@ -8,7 +8,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'bajar grasa sin quedarte vacío',
       paragraphs: [
-        'Comer menos para pesar menos: la fórmula “perfecta”.','Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”.','El problema es que esa película dura poquito.','La realidad me pegó de frente cuando le metí intensidad al entrenamiento y él cuerpo empezó a hablarme claro, pero yo no le pararle bolas.', 'Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba.'
+        'Comer menos para pesar menos: la fórmula “perfecta”.','Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”.','El problema es que esa película dura poquito.','La realidad me pegó de frente cuando le metí intensidad al entrenamiento y el cuerpo empezó a hablarme claro, pero yo no le pararle bolas.', 'Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba.'
       ]
     },
     order_index: 0,
@@ -1646,7 +1646,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         'En salidas largas suaves podés moverte en un rango más moderado.',
         'En simulaciones tipo carrera, esta fase busca que tu cuerpo tolere rango alto (eso se entrena en septiembre).'
       ],
-      footer: 'Si ya tenés líquido y energía claros, lo siguiente es lo que te salva cuando algo se descuadra: Plan B, abajo te lo explico.'
+      footer: 'Si ya tenés líquido y energía claros, lo siguiente es lo que te salva cuando algo se descuadra: Plan B, adelante te lo explico.'
     },
     order_index: 10,
     created_at: new Date().toISOString()
