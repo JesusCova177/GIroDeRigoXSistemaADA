@@ -918,7 +918,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
           meals: [
             {
               name: 'Puedo tolerar m\u00e1s s\u00f3lido',
-              items: ['Banano', 'Bocadillo', 'S\u00e1nduche sencillo', 'Galletas Krake\u00f1as', 'Barritas caseras']
+              items: ['Banano', 'Bocadillo', 'S\u00e1nduche sencillo', 'Galletas Crake\u00f1as', 'Barritas caseras']
             }
           ]
         }
