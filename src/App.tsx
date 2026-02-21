@@ -222,7 +222,7 @@ function App() {
           />
 
           {!showStageSelector && (
-            <div className="mt-3 sm:mt-4">
+            <div className="mt-2 sm:mt-4">
               {challenges.length > 0 ? (
                 <ChallengeCarousel
                   challenges={challenges}
