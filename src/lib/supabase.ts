@@ -157,44 +157,54 @@ export async function saveAdaResponse(
   resUser: any
 ) {
   try {
-    // Check if record exists
-    const { data: existing, error: searchError } = await supabase
+    console.log('[saveAdaResponse] Saving (upsert):', { userId, typeSelectionId, stagesCardsId, resUser });
+
+    const { error } = await supabase
       .from('ada_user_selection')
-      .select('id')
-      .eq('user_id', userId)
-      .eq('stages_cards_id', stagesCardsId)
-      .maybeSingle();
+      .upsert({
+        user_id: userId,
+        type_selection_id: typeSelectionId,
+        stages_cards_id: stagesCardsId,
+        res_user: resUser,
+        update_at: new Date().toISOString()
+      }, {
+        onConflict: 'user_id, stages_cards_id'
+      });
 
-    if (searchError) throw searchError;
-
-    console.log('[saveAdaResponse] Saving:', { userId, typeSelectionId, stagesCardsId, resUser, existing: !!existing });
-
-    if (existing) {
-      const { error: updateError } = await supabase
-        .from('ada_user_selection')
-        .update({
-          res_user: resUser,
-          update_at: new Date().toISOString()
-        })
-        .eq('id', existing.id);
-      if (updateError) throw updateError;
-      console.log('[saveAdaResponse] Update successful');
-    } else {
-      const { error: insertError } = await supabase
-        .from('ada_user_selection')
-        .insert({
-          user_id: userId,
-          type_selection_id: typeSelectionId,
-          stages_cards_id: stagesCardsId,
-          res_user: resUser,
-          created_at: new Date().toISOString(),
-          update_at: new Date().toISOString()
-        });
-      if (insertError) throw insertError;
-      console.log('[saveAdaResponse] Insert successful');
-    }
+    if (error) throw error;
+    console.log('[saveAdaResponse] Save successful');
   } catch (error) {
     console.error('Error saving ADA response:', error);
+  }
+}
+
+export async function getUserSelectionsForStage(
+  userId: number,
+  stageNumber: number
+): Promise<Record<number, any>> {
+  try {
+    const { data, error } = await supabase
+      .from('ada_user_selection')
+      .select(`
+        stages_cards_id,
+        res_user,
+        ada_stages_cards!inner (
+          ada_stages!inner ( name )
+        )
+      `)
+      .eq('user_id', userId)
+      .eq('ada_stages_cards.ada_stages.name', `Fase ${stageNumber}`);
+
+    if (error) throw error;
+    
+    // Return a map of stages_cards_id -> resUser
+    return (data || []).reduce((acc: Record<number, any>, item: any) => {
+      acc[item.stages_cards_id] = item.res_user;
+      return acc;
+    }, {});
+  } catch (error) {
+    console.error('Error fetching user selections for stage:', error);
+    return {};
   }
 }
 

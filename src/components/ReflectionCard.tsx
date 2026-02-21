@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Lightbulb, BookOpen, Star, ChevronRight } from 'lucide-react';
 import { saveAdaResponse } from '../lib/supabase';
 
@@ -8,40 +8,80 @@ interface ReflectionCardProps {
   microTransition?: string;
   adaUserId?: number | null;
   stagesCardsId?: number | null;
+  initialSelections?: Record<string, any>;
+  currentIndex?: number;
 }
 
-export function ReflectionCard({ title, questions, microTransition, adaUserId, stagesCardsId }: ReflectionCardProps) {
+export function ReflectionCard({ title, questions, microTransition, adaUserId, stagesCardsId, initialSelections, currentIndex }: ReflectionCardProps) {
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
-  const [answeredCount, setAnsweredCount] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const saveTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const lastAnswersRef = useRef<Record<number, string>>({});
+  
+  const [answers, setAnswers] = useState<Record<number, string>>(() => {
+    const initial: Record<number, string> = {};
+    if (initialSelections) {
+      questions.forEach((q, idx) => {
+        if (initialSelections[q]) {
+          initial[idx] = initialSelections[q];
+        }
+      });
+    }
+    return initial;
+  });
 
-  const handleTextChange = async (index: number, value: string) => {
+  const [answeredCount, setAnsweredCount] = useState(() => {
+    return Object.values(answers).filter(val => val.trim().length > 0).length;
+  });
+
+  // Track answers in ref for debounced saving
+  useEffect(() => {
+    lastAnswersRef.current = answers;
+  }, [answers]);
+
+  // Flush logic on navigation
+  useEffect(() => {
+    return () => {
+      if (saveTimerRef.current) {
+        clearTimeout(saveTimerRef.current);
+        performSave(lastAnswersRef.current);
+      }
+    };
+  }, [currentIndex]);
+
+  const performSave = async (currentAnswers: Record<number, string>) => {
+    if (adaUserId && stagesCardsId) {
+      const resUser = questions.reduce((acc: Record<string, string>, q, idx) => {
+        acc[q] = currentAnswers[idx] || "";
+        return acc;
+      }, {});
+      
+      console.log('[ReflectionCard] Debounced/Flushed save:', { title, resUser });
+      await saveAdaResponse(adaUserId, 2, stagesCardsId, resUser);
+    }
+  };
+
+  const handleTextChange = (index: number, value: string) => {
     const newAnswers = { ...answers, [index]: value };
     setAnswers(newAnswers);
 
     const textarea = document.querySelector(`textarea[data-index="${index}"]`) as HTMLTextAreaElement;
     if (textarea) {
       const hasContent = value.trim().length > 0;
-      const wasEmpty = textarea.dataset.hasContent !== 'true';
+      const previouslyHasContent = answers[index]?.trim().length > 0;
 
-      if (hasContent && wasEmpty) {
+      if (hasContent && !previouslyHasContent) {
         setAnsweredCount(prev => prev + 1);
-        textarea.dataset.hasContent = 'true';
-      } else if (!hasContent && !wasEmpty) {
+      } else if (!hasContent && previouslyHasContent) {
         setAnsweredCount(prev => Math.max(0, prev - 1));
-        textarea.dataset.hasContent = 'false';
       }
     }
 
-    // Save to Supabase
-    if (adaUserId && stagesCardsId) {
-      const resUser = questions.reduce((acc: Record<string, string>, q, idx) => {
-        acc[q] = newAnswers[idx] || "";
-        return acc;
-      }, {});
-      
-      await saveAdaResponse(adaUserId, 2, stagesCardsId, resUser);
-    }
+    // Debounce save
+    if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(() => {
+      performSave(newAnswers);
+      saveTimerRef.current = null;
+    }, 2000);
   };
 
   return (
@@ -92,10 +132,10 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
             </div>
             <textarea
               data-index={index}
-              data-has-content="false"
-              className="w-full px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent resize-none bg-white transition-all duration-200"
-              rows={3}
-              placeholder="Escribe tus pensamientos aquí..."
+              className="w-full px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none bg-white transition-all duration-200"
+              rows={2}
+              placeholder="Escribe tu respuesta..."
+              value={answers[index] || ""}
               onFocus={() => setFocusedIndex(index)}
               onBlur={() => setFocusedIndex(null)}
               onChange={(e) => handleTextChange(index, e.target.value)}

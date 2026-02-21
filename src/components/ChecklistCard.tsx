@@ -7,10 +7,22 @@ interface ChecklistCardProps {
   items: string[];
   adaUserId?: number | null;
   stagesCardsId?: number | null;
+  initialSelections?: Record<string, any>;
+  currentIndex?: number;
 }
 
-export function ChecklistCard({ title, items, adaUserId, stagesCardsId }: ChecklistCardProps) {
-  const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
+export function ChecklistCard({ title, items, adaUserId, stagesCardsId, initialSelections, currentIndex }: ChecklistCardProps) {
+  const [checkedItems, setCheckedItems] = useState<Set<number>>(() => {
+    const initial = new Set<number>();
+    if (initialSelections) {
+      items.forEach((item, idx) => {
+        if (initialSelections[item] === "true") {
+          initial.add(idx);
+        }
+      });
+    }
+    return initial;
+  });
   const [justChecked, setJustChecked] = useState<number | null>(null);
 
   const toggleItem = async (index: number) => {

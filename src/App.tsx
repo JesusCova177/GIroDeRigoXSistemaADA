@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase, upsertAdaUser, updateUserStageProgress, getUserStageProgress, getStageCardMapping, Stage, Challenge } from "./lib/supabase";
+import { supabase, upsertAdaUser, updateUserStageProgress, getUserStageProgress, getUserSelectionsForStage, getStageCardMapping, Stage, Challenge } from "./lib/supabase";
 import { StageHeader } from "./components/StageHeader";
 import { ChallengeCarousel } from "./components/ChallengeCarousel";
 import { LoginPage } from "./components/LoginPage";
@@ -19,6 +19,7 @@ function App() {
   const [adaUserId, setAdaUserId] = useState<number | null>(null);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [adaMapping, setAdaMapping] = useState<Record<string, number>>({});
+  const [userSelections, setUserSelections] = useState<Record<number, any>>({});
   
   // Normalize stage name for mapping lookup (ensures it matches "Fase X" format)
   const mappingStageName = currentStage ? `Fase ${currentStage.stage_number}` : "";
@@ -128,6 +129,14 @@ function App() {
       }
 
       setChallenges(allChallenges);
+
+      // Fetch user selections (answers)
+      if (actualUserId) {
+        const selections = await getUserSelectionsForStage(actualUserId, stage.stage_number);
+        setUserSelections(selections);
+      } else {
+        setUserSelections({});
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
@@ -163,9 +172,12 @@ function App() {
       // Fetch progress for the target stage
       if (adaUserId) {
         const progress = await getUserStageProgress(adaUserId, stageNumber);
+        const selections = await getUserSelectionsForStage(adaUserId, stageNumber);
         setCurrentCardIndex(progress?.last_card_index || 0);
+        setUserSelections(selections);
       } else {
         setCurrentCardIndex(0);
+        setUserSelections({});
       }
 
       const { data: challengesData, error: challengesError } = await supabase
@@ -274,6 +286,7 @@ function App() {
                   currentStageName={mappingStageName}
                   initialCardIndex={currentCardIndex}
                   onCardChange={handleCardChange}
+                  userSelections={userSelections}
                 />
               ) : (
                 <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">

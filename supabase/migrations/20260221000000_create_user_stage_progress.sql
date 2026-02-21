@@ -13,3 +13,54 @@ CREATE TABLE IF NOT EXISTS "ada_user_stage_progress" (
 -- Cleanup old columns from ada_users
 ALTER TABLE "ada_users" DROP COLUMN IF EXISTS "current_stage_number";
 ALTER TABLE "ada_users" DROP COLUMN IF EXISTS "last_card_index";
+
+-- Add Bifurcation to type selection
+INSERT INTO "ada_type_selection" ("id", "name") VALUES (3, 'Bifurcation') ON CONFLICT (id) DO NOTHING;
+
+-- Fase 1
+UPDATE "ada_cards" SET "name" = 'Mini checklist: carbohidratos' WHERE "stage_id" = 1 AND "name" = 'Mini checklist: carbohidratos';
+INSERT INTO "ada_cards" ("stage_id", "name") VALUES 
+(1, 'Mini checklist: post-entreno'),
+(1, 'Reflexión: post-entreno'),
+(1, 'Mini checklist: proteína'),
+(1, 'Mini checklist: fuerza'),
+(1, 'Reflexión: fuerza'),
+(1, 'Mini checklist: hidratación'),
+(1, 'Reflexión: hidratación')
+ON CONFLICT DO NOTHING;
+
+-- Fase 2
+INSERT INTO "ada_cards" ("stage_id", "name") VALUES 
+(2, 'Mini checklist'),
+(2, 'Reflexión: entrenamiento cruzado')
+ON CONFLICT DO NOTHING;
+
+-- Fase 3
+UPDATE "ada_cards" SET "name" = 'Bifurcación: Selección de Reto' WHERE "stage_id" = 3 AND "name" = '¿Cuál reto vas a hacer en La Sucursal?';
+INSERT INTO "ada_cards" ("stage_id", "name") VALUES 
+(3, 'Bifurcación: Selección de Reto'),
+(3, 'Tu lista de chequeo para simular')
+ON CONFLICT DO NOTHING;
+
+-- Fase 4
+INSERT INTO "ada_cards" ("stage_id", "name") VALUES 
+(4, 'Checklist de enfoque semanal'),
+(4, 'Checklist 48 horas antes'),
+(4, 'Checklist de hidratación')
+ON CONFLICT DO NOTHING;
+
+-- Cleanup duplicate records in ada_user_selection (keep the latest one)
+DELETE FROM "ada_user_selection" a
+USING "ada_user_selection" b
+WHERE a.id < b.id
+  AND a.user_id = b.user_id
+  AND a.stages_cards_id = b.stages_cards_id;
+
+-- Add UNIQUE constraint to permit UPSERT logic
+ALTER TABLE "ada_user_selection" 
+ADD CONSTRAINT unique_user_card UNIQUE (user_id, stages_cards_id);
+
+-- Re-link stages cards after sync
+INSERT INTO "ada_stages_cards" ("stage_id", "card_id")
+SELECT stage_id, id FROM "ada_cards"
+ON CONFLICT DO NOTHING;

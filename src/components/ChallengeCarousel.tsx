@@ -21,6 +21,7 @@ interface ChallengeCarouselProps {
   currentStageName: string;
   initialCardIndex?: number;
   onCardChange?: (index: number) => void;
+  userSelections?: Record<number, any>;
 }
 
 export function ChallengeCarousel({
@@ -30,6 +31,7 @@ export function ChallengeCarousel({
   currentStageName,
   initialCardIndex = 0,
   onCardChange,
+  userSelections = {},
 }: ChallengeCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(initialCardIndex);
   const [isDragging, setIsDragging] = useState(false);
@@ -65,11 +67,35 @@ export function ChallengeCarousel({
     }
     
     setShowHint(true);
-    setSelectedRoute(null);
+    
+    // Try to restore selectedRoute from userSelections
+    const bifurcationCard = challenges.find(c => c.type === 'bifurcation');
+    if (bifurcationCard && Object.keys(userSelections).length > 0) {
+      const content = bifurcationCard.content as any;
+      const challengeTitle = bifurcationCard.title || content?.title || "";
+      const mappingKey = `${currentStageName}:${challengeTitle}`;
+      const stagesCardsId = adaMapping[mappingKey];
+      
+      if (stagesCardsId && userSelections[stagesCardsId]) {
+        const saved = userSelections[stagesCardsId];
+        // We saved { bifurcacion: option.label }. We need to find the ID.
+        if (saved.bifurcacion && content.options) {
+          const found = (content.options as any[]).find(opt => opt.label === saved.bifurcacion);
+          if (found) {
+            console.log('[ChallengeCarousel] Restoring selected route:', found.id);
+            setSelectedRoute(found.id);
+          }
+        }
+      } else {
+        setSelectedRoute(null);
+      }
+    } else {
+      setSelectedRoute(null);
+    }
 
     const timer = setTimeout(() => setShowHint(false), 3000);
     return () => clearTimeout(timer);
-  }, [challenges]);
+  }, [challenges, userSelections, currentStageName, adaMapping]);
 
   // Save progress when index changes
   useEffect(() => {
@@ -309,6 +335,8 @@ export function ChallengeCarousel({
                       onSelect={(optionId) => setSelectedRoute(optionId)}
                       adaUserId={adaUserId}
                       stagesCardsId={stagesCardsId}
+                      currentIndex={currentIndex}
+                      initialSelections={stagesCardsId ? userSelections[stagesCardsId] : undefined}
                     />
                   ) : challenge.type === "combined" ? (
                     <CombinedChallengeCard
@@ -319,6 +347,7 @@ export function ChallengeCarousel({
                       reflections={content?.reflections || []}
                       adaUserId={adaUserId}
                       stagesCardsId={stagesCardsId}
+                      currentIndex={currentIndex}
                     />
                   ) : challenge.type === "preamble_checklist" ? (
                     <PreambleChecklistCard
@@ -328,6 +357,8 @@ export function ChallengeCarousel({
                       microTransition={content?.microTransition}
                       adaUserId={adaUserId}
                       stagesCardsId={stagesCardsId}
+                      initialSelections={stagesCardsId ? userSelections[stagesCardsId] : undefined}
+                      currentIndex={currentIndex}
                     />
                   ) : challenge.type === "nutrition_guide" ? (
                     <NutritionGuideCard
@@ -344,6 +375,8 @@ export function ChallengeCarousel({
                       items={content?.items || (Array.isArray(challenge.content) ? challenge.content : [])}
                       adaUserId={adaUserId}
                       stagesCardsId={stagesCardsId}
+                      initialSelections={stagesCardsId ? userSelections[stagesCardsId] : undefined}
+                      currentIndex={currentIndex}
                     />
                   ) : challenge.type === "reflection" ? (
                     <ReflectionCard
@@ -352,6 +385,8 @@ export function ChallengeCarousel({
                       microTransition={content?.microTransition}
                       adaUserId={adaUserId}
                       stagesCardsId={stagesCardsId}
+                      initialSelections={stagesCardsId ? userSelections[stagesCardsId] : undefined}
+                      currentIndex={currentIndex}
                     />
                   ) : challenge.type === "testimonial" ? (
                     <TestimonialCard

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Check, CheckCircle2, Lightbulb, Sparkles, Target, MessageCircle } from 'lucide-react';
 import { saveAdaResponse } from '../lib/supabase';
 
@@ -10,6 +10,8 @@ interface CombinedChallengeCardProps {
   reflections: string[];
   adaUserId?: number | null;
   stagesCardsId?: number | null;
+  initialSelections?: Record<string, any>;
+  currentIndex?: number;
 }
 
 export function CombinedChallengeCard({ 
@@ -19,30 +21,81 @@ export function CombinedChallengeCard({
   checklist, 
   reflections,
   adaUserId,
-  stagesCardsId 
+  stagesCardsId,
+  initialSelections,
+  currentIndex
 }: CombinedChallengeCardProps) {
-  const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
-  const [answeredReflections, setAnsweredReflections] = useState<Set<number>>(new Set());
-  const [reflectionAnswers, setReflectionAnswers] = useState<Record<number, string>>({});
-  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+  const [checkedItems, setCheckedItems] = useState<Set<number>>(() => {
+    const initial = new Set<number>();
+    if (initialSelections) {
+      checklist.forEach((item, idx) => {
+        if (initialSelections[item] === "true") {
+          initial.add(idx);
+        }
+      });
+    }
+    return initial;
+  });
 
-  const saveData = async (newChecked: Set<number>, newAnswers: Record<number, string>) => {
+  const [reflectionAnswers, setReflectionAnswers] = useState<Record<number, string>>(() => {
+    const initial: Record<number, string> = {};
+    if (initialSelections) {
+      reflections.forEach((q, idx) => {
+        if (initialSelections[q]) {
+          initial[idx] = initialSelections[q];
+        }
+      });
+    }
+    return initial;
+  });
+
+  const [answeredReflections, setAnsweredReflections] = useState<Set<number>>(() => {
+    const initial = new Set<number>();
+    Object.entries(reflectionAnswers).forEach(([idx, val]) => {
+      if (val.trim().length > 0) {
+        initial.add(parseInt(idx));
+      }
+    });
+    return initial;
+  });
+
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+  const saveTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const lastStateRef = useRef<{ checked: Set<number>, answers: Record<number, string> }>({ 
+    checked: checkedItems, 
+    answers: reflectionAnswers 
+  });
+
+  useEffect(() => {
+    lastStateRef.current = { checked: checkedItems, answers: reflectionAnswers };
+  }, [checkedItems, reflectionAnswers]);
+
+  // Flush logic on navigation
+  useEffect(() => {
+    return () => {
+      if (saveTimerRef.current) {
+        clearTimeout(saveTimerRef.current);
+        performSave(lastStateRef.current.checked, lastStateRef.current.answers);
+      }
+    };
+  }, [currentIndex]);
+
+  const performSave = async (newChecked: Set<number>, newAnswers: Record<number, string>) => {
     if (adaUserId && stagesCardsId) {
       const resUser: Record<string, string> = {};
       
-      // Combine checklist
       checklist.forEach((item, idx) => {
         if (newChecked.has(idx)) {
           resUser[item] = "true";
         }
       });
 
-      // Combine reflections
       reflections.forEach((question, idx) => {
         resUser[question] = newAnswers[idx] || "";
       });
 
-      await saveAdaResponse(adaUserId, 1, stagesCardsId, resUser); // Using Type 1 as default for combined
+      console.log('[CombinedChallengeCard] Debounced/Flushed save:', { title, resUser });
+      await saveAdaResponse(adaUserId, 1, stagesCardsId, resUser);
     }
   };
 
@@ -54,10 +107,12 @@ export function CombinedChallengeCard({
       newChecked.add(index);
     }
     setCheckedItems(newChecked);
-    await saveData(newChecked, reflectionAnswers);
+    
+    // Checklists save immediately as they are low frequency
+    await performSave(newChecked, reflectionAnswers);
   };
 
-  const handleReflectionChange = async (index: number, value: string) => {
+  const handleReflectionChange = (index: number, value: string) => {
     const newAnswers = { ...reflectionAnswers, [index]: value };
     setReflectionAnswers(newAnswers);
 
@@ -69,9 +124,14 @@ export function CombinedChallengeCard({
     } else {
       newAnswered.delete(index);
     }
-
     setAnsweredReflections(newAnswered);
-    await saveData(checkedItems, newAnswers);
+
+    // Debounce save for reflections
+    if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(() => {
+      performSave(checkedItems, newAnswers);
+      saveTimerRef.current = null;
+    }, 2000);
   };
 
   const checklistProgress = (checkedItems.size / checklist.length) * 100;
@@ -323,6 +383,7 @@ export function CombinedChallengeCard({
                   placeholder="Escribe tu respuesta..."
                   onFocus={() => setFocusedIndex(index)}
                   onBlur={() => setFocusedIndex(null)}
+                  value={reflectionAnswers[index] || ""}
                   onChange={(e) => handleReflectionChange(index, e.target.value)}
                 />
               </div>

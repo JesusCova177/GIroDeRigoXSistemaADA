@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { saveAdaResponse } from '../lib/supabase';
 
 interface BifurcationOption {
@@ -19,10 +20,24 @@ interface BifurcationCardProps {
   onSelect: (optionId: string) => void;
   adaUserId?: number | null;
   stagesCardsId?: number | null;
+  currentIndex?: number;
+  initialSelections?: Record<string, any>;
 }
 
-export function BifurcationCard({ content, selectedOption, onSelect, adaUserId, stagesCardsId }: BifurcationCardProps) {
+export function BifurcationCard({ content, selectedOption, onSelect, adaUserId, stagesCardsId, currentIndex, initialSelections }: BifurcationCardProps) {
   const { question, options } = content;
+
+  // Restore previous selection if it exists in initialSelections
+  useEffect(() => {
+    if (initialSelections && initialSelections.bifurcacion) {
+      const savedLabel = initialSelections.bifurcacion;
+      const matchingOption = options.find(opt => opt.label === savedLabel);
+      if (matchingOption && selectedOption === null) {
+        console.log('[BifurcationCard] Restoring selection:', savedLabel);
+        onSelect(matchingOption.id);
+      }
+    }
+  }, [initialSelections, options, onSelect, selectedOption]);
 
   const getColorClasses = (color: string, isSelected: boolean) => {
     const map: Record<string, { border: string; bg: string; text: string; badge: string; ring: string; check: string }> = {
