@@ -475,7 +475,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'testimonial',
     content: {
-      title: 'Testimonio real (Fase 1)',
+      title: 'Testimonio real',
       subtitle: 'Kevin - 3 meses en el sistema',
       intro: 'Kevin llevaba alrededor de tres meses en el sistema y cont\u00f3 que baj\u00f3 aproximadamente 5 kilos, se sent\u00eda m\u00e1s fuerte en la bici y ya no andaba cansado todo el d\u00eda.',
 
@@ -493,7 +493,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'testimonial',
     content: {
-      title: 'Testimonio real (Fase 1)',
+      title: 'Testimonio real',
       subtitle: 'Kevin - El resultado en carrera',
       intro: 'Sobre su participaci\u00f3n en eventos:',
       description: 'En una carrera (muy poquito tiempo despu\u00e9s de empezar) sigui\u00f3 una estrategia puntual de qu\u00e9 comer, cu\u00e1ndo usar geles y sales, y hasta cu\u00e1ntos carbohidratos meter por bid\u00f3n\u2026 y le fue demasiado bien, incluso mejorando su tiempo en esa misma carrera.',
