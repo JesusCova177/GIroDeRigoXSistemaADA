@@ -419,7 +419,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'nutrition_guide',
     content: {
-      title: 'Ejemplo práctic:',
+      title: 'Ejemplo práctico:',
       practicalHeading: 'Cómo lo manejo:',
       scenarios: [
         {
