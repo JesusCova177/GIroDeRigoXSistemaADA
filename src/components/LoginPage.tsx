@@ -82,7 +82,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             {loading ? (
               <>
                 <Loader2 className="w-5 h-5 animate-spin" />
-                Iniciando sesion
+                Iniciando sesion...
               </>
             ) : (
               <>
