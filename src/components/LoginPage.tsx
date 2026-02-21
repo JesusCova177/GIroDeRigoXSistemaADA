@@ -42,11 +42,9 @@ export function LoginPage({ onLogin }: LoginPageProps) {
  <h1 className="text-2xl text-[#F8A3C9] block self-center justify-self-center text-center">
             Roadmap de Alimentación Giro de Rigo 2026 by <span className="text-black">SISTEMA</span><span className="text-[#ffcc00]">ADA</span>
             </h1>
-        <h2 className="text-xl font-titling font-black text-[#31563C] text-center mb-3 italic uppercase tracking-tight">
+        <h2 className="text-xl font-titling font-black text-[#41563F] text-center mb-3 italic uppercase tracking-tight">
          Inicio de sesion
         </h2>
-        
-
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
