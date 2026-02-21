@@ -43,6 +43,7 @@ export function StageHeader({
                 onClick={onLogout}
                 className=""
               >
+                 <LogOut/>
               </button>
             </div>
           )}
