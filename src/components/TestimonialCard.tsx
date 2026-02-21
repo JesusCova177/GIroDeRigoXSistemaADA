@@ -161,6 +161,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
                     dangerouslySetInnerHTML={{ 
                       __html: `<vturb-smartplayer id="vid-${videoId}" style="display: block; width: 100%; height: 100%; object-fit: contain;"></vturb-smartplayer>` 
                     }} 
+                    style={{ aspectRatio: '9/16' }}
                   />
                 </div>
              
