@@ -160,7 +160,7 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
 
       {microTransition && (
         <div className="mt-4 pt-4 border-t border-yellow-200 relative z-10">
-          <div className="flex items-start gap-3 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-yellow-400 rounded-lg p-4">
+          <div className="flex items-start gap-3  border-2 border-yellow-400 rounded-lg p-4">
             <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
             <p className="text-xs sm:text-sm text-gray-700 font-medium flex-1">
               {microTransition}
