@@ -152,7 +152,7 @@ export function NutritionGuideCard({
 
       {microTransition && (
         <div className="mt-6 pt-4 border-t border-gray-200">
-          <div className="flex items-start gap-3 bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-yellow-400 rounded-lg p-4">
+          <div className="flex items-start gap-3  from-yellow-50 to-amber-50 border-l-4 border-yellow-400 rounded-lg p-4">
             <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
               <p className="text-xs font-semibold text-gray-600 mb-1"></p>
