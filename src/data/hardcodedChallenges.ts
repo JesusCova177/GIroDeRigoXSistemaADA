@@ -1482,7 +1482,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
           id: 'cana',
           label: 'Reto Caña',
           icon: '🌾',
-          description: '69.7 km',
+          description: '69,7 km',
           color: 'amber'
         },
         {
