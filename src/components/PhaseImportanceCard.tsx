@@ -32,7 +32,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
   return (
     <div className="flex rounded-2xl bg-white  border-2 border-pink-500 p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
       {content.title && (
-        <h2 className="text-2xl sm:text-3xl font-titling font-black mb-6 sm:mb-8 uppercase italic">
+        <h2 className="text-2xl sm:text-3xl font-titling font- mb-6 sm:mb-8 uppercase italic">
           {content.title}
         </h2>
       )}
