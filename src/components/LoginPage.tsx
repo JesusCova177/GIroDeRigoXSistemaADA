@@ -45,9 +45,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         <h2 className="text-xl font-titling font-black text-[#31563C] text-center mb-3 italic uppercase tracking-tight">
          Inicio de sesion
         </h2>
-        <p className="text-gray-600 text-center mb-8">
-          Ingrese su correo electronico
-        </p>
+        
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
