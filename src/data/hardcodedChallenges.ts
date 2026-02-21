@@ -715,7 +715,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title: 'Cada cosa tiene su momento',
       paragraphs: [
-        '\u2022 En el bolsillo (energ\u00eda f\u00e1cil de dosificar): ah\u00ed s\u00ed me sirven una Gomitas Grizzly, porque es pr\u00e1ctico, r\u00e1pido y lo puedo partir en tandas.',
+        '\u2022 En el bolsillo (energ\u00eda f\u00e1cil de dosificar): ah\u00ed s\u00ed me sirven unas Gomitas Grizzly, porque es pr\u00e1ctico, r\u00e1pido y lo puedo partir en tandas.',
         '\u2022 En la carama\u00f1ola (cuando el entreno lo pide): si hace calor, sudo mucho o la sesi\u00f3n es larga/intensa, una bebida tipo Gatorade puede ser una herramienta porque trae l\u00edquido + carbo + sales. no es necesario meter bebidas con carbo \u201cporque s\u00ed\u201d en una salida corta y suave donde con agua vas bien.',
       ]
     },
