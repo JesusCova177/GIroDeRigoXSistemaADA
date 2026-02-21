@@ -253,8 +253,8 @@ export function ChallengeCarousel({
                 }}
                 className={`group relative transition-all duration-300 rounded-full ${
                   index === currentIndex
-                    ? `w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r ${getCardColor()} shadow-lg`
-                    : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
+                    ? `w-6 sm:w-8  bg-gradient-to-r ${getCardColor()} shadow-lg`
+                    : "w-2.5 sm:w-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
                 }`}
                 aria-label={`Ir a ${getCardLabel()}`}
               >
@@ -294,7 +294,7 @@ export function ChallengeCarousel({
 
         <div
           ref={containerRef}
-          className="relative overflow-x-hidden cursor-grab active:cursor-grabbing no-scrollbar"
+          className="relative overflow-x-hidden cursor-grab active:cursor-grabbing"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
