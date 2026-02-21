@@ -36,6 +36,10 @@ export function StageHeader({
           background: stage.primary_color,
         }}
       >
+        <div className="w-full">
+     
+         
+        </div>
 
         <div>
           <h1 className={`tracking-wide text-center font-titling font-black text-[#31563C] tracking-tight px-2 italic uppercase transition-all duration-300 ${
@@ -100,7 +104,8 @@ export function StageHeader({
           ) : (
             <button
               onClick={onToggleStageSelector}
-              className="flex items-center gap-2 bg-white/90 hover:bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200">
+              className="flex items-center gap-2 bg-white/90 hover:bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
+            >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 text-[#31563C]" />
               <span className="text-sm sm:text-base font-semibold text-[#31563C]">
                 Ver todas las etapas
