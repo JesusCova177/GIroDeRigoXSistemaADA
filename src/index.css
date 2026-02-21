@@ -1,8 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-
-@tailwind base;
-@tailwind utilities;
 
 @layer base {
   html, body {
@@ -10,8 +11,7 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
-    font-family: 'Built Titling'
-    
+    font-family: 'Inter', sans-serif;
   }
 
   #root {
@@ -20,7 +20,7 @@
   }
 
   .font-titling {
-    font-family: 'Built Titling';
+    font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     letter-spacing: 0.05em;
   }
@@ -54,21 +54,5 @@
     to {
       transform: rotate(360deg);
     }
-  }
-
-  .animate-shimmer {
-    animation: shimmer 2s infinite;
-  }
-
-  .animate-scale-in {
-    animation: scale-in 0.3s ease-out;
-  }
-
-  .animate-spin-slow {
-    animation: spin-slow 8s linear infinite;
-  }
-
-  .scale-102 {
-    transform: scale(1.02);
   }
 }
