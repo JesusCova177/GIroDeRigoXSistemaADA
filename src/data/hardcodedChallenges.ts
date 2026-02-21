@@ -117,7 +117,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: 'nutrition_guide',
     content: {
       title: 'Ejemplo práctico (día de intensidad / series):',
-      practicalHeading: 'Antes del entreno yo meto un pre entreno simple:',
+      practicalHeading: 'Antes del entreno yo meto un pre-entreno simple:',
       scenarios: [
         {
           condition: "Pre entreno:",
@@ -625,7 +625,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         {
           title: 'Opci\u00f3n 1 \u2014 Plataforma Educativa',
           subtitle: 'A tu ritmo, sin improvisar',
-          description: 'Para entender como perder peso y aplicarlo a tu ritmo, sin improvisar.',
+          description: 'Para entender cómo perder peso y aplicarlo a tu ritmo, sin improvisar.',
           buttonText: 'Quiero acceso a la Plataforma Educativa',
           buttonUrl: '#',
           isPrimary: false
