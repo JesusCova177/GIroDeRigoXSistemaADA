@@ -49,7 +49,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-gray-700 mb-2"
+              className="block text-sm font-semibold text-black-700 mb-2"
             >
               correo electronico
             </label>
@@ -60,7 +60,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+                placeholder="tu@correo.com"
                 className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400"
                 disabled={loading}
                 required
