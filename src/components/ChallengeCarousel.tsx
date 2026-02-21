@@ -293,10 +293,8 @@ export function ChallengeCarousel({
         )}
 
         <div
-          class=""
           ref={containerRef}
           className="relative overflow-x-hidden overflow-scroll cursor-grab active:cursor-grabbing no-scrollbar"
-        
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
