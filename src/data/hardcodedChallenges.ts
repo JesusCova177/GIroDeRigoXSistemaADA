@@ -224,7 +224,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: 'nutrition_guide',
     content: {
       title: 'Ejemplo práctico (post-entreno real):',
-      concept: 'Si estoy apurado, un batido con fruta me salva… pero mi base es comida real.',
+      concept: ' ',
       practicalHeading: 'Según el día:',
       scenarios: [
         {
