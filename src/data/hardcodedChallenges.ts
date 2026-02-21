@@ -142,17 +142,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     },
     order_index: 5,
     created_at: new Date().toISOString()
-  }, {
-    id: 'hardcoded-4-c',
-    stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
-    type: 'nutrition_guide',
-    content: {
-      title: 'Carbohidratos con estrategia (no con miedo)',
-      concept: 'Yo no elimino carbohidratos. Yo aprendo a usarlos. El carbohidrato es gasolina. El error es usarlo "a lo loco" en ultraprocesados todo el día, o intentar entrenar duro sin él. Yo lo vuelvo herramienta: poco cuando toca poco, y suficiente cuando toca rendir.',
-    },
-    order_index: 4,
-    created_at: new Date().toISOString()
-  },
+  }, 
    {
     id: 'hardcoded-4-e',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
