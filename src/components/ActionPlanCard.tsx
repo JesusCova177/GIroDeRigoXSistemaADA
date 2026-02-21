@@ -40,7 +40,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
             <ul className="space-y-3">
               {content.keyTakeaways.map((takeaway, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                 
                   <span className="text-sm sm:text-base text-gray-800 leading-relaxed font-medium">
                     {takeaway}
                   </span>
