@@ -59,7 +59,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
               </h3>
             </div>
             <div className="pl-0 sm:pl-9">
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line font-montserrat">
                 {section.content}
               </p>
             </div>
