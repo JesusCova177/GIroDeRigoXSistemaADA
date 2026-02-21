@@ -93,9 +93,7 @@ export function StageHeader({
                         >
                           <span className="relative z-10 italic">{stageNum}</span>
                           {stageNum < stage.stage_number && (
-                            <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full border-2 border-white shadow-lg">
-                              <Award className="w-3 h-3 sm:w-4 sm:h-4 text-white absolute inset-0 m-auto" />
-                            </div>
+                           
                           )}
                         </div>
                         <span
