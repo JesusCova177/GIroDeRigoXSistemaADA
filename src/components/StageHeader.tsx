@@ -39,11 +39,13 @@ export function StageHeader({
         <div className="w-full">
           {userEmail && onLogout && (
             <div>
-               <button
+       <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
+              </span>
+              <button
                 onClick={onLogout}
-                className=""
+                className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
               >
-                 <LogOut/>
+                <LogOut className="w-4 h-4 text-[#31563C]" />
               </button>
             </div>
           )}
@@ -90,11 +92,7 @@ export function StageHeader({
                           }`}
                         >
                           <span className="relative z-10 italic">{stageNum}</span>
-                          {stageNum < stage.stage_number && (
-                            <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full border-2 border-white shadow-lg">
-                              <Award className="w-3 h-3 sm:w-4 sm:h-4 text-white absolute inset-0 m-auto" />
-                            </div>
-                          )}
+                         
                         </div>
                         <span
                           className={`text-xs sm:text-sm font-semibold ${
