@@ -6,22 +6,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Montserrat-Light';
-  src: url('./assets/fonts/Montserrat-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat-Medium';
-  src: url('./assets/fonts/Montserrat-Medium.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'BuiltTitling';
   src: url('./assets/fonts/built titling bd it.otf') format('opentype');
   font-weight: bold;
