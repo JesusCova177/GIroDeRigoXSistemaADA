@@ -68,7 +68,7 @@ export function PreambleChecklistCard({
       </div>
 
       {preamble && (
-        <div className="mb-4 sm:mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-400 rounded-lg p-3 sm:p-4">
+        <div className="mb-4 sm:mb-6  border-2 border-blue-400 rounded-lg p-3 sm:p-4">
           <div className="flex items-start gap-2 sm:gap-3">
             <BookOpen className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
             <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
