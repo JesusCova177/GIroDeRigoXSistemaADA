@@ -98,7 +98,7 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
         {answeredCount > 0 && (
           <div className="flex items-center gap-1 bg-yellow-100 px-2 sm:px-3 py-1 rounded-full">
             <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-600 fill-yellow-600" />
-            <span className="text-xs font-bold text-yellow-700">
+            <span className="text-xs font-bold text-black-700">
               {answeredCount}/{questions.length}
             </span>
           </div>
