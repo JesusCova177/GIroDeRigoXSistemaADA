@@ -100,29 +100,14 @@ export function StageHeader({
           ) : (
             <button
               onClick={onToggleStageSelector}
-              className="flex items-center gap-2 bg-white/90 hover:bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
-            >
+              className="flex items-center gap-2 bg-white/90 hover:bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200">
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 text-[#31563C]" />
               <span className="text-sm sm:text-base font-semibold text-[#31563C]">
                 Ver todas las etapas
               </span>
-                
             </button>
-        {userEmail && onLogout && (
-            <div> 
-       <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
-              </span>
-              <button
-                onClick={onLogout}
-                className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
-              >
-                <LogOut className="w-4 h-4 text-[#31563C]" />
-              </button>
-            </div>
-          )}
           )}
         </div>
-        
       </div>
     </div>
   );
