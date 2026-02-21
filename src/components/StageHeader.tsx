@@ -96,6 +96,7 @@ export function StageHeader({
                 </div>
               </div>
             </div>
+        
           ) : (
             <button
               onClick={onToggleStageSelector}
@@ -105,6 +106,7 @@ export function StageHeader({
               <span className="text-sm sm:text-base font-semibold text-[#31563C]">
                 Ver todas las etapas
               </span>
+                
             </button>
         {userEmail && onLogout && (
             <div> 
@@ -119,7 +121,6 @@ export function StageHeader({
             </div>
           )}
           )}
-          
         </div>
         
       </div>
