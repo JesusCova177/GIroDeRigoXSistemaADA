@@ -47,7 +47,7 @@ export function NutritionGuideCard({
       </div>
 
       {concept && (
-          <p className="text-base sm:text-sm text-gray-700 leading-relaxed font-[Montserrat-Light]">
+          <p className="text-base text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line text-gray-700 leading-relaxed font-[Montserrat-Light]">
             {concept}
           </p>
       )}
