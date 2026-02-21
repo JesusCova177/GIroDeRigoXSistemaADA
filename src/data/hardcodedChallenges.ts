@@ -8,7 +8,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title: 'bajar grasa sin quedarte vacío',
       paragraphs: [
-        'Comer menos para pesar menos: la fórmula “perfecta”.','Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”.','El problema es que esa película dura poquito.','La realidad me pegó de frente cuando le metí intensidad al entrenamiento y él cuerpo empezó a hablarme claro, pero yo no le pararle bolas.', 'Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba.'
+        'Comer menos para pesar menos: la fórmula “perfecta”.','Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”.','El problema es que esa película dura poquito.','La realidad me pegó de frente cuando le metí intensidad al entrenamiento y el cuerpo empezó a hablarme claro, pero yo no le paré bolas.', 'Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba.'
       ]
     },
     order_index: 0,
@@ -47,7 +47,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: 'intro',
     content: {
       title: 'Mi objetivo',
-      paragraphs: [ 'Yo aquí no estoy buscando que vos “adelgacés a las malas” Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.','Y dejame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”', 'Eso es gasolina directa para la pálida. La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
+      paragraphs: [ 'Yo aquí no estoy buscando que vos “adelgacés a las malas” Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.','Y déjame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”', 'Eso es gasolina directa para la pálida. La carrera se llega alimentado, con depósitos llenos y la cabeza tranquila.',' Listo. Ya viste el error. Ahora armemos la forma correcta de hacerlo.'
       ]
     },
     order_index: 1,
@@ -117,7 +117,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: 'nutrition_guide',
     content: {
       title: 'Ejemplo práctico (día de intensidad / series):',
-      practicalHeading: 'Antes del entreno yo meto un pre entreno simple:',
+      practicalHeading: 'Antes del entreno yo meto un pre-entreno simple:',
       scenarios: [
         {
           condition: "Pre entreno:",
@@ -419,7 +419,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'nutrition_guide',
     content: {
-      title: 'Ejemplo práctico (vida real):',
+      title: 'Ejemplo práctico:',
       practicalHeading: 'Cómo lo manejo:',
       scenarios: [
         {
@@ -475,7 +475,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'testimonial',
     content: {
-      title: 'Testimonio real (Fase 1)',
+      title: 'Testimonio real',
       subtitle: 'Kevin - 3 meses en el sistema',
       intro: 'Kevin llevaba alrededor de tres meses en el sistema y cont\u00f3 que baj\u00f3 aproximadamente 5 kilos, se sent\u00eda m\u00e1s fuerte en la bici y ya no andaba cansado todo el d\u00eda.',
 
@@ -493,7 +493,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'testimonial',
     content: {
-      title: 'Testimonio real (Fase 1)',
+      title: 'Testimonio real',
       subtitle: 'Kevin - El resultado en carrera',
       intro: 'Sobre su participaci\u00f3n en eventos:',
       description: 'En una carrera (muy poquito tiempo despu\u00e9s de empezar) sigui\u00f3 una estrategia puntual de qu\u00e9 comer, cu\u00e1ndo usar geles y sales, y hasta cu\u00e1ntos carbohidratos meter por bid\u00f3n\u2026 y le fue demasiado bien, incluso mejorando su tiempo en esa misma carrera.',
@@ -625,7 +625,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         {
           title: 'Opci\u00f3n 1 \u2014 Plataforma Educativa',
           subtitle: 'A tu ritmo, sin improvisar',
-          description: 'Para entender como perder peso y aplicarlo a tu ritmo, sin improvisar.',
+          description: 'Para entender cómo perder peso y aplicarlo a tu ritmo, sin improvisar.',
           buttonText: 'Quiero acceso a la Plataforma Educativa',
           buttonUrl: '#',
           isPrimary: false
@@ -689,7 +689,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title: 'El problema apareció',
       paragraphs: [
-        'El problema apareci\u00f3 cuando empec\u00e9 a hacer fondos de verdad. Esos en los que al comienzo todo es alegr\u00eda\u2026 y de repente el cuerpo cambia de idioma. A m\u00ed me pasaba as\u00ed: iba bien, y en una hora espec\u00edfica la energ\u00eda se me iba. No era cansancio normal, era como si me apagaran el motor. Y ah\u00ed yo entraba en modo \u201ca ver qu\u00e9 aparece\u201d: paro en una tienda, compro cualquier cosa, me tomo algo dulce, me meto lo que sea\u2026 y sigo. Pero eso no era estrategia.'
+        'Cuando empec\u00e9 a hacer fondos de verdad. Esos en los que al comienzo todo es alegr\u00eda\u2026 y de repente el cuerpo cambia de idioma. A m\u00ed me pasaba as\u00ed: iba bien, y en una hora espec\u00edfica la energ\u00eda se me iba. No era cansancio normal, era como si me apagaran el motor. Y ah\u00ed yo entraba en modo \u201ca ver qu\u00e9 aparece\u201d: paro en una tienda, compro cualquier cosa, me tomo algo dulce, me meto lo que sea\u2026 y sigo. Pero eso no era estrategia.'
       ]
     },
     order_index: 1,
@@ -702,7 +702,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title: 'Lo que entendí',
       paragraphs: [
-        'Lo que entend\u00ed me cambi\u00f3 la forma de ver las cosas: el est\u00f3mago tambi\u00e9n se entrena. No es solo \u201cqu\u00e9 comer\u201d, es cu\u00e1nto por hora, cada cu\u00e1nto, y c\u00f3mo lo reparto para sostener energ\u00eda sin reventarme por dentro. Y lo m\u00e1s importante: esto no se estrena el d\u00eda del Giro, se practica en los entrenos.'
+        'Lo que entend\u00ed me cambi\u00f3 la forma de ver las cosas: el est\u00f3mago tambi\u00e9n se entrena.', 'No es solo \u201cqu\u00e9 comer\u201d, es cu\u00e1nto por hora, cada cu\u00e1nto, y c\u00f3mo lo reparto para sostener energ\u00eda sin reventarme por dentro. Y lo m\u00e1s importante: esto no se estrena el d\u00eda del Giro, se practica en los entrenos.'
       ]
     },
     order_index: 2,
@@ -715,8 +715,8 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title: 'Cada cosa tiene su momento',
       paragraphs: [
-        '\u2022 En el bolsillo (energ\u00eda f\u00e1cil de dosificar): ah\u00ed s\u00ed me sirven una Gomitas Grizzly, porque es pr\u00e1ctico, r\u00e1pido y lo puedo partir en tandas.',
-        '\u2022 En la carama\u00f1ola (cuando el entreno lo pide): si hace calor, sudo mucho o la sesi\u00f3n es larga/intensa, una bebida tipo Gatorade puede ser una herramienta porque trae l\u00edquido + carbo + sales. no es necesario meter bebidas con carbo \u201cporque s\u00ed\u201d en una salida corta y suave donde con agua vas bien.',
+        '\u2022 En el bolsillo (energ\u00eda f\u00e1cil de dosificar): ah\u00ed s\u00ed me sirven unas Gomitas Grizzly, porque es pr\u00e1ctico, r\u00e1pido y lo puedo distribuir en tandas.',
+        '\u2022 En la carama\u00f1ola (cuando el entreno lo pide): si hace calor, sudo mucho o la sesi\u00f3n es larga/intensa, una bebida tipo Gatorade puede ser una herramienta porque trae l\u00edquido + carbo + sales.', 'No es necesario meter bebidas con carbo \u201cporque s\u00ed\u201d en una salida corta y suave donde con agua vas bien.',
       ]
     },
     order_index: 3,
@@ -729,7 +729,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title: 'Cada cosa tiene su momento',
       paragraphs: [
-        '\u2022 S\u00f3lido (solo si la intensidad lo permite): en un fondo suave (Z2) y si yo tolero s\u00f3lido, algo controlado tipo Crake\u00f1as puede funcionar. Eso s\u00ed, evitar masticar galletas en series o subidas duras cuando la respiraci\u00f3n est\u00e1 arriba (ah\u00ed manda lo f\u00e1cil de absorber).',
+        '\u2022 S\u00f3lido (solo si la intensidad lo permite): en un fondo suave (Z2) y si yo tolero s\u00f3lido, algo controlado tipo Crake\u00f1as puede funcionar. Eso sí, evitar masticar galletas en series o subidas duras cuando la respiraci\u00f3n est\u00e1 arriba (ah\u00ed manda lo f\u00e1cil de absorber).',
         '\u2022 Al terminar (recuperaci\u00f3n de verdad): yo no \u201cveo qu\u00e9 aparece\u201d. Yo recupero con comida real: Arroz Sonora + pollo FRIKO, o Pasta La Mu\u00f1eca + prote\u00edna magra US MEAT. No llegar a improvisar con fritos o cualquier cosa porque \u201cme lo gan\u00e9\u201d.'
       ],
       callout: {
@@ -918,7 +918,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
           meals: [
             {
               name: 'Puedo tolerar m\u00e1s s\u00f3lido',
-              items: ['Banano', 'Bocadillo', 'S\u00e1nduche sencillo', 'Galletas Krake\u00f1as', 'Barritas caseras']
+              items: ['Banano', 'Bocadillo', 'S\u00e1nduche sencillo', 'Galletas Crake\u00f1as', 'Barritas caseras']
             }
           ]
         }
@@ -1311,11 +1311,11 @@ export const hardcodedStage2Challenges: Challenge[] = [
     created_at: new Date().toISOString()
   },
   {
-    id: 'hardcoded-stage2-26',
+    id: 'hardcoded-stage2-26', 
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'testimonial',
     content: {
-      title: 'Testimonio (Fase 2) \u2014 Marcelo',
+      title: 'Testimonio \u2014 Marcelo',
       subtitle: 'Marcelo \u2014 El cambio real',
       intro: 'Marcelo lo dice clarito: ven\u00eda de deportes distintos y pensaba que con \u201cun bocadillito\u201d estaba listo, pero se sorprendi\u00f3 de c\u00f3mo cambia la experiencia, el rendimiento y la energ\u00eda cuando uno come lo que el cuerpo realmente necesita y lo trabaja \u201cminuto a minuto\u201d.'
     },
@@ -1475,21 +1475,21 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
     type: 'bifurcation',
     content: {
-      title: 'Bifurcación: Selección de Reto',
-      question: '¿Cuál reto vas a hacer en La Sucursal?',
+      title: 'Selección de Reto',
+      question: ' ',
       options: [
         {
           id: 'cana',
           label: 'Reto Caña',
           icon: '🌾',
-          description: '69.7 km',
+          description: '69,7 km',
           color: 'amber'
         },
         {
           id: 'salsa',
           label: 'Reto Salsa',
           icon: '💃',
-          description: '180.1 km',
+          description: '180,1 km',
           color: 'rose'
         }
       ]
@@ -1505,9 +1505,9 @@ export const hardcodedStage3Challenges: Challenge[] = [
                             // Wait, ChallengeCarousel uses RouteCard if type is 'phase_importance' AND has 'variant'.
     content: {
       variant: 'cana',
-      title: 'BIFURCACIÓN 1: Reto Caña',
+      title: 'Reto Caña',
       header: {
-        distance: '69.7 km',
+        distance: '69,7 km',
         ascent: '1,670 m',
         maxAlt: '1,986 m',
         label: 'Tu ruta (GPX oficial)'
@@ -1554,9 +1554,9 @@ export const hardcodedStage3Challenges: Challenge[] = [
     type: 'phase_importance',
     content: {
       variant: 'salsa',
-      title: 'BIFURCACIÓN 2: Reto Salsa',
+      title: 'Reto Salsa',
       header: {
-        distance: '180.1 km',
+        distance: '180,1 km',
         ascent: '3,151 m',
         maxAlt: '1,986 m',
         label: 'Tu ruta (GPX oficial)'
@@ -1646,7 +1646,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         'En salidas largas suaves podés moverte en un rango más moderado.',
         'En simulaciones tipo carrera, esta fase busca que tu cuerpo tolere rango alto (eso se entrena en septiembre).'
       ],
-      footer: 'Si ya tenés líquido y energía claros, lo siguiente es lo que te salva cuando algo se descuadra: Plan B, abajo te lo explico.'
+      footer: 'Si ya tenés líquido y energía claros, lo siguiente es lo que te salva cuando algo se descuadra: Plan B, adelante te lo explico.'
     },
     order_index: 10,
     created_at: new Date().toISOString()
@@ -1698,7 +1698,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     content: {
       title: 'Abastecimientos (cero ego)',
       paragraphs: [
-        'Perder 2 minutos recargando es una inversión. La regla es simple: salir del punto con el siguiente tramo resuelto (líquido listo + energía a mano). Prefiero "perder" 2 minutos recargando que no sufrir 2h - 3h deshidratado.'
+        'Perder 2 minutos recargando es una inversión. La regla es simple: salir del punto con el siguiente tramo resuelto (líquido listo + energía a mano). Prefiero "perder" 2 minutos recargando que no sufrir 2h-3h deshidratado.'
       ]
     },
     order_index: 13,
@@ -1789,7 +1789,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
     type: 'testimonial',
     content: {
-      title: 'Testimonio (Fase 3) — Hugo Peláez',
+      title: 'Testimonio — Hugo Peláez',
       subtitle: '',
       intro: '',
       person: {

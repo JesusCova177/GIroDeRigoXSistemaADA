@@ -29,29 +29,25 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="h-dvh bg-[#31563C] from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center p-4 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
+    <div className="h-dvh bg-[#41563F] from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center p-4 overflow-hidden">
+<div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full opacity-10 blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-400 rounded-full opacity-10 blur-3xl" />
       </div>
-
       <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full relative z-10">
-        <div className="flex items-center justify-center mb-8">
-         
+        <div className="flex items-center justify-center mb-8"> 
         </div>
-
-        <h1 className="text-4xl font-titling font-black text-[#31563C] text-center mb-3 italic uppercase tracking-tight">
+ <h1 className="text-4xl text-[#F8A3C9] block self-center justify-self-center text-center tracking-wide">
+            Roadmap de Alimentación Giro de Rigo 2026 by <span className="text-black">SISTEMA</span><span className="text-[#ffcc00]">ADA</span>
+            </h1>
+        <h2 className="text-xl font-titling font-black text-white text-center mb-3 italic uppercase tracking-tight tracking-wide">
          Inicio de sesion
-        </h1>
-        <p className="text-gray-600 text-center mb-8">
-          Ingrese su correo electronico
-        </p>
-
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-gray-700 mb-2"
+              className="block text-sm font-semibold text-black-700 mb-2"
             >
               correo electronico
             </label>
@@ -62,7 +58,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+                placeholder="tu@correo.com"
                 className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-800 placeholder-gray-400"
                 disabled={loading}
                 required
@@ -79,17 +75,17 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-[#31563C] to-[#2a4833] hover:from-[#2a4833] hover:to-[#1f3626] text-white font-titling font-black py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 italic uppercase tracking-wide"
+            className="w-full bg-[#41563F] hover:from-[#2a4833] hover:to-[#1f3626] text-white font-titling font-black py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 italic uppercase tracking-wider"
           >
             {loading ? (
               <>
                 <Loader2 className="w-5 h-5 animate-spin" />
-                Logging in...
+                Iniciando sesion...
               </>
             ) : (
               <>
                 <Mail className="w-5 h-5" />
-                Continue with Email
+               Continuar con correo electronico
               </>
             )}
           </button>
