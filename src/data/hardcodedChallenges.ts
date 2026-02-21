@@ -152,15 +152,6 @@ export const hardcodedStage1Challenges: Challenge[] = [
       practicalHeading: 'Antes del entreno yo meto un pre-entreno simple:',
       scenarios: [
         {
-          condition: "Pre entreno:",
-          meals: [
-            {
-              name: "",
-              items: ["Harina/crema de arroz", "Banano", "Yogur griego o scoop de proteína"]
-            }
-          ]
-        },
-        {
           condition: "Durante (si el entreno es intenso y largo):",
           meals: [
             {
