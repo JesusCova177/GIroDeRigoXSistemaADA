@@ -37,18 +37,7 @@ export function StageHeader({
         }}
       >
         <div className="w-full">
-          {userEmail && onLogout && (
-            <div>
-       <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
-              </span>
-              <button
-                onClick={onLogout}
-                className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
-              >
-                <LogOut className="w-4 h-4 text-[#31563C]" />
-              </button>
-            </div>
-          )}
+        
          
         </div>
 
