@@ -143,7 +143,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
               </div>
             )}
 
-            {{description && (
+            {description && (
               <div className="bg-white/90 rounded-xl p-4 sm:p-5 border border-yellow-100 shadow-sm">
                 <p className="font-montserrat text-sm sm:text-base text-gray-700 leading-relaxed">
                   {description}
