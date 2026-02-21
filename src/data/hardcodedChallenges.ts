@@ -1507,7 +1507,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
       variant: 'cana',
       title: 'BIFURCACIÓN 1: Reto Caña',
       header: {
-        distance: '69.7 km',
+        distance: '69,7 km',
         ascent: '1,670 m',
         maxAlt: '1,986 m',
         label: 'Tu ruta (GPX oficial)'
