@@ -32,7 +32,7 @@ export function NutritionGuideCard({
       <div className="flex items-center gap-2 mb-4">
         {headerEmoji === 'water' ? (
           <svg className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            {/* Water bottle */}
+            
             <path d="M9 3h6v2.5c0 0 1.5 1 1.5 2.5V18a2 2 0 0 1-2 2H9.5a2 2 0 0 1-2-2V8c0-1.5 1.5-2.5 1.5-2.5V3z" />
             <line x1="7.5" y1="12" x2="16.5" y2="12" />
           </svg>
