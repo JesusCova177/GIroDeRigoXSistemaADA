@@ -156,15 +156,14 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
               </div>
             ) : videoId && (
               <div className="mb-2">
-                
                   <div 
                     className="w-[260px] h-[260px] bg-black flex items-center justify-center"
                     dangerouslySetInnerHTML={{ 
                       __html: `<vturb-smartplayer id="vid-${videoId}" style="display: block; width: 100%; height: 100%; object-fit: contain;"></vturb-smartplayer>` 
                     }} 
                   />
-                
-              </div>
+                </div>
+             
             )}
           </div>
 
