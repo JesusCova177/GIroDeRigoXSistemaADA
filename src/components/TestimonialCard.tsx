@@ -96,7 +96,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
   }, [videoEmbed, videoId]);
 
   return (
-    <div className="flex-shrink-0 w-full  rounded-2xl sm:rounded-3xl shadow-xl p-3 sm:p-5 border-2 border-black-700 hover:shadow-2xl transition-all duration-300 relative h-auto flex flex-col">
+    <div className="flex-shrink-0 w-full  rounded-2xl sm:rounded-3xl shadow-xl p-3 sm:p-5 border-2 border-orangered-700 hover:shadow-2xl transition-all duration-300 relative h-auto flex flex-col">
       
       <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-48 sm:h-48 bg-gradient-to-tr from-green-100 to-yellow-100 rounded-full opacity-20 blur-3xl -ml-12 sm:-ml-24 -mb-12 sm:-mb-24" />
 
