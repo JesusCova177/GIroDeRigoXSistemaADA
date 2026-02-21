@@ -102,7 +102,7 @@ export function NutritionGuideCard({
                   ) : (
                     <TrendingUp className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                   )}
-                  <p className="text-xs sm:text-sm font-semibold text-gray-700 italic">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-700 italic leading-relaxed text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line font-[Montserrat-Light]">
                     {scenario.condition}
                   </p>
                 </div>
