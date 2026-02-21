@@ -59,7 +59,7 @@ export function PreambleChecklistCard({
 
       <div className="flex items-center gap-2 mb-3 sm:mb-4">
         <CheckCircle2 className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 flex-shrink-0 ${isComplete ? 'text-green-500 animate-pulse' : 'text-gray-400'}`} />
-        <h3 className="text-lg sm:text-xl font-titling font-black text-blue italic">{title}</h3>
+        <h3 className="text-lg sm:text-xl font-titling font-black text-blue-500 italic">{title}</h3>
         {isComplete && (
           <span className="ml-auto bg-green-100 text-green-700 text-xs font-bold px-2 sm:px-3 py-1 rounded-full animate-pulse">
             ¡Completado!
