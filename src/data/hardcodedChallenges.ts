@@ -1698,7 +1698,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     content: {
       title: 'Abastecimientos (cero ego)',
       paragraphs: [
-        'Perder 2 minutos recargando es una inversión. La regla es simple: salir del punto con el siguiente tramo resuelto (líquido listo + energía a mano). Prefiero "perder" 2 minutos recargando que no sufrir 2h - 3h deshidratado.'
+        'Perder 2 minutos recargando es una inversión. La regla es simple: salir del punto con el siguiente tramo resuelto (líquido listo + energía a mano). Prefiero "perder" 2 minutos recargando que no sufrir 2h-3h deshidratado.'
       ]
     },
     order_index: 13,
