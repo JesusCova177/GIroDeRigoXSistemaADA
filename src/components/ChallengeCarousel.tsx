@@ -293,6 +293,7 @@ export function ChallengeCarousel({
         )}
 
         <div
+          class="no-scrollbar"
           ref={containerRef}
           className="relative overflow-x-hidden overflow-y-auto cursor-grab active:cursor-grabbing"
         
