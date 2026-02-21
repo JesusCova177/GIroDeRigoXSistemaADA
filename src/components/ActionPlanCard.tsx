@@ -19,7 +19,9 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 h-[60dvh] flex flex-col">
       <div className="flex items-center gap-3 mb-6">
-        
+        <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-3 rounded-xl">
+          <Map className="w-6 h-6 text-white" />
+        </div>
         <div>
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
             Plan de Acción
