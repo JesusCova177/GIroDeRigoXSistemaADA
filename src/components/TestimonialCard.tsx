@@ -106,7 +106,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
             <Quote className="w-4 h-4 sm:w-6 sm:h-6 text-yellow" /> 
           </div>
           <div className="flex-1">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-yellow tracking-tight italic mb-0">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-green tracking-tight italic mb-0">
               {title}
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 font-medium leading-tight font-montserrat">
