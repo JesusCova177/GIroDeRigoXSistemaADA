@@ -1789,7 +1789,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
     type: 'testimonial',
     content: {
-      title: 'Testimonio (Fase 3) — Hugo Peláez',
+      title: 'Testimonio — Hugo Peláez',
       subtitle: '',
       intro: '',
       person: {
