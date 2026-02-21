@@ -44,7 +44,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
       )}
 
       {content.sectionsTitle && (
-        <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] italic mb-4 uppercase">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] italic mb-4 uppercase font-montserrat">
           {content.sectionsTitle}
         </h3>
       )}
