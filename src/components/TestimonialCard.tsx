@@ -97,7 +97,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
 
   return (
     <div className="flex-shrink-0 w-full  rounded-2xl sm:rounded-3xl shadow-xl p-3 sm:p-5 border-2 border-black-700 hover:shadow-2xl transition-all duration-300 relative h-auto flex flex-col">
-      <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-br from-yellow-200 to-blue-200 rounded-full opacity-20 blur-3xl -mr-16 sm:-mr-32 -mt-16 sm:-mt-32" />
+      
       <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-48 sm:h-48 bg-gradient-to-tr from-green-100 to-yellow-100 rounded-full opacity-20 blur-3xl -ml-12 sm:-ml-24 -mb-12 sm:-mb-24" />
 
       <div className="relative z-10">
