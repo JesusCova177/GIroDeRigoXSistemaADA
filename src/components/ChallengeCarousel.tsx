@@ -162,7 +162,7 @@ export function ChallengeCarousel({
       )}
 
       {totalCards > 1 && (
-        <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6">
+        <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-8">
           {visibleChallenges.map((challenge, index) => {
             const getCardLabel = () => {
               switch (challenge.type) {
