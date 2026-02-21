@@ -84,15 +84,6 @@ export const hardcodedStage1Challenges: Challenge[] = [
             items: ["Pechuga de pollo FRIKO", "Verduras", "Porción controlada de Arroz Sonora"]
           }
         ]
-      },
-      {
-        condition: "Si el entreno es más intenso:",
-        meals: [
-          {
-            name: "Le sumo",
-            items: ["Aguacate Corpohass", "Más carbohidrato", "Pastas La Muñeca", "Papa", "Yuca"]
-          }
-        ]
       }
     ],
     },
