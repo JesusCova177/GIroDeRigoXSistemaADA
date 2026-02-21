@@ -702,7 +702,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title: 'Lo que entendí',
       paragraphs: [
-        'Lo que entend\u00ed me cambi\u00f3 la forma de ver las cosas: el est\u00f3mago tambi\u00e9n se entrena. No es solo \u201cqu\u00e9 comer\u201d, es cu\u00e1nto por hora, cada cu\u00e1nto, y c\u00f3mo lo reparto para sostener energ\u00eda sin reventarme por dentro. Y lo m\u00e1s importante: esto no se estrena el d\u00eda del Giro, se practica en los entrenos.'
+        'Lo que entend\u00ed me cambi\u00f3 la forma de ver las cosas: el est\u00f3mago tambi\u00e9n se entrena.', 'No es solo \u201cqu\u00e9 comer\u201d, es cu\u00e1nto por hora, cada cu\u00e1nto, y c\u00f3mo lo reparto para sostener energ\u00eda sin reventarme por dentro. Y lo m\u00e1s importante: esto no se estrena el d\u00eda del Giro, se practica en los entrenos.'
       ]
     },
     order_index: 2,
