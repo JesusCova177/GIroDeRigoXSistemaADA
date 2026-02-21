@@ -1315,7 +1315,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'testimonial',
     content: {
-      title: 'Testimonio (Fase 2) \u2014 Marcelo',
+      title: 'Testimonio \u2014 Marcelo',
       subtitle: 'Marcelo \u2014 El cambio real',
       intro: 'Marcelo lo dice clarito: ven\u00eda de deportes distintos y pensaba que con \u201cun bocadillito\u201d estaba listo, pero se sorprendi\u00f3 de c\u00f3mo cambia la experiencia, el rendimiento y la energ\u00eda cuando uno come lo que el cuerpo realmente necesita y lo trabaja \u201cminuto a minuto\u201d.'
     },
