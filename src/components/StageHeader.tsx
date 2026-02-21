@@ -36,10 +36,6 @@ export function StageHeader({
           background: stage.primary_color,
         }}
       >
-        <div className="w-full">
-        
-         
-        </div>
 
         <div>
           <h1 className={`tracking-wide text-center font-titling font-black text-[#31563C] tracking-tight px-2 italic uppercase transition-all duration-300 ${
