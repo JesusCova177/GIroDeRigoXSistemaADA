@@ -9,7 +9,7 @@
   font-family: 'Montserrat-Light';
   /* La ruta sube un nivel para entrar en assets/fonts */
   src: url('./assets/fonts/Montserrat-Light.ttf') format('truetype');
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
