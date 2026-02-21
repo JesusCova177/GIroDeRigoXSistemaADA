@@ -92,7 +92,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
   },
 
   {
-    id: 'hardcoded-4-b',
+    id: 'hardcoded-4-b2',
     stage_id: 'c893f30f-8b81-4393-a958-4f1dd9d383e4',
     type: 'nutrition_guide',
     content: {
