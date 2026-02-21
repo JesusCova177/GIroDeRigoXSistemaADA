@@ -134,7 +134,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
                     <div key={index} className={`bg-white rounded-lg p-3 border-2 ${colors.border} ${colors.hover} transition-all duration-200`}>
                       <div className="flex items-center gap-2 mb-1">
                         <Icon className={`w-4 h-4 ${colors.text}`} />
-                        <span className="text-sm font-semibold text-gray-600">{metric.label}</span>
+                        <span className=" font-montserrattext-sm font-semibold text-gray-600">{metric.label}</span>
                       </div>
                       <p className={`text-xl sm:text-2xl font-bold ${colors.text}`}>{metric.value}</p>
                     </div>
