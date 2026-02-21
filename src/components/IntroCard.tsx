@@ -30,7 +30,7 @@ export function IntroCard({ content }: IntroCardProps) {
 
       <div className="space-y-4">
         {paragraphs.map((paragraph, index) => (
-          <p key={index} className="text-gray-700 leading-relaxed text-base sm:text-lg whitespace-pre-line">
+          <p key={index} className="text-gray-700 leading-relaxed text-base sm:text-lg whitespace-pre-line font-monserrat">
             {paragraph}
           </p>
         ))}
