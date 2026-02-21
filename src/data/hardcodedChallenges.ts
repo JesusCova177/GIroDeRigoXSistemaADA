@@ -1311,7 +1311,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     created_at: new Date().toISOString()
   },
   {
-    id: 'hardcoded-stage2-26',
+    id: 'hardcoded-stage2-26', 
     stage_id: '2b526d15-0a34-48b0-9e81-1b5f64d8bd4c',
     type: 'testimonial',
     content: {
