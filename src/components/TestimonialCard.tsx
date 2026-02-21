@@ -117,7 +117,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
 
         <div className="bg-white/80 rounded-xl p-3 sm:p-4 border-2 border-yellow-100 shadow-inner mb-3 sm:mb-4">
           {intro && (
-            <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-2">
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-2 font-montserrat">
               {intro}
             </p>
           )}
