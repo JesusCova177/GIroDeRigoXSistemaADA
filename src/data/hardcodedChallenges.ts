@@ -1489,7 +1489,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
           id: 'salsa',
           label: 'Reto Salsa',
           icon: '💃',
-          description: '180.1 km',
+          description: '180,1 km',
           color: 'rose'
         }
       ]
@@ -1556,7 +1556,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
       variant: 'salsa',
       title: 'BIFURCACIÓN 2: Reto Salsa',
       header: {
-        distance: '180.1 km',
+        distance: '180,1 km',
         ascent: '3,151 m',
         maxAlt: '1,986 m',
         label: 'Tu ruta (GPX oficial)'
