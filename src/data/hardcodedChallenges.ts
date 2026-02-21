@@ -2106,7 +2106,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
     stage_id: '997d041d-857e-4183-a063-ba238caeed00',
     type: 'testimonial',
     content: {
-      title: 'Testimonio (Fase 4)',
+      title: '',
       subtitle: 'Juan Camilo (primer Giro)',
       intro: 'Juan Camilo llegó con un miedo normal: era su primer Giro, y su temor real era sufrir demasiado o no completar el reto. Lo que él resalta no es "motivación", sino estrategia: acompañamiento y una estrategia de alimentación diseñada para los días previos, el día previo y el día del evento.',
       person: {
