@@ -689,7 +689,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title: 'El problema apareció',
       paragraphs: [
-        'El problema apareci\u00f3 cuando empec\u00e9 a hacer fondos de verdad. Esos en los que al comienzo todo es alegr\u00eda\u2026 y de repente el cuerpo cambia de idioma. A m\u00ed me pasaba as\u00ed: iba bien, y en una hora espec\u00edfica la energ\u00eda se me iba. No era cansancio normal, era como si me apagaran el motor. Y ah\u00ed yo entraba en modo \u201ca ver qu\u00e9 aparece\u201d: paro en una tienda, compro cualquier cosa, me tomo algo dulce, me meto lo que sea\u2026 y sigo. Pero eso no era estrategia.'
+        'Cuando empec\u00e9 a hacer fondos de verdad. Esos en los que al comienzo todo es alegr\u00eda\u2026 y de repente el cuerpo cambia de idioma. A m\u00ed me pasaba as\u00ed: iba bien, y en una hora espec\u00edfica la energ\u00eda se me iba. No era cansancio normal, era como si me apagaran el motor. Y ah\u00ed yo entraba en modo \u201ca ver qu\u00e9 aparece\u201d: paro en una tienda, compro cualquier cosa, me tomo algo dulce, me meto lo que sea\u2026 y sigo. Pero eso no era estrategia.'
       ]
     },
     order_index: 1,
