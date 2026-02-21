@@ -1475,7 +1475,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: 'd776b3db-f59b-4052-8855-11d5462834c9',
     type: 'bifurcation',
     content: {
-      title: 'Bifurcación: Selección de Reto',
+      title: 'Selección de Reto',
       question: ' ',
       options: [
         {
@@ -1505,7 +1505,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
                             // Wait, ChallengeCarousel uses RouteCard if type is 'phase_importance' AND has 'variant'.
     content: {
       variant: 'cana',
-      title: 'BIFURCACIÓN 1: Reto Caña',
+      title: 'Reto Caña',
       header: {
         distance: '69,7 km',
         ascent: '1,670 m',
@@ -1554,7 +1554,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     type: 'phase_importance',
     content: {
       variant: 'salsa',
-      title: 'BIFURCACIÓN 2: Reto Salsa',
+      title: 'Reto Salsa',
       header: {
         distance: '180,1 km',
         ascent: '3,151 m',
