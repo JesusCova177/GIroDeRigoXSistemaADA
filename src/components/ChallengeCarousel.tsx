@@ -295,7 +295,7 @@ export function ChallengeCarousel({
         <div
           ref={containerRef}
           className="relative overflow-x-hidden overflow-y-auto cursor-grab active:cursor-grabbing"
-          style={{ scrollbar-width: none }}
+          style={{ scrollbar-width: `none` }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
