@@ -41,14 +41,22 @@ export function ChallengeCarousel({
   const [selectedRoute, setSelectedRoute] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const bifurcationIndex = challenges.findIndex(c => c.type === 'bifurcation');
+  const bifurcationIndex = challenges.findIndex(
+    (c) => c.type === "bifurcation",
+  );
   const hasBifurcation = bifurcationIndex !== -1;
 
   const visibleChallenges = hasBifurcation
     ? challenges.filter((c, index) => {
         if (!selectedRoute && index > bifurcationIndex) return false; // Block everything after bifurcation if not selected
 
-        if ((c.type === 'phase_importance' || c.type === 'route') && typeof c.content === 'object' && !Array.isArray(c.content) && 'variant' in c.content && c.content.variant) {
+        if (
+          (c.type === "phase_importance" || c.type === "route") &&
+          typeof c.content === "object" &&
+          !Array.isArray(c.content) &&
+          "variant" in c.content &&
+          c.content.variant
+        ) {
           if (!selectedRoute) return false;
           return c.content.variant === selectedRoute;
         }
@@ -69,7 +77,7 @@ export function ChallengeCarousel({
     setShowHint(true);
 
     // Try to restore selectedRoute from userSelections
-    const bifurcationCard = challenges.find(c => c.type === 'bifurcation');
+    const bifurcationCard = challenges.find((c) => c.type === "bifurcation");
     if (bifurcationCard && Object.keys(userSelections).length > 0) {
       const content = bifurcationCard.content as any;
       const challengeTitle = bifurcationCard.title || content?.title || "";
@@ -80,9 +88,14 @@ export function ChallengeCarousel({
         const saved = userSelections[stagesCardsId];
         // We saved { bifurcacion: option.label }. We need to find the ID.
         if (saved.bifurcacion && content.options) {
-          const found = (content.options as any[]).find(opt => opt.label === saved.bifurcacion);
+          const found = (content.options as any[]).find(
+            (opt) => opt.label === saved.bifurcacion,
+          );
           if (found) {
-            console.log('[ChallengeCarousel] Restoring selected route:', found.id);
+            console.log(
+              "[ChallengeCarousel] Restoring selected route:",
+              found.id,
+            );
             setSelectedRoute(found.id);
           }
         }
@@ -176,9 +189,9 @@ export function ChallengeCarousel({
   const goToNext = () => {
     if (currentIndex < totalCards - 1) {
       const currentChallenge = visibleChallenges[currentIndex];
-      if (currentChallenge.type === 'bifurcation' && !selectedRoute) {
-         // Shake animation or visual feedback could correspond here
-         return;
+      if (currentChallenge.type === "bifurcation" && !selectedRoute) {
+        // Shake animation or visual feedback could correspond here
+        return;
       }
       setCurrentIndex(currentIndex + 1);
       setShowHint(false);
@@ -186,11 +199,15 @@ export function ChallengeCarousel({
   };
 
   const isNextDisabled = () => {
-      const currentChallenge = visibleChallenges[currentIndex];
-      if (currentChallenge && currentChallenge.type === 'bifurcation' && !selectedRoute) {
-          return true;
-      }
-      return false;
+    const currentChallenge = visibleChallenges[currentIndex];
+    if (
+      currentChallenge &&
+      currentChallenge.type === "bifurcation" &&
+      !selectedRoute
+    ) {
+      return true;
+    }
+    return false;
   };
 
   return (
@@ -198,7 +215,9 @@ export function ChallengeCarousel({
       {showHint && totalCards > 1 && (
         <div className="absolute top-1/4 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20 pointer-events-none">
           <div className="bg-gray-900/90 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-2xl flex items-center gap-2">
-            <span className="text-xs sm:text-sm font-semibold">Desliza para ver más  <span className="text-xl">&rarr;</span> </span>
+            <span className="text-xs sm:text-sm font-semibold">
+              Desliza para ver más <span className="text-xl">&rarr;</span>{" "}
+            </span>
           </div>
         </div>
       )}
@@ -239,8 +258,10 @@ export function ChallengeCarousel({
 
             const getCardColor = () => {
               if (challenge.type === "intro") return "bg-[#F8A3C9]";
-              if (challenge.type === "testimonial") return "from-yellow-500 to-emerald-600";
-              if (challenge.type === "cta") return "from-orange-500 to-amber-600";
+              if (challenge.type === "testimonial")
+                return "from-yellow-500 to-emerald-600";
+              if (challenge.type === "cta")
+                return "from-orange-500 to-amber-600";
               return "from-blue-500 to-blue-600";
             };
 
@@ -255,7 +276,6 @@ export function ChallengeCarousel({
                   index === currentIndex
                     ? `w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r ${getCardColor()} shadow-lg`
                     : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
-                   
                 }`}
                 aria-label={`Ir a ${getCardLabel()}`}
               >
@@ -286,7 +306,7 @@ export function ChallengeCarousel({
           <button
             onClick={goToNext}
             disabled={isNextDisabled()}
-            className={`flex absolute right-2 sm:right-0 top-[-1%] -translate-y-1/2 sm:translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center ${isNextDisabled() ? 'opacity-25 cursor-not-allowed' : 'opacity-25 hover:opacity-100'}`}
+            className={`flex absolute right-2 sm:right-0 top-[-1%] -translate-y-1/2 sm:translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-700 p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110 animate-pulse items-center justify-center ${isNextDisabled() ? "opacity-25 cursor-not-allowed" : "opacity-25 hover:opacity-100"}`}
             aria-label="Siguiente"
           >
             <ChevronRight className="w-6 h-6" />
@@ -295,7 +315,7 @@ export function ChallengeCarousel({
 
         <div
           ref={containerRef}
-          className="relative overflow-x-hidden overflow-scroll cursor-grab active:cursor-grabbing no-scrollbar"
+          className=""
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -316,16 +336,25 @@ export function ChallengeCarousel({
               const mappingKey = `${currentStageName}:${challengeTitle}`;
               const stagesCardsId = adaMapping[mappingKey] || null;
 
-              if (challenge.type === 'bifurcation' || challenge.type === 'preamble_checklist' || challenge.type === 'checklist' || challenge.type === 'reflection') {
-                console.log(`[ChallengeCarousel] Card Mapping: "${mappingKey}" -> ID:`, stagesCardsId);
+              if (
+                challenge.type === "bifurcation" ||
+                challenge.type === "preamble_checklist" ||
+                challenge.type === "checklist" ||
+                challenge.type === "reflection"
+              ) {
+                console.log(
+                  `[ChallengeCarousel] Card Mapping: "${mappingKey}" -> ID:`,
+                  stagesCardsId,
+                );
               }
 
               return (
-                <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
+                <div
+                  key={challenge.id}
+                  className="w-full flex-shrink-0 px-2 sm:px-4 overflow-y-auto"
+                >
                   {challenge.type === "intro" ? (
-                    <IntroCard 
-                      content={content} 
-                    />
+                    <IntroCard content={content} />
                   ) : challenge.type === "bifurcation" ? (
                     <BifurcationCard
                       content={{
@@ -337,7 +366,11 @@ export function ChallengeCarousel({
                       adaUserId={adaUserId}
                       stagesCardsId={stagesCardsId}
                       currentIndex={currentIndex}
-                      initialSelections={stagesCardsId ? userSelections[stagesCardsId] : undefined}
+                      initialSelections={
+                        stagesCardsId
+                          ? userSelections[stagesCardsId]
+                          : undefined
+                      }
                     />
                   ) : challenge.type === "combined" ? (
                     <CombinedChallengeCard
@@ -358,7 +391,11 @@ export function ChallengeCarousel({
                       microTransition={content?.microTransition}
                       adaUserId={adaUserId}
                       stagesCardsId={stagesCardsId}
-                      initialSelections={stagesCardsId ? userSelections[stagesCardsId] : undefined}
+                      initialSelections={
+                        stagesCardsId
+                          ? userSelections[stagesCardsId]
+                          : undefined
+                      }
                       currentIndex={currentIndex}
                     />
                   ) : challenge.type === "nutrition_guide" ? (
@@ -373,32 +410,47 @@ export function ChallengeCarousel({
                   ) : challenge.type === "checklist" ? (
                     <ChecklistCard
                       title={challengeTitle}
-                      items={content?.items || (Array.isArray(challenge.content) ? challenge.content : [])}
+                      items={
+                        content?.items ||
+                        (Array.isArray(challenge.content)
+                          ? challenge.content
+                          : [])
+                      }
                       adaUserId={adaUserId}
                       stagesCardsId={stagesCardsId}
-                      initialSelections={stagesCardsId ? userSelections[stagesCardsId] : undefined}
+                      initialSelections={
+                        stagesCardsId
+                          ? userSelections[stagesCardsId]
+                          : undefined
+                      }
                       currentIndex={currentIndex}
                     />
                   ) : challenge.type === "reflection" ? (
                     <ReflectionCard
                       title={challengeTitle}
-                      questions={content?.questions || (Array.isArray(challenge.content) ? challenge.content : [])}
+                      questions={
+                        content?.questions ||
+                        (Array.isArray(challenge.content)
+                          ? challenge.content
+                          : [])
+                      }
                       microTransition={content?.microTransition}
                       adaUserId={adaUserId}
                       stagesCardsId={stagesCardsId}
-                      initialSelections={stagesCardsId ? userSelections[stagesCardsId] : undefined}
+                      initialSelections={
+                        stagesCardsId
+                          ? userSelections[stagesCardsId]
+                          : undefined
+                      }
                       currentIndex={currentIndex}
                     />
                   ) : challenge.type === "testimonial" ? (
-                    <TestimonialCard
-                      content={content}
-                    />
+                    <TestimonialCard content={content} />
                   ) : challenge.type === "action_plan" ? (
-                    <ActionPlanCard
-                      content={content}
-                    />
-                  ) : challenge.type === "route" || challenge.type === "phase_importance" ? (
-                    (content?.variant && content?.header) ? (
+                    <ActionPlanCard content={content} />
+                  ) : challenge.type === "route" ||
+                    challenge.type === "phase_importance" ? (
+                    content?.variant && content?.header ? (
                       <RouteCard content={content} />
                     ) : (
                       <PhaseImportanceCard content={content} />
@@ -407,7 +459,9 @@ export function ChallengeCarousel({
                     <CTACard content={content} />
                   ) : (
                     <div className="bg-white rounded-2xl shadow p-6">
-                      <p className="text-gray-500">Card type {challenge.type} not implemented yet.</p>
+                      <p className="text-gray-500">
+                        Card type {challenge.type} not implemented yet.
+                      </p>
                     </div>
                   )}
                 </div>

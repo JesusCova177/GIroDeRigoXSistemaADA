@@ -1,11 +1,25 @@
 import { useEffect, useState } from "react";
-import { supabase, upsertAdaUser, updateUserStageProgress, getUserStageProgress, getUserSelectionsForStage, getStageCardMapping, Stage, Challenge } from "./lib/supabase";
+import {
+  supabase,
+  upsertAdaUser,
+  updateUserStageProgress,
+  getUserStageProgress,
+  getUserSelectionsForStage,
+  getStageCardMapping,
+  Stage,
+  Challenge,
+} from "./lib/supabase";
 import { StageHeader } from "./components/StageHeader";
 import { ChallengeCarousel } from "./components/ChallengeCarousel";
 import { LoginPage } from "./components/LoginPage";
 import { Loader2, AlertCircle } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
-import { hardcodedStage1Challenges, hardcodedStage2Challenges, hardcodedStage3Challenges, hardcodedStage4Challenges } from "./data/hardcodedChallenges";
+import {
+  hardcodedStage1Challenges,
+  hardcodedStage2Challenges,
+  hardcodedStage3Challenges,
+  hardcodedStage4Challenges,
+} from "./data/hardcodedChallenges";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -20,9 +34,11 @@ function App() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [adaMapping, setAdaMapping] = useState<Record<string, number>>({});
   const [userSelections, setUserSelections] = useState<Record<number, any>>({});
-  
+
   // Normalize stage name for mapping lookup (ensures it matches "Fase X" format)
-  const mappingStageName = currentStage ? `Fase ${currentStage.stage_number}` : "";
+  const mappingStageName = currentStage
+    ? `Fase ${currentStage.stage_number}`
+    : "";
 
   useEffect(() => {
     checkUser();
@@ -69,7 +85,10 @@ function App() {
     setChallenges([]);
   }
 
-  async function fetchStageData(targetStageNumber: number = 1, userIdOverride?: number) {
+  async function fetchStageData(
+    targetStageNumber: number = 1,
+    userIdOverride?: number,
+  ) {
     try {
       setLoading(true);
       setError(null);
@@ -77,7 +96,7 @@ function App() {
       const actualUserId = userIdOverride || adaUserId;
 
       // Fetch mapping concurrently
-      getStageCardMapping().then(mapping => setAdaMapping(mapping));
+      getStageCardMapping().then((mapping) => setAdaMapping(mapping));
 
       const { data: stages, error: stagesError } = await supabase
         .from("stages")
@@ -90,13 +109,17 @@ function App() {
       }
 
       setTotalStages(stages.length);
-      
-      let stage = stages.find(s => s.stage_number === targetStageNumber) || stages[0];
+
+      let stage =
+        stages.find((s) => s.stage_number === targetStageNumber) || stages[0];
       setCurrentStage(stage);
 
       // Fetch progress for this specific stage
       if (actualUserId) {
-        const progress = await getUserStageProgress(actualUserId, stage.stage_number);
+        const progress = await getUserStageProgress(
+          actualUserId,
+          stage.stage_number,
+        );
         if (progress) {
           setCurrentCardIndex(progress.last_card_index);
         } else {
@@ -117,13 +140,21 @@ function App() {
       let allChallenges: Challenge[] = [];
 
       if (stage.stage_number === 1) {
-        allChallenges = [...hardcodedStage1Challenges].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage1Challenges].sort(
+          (a, b) => a.order_index - b.order_index,
+        );
       } else if (stage.stage_number === 2) {
-        allChallenges = [...hardcodedStage2Challenges].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage2Challenges].sort(
+          (a, b) => a.order_index - b.order_index,
+        );
       } else if (stage.stage_number === 3) {
-        allChallenges = [...hardcodedStage3Challenges].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage3Challenges].sort(
+          (a, b) => a.order_index - b.order_index,
+        );
       } else if (stage.stage_number === 4) {
-        allChallenges = [...hardcodedStage4Challenges].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage4Challenges].sort(
+          (a, b) => a.order_index - b.order_index,
+        );
       } else {
         allChallenges = challengesData || [];
       }
@@ -132,7 +163,10 @@ function App() {
 
       // Fetch user selections (answers)
       if (actualUserId) {
-        const selections = await getUserSelectionsForStage(actualUserId, stage.stage_number);
+        const selections = await getUserSelectionsForStage(
+          actualUserId,
+          stage.stage_number,
+        );
         setUserSelections(selections);
       } else {
         setUserSelections({});
@@ -148,8 +182,14 @@ function App() {
     if (adaUserId && currentStage) {
       setCurrentCardIndex(index);
       // Determine if it's the last card (simplified check, can be improved)
-      const isCompleted = challenges.length > 0 && index === challenges.length - 1;
-      await updateUserStageProgress(adaUserId, currentStage.stage_number, index, isCompleted);
+      const isCompleted =
+        challenges.length > 0 && index === challenges.length - 1;
+      await updateUserStageProgress(
+        adaUserId,
+        currentStage.stage_number,
+        index,
+        isCompleted,
+      );
     }
   }
 
@@ -172,7 +212,10 @@ function App() {
       // Fetch progress for the target stage
       if (adaUserId) {
         const progress = await getUserStageProgress(adaUserId, stageNumber);
-        const selections = await getUserSelectionsForStage(adaUserId, stageNumber);
+        const selections = await getUserSelectionsForStage(
+          adaUserId,
+          stageNumber,
+        );
         setCurrentCardIndex(progress?.last_card_index || 0);
         setUserSelections(selections);
       } else {
@@ -191,13 +234,21 @@ function App() {
       let allChallenges: Challenge[] = [];
 
       if (stage.stage_number === 1) {
-        allChallenges = [...hardcodedStage1Challenges].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage1Challenges].sort(
+          (a, b) => a.order_index - b.order_index,
+        );
       } else if (stage.stage_number === 2) {
-        allChallenges = [...hardcodedStage2Challenges].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage2Challenges].sort(
+          (a, b) => a.order_index - b.order_index,
+        );
       } else if (stage.stage_number === 3) {
-        allChallenges = [...hardcodedStage3Challenges].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage3Challenges].sort(
+          (a, b) => a.order_index - b.order_index,
+        );
       } else if (stage.stage_number === 4) {
-        allChallenges = [...hardcodedStage4Challenges].sort((a, b) => a.order_index - b.order_index);
+        allChallenges = [...hardcodedStage4Challenges].sort(
+          (a, b) => a.order_index - b.order_index,
+        );
       } else {
         allChallenges = challengesData || [];
       }
@@ -213,7 +264,7 @@ function App() {
 
   if (authLoading) {
     return (
-      <div className="h-dvh bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-[#31563C]-600 animate-spin mx-auto mb-4" />
           <p className="text-gray-600 text-lg">Cargando...</p>
@@ -262,9 +313,9 @@ function App() {
   }
 
   return (
-    <div className="h-dvh bg-[#fff] overflow-hidden flex flex-col">
+    <div className="h-dvh bg-[#fff] overflow-hidden flex flex-col no-scrollbar">
       <div className="flex-1 min-h-0 overflow-y-auto">
-        <div className="h-dvh max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 overflow-hidden">
+        <div className="h-dvh max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 overflow-x-hidden-hidden ">
           <StageHeader
             stage={currentStage}
             totalStages={totalStages}
@@ -273,7 +324,9 @@ function App() {
             userEmail={user?.email}
             onLogout={handleLogout}
             showStageSelector={showStageSelector}
-            onToggleStageSelector={() => setShowStageSelector(!showStageSelector)}
+            onToggleStageSelector={() =>
+              setShowStageSelector(!showStageSelector)
+            }
           />
 
           {!showStageSelector && (
@@ -297,9 +350,7 @@ function App() {
               )}
 
               {currentStage.stage_number < totalStages && (
-                <div className="mt-6 sm:mt-8 px-2 sm:px-4 pb-4">
-                  
-                </div>
+                <div className="mt-6 sm:mt-8 px-2 sm:px-4 pb-4"></div>
               )}
             </div>
           )}
