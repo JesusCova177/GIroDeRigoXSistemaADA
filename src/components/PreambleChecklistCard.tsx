@@ -1,6 +1,14 @@
-import { useState } from 'react';
-import { Check, CheckCircle2, Trophy, Sparkles, BookOpen, Lightbulb, ChevronRight } from 'lucide-react';
-import { saveAdaResponse } from '../lib/supabase';
+import { useState } from "react";
+import {
+  Check,
+  CheckCircle2,
+  Trophy,
+  Sparkles,
+  BookOpen,
+  Lightbulb,
+  ChevronRight,
+} from "lucide-react";
+import { saveAdaResponse } from "../lib/supabase";
 
 interface PreambleChecklistCardProps {
   title: string;
@@ -13,15 +21,15 @@ interface PreambleChecklistCardProps {
   currentIndex?: number;
 }
 
-export function PreambleChecklistCard({ 
-  title, 
-  preamble, 
-  items, 
+export function PreambleChecklistCard({
+  title,
+  preamble,
+  items,
   microTransition,
   adaUserId,
   stagesCardsId,
   initialSelections,
-  currentIndex
+  currentIndex,
 }: PreambleChecklistCardProps) {
   const [checkedItems, setCheckedItems] = useState<Set<number>>(() => {
     const initial = new Set<number>();
@@ -55,7 +63,7 @@ export function PreambleChecklistCard({
         }
         return acc;
       }, {});
-      
+
       await saveAdaResponse(adaUserId, 1, stagesCardsId, resUser);
     }
   };
@@ -72,8 +80,12 @@ export function PreambleChecklistCard({
       )}
 
       <div className="flex items-center gap-2 mb-3 sm:mb-4">
-        <CheckCircle2 className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 flex-shrink-0 ${isComplete ? 'text-green-500 animate-pulse' : 'text-gray-400'}`} />
-        <h3 className="text-lg sm:text-xl font-titling font-black text-blue-700 italic">{title}</h3>
+        <CheckCircle2
+          className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 flex-shrink-0 ${isComplete ? "text-green-500 animate-pulse" : "text-gray-400"}`}
+        />
+        <h3 className="text-lg sm:text-xl font-titling font-black text-blue-700 italic">
+          {title}
+        </h3>
         {isComplete && (
           <span className="ml-auto bg-green-100 text-green-700 text-xs font-bold px-2 sm:px-3 py-1 rounded-full animate-pulse">
             ¡Completado!
@@ -92,33 +104,34 @@ export function PreambleChecklistCard({
         </div>
       )}
 
-      <div className="space-y-2 sm:space-y-3 font-[Montserrat-Light]">
+      <div className="space-y-2 sm:space-y-3 font-montserrat">
         {items.map((item, index) => (
           <label
             key={index}
             className={`flex items-start gap-2 sm:gap-3 cursor-pointer group p-2 sm:p-3 rounded-lg transition-all duration-200 ${
-              checkedItems.has(index)
-                ? 'bg-blue-50'
-                : 'hover:bg-gray-50'
-            } ${justChecked === index ? 'scale-105 bg-green-50' : ''}`}
+              checkedItems.has(index) ? "bg-blue-50" : "hover:bg-gray-50"
+            } ${justChecked === index ? "scale-105 bg-green-50" : ""}`}
             onClick={() => toggleItem(index)}
           >
             <div
               className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 rounded-lg border-2 transition-all duration-200 flex items-center justify-center ${
                 checkedItems.has(index)
-                  ? 'bg-gradient-to-br from-blue-500 to-blue-600 border-blue-500 shadow-lg scale-110'
-                  : 'border-gray-300 group-hover:border-blue-400 group-hover:scale-110'
+                  ? "bg-gradient-to-br from-blue-500 to-blue-600 border-blue-500 shadow-lg scale-110"
+                  : "border-gray-300 group-hover:border-blue-400 group-hover:scale-110"
               }`}
             >
               {checkedItems.has(index) && (
-                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white animate-scale-in" strokeWidth={3} />
+                <Check
+                  className="w-3 h-3 sm:w-4 sm:h-4 text-white animate-scale-in"
+                  strokeWidth={3}
+                />
               )}
             </div>
             <span
               className={`flex-1 text-xs sm:text-sm text-gray-700 transition-all duration-200 ${
                 checkedItems.has(index)
-                  ? 'line-through text-gray-400'
-                  : 'group-hover:text-gray-900 group-hover:translate-x-1'
+                  ? "line-through text-gray-400"
+                  : "group-hover:text-gray-900 group-hover:translate-x-1"
               }`}
             >
               {item}
@@ -132,10 +145,14 @@ export function PreambleChecklistCard({
 
       <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-100">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs sm:text-sm font-medium text-gray-600">Progreso</span>
-          <span className={`text-xs sm:text-sm font-bold transition-all duration-300 ${
-            isComplete ? 'text-green-600 scale-110' : 'text-blue-600'
-          }`}>
+          <span className="text-xs sm:text-sm font-medium text-gray-600">
+            Progreso
+          </span>
+          <span
+            className={`text-xs sm:text-sm font-bold transition-all duration-300 ${
+              isComplete ? "text-green-600 scale-110" : "text-blue-600"
+            }`}
+          >
             {checkedItems.size} / {items.length}
           </span>
         </div>
@@ -143,8 +160,8 @@ export function PreambleChecklistCard({
           <div
             className={`h-full rounded-full transition-all duration-500 ease-out relative overflow-hidden ${
               isComplete
-                ? 'bg-gradient-to-r from-green-500 to-green-600'
-                : 'bg-gradient-to-r from-blue-500 to-blue-600'
+                ? "bg-gradient-to-r from-green-500 to-green-600"
+                : "bg-gradient-to-r from-blue-500 to-blue-600"
             }`}
             style={{
               width: `${progress}%`,
@@ -154,7 +171,9 @@ export function PreambleChecklistCard({
           </div>
           {isComplete && (
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-xs font-bold text-white drop-shadow-lg">¡Excelente!</span>
+              <span className="text-xs font-bold text-white drop-shadow-lg">
+                ¡Excelente!
+              </span>
             </div>
           )}
         </div>

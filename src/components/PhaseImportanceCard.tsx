@@ -32,7 +32,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
   return (
     <div className="flex rounded-2xl bg-white  border-2 border-pink-500 p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
       {content.title && (
-        <h2 className="text-2xl sm:text-3xl font-titling font-black mb-6 sm:mb-8 uppercase italic">
+        <h2 className="text-2xl sm:text-3xl font-titling font-black mb-6 sm:mb-8 uppercase italic text-[#f89fc7] tracking-wider">
           {content.title}
         </h2>
       )}
@@ -65,26 +65,27 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
             </div>
           </div>
         ))}
-
       </div>
-      
+
       {content.callout && (
         <div className="mt-6 sm:mt-8 bg-blue-50 p-4 rounded-xl border border-blue-100">
-           <p className="text-gray-800 font-medium">
-             <span className="font-bold block mb-1">Regla táctica:</span>
-             {content.callout.text}
-           </p>
+          <p className="text-gray-800 font-medium">
+            <span className="font-bold block mb-1">Regla táctica:</span>
+            {content.callout.text}
+          </p>
         </div>
       )}
 
       {content.footer && (
-         <div className="mt-6 pt-4 border-t border-gray-100">
-            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 shadow-sm">
-               <p className="text-sm sm:text-base font-black text-yellow-900 uppercase italic text-center tracking-wide leading-relaxed">
-                 {typeof content.footer === 'string' ? content.footer : content.footer.message}
-               </p>
-            </div>
-         </div>
+        <div className="mt-6 pt-4 border-t border-gray-100">
+          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 shadow-sm">
+            <p className="text-sm sm:text-base font-black text-yellow-900 uppercase italic text-center tracking-wide leading-relaxed">
+              {typeof content.footer === "string"
+                ? content.footer
+                : content.footer.message}
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );

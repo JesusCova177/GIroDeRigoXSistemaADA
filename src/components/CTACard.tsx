@@ -1,5 +1,12 @@
-import React from 'react';
-import { ArrowRight, BookOpen, Users, Zap, Rocket, Sparkles } from 'lucide-react';
+import React from "react";
+import {
+  ArrowRight,
+  BookOpen,
+  Users,
+  Zap,
+  Rocket,
+  Sparkles,
+} from "lucide-react";
 
 interface CTAOption {
   title: string;
@@ -31,27 +38,29 @@ interface CTACardProps {
 
 const CTACard: React.FC<CTACardProps> = ({ content }) => {
   return (
-  <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl p-4 sm:p-6 min-h-[50dvh] h-auto flex flex-col text-white overflow-hidden">
-  {(content.title || content.icon) && (
-    <div className="flex-shrink-0 flex items-center gap-3 mb-3"> {/* flex-shrink-0 evita que el título se aplaste */}
-      <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-2 rounded-lg shadow-[0_0_20px_rgba(251,191,36,0.3)]">
-        {content.icon === 'zap' ? (
-          <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 fill-slate-900" />
-        ) : content.icon === 'rocket' ? (
-          <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-        ) : (
-          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-        )}
-      </div>
-      <h3 className="text-lg sm:text-xl font-bold tracking-tight">
-        {content.title}
-      </h3>
-    </div>
-  )}
+    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl p-4 sm:p-6 h-auto flex flex-col text-white overflow-hidden uppercase">
+      {(content.title || content.icon) && (
+        <div className="flex-shrink-0 flex items-center gap-3 mb-3">
+          {" "}
+          {/* flex-shrink-0 evita que el título se aplaste */}
+          <div className="bg-gradient-to-br from-[#FECC41] to-orange-500 p-2 rounded-lg shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+            {content.icon === "zap" ? (
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 fill-slate-900" />
+            ) : content.icon === "rocket" ? (
+              <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            ) : (
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            )}
+          </div>
+          <h3 className="text-lg sm:text-xl font-bold tracking-tight font-montserrat-bolt text-white">
+            {content.title}
+          </h3>
+        </div>
+      )}
 
       <div className="flex-1 space-y-3 sm:space-y-4">
         {content.message && (
-          <p className="text-sm sm:text-base leading-relaxed text-gray-200 whitespace-pre-line">
+          <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line font-montserrat">
             {content.message}
           </p>
         )}
@@ -61,10 +70,10 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
             {content.options.map((option, index) => (
               <div
                 key={index}
-                className={`rounded-xl p-4 border-2 transition-all hover:scale-[1.01] ${
+                className={`rounded-xl p-4 border-2 transition-all hover:scale-[1.01] font-montserrat ${
                   option.isPrimary
-                    ? 'bg-gradient-to-br from-emerald-600 to-teal-700 border-emerald-400 shadow-lg'
-                    : 'bg-slate-800/50 border-slate-700 hover:border-slate-600'
+                    ? "bg-gradient-to-br from-emerald-600 to-teal-700 border-emerald-400 shadow-lg"
+                    : "bg-slate-800/50 border-slate-700 hover:border-slate-600"
                 }`}
               >
                 <div className="flex items-start gap-2 mb-2">
@@ -88,11 +97,11 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
                 </p>
 
                 <a
-                  href={option.buttonUrl || '#'}
+                  href={option.buttonUrl || "#"}
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all hover:gap-3 ${
                     option.isPrimary
-                      ? 'bg-white text-emerald-700 hover:bg-emerald-50'
-                      : 'bg-amber-500 text-slate-900 hover:bg-amber-400'
+                      ? "bg-white text-emerald-700 hover:bg-emerald-50"
+                      : "bg-amber-500 text-slate-900 hover:bg-amber-400"
                   }`}
                 >
                   {option.buttonText}
@@ -104,13 +113,9 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
         )}
 
         {content.transition && (
-          <div className={`pt-6 ${content.options && content.options.length > 0 ? 'mt-8 border-t border-slate-700/50' : ''}`}>
-            <p 
-              className="text-base sm:text-lg font-medium leading-relaxed text-gray-100 mb-5"
-              dangerouslySetInnerHTML={{
-                __html: content.transition.text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>').replace(/\n/g, '<br/>')
-              }}
-            />
+          <div
+            className={`pt-6 ${content.options && content.options.length > 0 ? "mt-8 border-t border-slate-700/50" : ""}`}
+          >
             <div className="flex flex-col items-center gap-4">
               <a
                 href={content.transition.buttonUrl}
