@@ -320,7 +320,7 @@ export function ChallengeCarousel({
               }
 
               return (
-                <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
+                <div key={challenge.id} className=" flex-shrink-0 px-2 sm:px-4">
                   {challenge.type === "intro" ? (
                     <IntroCard 
                       content={content} 
