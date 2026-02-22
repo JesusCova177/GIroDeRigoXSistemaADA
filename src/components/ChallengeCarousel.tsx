@@ -255,6 +255,7 @@ export function ChallengeCarousel({
                   index === currentIndex
                     ? `w-6 sm:w-8 h-2.5 sm:h-3 bg-gradient-to-r ${getCardColor()} shadow-lg`
                     : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125"
+                   
                 }`}
                 aria-label={`Ir a ${getCardLabel()}`}
               >
@@ -294,7 +295,7 @@ export function ChallengeCarousel({
 
         <div
           ref={containerRef}
-          className="relative h-[80vh] w-full overflow-hidden bg-white"
+          className="relative overflow-x-hidden overflow-scroll cursor-grab active:cursor-grabbing no-scrollbar"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -320,8 +321,7 @@ export function ChallengeCarousel({
               }
 
               return (
-                <div className="w-full h-full flex-shrink-0 px-2 sm:px-4">
-                <div key={challenge.id} className="w-full h-full overflow-y-auto bg-white rounded-3xl shadow-sm  no-scrollbar overscroll-contain">
+                <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4">
                   {challenge.type === "intro" ? (
                     <IntroCard 
                       content={content} 
@@ -411,7 +411,6 @@ export function ChallengeCarousel({
                     </div>
                   )}
                 </div>
-                  </div>
               );
             })}
           </div>
