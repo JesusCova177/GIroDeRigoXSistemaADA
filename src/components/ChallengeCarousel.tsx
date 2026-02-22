@@ -294,7 +294,7 @@ export function ChallengeCarousel({
 
         <div
           ref={containerRef}
-          className="relative overflow-x-hidden overflow-scroll cursor-grab active:cursor-grabbing no-scrollbar"
+          className="relative overflow-x-hidden cursor-grab active:cursor-grabbing no-scrollbar"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -320,7 +320,7 @@ export function ChallengeCarousel({
               }
 
               return (
-                <div key={challenge.id} className="w-full  flex-shrink-0 px-2 sm:px-4 bg-black">
+                <div key={challenge.id} className="w-full flex-shrink-0 px-2 sm:px-4 bg-black">
                   {challenge.type === "intro" ? (
                     <IntroCard 
                       content={content} 
