@@ -19,7 +19,7 @@ export function IntroCard({ content }: IntroCardProps) {
   const { title, paragraphs, list, footer, callout } = content;
 
   return (
-    <div className=" flex flex-col items-center rounded-2xl bg-white border-2 border-[#f8a3c9] p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl w-full ">
+    <div className="flex flex-col items-center rounded-2xl bg-white border-2 border-[#f8a3c9] p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl w-full ">
       <div className="flex items-center justify-center gap-4 sm:mb-6">
         <div>
           <h2 className="tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-[#f8a3c9] text-center  italic uppercase">
