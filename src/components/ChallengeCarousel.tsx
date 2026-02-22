@@ -321,7 +321,7 @@ export function ChallengeCarousel({
 
               return (
                 <div className="w-full h-full flex-shrink-0 px-2 sm:px-4">
-                <div key={challenge.id} className="w-full h-full overflow-y-auto bg-white rounded-3xl shadow-sm p-4 sm:p-6 no-scrollbar overscroll-contain">
+                <div key={challenge.id} className="w-full h-full overflow-y-auto bg-white rounded-3xl shadow-sm  no-scrollbar overscroll-contain">
                   {challenge.type === "intro" ? (
                     <IntroCard 
                       content={content} 
