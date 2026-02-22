@@ -85,10 +85,7 @@
   --breakpoint-3xl: 120rem;
 }
 
-.no-scrollbar {
-  -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
-  scrollbar-width: none; /* Oculta scrollbar en Firefox */
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none; /* Oculta scrollbar en Chrome/Safari */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none; /* Firefox */
 }
