@@ -213,7 +213,7 @@ function App() {
 
   if (authLoading) {
     return (
-      <div className="h-[100dvh] bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+      <div className="h-dvh bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-[#31563C]-600 animate-spin mx-auto mb-4" />
           <p className="text-gray-600 text-lg">Cargando...</p>
@@ -262,7 +262,7 @@ function App() {
   }
 
   return (
-    <div className="h-vh bg-[#fff] overflow-hidden flex flex-col">
+    <div className="h-dvh bg-[#fff] overflow-hidden flex flex-col">
       <div className="flex-1 min-h-0 overflow-y-auto">
         <div className="h-dvh max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 overflow-hidden">
           <StageHeader
