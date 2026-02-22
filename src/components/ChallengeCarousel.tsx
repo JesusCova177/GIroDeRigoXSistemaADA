@@ -294,7 +294,7 @@ export function ChallengeCarousel({
 
         <div
           ref={containerRef}
-          className="relative overflow-x-hidden cursor-grab active:cursor-grabbing no-scrollbar"
+          className="relative h-[80vh] w-full overflow-hidden bg-white"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
