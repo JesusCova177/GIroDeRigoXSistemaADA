@@ -1712,7 +1712,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         maxAlt: "1,986 m",
         label: "Tu ruta (GPX oficial)",
       },
-      image: "/src/assets/img/retocana.png", // Placeholder or upload? I'll use a placeholder for now or ask user.
+      image: "/img/retocana.png", // Placeholder or upload? I'll use a placeholder for now or ask user.
       intro:
         "Caña tiene el esfuerzo adelantado. Si te vaciás por ego en la primera subida fuerte, el resto se vuelve una cuenta larga de fatiga.",
       sections: [], // No sections in the first card.
@@ -1766,7 +1766,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         maxAlt: "1,986 m",
         label: "Tu ruta (GPX oficial)",
       },
-      image: "/src/assets/img/retosalsa.png", // Placeholder
+      image: "/img/retosalsa.png", // Placeholder
       intro:
         "Salsa es una batalla de horas. No gana el más fuerte al inicio; gana el que mantiene el tanque alto cuando pasan 5–6 horas.",
       sections: [],
