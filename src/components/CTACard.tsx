@@ -34,6 +34,7 @@ interface CTAContent {
 
 interface CTACardProps {
   content: CTAContent;
+  onNavigateToStage?: (stageNumber: number) => void;
 }
 
 const CTACard: React.FC<CTACardProps> = ({ content }) => {
@@ -52,7 +53,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             )}
           </div>
-          <h3 className="text-lg sm:text-xl font-bold tracking-tight font-montserrat-bolt text-white">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight font-montserrat font-bolt text-white">
             {content.title}
           </h3>
         </div>
@@ -60,9 +61,10 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
 
       <div className="flex-1 space-y-3 sm:space-y-4">
         {content.message && (
-          <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line font-montserrat">
-            {content.message}
-          </p>
+          <p
+            className="text-sm sm:text-base leading-relaxed whitespace-pre-line font-montserrat"
+            dangerouslySetInnerHTML={{ __html: content.message }}
+          />
         )}
 
         {content.options && content.options.length > 0 && (
@@ -86,15 +88,16 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
                     <h4 className="text-base sm:text-lg font-bold">
                       {option.title}
                     </h4>
-                    <p className="text-xs sm:text-sm opacity-90">
-                      {option.subtitle}
-                    </p>
+                    <p className="text-xs sm:text-sm opacity-90" />
                   </div>
                 </div>
 
-                <p className="text-sm leading-relaxed mb-3 opacity-95">
-                  {option.description}
-                </p>
+                <p
+                  className="text-sm leading-relaxed mb-3 opacity-95"
+                  dangerouslySetInnerHTML={{
+                    __html: option.subtitle || "",
+                  }}
+                />
 
                 <a
                   href={option.buttonUrl || "#"}
@@ -117,13 +120,13 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
             className={`pt-6 ${content.options && content.options.length > 0 ? "mt-8 border-t border-slate-700/50" : ""}`}
           >
             <div className="flex flex-col items-center gap-4">
-              <a
-                href={content.transition.buttonUrl}
+              <button
+                onClick={() => {}}
                 className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 hover:from-amber-300 hover:to-orange-400 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-orange-900/20"
               >
                 {content.transition.buttonText}
                 <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
-              </a>
+              </button>
               {content.footerSubtext && (
                 <p className="text-xs text-gray-400 font-medium">
                   {content.footerSubtext}

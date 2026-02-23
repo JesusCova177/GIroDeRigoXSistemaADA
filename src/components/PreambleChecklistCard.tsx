@@ -83,7 +83,7 @@ export function PreambleChecklistCard({
         <CheckCircle2
           className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 flex-shrink-0 ${isComplete ? "text-green-500 animate-pulse" : "text-gray-400"}`}
         />
-        <h3 className="text-lg sm:text-xl font-titling font-black text-blue-700 italic">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-blue-700 italic">
           {title}
         </h3>
         {isComplete && (
@@ -97,7 +97,7 @@ export function PreambleChecklistCard({
         <div className="mb-4 sm:mb-6  border-2 border-blue-400 rounded-lg p-3 sm:p-4">
           <div className="flex items-start gap-2 sm:gap-3">
             <BookOpen className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed whitespace-pre-line">
               {preamble}
             </p>
           </div>

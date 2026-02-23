@@ -61,13 +61,13 @@ export function NutritionGuideCard({
         ) : (
           <Flame className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500 flex-shrink-0" />
         )}
-        <h3 className="text-lg sm:text-xl font-titling font-black text-[#31563C] italic">
+        <h3 className="  text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-[#31563C] italic">
           {title}
         </h3>
       </div>
 
       {concept && (
-        <p className="text-base text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-normal text-gray-700 leading-relaxed font-montserrat">
+        <p className="text-base text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line text-gray-700 leading-relaxed font-montserrat ">
           {concept}
         </p>
       )}
@@ -84,10 +84,7 @@ export function NutritionGuideCard({
                 strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-              >
-                <path d="M9 3h6v2.5c0 0 1.5 1 1.5 2.5V18a2 2 0 0 1-2 2H9.5a2 2 0 0 1-2-2V8c0-1.5 1.5-2.5 1.5-2.5V3z" />
-                <line x1="7.5" y1="12" x2="16.5" y2="12" />
-              </svg>
+              ></svg>
             ) : headerEmoji ? (
               <svg
                 className="w-5 h-5 text-green-600 flex-shrink-0"

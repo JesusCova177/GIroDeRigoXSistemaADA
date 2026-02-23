@@ -28,18 +28,17 @@ export function IntroCard({ content }: IntroCardProps) {
         </div>
       </div>
 
-      <div className="space-y-4">
-        {paragraphs.map((paragraph, index) => (
+      <div className="space-y-4 self-start ml-4">
+        {paragraphs?.map((paragraph, index) => (
           <p
             key={index}
-            className="leading-relaxed text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line font-montserrat"
-          >
-            {paragraph}
-          </p>
+            className="leading-relaxed self-start text-gray-700 text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line font-montserrat"
+            dangerouslySetInnerHTML={{ __html: paragraph }}
+          />
         ))}
 
         {list && list.length > 0 && (
-          <ul className="list-disc pl-5 sm:pl-8 space-y-2 mt-4 text-gray-700 text-base sm:text-lg">
+          <ul className="list-disc pl-5 self-start sm:pl-8 space-y-2 ml-8 mt-4 text-gray-700 text-base sm:text-lg">
             {list.map((item, index) => (
               <li key={index} className="leading-relaxed">
                 {item}

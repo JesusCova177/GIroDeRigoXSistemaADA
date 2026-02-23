@@ -21,12 +21,9 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
       <div className="flex items-center gap-3 mb-6">
         <div className="bg-[#73A800] p-3 rounded-xl"></div>
         <div>
-          <h3 className="text-xl sm:text-2xl  font-bold text-[#73A800]">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold text-[#73A800]">
             Plan de Acción
           </h3>
-          <p className="text-sm text-gray-600 font-montserrat">
-            14 días para arrancar sin enredos
-          </p>
         </div>
       </div>
 
@@ -35,7 +32,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
           <div className="bg-gradient-to-br  rounded-xl p-5 border-2">
             <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <span className="text-[#73A800]">💡</span>
-              Si solo recordás 3 cosas de esta Fase 1…
+              Si solo recordás 3 cosas de esta Fase
             </h4>
             <ul className="space-y-3">
               {content.keyTakeaways.map((takeaway, index) => (

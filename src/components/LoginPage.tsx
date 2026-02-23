@@ -30,18 +30,19 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
   return (
     <div className="h-dvh bg-[#41563F] from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center p-4 overflow-hidden">
-<div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full opacity-10 blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-400 rounded-full opacity-10 blur-3xl" />
       </div>
       <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full relative z-10">
-        <div className="flex items-center justify-center mb-8"> 
-        </div>
- <h1 className="text-4xl text-[#F8A3C9] block self-center justify-self-center text-center tracking-wide">
-            Roadmap de Alimentación Giro de Rigo 2026 by <span className="text-black">SISTEMA</span><span className="text-[#ffcc00]">ADA</span>
-            </h1>
-        <h2 className="text-xl font-titling font-black text-white text-center mb-3 italic uppercase tracking-tight tracking-wide">
-         Inicio de sesion
+        <div className="flex items-center justify-center mb-8"></div>
+        <h1 className="text-4xl text-[#F8A3C9] block self-center justify-self-center text-center tracking-wide">
+          Roadmap de Alimentación Giro de Rigo 2026 by{" "}
+          <span className="text-black">SISTEMA</span>
+          <span className="text-[#ffcc00]">ADA</span>
+        </h1>
+        <h2 className="text-xl font-titling font-black text-white text-center mb-3 italic uppercase tracking-wide">
+          Inicio de sesion
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -85,7 +86,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             ) : (
               <>
                 <Mail className="w-5 h-5" />
-               Continuar con correo electronico
+                Continuar con correo electronico
               </>
             )}
           </button>

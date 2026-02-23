@@ -38,7 +38,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
       )}
 
       {content.intro && (
-        <div className="mb-6 sm:mb-8 text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line font-montserrat">
+        <div className="mb-6 sm:mb-8 text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line font-montserrat ">
           {content.intro}
         </div>
       )}

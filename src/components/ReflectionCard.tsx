@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
-import { Lightbulb, BookOpen, Star, ChevronRight } from 'lucide-react';
-import { saveAdaResponse } from '../lib/supabase';
+import { useState, useEffect, useRef } from "react";
+import { Lightbulb, BookOpen, Star, ChevronRight } from "lucide-react";
+import { saveAdaResponse } from "../lib/supabase";
 
 interface ReflectionCardProps {
   title: string;
@@ -12,11 +12,19 @@ interface ReflectionCardProps {
   currentIndex?: number;
 }
 
-export function ReflectionCard({ title, questions, microTransition, adaUserId, stagesCardsId, initialSelections, currentIndex }: ReflectionCardProps) {
+export function ReflectionCard({
+  title,
+  questions,
+  microTransition,
+  adaUserId,
+  stagesCardsId,
+  initialSelections,
+  currentIndex,
+}: ReflectionCardProps) {
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const saveTimerRef = useRef<NodeJS.Timeout | null>(null);
   const lastAnswersRef = useRef<Record<number, string>>({});
-  
+
   const [answers, setAnswers] = useState<Record<number, string>>(() => {
     const initial: Record<number, string> = {};
     if (initialSelections) {
@@ -30,7 +38,7 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
   });
 
   const [answeredCount, setAnsweredCount] = useState(() => {
-    return Object.values(answers).filter(val => val.trim().length > 0).length;
+    return Object.values(answers).filter((val) => val.trim().length > 0).length;
   });
 
   // Track answers in ref for debounced saving
@@ -50,12 +58,18 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
 
   const performSave = async (currentAnswers: Record<number, string>) => {
     if (adaUserId && stagesCardsId) {
-      const resUser = questions.reduce((acc: Record<string, string>, q, idx) => {
-        acc[q] = currentAnswers[idx] || "";
-        return acc;
-      }, {});
-      
-      console.log('[ReflectionCard] Debounced/Flushed save:', { title, resUser });
+      const resUser = questions.reduce(
+        (acc: Record<string, string>, q, idx) => {
+          acc[q] = currentAnswers[idx] || "";
+          return acc;
+        },
+        {},
+      );
+
+      console.log("[ReflectionCard] Debounced/Flushed save:", {
+        title,
+        resUser,
+      });
       await saveAdaResponse(adaUserId, 2, stagesCardsId, resUser);
     }
   };
@@ -64,15 +78,17 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
     const newAnswers = { ...answers, [index]: value };
     setAnswers(newAnswers);
 
-    const textarea = document.querySelector(`textarea[data-index="${index}"]`) as HTMLTextAreaElement;
+    const textarea = document.querySelector(
+      `textarea[data-index="${index}"]`,
+    ) as HTMLTextAreaElement;
     if (textarea) {
       const hasContent = value.trim().length > 0;
       const previouslyHasContent = answers[index]?.trim().length > 0;
 
       if (hasContent && !previouslyHasContent) {
-        setAnsweredCount(prev => prev + 1);
+        setAnsweredCount((prev) => prev + 1);
       } else if (!hasContent && previouslyHasContent) {
-        setAnsweredCount(prev => Math.max(0, prev - 1));
+        setAnsweredCount((prev) => Math.max(0, prev - 1));
       }
     }
 
@@ -93,7 +109,9 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
           <div className="p-1.5 sm:p-2 bg-yellow-100 rounded-lg">
             <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600" />
           </div>
-          <h3 className="text-lg sm:text-xl font-titling font-black text-yellow-400 italic">{title}</h3>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-yellow-400 italic">
+            {title}
+          </h3>
         </div>
         {answeredCount > 0 && (
           <div className="flex items-center gap-1 bg-yellow-100 px-2 sm:px-3 py-1 rounded-full">
@@ -111,23 +129,28 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
             key={index}
             className={`bg-white rounded-xl p-3 sm:p-4 backdrop-blur-sm transition-all duration-300 ${
               focusedIndex === index
-                ? 'shadow-lg ring-2 ring-yellow-400 scale-102'
-                : 'shadow hover:shadow-md'
+                ? "shadow-lg ring-2 ring-yellow-400 scale-102"
+                : "shadow hover:shadow-md"
             }`}
           >
             <div className="flex items-start gap-2 mb-2 sm:mb-3">
-              <div className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 ${
-                focusedIndex === index
-                  ? 'bg-yellow-500 text-white scale-110'
-                  : 'bg-yellow-100 text-yellow-600'
-              }`}>
+              <div
+                className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 ${
+                  focusedIndex === index
+                    ? "bg-yellow-500 text-white scale-110"
+                    : "bg-yellow-100 text-yellow-600"
+                }`}
+              >
                 {index + 1}
               </div>
               <p className="text-xs sm:text-sm font-semibold text-gray-800 flex-1 font-montserrat">
                 {question}
               </p>
               {focusedIndex === index && (
-                <Lightbulb className="w-4 h-4 text-yellow-500 animate-pulse flex-shrink-0" fill="currentColor" />
+                <Lightbulb
+                  className="w-4 h-4 text-yellow-500 animate-pulse flex-shrink-0"
+                  fill="currentColor"
+                />
               )}
             </div>
             <textarea
@@ -151,8 +174,12 @@ export function ReflectionCard({ title, questions, microTransition, adaUserId, s
               <Star className="w-4 h-4 sm:w-5 sm:h-5 text-white fill-white" />
             </div>
             <div>
-              <p className="font-bold text-sm sm:text-base text-gray-800">¡Reflexión Completa!</p>
-              <p className="text-xs sm:text-sm text-gray-600">Has respondido todas las preguntas</p>
+              <p className="font-bold text-sm sm:text-base text-gray-800">
+                ¡Reflexión Completa!
+              </p>
+              <p className="text-xs sm:text-sm text-gray-600">
+                Has respondido todas las preguntas
+              </p>
             </div>
           </div>
         </div>

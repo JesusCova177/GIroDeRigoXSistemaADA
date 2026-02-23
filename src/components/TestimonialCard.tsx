@@ -118,7 +118,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
             <Quote className="w-4 h-4 sm:w-6 sm:h-6 text-yellow" />
           </div>
           <div className="flex-1">
-            <h3 className="font-montserrat text-lg sm:text-2xl md:text-2xl font-titling font-black text-green tracking-tight italic mb-0">
+            <h3 className="whitespace-pre-line font-montserrat text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-green tracking-tight italic mb-0">
               {title}
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 font-medium leading-tight font-montserrat">
@@ -164,14 +164,14 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
 
             {description && (
               <div className="bg-white/90 rounded-xl p-4 sm:p-5 border border-yellow-100 shadow-sm">
-                <p className="font-montserrat text-sm sm:text-base text-gray-700 leading-relaxed">
+                <p className="font-montserrat text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line">
                   {description}
                 </p>
               </div>
             )}
             {videoEmbed ? (
               <div
-                className="relative w-full  mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-yellow-100 mb-2"
+                className="relative w-full max-h-[390px] max-w-[260px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-yellow-100"
                 style={{ aspectRatio: "9/16" }}
               >
                 <div
