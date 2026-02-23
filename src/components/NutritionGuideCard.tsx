@@ -67,7 +67,7 @@ export function NutritionGuideCard({
       </div>
 
       {concept && (
-        <p className="text-base text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line text-gray-700 leading-relaxed font-montserrat">
+        <p className="text-base text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-normal text-gray-700 leading-relaxed font-montserrat">
           {concept}
         </p>
       )}
@@ -117,14 +117,20 @@ export function NutritionGuideCard({
                 className="bg-white rounded-lg p-4 border border-[#31563C] font-montserrat"
               >
                 {scenario.condition && (
-                  <div className="flex items-start gap-2 mb-3">
+                  <div className="flex items-center gap-4 m-2">
                     {headerEmoji === "water" ? (
                       <svg
-                        className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5"
+                        className="w-8 h-8 text-blue-500 flex-shrink-0 "
                         viewBox="0 0 24 24"
                         fill="currentColor"
                       >
-                        <path d="M12 2C12 2 5 10.5 5 15a7 7 0 0 0 14 0C19 10.5 12 2 12 2z" />
+                        <path
+                          xmlns="http://www.w3.org/2000/svg"
+                          id="Vector"
+                          d="M16.0001 13.3848C16.0001 14.6088 15.526 15.7828 14.6821 16.6483C14.203 17.1397 13.6269 17.5091 13 17.7364M19 13.6923C19 7.11538 12 2 12 2C12 2 5 7.11538 5 13.6923C5 15.6304 5.7375 17.4893 7.05025 18.8598C8.36301 20.2302 10.1436 20.9994 12.0001 20.9994C13.8566 20.9994 15.637 20.2298 16.9497 18.8594C18.2625 17.4889 19 15.6304 19 13.6923Z"
+                          fill="white"
+                          stroke="#3C82F4"
+                        />
                       </svg>
                     ) : headerEmoji ? (
                       <svg
@@ -144,7 +150,7 @@ export function NutritionGuideCard({
                     ) : (
                       <TrendingUp className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                     )}
-                    <p className="text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line font-semibold text-gray-700 italic">
+                    <p className="text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,1.2rem)] whitespace-pre-line text-gray-700 italic">
                       {scenario.condition}
                     </p>
                   </div>

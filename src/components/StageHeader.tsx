@@ -1,4 +1,12 @@
-import { ChevronRight, Zap, Award, Target, Calendar, LogOut, ArrowLeft } from "lucide-react";
+import {
+  ChevronRight,
+  Zap,
+  Award,
+  Target,
+  Calendar,
+  LogOut,
+  ArrowLeft,
+} from "lucide-react";
 import { Stage } from "../lib/supabase";
 
 interface StageHeaderProps {
@@ -25,23 +33,21 @@ export function StageHeader({
   const progressPercentage = (stage.stage_number / totalStages) * 100;
 
   return (
-    <div className="flex flex-col justify-center shadow rounded-xl">
+    <div className="flex flex-col justify-center rounded-xl">
       <div
-        className={`flex flex-col items-center justify-start py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
+        className={`flex flex-col items-center justify-start shadow-xl py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
           showStageSelector
-            ? 'min-h-[280px] sm:min-h-[220px] md:min-h-[260px] gap-4 sm:gap-5 md:gap-6'
-            : 'min-h-[90px] sm:min-h-[130px] gap-3 sm:gap-4' 
+            ? "min-h-[280px] sm:min-h-[220px] md:min-h-[260px] gap-4 sm:gap-5 md:gap-6"
+            : "min-h-[90px] sm:min-h-[130px] gap-3 sm:gap-4"
         }`}
         style={{
           background: stage.primary_color,
         }}
       >
         <div className="w-full">
-     
-              {userEmail && onLogout && (
+          {userEmail && onLogout && (
             <div>
-       <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate">
-              </span>
+              <span className="text-xs sm:text-sm font-medium text-[#31563C] truncate"></span>
               <button
                 onClick={onLogout}
                 className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
@@ -53,11 +59,13 @@ export function StageHeader({
         </div>
 
         <div>
-          <h1 className={`tracking-wide text-center font-titling font-black text-[#31563C] tracking-tight px-2 italic uppercase transition-all duration-300 ${
-            showStageSelector
-              ? 'text-3xl sm:text-4xl md:text-5xl'
-              : 'text-2xl sm:text-3xl md:text-4xl'
-          }`}>
+          <h1
+            className={`tracking-wide text-center font-titling font-black text-[#31563C]  px-2 italic uppercase transition-all duration-300 ${
+              showStageSelector
+                ? "text-3xl sm:text-4xl md:text-5xl"
+                : "text-2xl sm:text-3xl md:text-4xl"
+            }`}
+          >
             {stage.title}
           </h1>
         </div>
@@ -91,8 +99,9 @@ export function StageHeader({
                               : "bg-white/80 text-[#f89fc7]/70 shadow-lg hover:bg-white hover:shadow-xl hover:scale-105"
                           }`}
                         >
-                          <span className="relative z-10 italic">{stageNum}</span>
-                         
+                          <span className="relative z-10 italic">
+                            {stageNum}
+                          </span>
                         </div>
                         <span
                           className={`text-xs sm:text-sm font-semibold ${
@@ -104,14 +113,11 @@ export function StageHeader({
                           Etapa {stageNum}
                         </span>
                       </button>
-                      
-
                     ),
                   )}
                 </div>
               </div>
             </div>
-        
           ) : (
             <button
               onClick={onToggleStageSelector}
