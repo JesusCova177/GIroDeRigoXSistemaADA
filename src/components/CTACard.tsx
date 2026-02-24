@@ -35,9 +35,10 @@ interface CTAContent {
 interface CTACardProps {
   content: CTAContent;
   onNavigateToStage?: (stageNumber: number) => void;
+  onNavigateNext?: () => void;
 }
 
-const CTACard: React.FC<CTACardProps> = ({ content }) => {
+const CTACard: React.FC<CTACardProps> = ({ content, onNavigateNext }) => {
   return (
     <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl p-4 sm:p-6 h-auto flex flex-col text-white overflow-hidden uppercase">
       {(content.title || content.icon) && (
@@ -99,8 +100,14 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
                   }}
                 />
 
-                <a
-                  href={option.buttonUrl || "#"}
+                <button
+                  onClick={() => {
+                    if (option.buttonUrl) {
+                      window.open(option.buttonUrl, "_blank");
+                    } else if (onNavigateNext) {
+                      onNavigateNext();
+                    }
+                  }}
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all hover:gap-3 ${
                     option.isPrimary
                       ? "bg-white text-emerald-700 hover:bg-emerald-50"
@@ -109,7 +116,7 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
                 >
                   {option.buttonText}
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -121,7 +128,13 @@ const CTACard: React.FC<CTACardProps> = ({ content }) => {
           >
             <div className="flex flex-col items-center gap-4">
               <button
-                onClick={() => {}}
+                onClick={() => {
+                  if (content.transition?.buttonUrl) {
+                    window.open(content.transition.buttonUrl, "_blank");
+                  } else if (onNavigateNext) {
+                    onNavigateNext();
+                  }
+                }}
                 className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 hover:from-amber-300 hover:to-orange-400 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-orange-900/20"
               >
                 {content.transition.buttonText}

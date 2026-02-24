@@ -456,7 +456,7 @@ export function ChallengeCarousel({
                       <PhaseImportanceCard content={content} />
                     )
                   ) : challenge.type === "cta" ? (
-                    <CTACard content={content} />
+                    <CTACard content={content} onNavigateNext={goToNext} />
                   ) : (
                     <div className="bg-white rounded-2xl shadow p-6">
                       <p className="text-gray-500">
