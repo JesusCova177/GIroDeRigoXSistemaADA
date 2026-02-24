@@ -7,6 +7,7 @@ export default {
         inter: ["Inter", "sans-serif"],
         bebas: ['"Bebas Neue"', "cursive"],
         montserrat: ["Montserrat", "sans-serif"],
+        builttitling: ["BuiltTitling", "sans-serif"],
       },
     },
   },

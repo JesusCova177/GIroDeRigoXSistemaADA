@@ -7,16 +7,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Montserrat-Bold";
-  src: url("./assets/fonts/Montserrat-Bold.ttf") format("truetype");
+  font-family: "BuiltTitling";
+  src: url("./assets/fonts/built titling bd it.otf") format("opentype");
   font-weight: bold;
-  font-style: normal;
-  font-display: swap;
+  font-style: italic;
 }
 
 @font-face {
-  font-family: "BuiltTitling";
-  src: url("./assets/fonts/built titling bd it.otf") format("opentype");
+  font-family: "timberwolf";
+  src: url("./assets/fonts/TimberWolf-Regular.ttf") format("opentype");
   font-weight: bold;
   font-style: italic;
 }
@@ -27,14 +26,25 @@
     height: 100dvh;
     margin: 0;
     padding: 0;
-    font-family: "BuiltTitling", sans-serif;
   }
 
   #root {
   }
 
+  .font-builttitling {
+    font-family: "BuiltTitling", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
   .font-titling {
     font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .font-timberwolf {
+    font-family: "timberwolf", sans-serif;
     font-weight: 400;
     letter-spacing: 0.05em;
   }

@@ -12,6 +12,7 @@ import {
 import { StageHeader } from "./components/StageHeader";
 import { ChallengeCarousel } from "./components/ChallengeCarousel";
 import { LoginPage } from "./components/LoginPage";
+import IntermediatePage from "./components/IntermediatePage";
 import { Loader2, AlertCircle } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 import {
@@ -34,6 +35,7 @@ function App() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [adaMapping, setAdaMapping] = useState<Record<string, number>>({});
   const [userSelections, setUserSelections] = useState<Record<number, any>>({});
+  const [showIntermediate, setShowIntermediate] = useState(false);
 
   // Normalize stage name for mapping lookup (ensures it matches "Fase X" format)
   const mappingStageName = currentStage
@@ -72,9 +74,10 @@ function App() {
     const userProgress = await upsertAdaUser(email);
     if (userProgress) {
       setAdaUserId(userProgress.id);
-      await fetchStageData(1, userProgress.id);
+      // show intermediate page first, then fetch stage data when continuing
+      setShowIntermediate(true);
     } else {
-      await fetchStageData(1);
+      setShowIntermediate(true);
     }
   }
 
@@ -275,6 +278,23 @@ function App() {
 
   if (!user) {
     return <LoginPage onLogin={handleLogin} />;
+  }
+
+  if (showIntermediate) {
+    return (
+      <IntermediatePage
+        onContinue={async () => {
+          setShowIntermediate(false);
+          await fetchStageData(1, adaUserId || undefined);
+        }}
+        onBack={() => {
+          // allow going back to login if desired
+          setShowIntermediate(false);
+          setUser(null);
+          localStorage.removeItem("userEmail");
+        }}
+      />
+    );
   }
 
   if (loading && !currentStage) {
