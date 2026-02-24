@@ -6,13 +6,13 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "intro",
     content: {
-      title: "bajar grasa sin quedarte vacío",
+      title: `<p class="title">bajar grasa</p><br/>sin quedarte vacío`,
       paragraphs: [
-        "Comer menos para pesar menos: la fórmula “perfecta”.",
+        "Comer menos para pesar menos: <strong>la fórmula “perfecta”.</strong>",
         "Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”.",
-        "El problema es que esa película dura poquito.",
+        "<strong>El problema es que esa película dura poquito.</strong>",
         "La realidad me pegó de frente cuando le metí intensidad al entrenamiento y el cuerpo empezó a hablarme claro, pero yo no le paré bolas.",
-        "Montaba muchas horas, siempre a tope, y no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba.",
+        "Montaba muchas horas, siempre a tope, y <strong> no le estaba dando a mi cuerpo las calorías ni los nutrientes que necesitaba.</strong>",
       ],
     },
     order_index: 0,

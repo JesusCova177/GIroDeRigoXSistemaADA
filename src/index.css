@@ -26,9 +26,11 @@
     height: 100dvh;
     margin: 0;
     padding: 0;
+    background-color: #f8fbf2;
   }
 
   #root {
+    background-color: #f8fbf2;
   }
 
   .font-builttitling {
@@ -47,6 +49,17 @@
     font-family: "timberwolf", sans-serif;
     font-weight: 400;
     letter-spacing: 0.05em;
+  }
+
+  .active {
+    display: none;
+  }
+
+  .title {
+    font-family: "timberwolf", sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: -2.4rem;
+    color: #31563c;
   }
 }
 

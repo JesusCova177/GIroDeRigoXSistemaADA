@@ -33,7 +33,7 @@ export function StageHeader({
   const progressPercentage = (stage.stage_number / totalStages) * 100;
 
   return (
-    <div className="flex flex-col justify-center rounded-xl">
+    <div className="flex flex-col justify-center rounded-xl relative overflow-hidden">
       <div
         className={`flex flex-col items-center justify-start shadow-xl py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
           showStageSelector
@@ -44,6 +44,11 @@ export function StageHeader({
           background: stage.primary_color,
         }}
       >
+        <img
+          src="./img/cyclista.png"
+          alt=""
+          className="absolute top-24 -left-12 w-48 h-48"
+        />
         <div className="w-full">
           {userEmail && onLogout && (
             <div>
@@ -58,16 +63,15 @@ export function StageHeader({
           )}
         </div>
 
-        <div>
-          <h1
-            className={`tracking-wide text-center font-titling font-black text-[#31563C]  px-2 italic uppercase transition-all duration-300 ${
-              showStageSelector
-                ? "text-3xl sm:text-4xl md:text-5xl"
-                : "text-2xl sm:text-3xl md:text-4xl"
-            }`}
-          >
-            {stage.title}
-          </h1>
+        <div className="flex flex-col items-center justify-center">
+          {/* Mostrar imagen según la ruta proporcionada en stage.image_url */}
+          {stage.title && (
+            <img
+              src={`./img/${stage.title.replace(/\s+/g, "").toLowerCase()}.webp`}
+              alt={stage.title}
+              className="max-h-32 sm:max-h-40 md:max-h-48 w-auto object-contain"
+            />
+          )}
         </div>
 
         {showStageSelector && (

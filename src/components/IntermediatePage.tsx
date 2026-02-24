@@ -8,7 +8,6 @@ interface Props {
 
 export default function IntermediatePage({ onContinue, onBack }: Props) {
   const [loading, setLoading] = useState(false);
-
   const handleContinue = async () => {
     setLoading(true);
     try {
@@ -19,7 +18,7 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
   };
 
   return (
-    <div className="h-dvh m-auto flex flex-col gap-6 self-center bg-white p-8 max-w-md text-center items-center justify-center">
+    <div className="h-auto m-auto flex flex-col p-8 max-w-md text-center items-center justify-center">
       <img src="./img/giroderigoweb_.webp" alt="" />
       <img src="./img/giroderigoweb.webp" alt="" />
       <h2 className="text-6xl font-bold mb-4 font-timberwolf text-[#41563f] ">
@@ -36,11 +35,22 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
       </p>
 
       <div className="border rounded-xl shadow-[3px_4px_5px_rgba(0,0,0,0.08)]">
-        <div className="flex flex-row gap-4 justify-center p-4">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>4</button>
+        <div className="flex flex-col gap-2 justify-center p-4">
+          <div className="flex gap-4 justify-center p-4">
+            <button className=" btn-num w-16 h-16 rounded-xl font-builttitling text-4xl flex items-center justify-center border border-[#41563F] text-[#41563F] hover:bg-[#41563F] hover:text-white transition-colors">
+              1
+            </button>
+            <button className="w-16 h-16 rounded-xl font-builttitling text-4xl flex items-center justify-center border border-[#41563F] text-[#41563F] hover:bg-[#41563F] hover:text-white transition-colors">
+              2
+            </button>
+            <button className="w-16 h-16 rounded-xl font-builttitling text-4xl flex items-center justify-center border border-[#41563F] text-[#41563F] hover:bg-[#41563F] hover:text-white transition-colors ">
+              3
+            </button>
+            <button className="w-16 h-16 rounded-xl font-builttitling text-4xl flex items-center justify-center border border-[#41563F] text-[#41563F] hover:bg-[#41563F] hover:text-white transition-colors">
+              4
+            </button>
+          </div>
+          <p></p>
         </div>
 
         <p></p>

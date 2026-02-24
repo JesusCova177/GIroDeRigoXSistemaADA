@@ -73,7 +73,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         </form>
         <img className="pt-4" src="./img/giroderigoweb_.webp" alt="" />
       </div>
-      <img src="./img/inicio.webp" alt="" />
+      <img src="./img/inicio.webp" alt="" className="-translate-x-1/3" />
       <div className=" inset-0 overflow-hidden"></div>
     </div>
   );
