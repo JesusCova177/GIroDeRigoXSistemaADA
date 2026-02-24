@@ -29,7 +29,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="h-dvh bg-[#41563f] from-blue-600 via-blue-700 to-blue-800 grid grid-cols-1 md:grid-cols-2 items-center justify-items-center p-4 overflow-hidden">
+    <div className="h-dvh bg-[#41563f] from-blue-600 via-blue-700 to-blue-800 grid-rows-1 grid grid-cols-1 md:grid-cols-2 items-center justify-items-center p-4 overflow-hidden">
       <div className="bg-[#f8fbf2] rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full z-10">
         <img src="./img/giroderigoweb.webp" alt="Logo" className="" />
         <div className="flex items-center justify-center mb-8"></div>
