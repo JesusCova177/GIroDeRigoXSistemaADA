@@ -28,7 +28,7 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
   };
 
   return (
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pl-12 pr-12 pt-8 pb-8">
+    <div className="absolute top-1/2 left-1/2 transform scale-[85%] md:scale-90 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center  ">
       <img
         src="./img/giroderigoweb_.webp"
         alt=""

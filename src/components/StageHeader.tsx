@@ -35,10 +35,10 @@ export function StageHeader({
   return (
     <div className="flex flex-col">
       <div
-        className={`flex flex-col relative items-center justify-start shadow-xl py-6 sm:py-8 px-4 sm:px-6 rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
+        className={`flex flex-col relative items-center justify-start shadow-xl py-6  rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
           showStageSelector
-            ? "min-h-[280px] sm:min-h-[220px] md:min-h-[260px] gap-4 sm:gap-5 md:gap-6"
-            : "min-h-[90px] sm:min-h-[130px] gap-3 sm:gap-4"
+            ? "gap-3 md:gap-5"
+            : "min-h-[90px] sm:min-h-[130px] gap-2 sm:gap-4"
         }`}
         style={{
           background: stage.primary_color,
@@ -69,7 +69,7 @@ export function StageHeader({
         {userEmail && onLogout && (
           <button
             onClick={onLogout}
-            className="ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
+            className="absolute top-4 left-2 ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
           >
             <LogOut className=" absolute w-4 h-4 text-[#31563C]" />
           </button>
