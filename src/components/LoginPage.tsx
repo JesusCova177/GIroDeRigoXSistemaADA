@@ -29,8 +29,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="h-dvh bg-[#41563f] from-blue-600 via-blue-700 to-blue-800 grid-rows-1 grid grid-cols-1 md:grid-cols-2 items-center justify-items-center p-4 overflow-hidden">
-      <div className="bg-[#f8fbf2] rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full z-10">
+    <div className="h-dvh bg-[#f8fbf2] flex flex-col justify-center items-center p-12">
+      <div className="bg-[#f8fbf2]">
         <img src="./img/giroderigoweb.webp" alt="Logo" className="" />
         <div className="flex items-center justify-center mb-8"></div>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -43,7 +43,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Ingrese su correo electrónico"
-                className="font-montserrat w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl text-400 focus:outline-none focus:ring-1 focus:ring-[#41563F] focus:border-transparent transition-all text-[#41563F] placeholder-[#41563F]"
+                className="font-montserrat w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl text-md focus:outline-none focus:ring-1 focus:ring-[#41563F] focus:border-transparent transition-all text-[#41563F] placeholder-[#41563F]"
                 disabled={loading}
                 required
               />
@@ -71,9 +71,9 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             )}
           </button>
         </form>
-        <img className="pt-4" src="./img/giroderigoweb_.webp" alt="" />
+        <img className="mt-5" src="./img/giroderigoweb_.webp" alt="x" />
       </div>
-      <img src="./img/inicio.webp" alt="" className="-translate-x-1/3" />
+      <img src="./img/inicio.webp" alt="" className="-translate-x-1/3 hidden" />
       <div className=" inset-0 overflow-hidden"></div>
     </div>
   );

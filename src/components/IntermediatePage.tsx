@@ -18,12 +18,13 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
   };
 
   return (
-    <div className="h-auto m-auto flex flex-col p-8 max-w-md text-center items-center justify-center">
-      <img src="./img/giroderigoweb_.webp" alt="" />
-      <img src="./img/giroderigoweb.webp" alt="" />
-      <h2 className="text-6xl font-bold mb-4 font-timberwolf text-[#41563f] ">
-        ¡bienvenid<span className="">@</span>!
+    <div className="h-dvh flex flex-col items-center p-12 overflow-hidden">
+      <img src="./img/giroderigoweb_.webp" alt="" className="pb-4" />
+      <h2 className="text-3xl text-center font-bold mb-4 font-timberwolf text-[#41563f]">
+        ¡bienvenidos al!
       </h2>
+      <img src="./img/giroderigoweb.webp" alt="" className="h-48 w-48" />
+
       <p className="text-gray-600 mb-6 font-montserrat">
         Llega al evento con máxima
         <br />
