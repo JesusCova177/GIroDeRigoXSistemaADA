@@ -15,11 +15,18 @@ ON CONFLICT (id) DO NOTHING;
 -- Seed ADA Cards (Mapping hardcoded titles to card names)
 -- Note: These must match the names/titles in hardcodedChallenges.ts
 
--- Fase 1
+-- Fase 1 -- titles must match content.title in hardcodedChallenges.ts exactly
 INSERT INTO "ada_cards" ("stage_id", "name") VALUES 
 (1, 'Mini checklist: carbohidratos'),
+(1, 'Mini checklist: post-entreno'),
+(1, 'Reflexión: post-entreno'),
+(1, 'Mini checklist: proteína'),
+(1, 'Mini checklist: fuerza'),
+(1, 'Reflexión: fuerza'),
+(1, 'Mini checklist: hidratación'),
+(1, 'Reflexión: hidratación'),
 (1, 'Mini checklist:'),
-(1, 'Preguntas de reflexión (2):'),
+(1, 'Reflexión:'),
 (1, 'Resumen Fase 1');
 
 -- Fase 2

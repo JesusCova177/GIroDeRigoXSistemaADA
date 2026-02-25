@@ -7,7 +7,7 @@ interface ReflectionCardProps {
   questions: string[];
   microTransition?: string;
   adaUserId?: number | null;
-  stagesCardsId?: number | null;
+  challengeId?: string | null;
   initialSelections?: Record<string, any>;
   currentIndex?: number;
 }
@@ -17,7 +17,7 @@ export function ReflectionCard({
   questions,
   microTransition,
   adaUserId,
-  stagesCardsId,
+  challengeId,
   initialSelections,
   currentIndex,
 }: ReflectionCardProps) {
@@ -25,21 +25,24 @@ export function ReflectionCard({
   const saveTimerRef = useRef<NodeJS.Timeout | null>(null);
   const lastAnswersRef = useRef<Record<number, string>>({});
 
-  const [answers, setAnswers] = useState<Record<number, string>>(() => {
-    const initial: Record<number, string> = {};
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [answeredCount, setAnsweredCount] = useState(0);
+
+  // Sync state when initialSelections arrives (async from DB)
+  useEffect(() => {
     if (initialSelections) {
+      const restored: Record<number, string> = {};
       questions.forEach((q, idx) => {
         if (initialSelections[q]) {
-          initial[idx] = initialSelections[q];
+          restored[idx] = initialSelections[q];
         }
       });
+      setAnswers(restored);
+      setAnsweredCount(
+        Object.values(restored).filter((v) => v.trim().length > 0).length
+      );
     }
-    return initial;
-  });
-
-  const [answeredCount, setAnsweredCount] = useState(() => {
-    return Object.values(answers).filter((val) => val.trim().length > 0).length;
-  });
+  }, [initialSelections]);
 
   // Track answers in ref for debounced saving
   useEffect(() => {
@@ -57,7 +60,7 @@ export function ReflectionCard({
   }, [currentIndex]);
 
   const performSave = async (currentAnswers: Record<number, string>) => {
-    if (adaUserId && stagesCardsId) {
+    if (adaUserId && challengeId) {
       const resUser = questions.reduce(
         (acc: Record<string, string>, q, idx) => {
           acc[q] = currentAnswers[idx] || "";
@@ -70,7 +73,7 @@ export function ReflectionCard({
         title,
         resUser,
       });
-      await saveAdaResponse(adaUserId, 2, stagesCardsId, resUser);
+      await saveAdaResponse(adaUserId, 2, challengeId, resUser);
     }
   };
 

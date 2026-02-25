@@ -153,26 +153,26 @@ export async function updateUserStageProgress(
 export async function saveAdaResponse(
   userId: number,
   typeSelectionId: number,
-  stagesCardsId: number,
+  challengeId: string,
   resUser: any
 ) {
   try {
-    console.log('[saveAdaResponse] Saving (upsert):', { userId, typeSelectionId, stagesCardsId, resUser });
+    console.log('[saveAdaResponse] Saving (upsert):', { userId, typeSelectionId, challengeId, resUser });
 
     const { error } = await supabase
       .from('ada_user_selection')
       .upsert({
         user_id: userId,
         type_selection_id: typeSelectionId,
-        stages_cards_id: stagesCardsId,
+        challenge_id: challengeId,
         res_user: resUser,
         update_at: new Date().toISOString()
       }, {
-        onConflict: 'user_id, stages_cards_id'
+        onConflict: 'user_id, challenge_id'
       });
 
     if (error) throw error;
-    console.log('[saveAdaResponse] Save successful');
+    console.log('[saveAdaResponse] Save successful for:', challengeId);
   } catch (error) {
     console.error('Error saving ADA response:', error);
   }
@@ -181,25 +181,25 @@ export async function saveAdaResponse(
 export async function getUserSelectionsForStage(
   userId: number,
   stageNumber: number
-): Promise<Record<number, any>> {
+): Promise<Record<string, any>> {
   try {
+    // Load ALL selections for this user. We use challenge.id (e.g. "hardcoded-5")
+    // directly as the key — no prefix filtering needed.
     const { data, error } = await supabase
       .from('ada_user_selection')
-      .select(`
-        stages_cards_id,
-        res_user,
-        ada_stages_cards!inner (
-          ada_stages!inner ( name )
-        )
-      `)
+      .select('challenge_id, res_user')
       .eq('user_id', userId)
-      .eq('ada_stages_cards.ada_stages.name', `Fase ${stageNumber}`);
+      .not('challenge_id', 'is', null);
 
     if (error) throw error;
     
-    // Return a map of stages_cards_id -> resUser
-    return (data || []).reduce((acc: Record<number, any>, item: any) => {
-      acc[item.stages_cards_id] = item.res_user;
+    console.log(`[getUserSelectionsForStage] Loaded ${data?.length ?? 0} selections for user ${userId}`);
+
+    // Return a map of challenge_id -> resUser
+    return (data || []).reduce((acc: Record<string, any>, item: any) => {
+      if (item.challenge_id) {
+        acc[item.challenge_id] = item.res_user;
+      }
       return acc;
     }, {});
   } catch (error) {

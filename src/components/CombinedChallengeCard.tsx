@@ -9,7 +9,7 @@ interface CombinedChallengeCardProps {
   checklist: string[];
   reflections: string[];
   adaUserId?: number | null;
-  stagesCardsId?: number | null;
+  challengeId?: string | null;
   initialSelections?: Record<string, any>;
   currentIndex?: number;
 }
@@ -21,7 +21,7 @@ export function CombinedChallengeCard({
   checklist, 
   reflections,
   adaUserId,
-  stagesCardsId,
+  challengeId,
   initialSelections,
   currentIndex
 }: CombinedChallengeCardProps) {
@@ -81,7 +81,7 @@ export function CombinedChallengeCard({
   }, [currentIndex]);
 
   const performSave = async (newChecked: Set<number>, newAnswers: Record<number, string>) => {
-    if (adaUserId && stagesCardsId) {
+    if (adaUserId && challengeId) {
       const resUser: Record<string, string> = {};
       
       checklist.forEach((item, idx) => {
@@ -95,7 +95,7 @@ export function CombinedChallengeCard({
       });
 
       console.log('[CombinedChallengeCard] Debounced/Flushed save:', { title, resUser });
-      await saveAdaResponse(adaUserId, 1, stagesCardsId, resUser);
+      await saveAdaResponse(adaUserId, 1, challengeId, resUser);
     }
   };
 

@@ -19,7 +19,7 @@ interface BifurcationCardProps {
   selectedOption: string | null;
   onSelect: (optionId: string) => void;
   adaUserId?: number | null;
-  stagesCardsId?: number | null;
+  challengeId?: string | null;
   currentIndex?: number;
   initialSelections?: Record<string, any>;
 }
@@ -29,7 +29,7 @@ export function BifurcationCard({
   selectedOption,
   onSelect,
   adaUserId,
-  stagesCardsId,
+  challengeId,
   currentIndex,
   initialSelections,
 }: BifurcationCardProps) {
@@ -100,18 +100,18 @@ export function BifurcationCard({
           const handleSelect = async () => {
             console.log("[BifurcationCard] Option selected:", option.label, {
               adaUserId,
-              stagesCardsId,
+              challengeId,
             });
             onSelect(option.id);
-            if (adaUserId && stagesCardsId) {
-              console.log("[BifurcationCard] Attempting to save to DB...");
-              await saveAdaResponse(adaUserId, 3, stagesCardsId, {
+            if (adaUserId && challengeId) {
+              console.log("[BifurcationCard] Saving to DB...");
+              await saveAdaResponse(adaUserId, 3, challengeId, {
                 bifurcacion: option.label,
               });
             } else {
               console.warn("[BifurcationCard] Cannot save: missing IDs", {
                 adaUserId,
-                stagesCardsId,
+                challengeId,
               });
             }
           };

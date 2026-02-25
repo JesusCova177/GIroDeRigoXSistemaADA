@@ -5,7 +5,6 @@ import {
   updateUserStageProgress,
   getUserStageProgress,
   getUserSelectionsForStage,
-  getStageCardMapping,
   Stage,
   Challenge,
 } from "./lib/supabase";
@@ -33,8 +32,7 @@ function App() {
   const [showStageSelector, setShowStageSelector] = useState(true);
   const [adaUserId, setAdaUserId] = useState<number | null>(null);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [adaMapping, setAdaMapping] = useState<Record<string, number>>({});
-  const [userSelections, setUserSelections] = useState<Record<number, any>>({});
+  const [userSelections, setUserSelections] = useState<Record<string, any>>({});
   const [showIntermediate, setShowIntermediate] = useState(false);
 
   // Normalize stage name for mapping lookup (ensures it matches "Fase X" format)
@@ -97,9 +95,6 @@ function App() {
       setError(null);
 
       const actualUserId = userIdOverride || adaUserId;
-
-      // Fetch mapping concurrently
-      getStageCardMapping().then((mapping) => setAdaMapping(mapping));
 
       const { data: stages, error: stagesError } = await supabase
         .from("stages")
@@ -359,7 +354,6 @@ function App() {
                 <ChallengeCarousel
                   challenges={challenges}
                   adaUserId={adaUserId}
-                  adaMapping={adaMapping}
                   currentStageName={mappingStageName}
                   initialCardIndex={currentCardIndex}
                   onCardChange={handleCardChange}

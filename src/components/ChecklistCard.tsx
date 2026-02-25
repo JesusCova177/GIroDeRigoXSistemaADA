@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Check, CheckCircle2, Trophy, Sparkles } from "lucide-react";
 import { saveAdaResponse } from "../lib/supabase";
 
@@ -6,7 +6,7 @@ interface ChecklistCardProps {
   title: string;
   items: string[];
   adaUserId?: number | null;
-  stagesCardsId?: number | null;
+  challengeId?: string | null;
   initialSelections?: Record<string, any>;
   currentIndex?: number;
 }
@@ -15,22 +15,25 @@ export function ChecklistCard({
   title,
   items,
   adaUserId,
-  stagesCardsId,
+  challengeId,
   initialSelections,
   currentIndex,
 }: ChecklistCardProps) {
-  const [checkedItems, setCheckedItems] = useState<Set<number>>(() => {
-    const initial = new Set<number>();
+  const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
+  const [justChecked, setJustChecked] = useState<number | null>(null);
+
+  // Sync state when initialSelections arrives (async from DB)
+  useEffect(() => {
     if (initialSelections) {
+      const restored = new Set<number>();
       items.forEach((item, idx) => {
         if (initialSelections[item] === "true") {
-          initial.add(idx);
+          restored.add(idx);
         }
       });
+      setCheckedItems(restored);
     }
-    return initial;
-  });
-  const [justChecked, setJustChecked] = useState<number | null>(null);
+  }, [initialSelections]);
 
   const toggleItem = async (index: number) => {
     const newChecked = new Set(checkedItems);
@@ -44,7 +47,7 @@ export function ChecklistCard({
     setCheckedItems(newChecked);
 
     // Save to Supabase
-    if (adaUserId && stagesCardsId) {
+    if (adaUserId && challengeId) {
       const resUser = items.reduce((acc: Record<string, string>, item, idx) => {
         if (newChecked.has(idx)) {
           acc[item] = "true";
@@ -52,7 +55,7 @@ export function ChecklistCard({
         return acc;
       }, {});
 
-      await saveAdaResponse(adaUserId, 1, stagesCardsId, resUser);
+      await saveAdaResponse(adaUserId, 1, challengeId, resUser);
     }
   };
 
