@@ -28,7 +28,7 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
   };
 
   return (
-    <div className="h-auto flex flex-col justify-center items-center pl-12 pr-12 pt-8 pb-8 md:h-dvh bg-[#f8fbf2] md:bg-[#41563F]">
+    <div className="h-dvh flex flex-col justify-center items-center pl-12 pr-12 pt-8 pb-8  bg-[#f8fbf2] md:bg-[#41563F] overflow-auto">
       <div className="flex flex-col items-center md:bg-[#f8fbf2] md:items-center md:justify-center md:rounded-2xl md:p-16 md:shadow-2xl md:z-10 md:justify-self-center">
         <img
           src="./img/giroderigoweb_.webp"
