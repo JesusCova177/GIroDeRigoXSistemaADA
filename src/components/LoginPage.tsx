@@ -29,9 +29,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="h-dvh bg-[#f8fbf2] flex flex-col justify-center items-center p-12">
-      <div className="bg-[#f8fbf2]">
-        <img src="./img/giroderigoweb.webp" alt="Logo" className="" />
+    <div className="h-dvh grid-rows-1
+     bg-[#f8fbf2] flex flex-col justify-center items-center p-12 md:grid md:grid-cols-2 md:bg-[#41563F]">
+      <div className="bg-[#f8fbf2] md:flex md:flex-col md:items-center md:justify-center md:rounded-2xl md:grid-rows-1 md:p-8 md:shadow-xl w-full max-w-md md:z-10 md:justify-self-center">
+        <img src="./img/giroderigoweb.webp" alt="Logo" className="md:w-64 md:h-auto" />
         <div className="flex items-center justify-center mb-8"></div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -73,7 +74,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         </form>
         <img className="mt-5" src="./img/giroderigoweb_.webp" alt="x" />
       </div>
-      <img src="./img/inicio.webp" alt="" className="-translate-x-1/3 hidden" />
+      <img src="./img/inicio.webp" alt="" className="-translate-x-1/3 hidden md:flex" />
       <div className=" inset-0 overflow-hidden"></div>
     </div>
   );
