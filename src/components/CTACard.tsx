@@ -40,7 +40,7 @@ interface CTACardProps {
 
 const CTACard: React.FC<CTACardProps> = ({ content, onNavigateNext }) => {
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl p-4 sm:p-6 h-auto flex flex-col text-white overflow-hidden uppercase">
+    <div className="bg-gradient-to-br bg-[#f8fbf2] rounded-2xl shadow-2xl p-4 sm:p-6 h-auto flex flex-col text-[#31563c] overflow-hidden uppercase">
       {(content.title || content.icon) && (
         <div className="flex-shrink-0 flex items-center gap-3 mb-3">
           {" "}
@@ -54,7 +54,7 @@ const CTACard: React.FC<CTACardProps> = ({ content, onNavigateNext }) => {
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             )}
           </div>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight font-montserrat font-bolt text-white">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight font-montserrat font-bolt text-[#31563c]">
             {content.title}
           </h3>
         </div>
@@ -129,9 +129,7 @@ const CTACard: React.FC<CTACardProps> = ({ content, onNavigateNext }) => {
             <div className="flex flex-col items-center gap-4">
               <button
                 onClick={() => {
-                  if (content.transition?.buttonUrl) {
-                    window.open(content.transition.buttonUrl, "_blank");
-                  } else if (onNavigateNext) {
+                  if (onNavigateNext) {
                     onNavigateNext();
                   }
                 }}

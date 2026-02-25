@@ -26,8 +26,9 @@
     height: 100dvh;
     margin: 0;
     padding: 0;
-    background-color: #f8fbf2;
+
     scrollbar-width: none;
+    touch-action: none;
   }
 
   #root {

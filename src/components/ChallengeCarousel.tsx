@@ -180,11 +180,6 @@ export function ChallengeCarousel({
 
   const goToNext = () => {
     if (currentIndex < totalCards - 1) {
-      const currentChallenge = visibleChallenges[currentIndex];
-      if (currentChallenge.type === "bifurcation" && !selectedRoute) {
-        // Shake animation or visual feedback could correspond here
-        return;
-      }
       setCurrentIndex(currentIndex + 1);
       setShowHint(false);
     }
