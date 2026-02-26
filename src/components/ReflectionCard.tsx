@@ -39,7 +39,7 @@ export function ReflectionCard({
       });
       setAnswers(restored);
       setAnsweredCount(
-        Object.values(restored).filter((v) => v.trim().length > 0).length
+        Object.values(restored).filter((v) => v.trim().length > 0).length,
       );
     }
   }, [initialSelections]);
@@ -104,9 +104,7 @@ export function ReflectionCard({
   };
 
   return (
-    <div className="flex-shrink-0 w-full  rounded-2xl shadow-lg p-4 sm:p-6 border-2 border-yellow-500 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-yellow-200 rounded-full opacity-20 blur-3xl" />
-
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] ">
       <div className="flex items-center justify-between mb-3 sm:mb-4 relative z-10">
         <div className="flex items-center gap-2">
           <div className="p-1.5 sm:p-2 bg-yellow-100 rounded-lg">

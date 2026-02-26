@@ -1,6 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
-import { Check, CheckCircle2, Lightbulb, Sparkles, Target, MessageCircle } from 'lucide-react';
-import { saveAdaResponse } from '../lib/supabase';
+import { useState, useEffect, useRef } from "react";
+import {
+  Check,
+  CheckCircle2,
+  Lightbulb,
+  Sparkles,
+  Target,
+  MessageCircle,
+} from "lucide-react";
+import { saveAdaResponse } from "../lib/supabase";
 
 interface CombinedChallengeCardProps {
   title: string;
@@ -14,16 +21,16 @@ interface CombinedChallengeCardProps {
   currentIndex?: number;
 }
 
-export function CombinedChallengeCard({ 
-  title, 
-  subtitle, 
-  preamble, 
-  checklist, 
+export function CombinedChallengeCard({
+  title,
+  subtitle,
+  preamble,
+  checklist,
   reflections,
   adaUserId,
   challengeId,
   initialSelections,
-  currentIndex
+  currentIndex,
 }: CombinedChallengeCardProps) {
   const [checkedItems, setCheckedItems] = useState<Set<number>>(() => {
     const initial = new Set<number>();
@@ -37,7 +44,9 @@ export function CombinedChallengeCard({
     return initial;
   });
 
-  const [reflectionAnswers, setReflectionAnswers] = useState<Record<number, string>>(() => {
+  const [reflectionAnswers, setReflectionAnswers] = useState<
+    Record<number, string>
+  >(() => {
     const initial: Record<number, string> = {};
     if (initialSelections) {
       reflections.forEach((q, idx) => {
@@ -49,25 +58,33 @@ export function CombinedChallengeCard({
     return initial;
   });
 
-  const [answeredReflections, setAnsweredReflections] = useState<Set<number>>(() => {
-    const initial = new Set<number>();
-    Object.entries(reflectionAnswers).forEach(([idx, val]) => {
-      if (val.trim().length > 0) {
-        initial.add(parseInt(idx));
-      }
-    });
-    return initial;
-  });
+  const [answeredReflections, setAnsweredReflections] = useState<Set<number>>(
+    () => {
+      const initial = new Set<number>();
+      Object.entries(reflectionAnswers).forEach(([idx, val]) => {
+        if (val.trim().length > 0) {
+          initial.add(parseInt(idx));
+        }
+      });
+      return initial;
+    },
+  );
 
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const saveTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const lastStateRef = useRef<{ checked: Set<number>, answers: Record<number, string> }>({ 
-    checked: checkedItems, 
-    answers: reflectionAnswers 
+  const lastStateRef = useRef<{
+    checked: Set<number>;
+    answers: Record<number, string>;
+  }>({
+    checked: checkedItems,
+    answers: reflectionAnswers,
   });
 
   useEffect(() => {
-    lastStateRef.current = { checked: checkedItems, answers: reflectionAnswers };
+    lastStateRef.current = {
+      checked: checkedItems,
+      answers: reflectionAnswers,
+    };
   }, [checkedItems, reflectionAnswers]);
 
   // Flush logic on navigation
@@ -80,10 +97,13 @@ export function CombinedChallengeCard({
     };
   }, [currentIndex]);
 
-  const performSave = async (newChecked: Set<number>, newAnswers: Record<number, string>) => {
+  const performSave = async (
+    newChecked: Set<number>,
+    newAnswers: Record<number, string>,
+  ) => {
     if (adaUserId && challengeId) {
       const resUser: Record<string, string> = {};
-      
+
       checklist.forEach((item, idx) => {
         if (newChecked.has(idx)) {
           resUser[item] = "true";
@@ -94,7 +114,10 @@ export function CombinedChallengeCard({
         resUser[question] = newAnswers[idx] || "";
       });
 
-      console.log('[CombinedChallengeCard] Debounced/Flushed save:', { title, resUser });
+      console.log("[CombinedChallengeCard] Debounced/Flushed save:", {
+        title,
+        resUser,
+      });
       await saveAdaResponse(adaUserId, 1, challengeId, resUser);
     }
   };
@@ -107,7 +130,7 @@ export function CombinedChallengeCard({
       newChecked.add(index);
     }
     setCheckedItems(newChecked);
-    
+
     // Checklists save immediately as they are low frequency
     await performSave(newChecked, reflectionAnswers);
   };
@@ -135,12 +158,18 @@ export function CombinedChallengeCard({
   };
 
   const checklistProgress = (checkedItems.size / checklist.length) * 100;
-  const reflectionProgress = (answeredReflections.size / reflections.length) * 100;
-  const totalProgress = ((checkedItems.size + answeredReflections.size) / (checklist.length + reflections.length)) * 100;
-  const isComplete = checkedItems.size === checklist.length && answeredReflections.size === reflections.length;
+  const reflectionProgress =
+    (answeredReflections.size / reflections.length) * 100;
+  const totalProgress =
+    ((checkedItems.size + answeredReflections.size) /
+      (checklist.length + reflections.length)) *
+    100;
+  const isComplete =
+    checkedItems.size === checklist.length &&
+    answeredReflections.size === reflections.length;
 
   return (
-    <div className="flex-shrink-0 w-full bg-gradient-to-br from-white via-white to-blue-50 rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8 border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 relative overflow-hidden h-[60vh]">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] ">
       <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-br from-blue-100 to-green-100 rounded-full opacity-20 blur-3xl -mr-16 sm:-mr-32 -mt-16 sm:-mt-32" />
       <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-48 sm:h-48 bg-gradient-to-tr from-yellow-100 to-orange-100 rounded-full opacity-20 blur-3xl -ml-12 sm:-ml-24 -mb-12 sm:-mb-24" />
 
@@ -151,16 +180,22 @@ export function CombinedChallengeCard({
               <div className="p-1.5 sm:p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg flex-shrink-0">
                 <Target className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] tracking-tight italic">{title}</h3>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] tracking-tight italic">
+                {title}
+              </h3>
             </div>
             {subtitle && (
-              <p className="text-xs sm:text-sm text-gray-600 font-medium ml-9 sm:ml-14">{subtitle}</p>
+              <p className="text-xs sm:text-sm text-gray-600 font-medium ml-9 sm:ml-14">
+                {subtitle}
+              </p>
             )}
           </div>
 
           <div className="flex flex-row sm:flex-col items-center sm:items-end gap-2 self-end sm:self-auto">
             <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg">
-              <span className="text-xs sm:text-sm font-bold">{Math.round(totalProgress)}%</span>
+              <span className="text-xs sm:text-sm font-bold">
+                {Math.round(totalProgress)}%
+              </span>
             </div>
             {isComplete && (
               <span className="bg-gradient-to-r from-green-500 to-green-600 text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full animate-pulse shadow-lg">
@@ -173,38 +208,54 @@ export function CombinedChallengeCard({
         {preamble && (
           <div className="mb-6 sm:mb-8 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-l-4 border-orange-400 rounded-xl p-4 sm:p-6 shadow-lg">
             <div className="space-y-3 sm:space-y-4">
-              {preamble.split('\n\n').map((section, idx) => {
-                if (section.trim().startsWith('MARCAS:')) {
-                  const brands = section.replace('MARCAS:', '').trim().split(',').map(b => b.trim());
+              {preamble.split("\n\n").map((section, idx) => {
+                if (section.trim().startsWith("MARCAS:")) {
+                  const brands = section
+                    .replace("MARCAS:", "")
+                    .trim()
+                    .split(",")
+                    .map((b) => b.trim());
                   return (
-                    <div key={idx} className="mt-4 pt-4 border-t border-orange-200">
-                      <p className="text-xs font-semibold text-gray-600 mb-3 text-center">Marcas que uso:</p>
+                    <div
+                      key={idx}
+                      className="mt-4 pt-4 border-t border-orange-200"
+                    >
+                      <p className="text-xs font-semibold text-gray-600 mb-3 text-center">
+                        Marcas que uso:
+                      </p>
                       <div className="grid grid-cols-3 gap-2 sm:gap-3">
                         {brands.map((brand, bidx) => {
                           const brandEmojis: { [key: string]: string } = {
-                            'Huevos 100%': '🥚',
-                            'Don Maíz': '🌽',
-                            'Friko': '🍗',
-                            'Arroz Sonora': '🍚',
-                            'Corpohass': '🥑',
-                            'La Muñeca': '🍝',
-                            'Alquería': '🥛',
-                            'Alpina': '🧈',
-                            'Colanta': '🧀',
-                            'Piko Riko': '🐔',
-                            'Gatorade': '⚡',
-                            'Powerade': '💧',
-                            'GU': '🎯',
-                            'Mauriten': '🚴',
+                            "Huevos 100%": "🥚",
+                            "Don Maíz": "🌽",
+                            Friko: "🍗",
+                            "Arroz Sonora": "🍚",
+                            Corpohass: "🥑",
+                            "La Muñeca": "🍝",
+                            Alquería: "🥛",
+                            Alpina: "🧈",
+                            Colanta: "🧀",
+                            "Piko Riko": "🐔",
+                            Gatorade: "⚡",
+                            Powerade: "💧",
+                            GU: "🎯",
+                            Mauriten: "🚴",
                           };
-                          const emoji = brandEmojis[brand] || '✨';
+                          const emoji = brandEmojis[brand] || "✨";
                           return (
-                            <div key={bidx} className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md hover:scale-105">
+                            <div
+                              key={bidx}
+                              className="bg-white rounded-lg p-2 sm:p-3 border-2 border-gray-200 flex items-center justify-center min-h-[60px] sm:min-h-[80px] hover:border-orange-300 transition-all duration-200 hover:shadow-md hover:scale-105"
+                            >
                               <div className="text-center">
                                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center mb-1 shadow-inner">
-                                  <span className="text-xl sm:text-2xl">{emoji}</span>
+                                  <span className="text-xl sm:text-2xl">
+                                    {emoji}
+                                  </span>
                                 </div>
-                                <p className="text-[10px] sm:text-xs font-bold text-gray-700">{brand}</p>
+                                <p className="text-[10px] sm:text-xs font-bold text-gray-700">
+                                  {brand}
+                                </p>
                               </div>
                             </div>
                           );
@@ -214,56 +265,84 @@ export function CombinedChallengeCard({
                   );
                 }
 
-                const lines = section.trim().split('\n');
+                const lines = section.trim().split("\n");
                 return (
                   <div key={idx} className="space-y-2">
                     {lines.map((line, lidx) => {
-                      if (line.startsWith('**')) {
-                        const text = line.replace(/\*\*/g, '');
+                      if (line.startsWith("**")) {
+                        const text = line.replace(/\*\*/g, "");
                         return (
-                          <div key={lidx} className="bg-white/80 rounded-lg p-3 sm:p-4 border-2 border-orange-200">
-                            <p className="text-xs sm:text-sm font-bold text-orange-700 mb-2">{text}</p>
+                          <div
+                            key={lidx}
+                            className="bg-white/80 rounded-lg p-3 sm:p-4 border-2 border-orange-200"
+                          >
+                            <p className="text-xs sm:text-sm font-bold text-orange-700 mb-2">
+                              {text}
+                            </p>
                           </div>
                         );
-                      } else if (line.startsWith('- ')) {
-                        const parts = line.substring(2).split(':');
+                      } else if (line.startsWith("- ")) {
+                        const parts = line.substring(2).split(":");
                         if (parts.length > 1) {
                           const label = parts[0].trim();
-                          const content = parts.slice(1).join(':').trim();
+                          const content = parts.slice(1).join(":").trim();
                           const colorMap: { [key: string]: string } = {
-                            'Antes': 'blue',
-                            'Durante': 'green',
-                            'Después': 'orange',
-                            'Cuando llego': 'orange',
+                            Antes: "blue",
+                            Durante: "green",
+                            Después: "orange",
+                            "Cuando llego": "orange",
                           };
-                          const color = colorMap[label] || 'gray';
+                          const color = colorMap[label] || "gray";
                           return (
-                            <div key={lidx} className={`ml-4 bg-${color}-50 rounded-lg p-2 sm:p-3 border border-${color}-200`}>
+                            <div
+                              key={lidx}
+                              className={`ml-4 bg-${color}-50 rounded-lg p-2 sm:p-3 border border-${color}-200`}
+                            >
                               <p className="text-xs sm:text-sm text-gray-700">
-                                <span className={`font-semibold text-${color}-600`}>{label}:</span> {content}
+                                <span
+                                  className={`font-semibold text-${color}-600`}
+                                >
+                                  {label}:
+                                </span>{" "}
+                                {content}
                               </p>
                             </div>
                           );
                         }
                         return (
-                          <p key={lidx} className="text-xs sm:text-sm text-gray-700 leading-relaxed ml-4">
+                          <p
+                            key={lidx}
+                            className="text-xs sm:text-sm text-gray-700 leading-relaxed ml-4"
+                          >
                             • {line.substring(2)}
                           </p>
                         );
                       } else if (line.trim()) {
                         const parts = line.split(/(\*[^*]+\*|"[^"]+")/g);
                         return (
-                          <p key={lidx} className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">
+                          <p
+                            key={lidx}
+                            className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed"
+                          >
                             {parts.map((part, pidx) => {
-                              if (part.startsWith('*') && part.endsWith('*')) {
+                              if (part.startsWith("*") && part.endsWith("*")) {
                                 return (
-                                  <span key={pidx} className="font-bold text-orange-700">
+                                  <span
+                                    key={pidx}
+                                    className="font-bold text-orange-700"
+                                  >
                                     {part.slice(1, -1)}
                                   </span>
                                 );
-                              } else if (part.startsWith('"') && part.endsWith('"')) {
+                              } else if (
+                                part.startsWith('"') &&
+                                part.endsWith('"')
+                              ) {
                                 return (
-                                  <span key={pidx} className="font-semibold text-blue-600 italic">
+                                  <span
+                                    key={pidx}
+                                    className="font-semibold text-blue-600 italic"
+                                  >
                                     {part}
                                   </span>
                                 );
@@ -285,7 +364,9 @@ export function CombinedChallengeCard({
         <div className="mb-6 sm:mb-8">
           <div className="flex items-center gap-2 mb-3 sm:mb-4">
             <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0" />
-            <h4 className="text-base sm:text-lg font-bold text-gray-800">Tareas de Acción</h4>
+            <h4 className="text-base sm:text-lg font-bold text-gray-800">
+              Tareas de Acción
+            </h4>
             <div className="ml-auto bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded-full">
               {checkedItems.size}/{checklist.length}
             </div>
@@ -297,27 +378,30 @@ export function CombinedChallengeCard({
                 key={index}
                 className={`flex items-start gap-2 sm:gap-3 cursor-pointer group p-3 sm:p-4 rounded-xl transition-all duration-200 ${
                   checkedItems.has(index)
-                    ? 'bg-blue-50 border-2 border-blue-200'
-                    : 'bg-white border-2 border-gray-200 hover:border-blue-300 hover:bg-gray-50'
+                    ? "bg-blue-50 border-2 border-blue-200"
+                    : "bg-white border-2 border-gray-200 hover:border-blue-300 hover:bg-gray-50"
                 }`}
               >
                 <div
                   className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 rounded-lg border-2 transition-all duration-200 flex items-center justify-center ${
                     checkedItems.has(index)
-                      ? 'bg-gradient-to-br from-blue-500 to-blue-600 border-blue-500 shadow-lg scale-110'
-                      : 'border-gray-300 group-hover:border-blue-400 group-hover:scale-110'
+                      ? "bg-gradient-to-br from-blue-500 to-blue-600 border-blue-500 shadow-lg scale-110"
+                      : "border-gray-300 group-hover:border-blue-400 group-hover:scale-110"
                   }`}
                   onClick={() => toggleItem(index)}
                 >
                   {checkedItems.has(index) && (
-                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white" strokeWidth={3} />
+                    <Check
+                      className="w-3 h-3 sm:w-4 sm:h-4 text-white"
+                      strokeWidth={3}
+                    />
                   )}
                 </div>
                 <span
                   className={`flex-1 text-xs sm:text-sm font-medium transition-all duration-200 ${
                     checkedItems.has(index)
-                      ? 'line-through text-gray-400'
-                      : 'text-gray-700 group-hover:text-gray-900'
+                      ? "line-through text-gray-400"
+                      : "text-gray-700 group-hover:text-gray-900"
                   }`}
                 >
                   {item}
@@ -344,7 +428,9 @@ export function CombinedChallengeCard({
         <div>
           <div className="flex items-center gap-2 mb-3 sm:mb-4">
             <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600 flex-shrink-0" />
-            <h4 className="text-base sm:text-lg font-bold text-gray-800">Reflexiones</h4>
+            <h4 className="text-base sm:text-lg font-bold text-gray-800">
+              Reflexiones
+            </h4>
             <div className="ml-auto bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded-full">
               {answeredReflections.size}/{reflections.length}
             </div>
@@ -356,25 +442,30 @@ export function CombinedChallengeCard({
                 key={index}
                 className={`bg-white rounded-xl p-3 sm:p-4 border-2 transition-all duration-300 ${
                   focusedIndex === index
-                    ? 'border-yellow-400 shadow-lg ring-2 ring-yellow-200'
-                    : 'border-gray-200 hover:border-yellow-300'
-                } ${answeredReflections.has(index) ? 'bg-yellow-50' : ''}`}
+                    ? "border-yellow-400 shadow-lg ring-2 ring-yellow-200"
+                    : "border-gray-200 hover:border-yellow-300"
+                } ${answeredReflections.has(index) ? "bg-yellow-50" : ""}`}
               >
                 <div className="flex items-start gap-2 mb-2 sm:mb-3">
-                  <div className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 ${
-                    answeredReflections.has(index)
-                      ? 'bg-yellow-500 text-white'
-                      : focusedIndex === index
-                      ? 'bg-yellow-400 text-white scale-110'
-                      : 'bg-yellow-100 text-yellow-600'
-                  }`}>
+                  <div
+                    className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 ${
+                      answeredReflections.has(index)
+                        ? "bg-yellow-500 text-white"
+                        : focusedIndex === index
+                          ? "bg-yellow-400 text-white scale-110"
+                          : "bg-yellow-100 text-yellow-600"
+                    }`}
+                  >
                     {index + 1}
                   </div>
                   <p className="text-xs sm:text-sm font-semibold text-gray-800 flex-1">
                     {question}
                   </p>
                   {focusedIndex === index && (
-                    <Lightbulb className="w-4 h-4 text-yellow-500 animate-pulse flex-shrink-0" fill="currentColor" />
+                    <Lightbulb
+                      className="w-4 h-4 text-yellow-500 animate-pulse flex-shrink-0"
+                      fill="currentColor"
+                    />
                   )}
                 </div>
                 <textarea
@@ -384,7 +475,9 @@ export function CombinedChallengeCard({
                   onFocus={() => setFocusedIndex(index)}
                   onBlur={() => setFocusedIndex(null)}
                   value={reflectionAnswers[index] || ""}
-                  onChange={(e) => handleReflectionChange(index, e.target.value)}
+                  onChange={(e) =>
+                    handleReflectionChange(index, e.target.value)
+                  }
                 />
               </div>
             ))}
@@ -409,8 +502,12 @@ export function CombinedChallengeCard({
                 <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <p className="font-bold text-base sm:text-lg">¡Sub-bloque completado!</p>
-                <p className="text-xs sm:text-sm text-white/90">Has completado todas las tareas y reflexiones</p>
+                <p className="font-bold text-base sm:text-lg">
+                  ¡Sub-bloque completado!
+                </p>
+                <p className="text-xs sm:text-sm text-white/90">
+                  Has completado todas las tareas y reflexiones
+                </p>
               </div>
             </div>
           </div>

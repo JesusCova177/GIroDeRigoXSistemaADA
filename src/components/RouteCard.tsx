@@ -68,7 +68,7 @@ export function RouteCard({ content }: RouteCardProps) {
 
   return (
     <div
-      className={`flex rounded-2xl bg-white border-2 ${borderColor} p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col`}
+      className={`flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] `}
     >
       <div className="mb-4 sm:mb-5">
         {title && (

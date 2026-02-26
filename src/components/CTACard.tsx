@@ -40,7 +40,7 @@ interface CTACardProps {
 
 const CTACard: React.FC<CTACardProps> = ({ content, onNavigateNext }) => {
   return (
-    <div className="bg-gradient-to-br bg-[#f8fbf2] rounded-2xl shadow-2xl p-4 sm:p-6 h-auto flex flex-col text-[#31563c] overflow-hidden uppercase">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] ">
       {(content.title || content.icon) && (
         <div className="flex-shrink-0 flex items-center gap-3 mb-3">
           {" "}

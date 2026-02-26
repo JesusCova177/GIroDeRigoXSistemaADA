@@ -84,7 +84,7 @@ export function BifurcationCard({
   };
 
   return (
-    <div className="flex rounded-2xl bg-white border-2 border-[#31563C] p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 flex-col">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] ">
       <div className="mb-6 sm:mb-8 text-center">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-titling font-black text-[#31563C] italic uppercase mb-2">
           ¿Cuál reto vas a hacer en La Sucursal?

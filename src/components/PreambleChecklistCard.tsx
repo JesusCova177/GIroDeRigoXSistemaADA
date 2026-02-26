@@ -75,13 +75,7 @@ export function PreambleChecklistCard({
   const isComplete = checkedItems.size === items.length;
 
   return (
-    <div className="flex-shrink-0 w-full bg-white rounded-2xl shadow-lg p-4 sm:p-6 border-2 border-blue-500 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
-      {isComplete && (
-        <div className="absolute top-0 right-0 p-2 sm:p-4">
-          <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500 animate-bounce" />
-        </div>
-      )}
-
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] ">
       <div className="flex items-center gap-2 mb-3 sm:mb-4">
         <CheckCircle2
           className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 flex-shrink-0 ${isComplete ? "text-green-500 animate-pulse" : "text-gray-400"}`}

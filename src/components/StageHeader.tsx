@@ -33,9 +33,9 @@ export function StageHeader({
   const progressPercentage = (stage.stage_number / totalStages) * 100;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col md:-mb-4">
       <div
-        className={`flex flex-col relative items-center justify-start shadow-l py-6 md:scale-[80%] rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
+        className={`flex flex-col relative items-center justify-start shadow-l py-6 md:scale-[80%] md:-mb-6 rounded-2xl transition-all duration-300 overflow-hidden ${
           showStageSelector
             ? "gap-3 md:gap-5"
             : "min-h-[90px] sm:min-h-[130px] gap-2 sm:gap-4"
@@ -69,9 +69,9 @@ export function StageHeader({
         {userEmail && onLogout && (
           <button
             onClick={onLogout}
-            className="absolute top-4 left-2 md:scale-[200%] md:left-4 ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
+            className="absolute flex items-center justify-center top-4 w-8 h-8 md:w-12 md:h-12 left-2  md:left-4 ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
           >
-            <LogOut className=" absolute w-4 h-4 text-[#31563C]" />
+            <LogOut className="text-[#31563C]" />
           </button>
         )}
 

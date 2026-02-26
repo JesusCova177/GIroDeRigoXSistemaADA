@@ -198,7 +198,7 @@ export function ChallengeCarousel({
   };
 
   return (
-    <div className="w-full relative ">
+    <div className="w-full relative pt-2">
       {showHint && totalCards > 1 && (
         <div className="absolute top-1/4 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20 pointer-events-none">
           <div className="bg-gray-900/90 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-2xl flex items-center gap-2">
@@ -210,45 +210,16 @@ export function ChallengeCarousel({
       )}
 
       {totalCards > 1 && (
-        <div className="flex justify-center items-center gap-1.5 sm:gap-2 mb-8 sm:mt-8">
+        <div className="flex justify-center items-start gap-1 mb-2 scale-75 ">
           {visibleChallenges.map((challenge, index) => {
-            const getCardLabel = () => {
-              switch (challenge.type) {
-                case "intro":
-                  return "📖 Introducción";
-                case "testimonial":
-                  return "💬 Testimonio";
-                case "cta":
-                  return "🚀 Call to Action";
-                case "phase_importance":
-                  return "📌 Información clave";
-                case "action_plan":
-                  return "📋 Plan de acción";
-                case "combined":
-                  return "🎯 Sub-bloque";
-                case "preamble_checklist":
-                  return "📝 Lista con preámbulo";
-                case "nutrition_guide":
-                  return "🍽️ Guía nutricional";
-                case "checklist":
-                  return "✓ Lista";
-                case "reflection":
-                  return "💭 Reflexión";
-                case "bifurcation":
-                  return "🔀 Bifurcación";
-                case "route":
-                  return "🗺️ Ruta";
-                default:
-                  return "📄 Tarjeta";
-              }
-            };
+            const getCardLabel = () => {};
 
             const getCardColor = () => {
               if (challenge.type === "intro") return "bg-[#F8A3C9]";
-              if (challenge.type === "testimonial")
-                return "from-yellow-500 to-emerald-600";
+              if (challenge.type === "testimonial") return "bg-[#F8A3C9]";
               if (challenge.type === "cta")
-                return "from-orange-500 to-amber-600";
+                return "from-yellow-500 to-emerald-600";
+
               return "from-blue-500 to-blue-600";
             };
 
@@ -269,9 +240,6 @@ export function ChallengeCarousel({
                 {index === currentIndex && (
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-shimmer rounded-full" />
                 )}
-                <span className="hidden sm:block absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                  {getCardLabel()}
-                </span>
               </button>
             );
           })}
@@ -323,10 +291,7 @@ export function ChallengeCarousel({
               const challengeId = challenge.id;
 
               return (
-                <div
-                  key={challenge.id}
-                  className="w-full flex-shrink-0 px-2 sm:px-4 overflow-y-auto"
-                >
+                <div key={challenge.id} className="w-full flex-shrink-0 px-2">
                   {challenge.type === "intro" ? (
                     <IntroCard content={content} />
                   ) : challenge.type === "bifurcation" ? (

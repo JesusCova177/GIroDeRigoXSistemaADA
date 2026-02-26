@@ -34,7 +34,7 @@ export function NutritionGuideCard({
   headerEmoji,
 }: NutritionGuideCardProps) {
   return (
-    <div className="flex-shrink-0 w-full bg-white rounded-2xl shadow-lg p-4 sm:p-6 border-2 border-[#31563C] hover:shadow-xl transition-all duration-300 ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] ">
       <div className="flex items-center gap-2 mb-4">
         {headerEmoji === "water" ? (
           <svg
