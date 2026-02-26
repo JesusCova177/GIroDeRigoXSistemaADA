@@ -111,7 +111,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
   }, [videoEmbed, videoId]);
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-x-[80%] ">
       <div className="relative z-10">
         <div className="flex items-start gap-2 mb-1 sm:mb-2">
           <div className="p-1.5 sm:p-2 bg-gradient-to-br from-yellw-500 to-yellow-600 rounded-lg shadow-md flex-shrink-0">
