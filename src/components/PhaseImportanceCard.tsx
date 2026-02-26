@@ -30,7 +30,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
   };
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-x-[80%] ">
       {content.title && (
         <h2 className="text-2xl sm:text-3xl font-titling font-black mb-6 sm:mb-8 uppercase italic text-[#f89fc7] tracking-wider">
           {content.title}

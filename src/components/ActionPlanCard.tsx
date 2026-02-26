@@ -17,7 +17,7 @@ interface ActionPlanCardProps {
 
 const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-[80%] ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-x-[80%] ">
       <div className="flex items-center gap-3 mb-6">
         <div className="bg-[#73A800] p-3 rounded-xl"></div>
         <div>
