@@ -35,7 +35,7 @@ export function StageHeader({
   return (
     <div className="flex flex-col">
       <div
-        className={`flex flex-col relative items-center justify-start shadow-xl py-6  rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
+        className={`flex flex-col relative items-center justify-start shadow-l py-6 md:scale-[80%] rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
           showStageSelector
             ? "gap-3 md:gap-5"
             : "min-h-[90px] sm:min-h-[130px] gap-2 sm:gap-4"
@@ -61,7 +61,7 @@ export function StageHeader({
             <img
               src={`./img/${stage.title.replace(/\s+/g, "").toLowerCase()}.webp`}
               alt={stage.title}
-              className="h-20 w-auto md:h-32 md:w-auto object-contain"
+              className="h-auto w-[16rem] -mb-1 md:h-auto md:w-[24rem] object-contain"
             />
           )}
         </div>
@@ -69,7 +69,7 @@ export function StageHeader({
         {userEmail && onLogout && (
           <button
             onClick={onLogout}
-            className="absolute top-4 left-2 ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
+            className="absolute top-4 left-2 md:scale-[200%] md:left-4 ml-2 p-1 hover:bg-white/30 rounded transition-all duration-200"
           >
             <LogOut className=" absolute w-4 h-4 text-[#31563C]" />
           </button>
@@ -78,7 +78,7 @@ export function StageHeader({
         {showStageSelector && (
           <div className="flex items-center justify-center gap-2 bg-white/10 font-titling backdrop-blur-sm px-4 py-2 rounded-xl">
             <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#31563C] flex-shrink-0" />
-            <p className="text-[#31563C] font-medium text-sm  md:text-2xl text-center">
+            <p className="text-[#31563C] text-sm  md:text-2xl text-center font-montserrat font-semibold">
               {stage.description}
             </p>
           </div>
@@ -109,7 +109,7 @@ export function StageHeader({
                           </span>
                         </div>
                         <span
-                          className={`text-xs sm:text-sm font-semibold ${
+                          className={`text-xs sm:text-sm font-semibold font-montserrat font-bold ${
                             stage.stage_number === stageNum
                               ? "text-white"
                               : "text-white/80"
@@ -129,7 +129,7 @@ export function StageHeader({
               className="flex items-center gap-2 bg-white/90 hover:bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 z-10"
             >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 text-[#31563C]" />
-              <span className="text-sm sm:text-base font-semibold text-[#31563C] ">
+              <span className="text-sm font-montserrat font-medium sm:text-base  text-[#31563C] ">
                 Ver todas las etapas
               </span>
             </button>
