@@ -69,56 +69,62 @@ const CTACard: React.FC<CTACardProps> = ({ content, onNavigateNext }) => {
         )}
 
         {content.options && content.options.length > 0 && (
-          <div className="space-y-3">
-            {content.options.map((option, index) => (
-              <div
-                key={index}
-                className={`rounded-xl p-4 border-2 transition-all hover:scale-[1.01] font-montserrat ${
-                  option.isPrimary
-                    ? "bg-gradient-to-br from-emerald-600 to-teal-700 border-emerald-400 shadow-lg"
-                    : "bg-slate-800/50 border-slate-700 hover:border-slate-600"
-                }`}
-              >
-                <div className="flex items-start gap-2 mb-2">
-                  {option.isPrimary ? (
-                    <Users className="w-5 h-5 flex-shrink-0 mt-1 text-emerald-200" />
-                  ) : (
-                    <BookOpen className="w-5 h-5 flex-shrink-0 mt-1 text-amber-400" />
-                  )}
-                  <div>
-                    <h4 className="text-base sm:text-lg font-bold">
-                      {option.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm opacity-90" />
-                  </div>
-                </div>
+          <div className="p-4 bg-white rounded-xl shadow-md">
+            <span>Dentro del</span>
+            <img src="/img/giroderigoweb_.webp" alt="" />
+            <span> tenes 2 caminos</span>
 
-                <p
-                  className="text-sm leading-relaxed mb-3 opacity-95"
-                  dangerouslySetInnerHTML={{
-                    __html: option.subtitle || "",
-                  }}
-                />
-
-                <button
-                  onClick={() => {
-                    if (option.buttonUrl) {
-                      window.open(option.buttonUrl, "_blank");
-                    } else if (onNavigateNext) {
-                      onNavigateNext();
-                    }
-                  }}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all hover:gap-3 ${
+            <div className="space-y-3">
+              {content.options.map((option, index) => (
+                <div
+                  key={index}
+                  className={`rounded-xl p-4 border-2 transition-all hover:scale-[1.01] font-montserrat ${
                     option.isPrimary
-                      ? "bg-white text-emerald-700 hover:bg-emerald-50"
-                      : "bg-amber-500 text-slate-900 hover:bg-amber-400"
+                      ? "bg- shadow-lg"
+                      : "bg-white shadow-md hover:border-slate-600"
                   }`}
                 >
-                  {option.buttonText}
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            ))}
+                  <div className="flex items-start gap-2 mb-2">
+                    {option.isPrimary ? (
+                      <Users className="w-5 h-5 flex-shrink-0 mt-1 text-emerald-200" />
+                    ) : (
+                      <BookOpen className="w-5 h-5 flex-shrink-0 mt-1 text-amber-400" />
+                    )}
+                    <div>
+                      <h4 className="text-base sm:text-lg font-bold">
+                        {option.title}
+                      </h4>
+                      <p className="text-xs sm:text-sm opacity-90" />
+                    </div>
+                  </div>
+
+                  <p
+                    className="text-sm leading-relaxed mb-3 opacity-95"
+                    dangerouslySetInnerHTML={{
+                      __html: option.subtitle || "",
+                    }}
+                  />
+
+                  <button
+                    onClick={() => {
+                      if (option.buttonUrl) {
+                        window.open(option.buttonUrl, "_blank");
+                      } else if (onNavigateNext) {
+                        onNavigateNext();
+                      }
+                    }}
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all hover:gap-3 ${
+                      option.isPrimary
+                        ? "bg-white text-emerald-700 hover:bg-emerald-50"
+                        : "bg-amber-500 text-slate-900 hover:bg-amber-400"
+                    }`}
+                  >
+                    {option.buttonText}
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

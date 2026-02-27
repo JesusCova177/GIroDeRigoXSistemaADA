@@ -1,5 +1,3 @@
-import { Target, Zap, TrendingUp } from "lucide-react";
-
 interface PhaseImportanceCardProps {
   content: {
     title?: string;
@@ -16,23 +14,10 @@ interface PhaseImportanceCardProps {
 }
 
 export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
-  const getIcon = (iconName?: string) => {
-    switch (iconName) {
-      case "target":
-        return <Target className="w-5 h-5 sm:w-6 sm:h-6 text-[#f89fc7]" />;
-      case "zap":
-        return <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-[#f89fc7]" />;
-      case "trending":
-        return <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#f89fc7]" />;
-      default:
-        return <Target className="w-5 h-5 sm:w-6 sm:h-6 text-[#f89fc7]" />;
-    }
-  };
-
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-x-[80%] ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
       {content.title && (
-        <h2 className="text-2xl sm:text-3xl font-titling font-black mb-6 sm:mb-8 uppercase italic text-[#f89fc7] tracking-wider">
+        <h2 className="text-2xl sm:text-3xl font-montserrat font-black mb-6 sm:mb-8 uppercase italic text-[#f89fc7] tracking-wider">
           {content.title}
         </h2>
       )}
@@ -44,21 +29,25 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
       )}
 
       {content.sectionsTitle && (
-        <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] italic mb-4 uppercase font-montserrat">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-montserrat font-black text-[#31563C] italic mb-4 uppercase">
           {content.sectionsTitle}
         </h3>
       )}
 
-      <div className="space-y-4 sm:space-y-6">
+      <div className="space-y-6 sm:space-y-8">
         {content.sections.map((section, index) => (
-          <div key={index}>
-            <div className="flex items-start gap-3 mb-3">
-              <div className="flex-shrink-0 mt-1">{getIcon(section.icon)}</div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-titling font-black text-[#31563C] italic">
+          <div key={index} className="relative pl-2">
+            <div className="flex items-start gap-4 mb-3">
+              <div className="flex-shrink-0">
+                <div className="flex font-timberwolf items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#F04E96] text-white font-black text-lg sm:text-xl italic shadow-md transform -rotate-6 border-2 border-white ring-2 ring-[#F04E96]/20 overflow-hidden">
+                  {index + 1}
+                </div>
+              </div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-montserrat not-italic font-black text-[#31563C] mt-1 uppercase leading-tight">
                 {section.title}
               </h3>
             </div>
-            <div className="pl-0 sm:pl-9">
+            <div className="pl-12 sm:pl-14">
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line font-montserrat">
                 {section.content}
               </p>

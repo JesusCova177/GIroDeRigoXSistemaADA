@@ -75,46 +75,39 @@ export function PreambleChecklistCard({
   const isComplete = checkedItems.size === items.length;
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-x-[80%] ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       <div className="flex items-center gap-2 mb-3 sm:mb-4">
-        <CheckCircle2
-          className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 flex-shrink-0 ${isComplete ? "text-green-500 animate-pulse" : "text-gray-400"}`}
-        />
-        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-blue-700 italic">
+        <h2 className="text-3xl  text-center font-timberwolf font-black text-[#41563f] italic">
           {title}
-        </h3>
-        {isComplete && (
-          <span className="ml-auto bg-green-100 text-green-700 text-xs font-bold px-2 sm:px-3 py-1 rounded-full animate-pulse">
-            ¡Completado!
-          </span>
-        )}
+        </h2>
       </div>
 
       {preamble && (
-        <div className="mb-4 sm:mb-6  border-2 border-blue-400 rounded-lg p-3 sm:p-4">
+        <div className="mb-4 sm:mb-6   rounded-lg p-3 sm:p-4">
           <div className="flex items-start gap-2 sm:gap-3">
-            <BookOpen className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed whitespace-pre-line">
+            <p className="text-md font-medium text-[#41563f] leading-relaxed whitespace-pre-line">
               {preamble}
             </p>
           </div>
         </div>
       )}
 
-      <div className="space-y-2 sm:space-y-3 font-montserrat">
+      <div className="space-y-2  font-montserrat">
         {items.map((item, index) => (
           <label
             key={index}
-            className={`flex items-start gap-2 sm:gap-3 cursor-pointer group p-2 sm:p-3 rounded-lg transition-all duration-200 ${
-              checkedItems.has(index) ? "bg-blue-50" : "hover:bg-gray-50"
+            className={`flex items-start gap-2 sm:gap-3 cursor-pointer group p-2 sm:p-3 rounded-lg transition-all duration-200 font-bold  ${
+              checkedItems.has(index)
+                ? " bg-[#345c2f54] text-white"
+                : "hover:bg-gray-50"
             } ${justChecked === index ? "scale-105 bg-green-50" : ""}`}
             onClick={() => toggleItem(index)}
           >
             <div
               className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 rounded-lg border-2 transition-all duration-200 flex items-center justify-center ${
                 checkedItems.has(index)
-                  ? "bg-gradient-to-br from-blue-500 to-blue-600 border-blue-500 shadow-lg scale-110"
-                  : "border-gray-300 group-hover:border-blue-400 group-hover:scale-110"
+                  ? "bg-[#41563f] shadow-lg scale-110"
+                  : "border-[#41563f] group-hover:border-[#41563f] group-hover:scale-110"
               }`}
             >
               {checkedItems.has(index) && (
@@ -133,21 +126,18 @@ export function PreambleChecklistCard({
             >
               {item}
             </span>
-            {checkedItems.has(index) && (
-              <Sparkles className="w-4 h-4 text-blue-500 animate-pulse flex-shrink-0" />
-            )}
           </label>
         ))}
       </div>
 
       <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-100">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs sm:text-sm font-medium text-gray-600">
+          <span className="text-xs sm:text-sm font-medium text-gray-600 mr-3">
             Progreso
           </span>
           <span
             className={`text-xs sm:text-sm font-bold transition-all duration-300 ${
-              isComplete ? "text-green-600 scale-110" : "text-blue-600"
+              isComplete ? "text-[#41563f]" : "text-[#41563f]"
             }`}
           >
             {checkedItems.size} / {items.length}
@@ -157,8 +147,8 @@ export function PreambleChecklistCard({
           <div
             className={`h-full rounded-full transition-all duration-500 ease-out relative overflow-hidden ${
               isComplete
-                ? "bg-gradient-to-r from-green-500 to-green-600"
-                : "bg-gradient-to-r from-blue-500 to-blue-600"
+                ? "bg-gradient-to-r from-[#41563f] to-[#345c2f] shadow-lg"
+                : "bg-gradient-to-r from-[#41563f] to-[#345c2f] "
             }`}
             style={{
               width: `${progress}%`,
@@ -177,13 +167,13 @@ export function PreambleChecklistCard({
       </div>
 
       {microTransition && (
-        <div className="mt-4 pt-4 border-t border-gray-200">
-          <div className="flex items-start gap-3 border-2 border-yellow-400 rounded-lg p-4">
-            <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-            <p className="text-xs sm:text-sm text-gray-700 font-medium flex-1">
-              {microTransition}
-            </p>
-            <ChevronRight className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+        <div className="mt-4 pt-4 ">
+          <div className="flex items-center gap-3 border-2  bg-[#41563f] p-4 rounded-xl">
+            <p
+              className="text-md text-center text-[#f8fbf2] font-medium flex-1 font-montserrat"
+              dangerouslySetInnerHTML={{ __html: microTransition }}
+            />
+            <ChevronRight className="w-5 h-5 text-[#f8fbf2] flex-shrink-0" />
           </div>
         </div>
       )}

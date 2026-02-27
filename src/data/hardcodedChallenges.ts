@@ -6,7 +6,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "intro",
     content: {
-      title: `<p class="title">bajar grasa</p><br/>sin quedarte vacío`,
+      title: `<p class="title md:text-5xl">bajar grasa</p><br/>sin quedarte vacío`,
       paragraphs: [
         "Comer menos para pesar menos: <strong>la fórmula “perfecta”.</strong>",
         "Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”.",
@@ -220,7 +220,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         "¿Estoy eligiendo carbo real (arroz, papa, yuca, pasta) más que ultraprocesado?",
       ],
       microTransition:
-        "Y ojo pues... aquí se define la semana: el post-entreno.",
+        "<strong>Y ojo pues</strong>... aquí se define la semana: el post-entreno.",
     },
     order_index: 6,
     created_at: new Date().toISOString(),
@@ -938,9 +938,11 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "nutrition_guide",
     content: {
-      title: "Extra \u00fatil para intensidad: Rigobeet",
+      image: "/img/rigobeet.png",
+      title:
+        '<p class="title md:text-5xl">Extra \u00fatil</p><br/>para intensidad',
       concept:
-        "La remolacha aporta nitratos, que el cuerpo convierte en \u00f3xido n\u00edtrico: ayuda al flujo sangu\u00edneo y puede mejorar la eficiencia del esfuerzo en trabajos fuertes.",
+        "La remolacha aporta nitratos, que el cuerpo convierte en \u00f3xido n\u00edtrico: <strong>ayuda al flujo sangu\u00edneo y puede mejorar la eficiencia</strong> del esfuerzo en trabajos fuertes.",
       practicalHeading: "Funci\u00f3n:",
       scenarios: [
         {
@@ -971,7 +973,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "preamble_checklist",
     content: {
-      title: "Mini checklist: Zonas y Rigobeet",
+      title: "Zonas y Rigobeet",
       items: [
         "\u00bfHoy es Z2 suave, Z3 tempo o Z4\u2013Z5 series?",
         "\u00bfMi pre me da energ\u00eda o me deja pesado?",

@@ -332,6 +332,7 @@ export function ChallengeCarousel({
                   ) : challenge.type === "nutrition_guide" ? (
                     <NutritionGuideCard
                       title={challengeTitle}
+                      image={content?.image}
                       concept={content?.concept || ""}
                       practicalHeading={content?.practicalHeading}
                       scenarios={content?.scenarios || []}
