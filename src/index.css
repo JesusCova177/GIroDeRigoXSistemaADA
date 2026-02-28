@@ -65,6 +65,10 @@
   .tablet {
     max-width: 768px;
   }
+
+  .adjust-title {
+    font-size: 1.4rem;
+  }
 }
 
 @layer utilities {

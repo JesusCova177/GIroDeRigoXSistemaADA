@@ -75,10 +75,10 @@ export function PreambleChecklistCard({
   const isComplete = checkedItems.size === items.length;
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       <div className="flex items-center gap-2 mb-3 sm:mb-4">
         <h2
-          className="text-3xl  text-center font-timberwolf font-black text-[#41563f] italic"
+          className="text-3xl text-center font-timberwolf font-black text-[#41563f] italic"
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>
@@ -97,7 +97,7 @@ export function PreambleChecklistCard({
         {items.map((item, index) => (
           <label
             key={index}
-            className={`flex items-start gap-2 sm:gap-3 cursor-pointer group p-2 sm:p-3 rounded-lg transition-all duration-200 font-bold  ${
+            className={`flex items-center gap-3 sm:gap-3 cursor-pointer group p-2 sm:p-3 rounded-lg transition-all duration-200 font-bold  ${
               checkedItems.has(index)
                 ? " bg-[#345c2f54] text-white"
                 : "hover:bg-gray-50"
@@ -119,7 +119,7 @@ export function PreambleChecklistCard({
               )}
             </div>
             <span
-              className={`flex-1 text-xs sm:text-sm text-gray-700 transition-all duration-200 ${
+              className={`flex-1 text-md sm:text-sm text-gray-700 transition-all duration-200 ${
                 checkedItems.has(index)
                   ? "line-through text-gray-400"
                   : "group-hover:text-gray-900 group-hover:translate-x-1"

@@ -63,13 +63,13 @@ export function ChecklistCard({
   const isComplete = checkedItems.size === items.length;
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl ">
       <div className="flex items-center gap-2 mb-3 sm:mb-4">
         <CheckCircle2
           className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 flex-shrink-0 ${isComplete ? "text-green-500 animate-pulse" : "text-gray-400"}`}
         />
         <h3
-          className="text-lg sm:text-xl font-titling font-black text-[#31563C] italic"
+          className="text-3xl font-titling font-black text-[#31563C] italic"
           dangerouslySetInnerHTML={{ __html: title }}
         />
 
@@ -84,7 +84,7 @@ export function ChecklistCard({
         {items.map((item, index) => (
           <label
             key={index}
-            className={`flex items-start gap-2 sm:gap-3 cursor-pointer group p-2 sm:p-3 rounded-lg transition-all duration-200 ${
+            className={`flex items-start gap-2 sm:gap-3 cursor-pointer group p-2 rounded-lg transition-all duration-200 ${
               checkedItems.has(index) ? "bg-blue-50" : "hover:bg-gray-50"
             } ${justChecked === index ? "scale-105 bg-green-50" : ""}`}
           >

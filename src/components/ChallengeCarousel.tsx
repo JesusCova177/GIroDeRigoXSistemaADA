@@ -21,6 +21,8 @@ interface ChallengeCarouselProps {
   initialCardIndex?: number;
   onCardChange?: (index: number) => void;
   userSelections?: Record<string, any>;
+  onNavigateToStage?: (stageNumber: number) => void;
+  currentStage?: number;
 }
 
 export function ChallengeCarousel({
@@ -30,6 +32,8 @@ export function ChallengeCarousel({
   initialCardIndex = 0,
   onCardChange,
   userSelections = {},
+  onNavigateToStage,
+  currentStage,
 }: ChallengeCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(initialCardIndex);
   const [isDragging, setIsDragging] = useState(false);
@@ -381,7 +385,12 @@ export function ChallengeCarousel({
                       <PhaseImportanceCard content={content} />
                     )
                   ) : challenge.type === "cta" ? (
-                    <CTACard content={content} onNavigateNext={goToNext} />
+                    <CTACard
+                      content={content}
+                      onNavigateNext={goToNext}
+                      onNavigateToStage={onNavigateToStage}
+                      currentStage={currentStage}
+                    />
                   ) : (
                     <div className="bg-white rounded-2xl shadow p-6">
                       <p className="text-gray-500">

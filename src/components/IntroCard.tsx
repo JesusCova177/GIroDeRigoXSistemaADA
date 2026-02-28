@@ -21,10 +21,10 @@ export function IntroCard({ content }: IntroCardProps) {
   const { title, paragraphs, list, footer, callout } = content;
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       <div className=" items-center justify-center gap-4 sm:mb-6">
         <p
-          className="tracking-wide text-4xl sm:text-3xl md:text-4xl font-timberwolf font-black text-[#31563c] text-center not-italic uppercase mb-2"
+          className="tracking-wide text-3xl font-timberwolf font-black text-[#31563c] text-center not-italic uppercase mb-2"
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>
@@ -33,7 +33,7 @@ export function IntroCard({ content }: IntroCardProps) {
         {paragraphs?.map((paragraph, index) => (
           <p
             key={index}
-            className="leading-relaxed self-start text-[#31563c] whitespace-pre-line  font-montserrat font-semibold"
+            className="leading-relaxed self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold"
             dangerouslySetInnerHTML={{ __html: paragraph }}
           />
         ))}

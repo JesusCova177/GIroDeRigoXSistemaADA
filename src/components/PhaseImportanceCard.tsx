@@ -15,11 +15,12 @@ interface PhaseImportanceCardProps {
 
 export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
       {content.title && (
-        <h2 className="text-2xl sm:text-3xl font-montserrat font-black mb-6 sm:mb-8 uppercase italic text-[#f89fc7] tracking-wider">
-          {content.title}
-        </h2>
+        <span
+          className="text-3xl font-timberwolf text-center font-black mb-6 uppercase italic text-[#31563C] tracking-wider"
+          dangerouslySetInnerHTML={{ __html: content.title }}
+        />
       )}
 
       {content.intro && (

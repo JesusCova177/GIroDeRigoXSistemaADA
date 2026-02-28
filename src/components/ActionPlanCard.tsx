@@ -17,13 +17,13 @@ interface ActionPlanCardProps {
 
 const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
   return (
-    <div className="flex flex-col justify-center items-center rounded-2xl gap-4 bg-[#f8fbf2] p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
+    <div className="flex flex-col justify-center items-center rounded-2xl gap-4 bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       <div className="flex items-center  gap-2">
         <div className="p-2 bg-[#F04E96] rounded-full shadow-md">
           <Target className="w-6 h-6 text-white" />
         </div>
         <div className="w-full">
-          <h3 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-timberwolf font-black text-[#41563F] text-center italic uppercase ">
+          <h3 className="text-3xl font-timberwolf font-black text-[#41563F] text-center italic uppercase ">
             Plan de Acción
           </h3>
         </div>
@@ -40,7 +40,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
               {content.keyTakeaways.map((takeaway, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#F04E96] flex-shrink-0 mt-0.5" />
-                  <span className="text-sm sm:text-base text-[#41563F] leading-relaxed font-medium font-montserrat">
+                  <span className="text-md sm:text-base text-[#41563F] leading-relaxed font-medium font-montserrat">
                     {takeaway}
                   </span>
                 </li>

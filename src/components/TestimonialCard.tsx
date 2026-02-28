@@ -111,7 +111,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
   }, [videoEmbed, videoId]);
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       <div className="w-full relative z-10">
         <div className="flex  items-center mb-6">
           <div className="p-2 bg-[#F04E96] rounded-full shadow-md mb-4">
@@ -119,7 +119,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
           </div>
           <div>
             <h3
-              className="whitespace-pre-line font-builttitling text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#F04E96] text-center italic uppercase mb-2 tracking-wide"
+              className="whitespace-pre-line font-builttitling text-3xl font-black text-[#F04E96] text-center italic uppercase mb-2 tracking-wide"
               dangerouslySetInnerHTML={{ __html: title }}
             />
           </div>
@@ -254,8 +254,8 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
 
         {footer.message && (
           <div className="mt-4 pt-4 border-t border-[#41563F]/10">
-            <div className="bg-[#41563F] rounded-xl p-4 shadow-md text-center">
-              <p className="text-base sm:text-lg font-black text-[#f8fbf2] uppercase italic tracking-wide leading-relaxed font-builttitling">
+            <div className=" border-[#41563F] text-center">
+              <p className="text-base sm:text-lg font-black text-[#41563F] uppercase italic tracking-wide leading-relaxed font-builttitling">
                 {footer.message}
               </p>
             </div>

@@ -30,17 +30,24 @@ interface CTAContent {
   options?: CTAOption[];
   transition?: CTATransition;
   footerSubtext?: string;
+  hasNextStageButton?: boolean;
 }
 
 interface CTACardProps {
   content: CTAContent;
   onNavigateToStage?: (stageNumber: number) => void;
   onNavigateNext?: () => void;
+  currentStage?: number;
 }
 
-const CTACard: React.FC<CTACardProps> = ({ content, onNavigateNext }) => {
+const CTACard: React.FC<CTACardProps> = ({
+  content,
+  onNavigateNext,
+  onNavigateToStage,
+  currentStage,
+}) => {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-x-[80%] ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl ">
       {(content.title || content.icon) && (
         <div className="flex-shrink-0 flex items-center gap-3 mb-3">
           {" "}
@@ -54,7 +61,7 @@ const CTACard: React.FC<CTACardProps> = ({ content, onNavigateNext }) => {
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             )}
           </div>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight font-montserrat font-bolt text-[#31563c]">
+          <h3 className="text-3xl font-bold tracking-tight font-montserrat font-bolt text-[#31563c]">
             {content.title}
           </h3>
         </div>
@@ -150,6 +157,18 @@ const CTACard: React.FC<CTACardProps> = ({ content, onNavigateNext }) => {
                 </p>
               )}
             </div>
+          </div>
+        )}
+
+        {content.hasNextStageButton && onNavigateToStage && currentStage && (
+          <div className="pt-6 mt-4 border-t border-slate-200">
+            <button
+              onClick={() => onNavigateToStage(currentStage + 1)}
+              className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:from-emerald-500 hover:to-teal-600 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-emerald-900/20"
+            >
+              Siguiente Etapa
+              <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
         )}
       </div>

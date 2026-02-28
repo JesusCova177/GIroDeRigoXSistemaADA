@@ -49,16 +49,16 @@ export function NutritionGuideCard({
   list,
 }: NutritionGuideCardProps) {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
       <div className="flex items-center gap-2 mb-4">
         <p
-          className="tracking-wide text-2xl sm:text-3xl md:text-4xl font-timberwolf font-black text-[#41563F] text-center italic uppercase mb-2"
+          className="tracking-wide text-3xl font-timberwolf font-black text-[#41563F] text-center italic uppercase mb-2"
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>
 
       {image && (
-        <div className="w-full flex justify-center mb-6">
+        <div className="w-full flex justify-center mb-6 bg-[#637c60] p-4 rounded-2xl">
           <img
             src={image}
             alt={title}
@@ -69,7 +69,7 @@ export function NutritionGuideCard({
 
       {concept && (
         <p
-          className="text-lg text-justify whitespace-pre-line text-[#41563F] leading-relaxed font-montserrat font-medium "
+          className="text-lg text-md text-justify whitespace-pre-line text-[#41563F] leading-relaxed font-montserrat font-medium "
           dangerouslySetInnerHTML={{ __html: concept }}
         />
       )}

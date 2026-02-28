@@ -214,7 +214,8 @@ function App() {
           adaUserId,
           stageNumber,
         );
-        setCurrentCardIndex(progress?.last_card_index || 0);
+        // Cuando navegamos de manera explícita (siguiente etapa) forzamos al inicio para no quedar atrapados en el final
+        setCurrentCardIndex(0);
         setUserSelections(selections);
       } else {
         setCurrentCardIndex(0);
@@ -252,6 +253,7 @@ function App() {
       }
 
       setChallenges(allChallenges);
+      setCurrentCardIndex(0); // Forzar reset visual a la tarjeta 0 inmediatemente
       setShowStageSelector(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
@@ -352,12 +354,15 @@ function App() {
             <div className="mt-2 sm:mt-4 scrollbar-hide ">
               {challenges.length > 0 ? (
                 <ChallengeCarousel
+                  key={currentStage.stage_number}
                   challenges={challenges}
                   adaUserId={adaUserId}
                   currentStageName={mappingStageName}
                   initialCardIndex={currentCardIndex}
                   onCardChange={handleCardChange}
                   userSelections={userSelections}
+                  onNavigateToStage={navigateToStage}
+                  currentStage={currentStage.stage_number}
                 />
               ) : (
                 <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">

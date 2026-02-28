@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { saveAdaResponse } from "../lib/supabase";
+import { Check, MapPin } from "lucide-react";
 
 interface BifurcationOption {
   id: string;
@@ -48,6 +49,9 @@ export function BifurcationCard({
   }, [initialSelections, options, onSelect, selectedOption]);
 
   const getColorClasses = (color: string, isSelected: boolean) => {
+    // Standardizing on brand colors
+    // Default/Amber -> Uses Primary Green/Pink accents
+    // Rose -> Uses Pink/Green accents
     const map: Record<
       string,
       {
@@ -57,42 +61,49 @@ export function BifurcationCard({
         badge: string;
         ring: string;
         check: string;
+        iconBg: string;
       }
     > = {
       amber: {
         border: isSelected
-          ? "border-2 border-amber-500"
-          : "border-2 border-gray-200 hover:border-amber-300",
-        bg: isSelected ? "bg-amber-50" : "bg-white hover:bg-amber-50/40",
-        text: "text-amber-700",
-        badge: "bg-amber-100 text-amber-800",
-        ring: "ring-amber-400",
-        check: "bg-amber-500",
+          ? "border-[#F04E96]"
+          : "border-[#41563F]/20 hover:border-[#F04E96]/50",
+        bg: isSelected ? "bg-white" : "bg-white hover:bg-[#F04E96]/5",
+        text: "text-[#41563F]",
+        badge: "bg-[#F04E96]/10 text-[#F04E96]",
+        ring: "ring-[#F04E96]",
+        check: "bg-[#F04E96]",
+        iconBg: "bg-[#F04E96]",
       },
       rose: {
         border: isSelected
-          ? "border-rose-500"
-          : "border-gray-200 hover:border-rose-300",
-        bg: isSelected ? "bg-rose-50" : "bg-white hover:bg-rose-50/40",
-        text: "text-rose-700",
-        badge: "bg-rose-100 text-rose-800",
-        ring: "ring-rose-400",
-        check: "bg-rose-500",
+          ? "border-[#F04E96]"
+          : "border-[#41563F]/20 hover:border-[#F04E96]/50",
+        bg: isSelected ? "bg-white" : "bg-white hover:bg-[#F04E96]/5",
+        text: "text-[#41563F]",
+        badge: "bg-[#F04E96]/10 text-[#F04E96]",
+        ring: "ring-[#F04E96]",
+        check: "bg-[#F04E96]",
+        iconBg: "bg-[#41563F]",
       },
     };
     return map[color] ?? map["amber"];
   };
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-x-[80%] ">
-      <div className="mb-6 sm:mb-8 text-center">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-titling font-black text-[#31563C] italic uppercase mb-2">
-          ¿Cuál reto vas a hacer en La Sucursal?
-        </h2>
-        <p className="text-sm sm:text-base text-gray-600">{question}</p>
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl ">
+      <div className="flex flex-col items-center gap-3 mb-6 w-full">
+        <div className="w-full text-center">
+          <h2 className="text-3xl font-timberwolf font-black text-[#F04E96] italic uppercase mb-2">
+            ¿Cuál reto vas a hacer en La Sucursal?
+          </h2>
+          <p className="text-base text-[#41563F] font-montserrat font-medium">
+            {question}
+          </p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full max-w-2xl px-2">
         {options.map((option) => {
           const isSelected = selectedOption === option.id;
           const colors = getColorClasses(option.color, isSelected);
@@ -120,40 +131,30 @@ export function BifurcationCard({
             <button
               key={option.id}
               onClick={handleSelect}
-              className={`relative flex flex-col items-center text-center p-5 sm:p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${colors.border} ${colors.bg} ${isSelected ? `ring-2 ${colors.ring} ring-offset-2 shadow-lg scale-[1.02]` : "shadow-sm hover:shadow-md"}`}
+              className={`relative flex flex-col items-center text-center p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${colors.border} ${colors.bg} ${isSelected ? `ring-2 ${colors.ring} ring-offset-2 shadow-lg scale-[1.02]` : "shadow-sm hover:shadow-md"}`}
             >
               {isSelected && (
                 <div
-                  className={`absolute top-3 right-3 w-6 h-6 rounded-full ${colors.check} flex items-center justify-center`}
+                  className={`absolute top-3 right-3 w-6 h-6 rounded-full ${colors.check} flex items-center justify-center shadow-md`}
                 >
-                  <svg
-                    className="w-3.5 h-3.5 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
+                  <Check className="w-3.5 h-3.5 text-white stroke-[3]" />
                 </div>
               )}
 
-              <span className="text-4xl sm:text-5xl mb-3 block leading-none">
-                {option.icon}
-              </span>
+              <div className="mb-4 transform transition-transform duration-300 hover:scale-110">
+                <span className="text-5xl block filter drop-shadow-sm">
+                  {option.icon}
+                </span>
+              </div>
 
               <h3
-                className={`text-lg sm:text-xl font-titling font-black italic uppercase mb-2 ${colors.text}`}
+                className={`text-xl font-titling font-black italic uppercase mb-2 ${colors.text}`}
               >
                 {option.label}
               </h3>
 
               <span
-                className={`inline-block text-xs sm:text-sm font-semibold px-3 py-1 rounded-full ${colors.badge}`}
+                className={`inline-block text-xs sm:text-sm font-bold font-montserrat px-3 py-1 rounded-full ${colors.badge}`}
               >
                 {option.description}
               </span>
@@ -161,28 +162,6 @@ export function BifurcationCard({
           );
         })}
       </div>
-
-      {selectedOption && (
-        <div className="mt-5 sm:mt-6 text-center">
-          <p className="text-sm text-gray-500">
-            Deslizá para ver las ventanas de tu reto
-          </p>
-          <div className="mt-2 flex justify-center">
-            <div className="flex gap-1">
-              {[0, 1, 2].map((i) => (
-                <span
-                  key={i}
-                  className={`block h-1.5 rounded-full bg-[#31563C] transition-all duration-300`}
-                  style={{
-                    width: i === 1 ? "24px" : "8px",
-                    opacity: i === 1 ? 1 : 0.3,
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
