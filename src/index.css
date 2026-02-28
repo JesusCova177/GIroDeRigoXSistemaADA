@@ -38,6 +38,7 @@
     font-family: "BuiltTitling", sans-serif;
     font-weight: 400;
     letter-spacing: 0.05em;
+    font-style: normal;
   }
 
   .font-titling {
@@ -57,10 +58,8 @@
   }
 
   .title {
-    font-family: "timberwolf", sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: -2.4rem;
-    color: #31563c;
+    font-family: "BuiltTitling", sans-serif;
+    color: #f04e96;
   }
 
   .tablet {

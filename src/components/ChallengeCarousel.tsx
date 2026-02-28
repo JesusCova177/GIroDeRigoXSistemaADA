@@ -338,6 +338,7 @@ export function ChallengeCarousel({
                       scenarios={content?.scenarios || []}
                       microTransition={content?.microTransition || ""}
                       headerEmoji={content?.headerEmoji}
+                      list={content?.list}
                     />
                   ) : challenge.type === "checklist" ? (
                     <ChecklistCard

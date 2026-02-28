@@ -33,6 +33,7 @@ interface NutritionGuideCardProps {
   microTransitionScenarios?: Scenario[];
   headerEmoji?: string;
   rule?: RuleItem[];
+  list?: string[];
 }
 
 export function NutritionGuideCard({
@@ -45,12 +46,13 @@ export function NutritionGuideCard({
   microTransitionScenarios,
   headerEmoji,
   rule,
+  list,
 }: NutritionGuideCardProps) {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
       <div className="flex items-center gap-2 mb-4">
         <p
-          className="tracking-wide text-2xl sm:text-3xl md:text-4xl font-builttitling font-black text-[#F04E96] text-center italic uppercase mb-2"
+          className="tracking-wide text-2xl sm:text-3xl md:text-4xl font-timberwolf font-black text-[#41563F] text-center italic uppercase mb-2"
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>
@@ -67,147 +69,148 @@ export function NutritionGuideCard({
 
       {concept && (
         <p
-          className="text-base text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line text-gray-700 leading-relaxed font-montserrat "
+          className="text-lg text-justify whitespace-pre-line text-[#41563F] leading-relaxed font-montserrat font-medium "
           dangerouslySetInnerHTML={{ __html: concept }}
         />
       )}
 
+      {list && list.length > 0 && (
+        <ul className="w-full text-lg text-[#41563F] leading-relaxed font-montserrat font-medium list-disc pl-6 space-y-2 mb-6">
+          {list.map((item, index) => (
+            <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
+          ))}
+        </ul>
+      )}
+
       {practicalHeading && (
-        <div className="mb-4">
+        <div className="flex flex-col gap-1 mt-2 mb-4">
           <div className="flex items-center gap-2 mb-4"></div>
+          {(scenarios ?? []).map((scenario, scenarioIndex) => (
+            <div
+              key={scenarioIndex}
+              className="flex flex-col bg-[#41563F] rounded-2xl p-2 border font-montserrat-bold text-[#f8fbf2]"
+            >
+              {scenario.condition && (
+                <div className="flex items-center text-[#f8fbf2] p-1">
+                  <p className="flex text-md text-gray-400 whitespace-pre-line not-italic font-medium font-montserrat">
+                    {scenario.condition}
+                  </p>
+                </div>
+              )}
 
-          <div className="space-y-4">
-            {(scenarios ?? []).map((scenario, scenarioIndex) => (
-              <div
-                key={scenarioIndex}
-                className="bg-[#41563F] rounded-2xl p-2 border  font-montserrat-bold text-[#f8fbf2]"
-              >
-                {scenario.condition && (
-                  <div className="flex items-center gap-4 text-[#f8fbf2]">
-                    <p className="text-sm text-gray-400 whitespace-pre-line  italic">
-                      {scenario.condition}
-                    </p>
-                  </div>
-                )}
-
-                <div className="space-y-3 ">
-                  {scenario.meals.map((meal, mealIndex) => {
-                    if (typeof meal === "string") {
-                      // flat string — render as a single chip row
-                      return (
-                        <div key={mealIndex} className="flex flex-wrap gap-1.5">
-                          <span className="inline-flex items-center gap-1 bg-white px-2 py-1 rounded-md text-xs text-gray-600 border border-green-700 ">
-                            {meal}
-                          </span>
-                        </div>
-                      );
-                    }
-                    // Meal object — render name + items chips
+              <div className=" flex flex-wrap gap-1 mt-2 mb-4 ">
+                {scenario.meals.map((meal, mealIndex) => {
+                  if (typeof meal === "string") {
+                    // flat string — render as a single chip row
                     return (
-                      <div key={mealIndex} className="space-y-1">
-                        {meal.name && (
-                          <p className="leading-relaxed text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line font-montserrat">
-                            {meal.name}:
-                          </p>
-                        )}
-                        {meal.items.length > 0 && (
-                          <div className="flex flex-wrap gap-1.5">
-                            {meal.items.map((item, itemIndex) => (
-                              <span
-                                key={itemIndex}
-                                className="inline-flex items-center gap-1 bg-white px-2 py-1 rounded-md text-xs text-gray-600 border border-gray-200 hover:border-green-400 transition-colors"
-                              >
-                                {item}
-                              </span>
-                            ))}
-                          </div>
-                        )}
+                      <div key={mealIndex} className="flex flex-wrap gap-1.5">
+                        <span className="inline-flex items-center gap-1 bg-[#899788] px-2 py-1 rounded-md text-lg text-white font-montserrat font-bold  transition-colors">
+                          {meal}
+                        </span>
                       </div>
                     );
-                  })}
-                </div>
+                  }
+                  // Meal object — render name + items chips
+                  return (
+                    <div key={mealIndex} className="space-y-1">
+                      {meal.name && (
+                        <p className="leading-relaxed text-lg font-semibold  whitespace-pre-line font-montserrat ">
+                          {meal.name}:
+                        </p>
+                      )}
+                      {meal.items.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5">
+                          {meal.items.map((item, itemIndex) => (
+                            <span
+                              key={itemIndex}
+                              className="inline-flex items-center gap-1 bg-[#899788] px-2 py-1 rounded-md text-lg text-white font-montserrat font-bold  transition-colors"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       )}
 
       {microTransition && (
-        <div className="mt-6 pt-4 border-t border-gray-200">
-          <div className="flex items-start gap-3 from-yellow-50 to-amber-50 border-2 border-yellow-400 rounded-lg p-4">
-            <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-            <div className="flex-1">
-              <p className="text-xs font-semibold text-gray-600 mb-1"></p>
-              <p className="text-xs sm:text-sm text-gray-700 font-medium">
-                {microTransition}
-              </p>
-              {/* Mostrar scenarios para microTransition si existen */}
-              {Array.isArray(microTransitionScenarios) &&
-                microTransitionScenarios.length > 0 && (
-                  <div className="space-y-4 mt-2">
-                    {microTransitionScenarios.map(
-                      (scenario: Scenario, scenarioIndex: number) => (
-                        <div
-                          key={scenarioIndex}
-                          className="bg-[#FFFBEA] rounded-lg p-4 border border-yellow-400 font-montserrat"
-                        >
-                          {scenario.condition && (
-                            <div className="flex items-center gap-4 m-2">
-                              <TrendingUp className="w-4 h-4 text-yellow-500 flex-shrink-0 mt-0.5" />
-                              <p className="text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,1.2rem)] whitespace-pre-line text-yellow-800 italic">
-                                {scenario.condition}
-                              </p>
-                            </div>
-                          )}
-                          <div className="space-y-3 ml-6">
-                            {scenario.meals.map(
-                              (meal: Meal | string, mealIndex: number) => {
-                                if (typeof meal === "string") {
-                                  return (
-                                    <div
-                                      key={mealIndex}
-                                      className="flex flex-wrap gap-1.5"
-                                    >
-                                      <span className="inline-flex items-center gap-1 bg-white px-2 py-1 rounded-md text-xs text-yellow-700 border border-yellow-400 ">
-                                        {meal}
-                                      </span>
-                                    </div>
-                                  );
-                                }
+        <div className="flex items-center gap-3 border-2  bg-[#41563f] p-4 rounded-xl">
+          <div className="flex-1">
+            <p className="text-md text-center text-[#f8fbf2] font-medium flex-1 font-montserrat">
+              {microTransition}
+            </p>
+            {/* Mostrar scenarios para microTransition si existen */}
+            {Array.isArray(microTransitionScenarios) &&
+              microTransitionScenarios.length > 0 && (
+                <div className="space-y-4 mt-2">
+                  {microTransitionScenarios.map(
+                    (scenario: Scenario, scenarioIndex: number) => (
+                      <div
+                        key={scenarioIndex}
+                        className="bg-[#FFFBEA] rounded-lg p-4 border border-yellow-400 font-montserrat"
+                      >
+                        {scenario.condition && (
+                          <div className="flex items-center gap-4 m-2">
+                            <TrendingUp className="w-4 h-4 text-yellow-500 flex-shrink-0 mt-0.5" />
+                            <p className="text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,1.2rem)] whitespace-pre-line text-yellow-800 italic">
+                              {scenario.condition}
+                            </p>
+                          </div>
+                        )}
+                        <div className="space-y-3 ml-6">
+                          {scenario.meals.map(
+                            (meal: Meal | string, mealIndex: number) => {
+                              if (typeof meal === "string") {
                                 return (
-                                  <div key={mealIndex} className="space-y-1">
-                                    {meal.name && (
-                                      <p className="leading-relaxed text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line font-montserrat text-yellow-900">
-                                        {meal.name}:
-                                      </p>
-                                    )}
-                                    {meal.items.length > 0 && (
-                                      <div className="flex flex-wrap gap-1.5">
-                                        {meal.items.map(
-                                          (item: string, itemIndex: number) => (
-                                            <span
-                                              key={itemIndex}
-                                              className="inline-flex items-center gap-1 bg-white px-2 py-1 rounded-md text-xs text-yellow-700 border border-yellow-200 hover:border-yellow-400 transition-colors"
-                                            >
-                                              {item}
-                                            </span>
-                                          ),
-                                        )}
-                                      </div>
-                                    )}
+                                  <div
+                                    key={mealIndex}
+                                    className="flex flex-wrap gap-1.5"
+                                  >
+                                    <span className="inline-flex items-center gap-1 bg-white px-2 py-1 rounded-md text-xs text-yellow-700 border border-yellow-400 ">
+                                      {meal}
+                                    </span>
                                   </div>
                                 );
-                              },
-                            )}
-                          </div>
+                              }
+                              return (
+                                <div key={mealIndex} className="space-y-1">
+                                  {meal.name && (
+                                    <p className="leading-relaxed text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line font-montserrat text-yellow-900">
+                                      {meal.name}:
+                                    </p>
+                                  )}
+                                  {meal.items.length > 0 && (
+                                    <div className="flex flex-wrap gap-1.5">
+                                      {meal.items.map(
+                                        (item: string, itemIndex: number) => (
+                                          <span
+                                            key={itemIndex}
+                                            className="inline-flex items-center gap-1 bg-white px-2 py-1 rounded-md text-xs text-yellow-700 border border-yellow-200 hover:border-yellow-400 transition-colors"
+                                          >
+                                            {item}
+                                          </span>
+                                        ),
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            },
+                          )}
                         </div>
-                      ),
-                    )}
-                  </div>
-                )}
-            </div>
-            <ChevronRight className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+                      </div>
+                    ),
+                  )}
+                </div>
+              )}
           </div>
+          <ChevronRight className="w-5 h-5 text-white flex-shrink-0" />
         </div>
       )}
 

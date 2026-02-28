@@ -111,67 +111,65 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
   }, [videoEmbed, videoId]);
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:scale-x-[80%] ">
-      <div className="relative z-10">
-        <div className="flex items-start gap-2 mb-1 sm:mb-2">
-          <div className="p-1.5 sm:p-2 bg-gradient-to-br from-yellw-500 to-yellow-600 rounded-lg shadow-md flex-shrink-0">
-            <Quote className="w-4 h-4 sm:w-6 sm:h-6 text-yellow" />
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
+      <div className="w-full relative z-10">
+        <div className="flex  items-center mb-6">
+          <div className="p-2 bg-[#F04E96] rounded-full shadow-md mb-4">
+            <Quote className="w-6 h-6 text-white" />
           </div>
-          <div className="flex-1">
-            <h3 className="whitespace-pre-line font-montserrat text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-green tracking-tight italic mb-0">
-              {title}
-            </h3>
-            <p className="text-xs sm:text-sm text-gray-600 font-medium leading-tight font-montserrat">
-              {subtitle}
-            </p>
+          <div>
+            <h3
+              className="whitespace-pre-line font-builttitling text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#F04E96] text-center italic uppercase mb-2 tracking-wide"
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
           </div>
         </div>
+        {intro && (
+          <p className="text-lg text-justify text-[#41563F] leading-relaxed font-montserrat font-medium mb-4 whitespace-pre-line">
+            {intro}
+          </p>
+        )}
 
-        <div className="bg-white/80 rounded-xl p-3 sm:p-4 border-2 border-yellow-100 shadow-inner mb-3 sm:mb-4">
-          {intro && (
-            <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-2 font-montserrat">
-              {intro}
-            </p>
-          )}
-
-          <div className="mb-2 sm:mb-4">
-            {metrics.length > 0 && (
-              <div className="grid grid-cols-1 gap-3 mb-4">
-                {metrics.map((metric, index) => {
-                  const Icon = iconMap[metric.icon] || Zap;
-                  const colors = colorMap[metric.color] || colorMap.emerald;
-                  return (
-                    <div
-                      key={index}
-                      className={`bg-white rounded-lg p-3 border-2 ${colors.border} ${colors.hover} transition-all duration-200`}
-                    >
-                      <div className="flex items-center gap-2 mb-1">
-                        <Icon className={`w-4 h-4 ${colors.text}`} />
-                        <span className=" font-montserrat text-sm font-semibold text-gray-600">
-                          {metric.label}
-                        </span>
-                      </div>
-                      <p
-                        className={`text-xl sm:text-2xl font-bold ${colors.text}`}
-                      >
-                        {metric.value}
-                      </p>
+        {metrics.length > 0 && (
+          <div className="grid grid-cols-1 gap-3 mb-6">
+            {metrics.map((metric, index) => {
+              const Icon = iconMap[metric.icon] || Zap;
+              // Using ADA color palette for metrics
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-4 border border-[#41563F]/20 shadow-sm flex items-center justify-between"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-[#F04E96]/10 rounded-lg">
+                      <Icon className="w-5 h-5 text-[#F04E96]" />
                     </div>
-                  );
-                })}
-              </div>
-            )}
+                    <span className="font-montserrat text-sm font-semibold text-[#41563F]">
+                      {metric.label}
+                    </span>
+                  </div>
+                  <p className="text-xl font-bold text-[#F04E96] font-montserrat">
+                    {metric.value}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
-            {description && (
-              <div className="bg-white/90 rounded-xl p-4 sm:p-5 border border-yellow-100 shadow-sm">
-                <p className="font-montserrat text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line">
-                  {description}
-                </p>
-              </div>
-            )}
+        {description && (
+          <div className="bg-white/80 rounded-xl p-5 border border-[#41563F]/10 mb-6">
+            <p className="font-montserrat text-base text-[#41563F] leading-relaxed whitespace-pre-line">
+              {description}
+            </p>
+          </div>
+        )}
+
+        {(videoId || videoEmbed) && (
+          <div className="w-full flex justify-center mb-6">
             {videoEmbed ? (
               <div
-                className="relative w-full max-h-[390px] max-w-[260px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-yellow-100"
+                className="relative w-full max-w-[300px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white"
                 style={{ aspectRatio: "9/16" }}
               >
                 <div
@@ -181,67 +179,83 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
               </div>
             ) : (
               videoId && (
-                <div className="mb-2">
+                <div
+                  className="relative w-full max-w-[300px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white"
+                  style={{ aspectRatio: "9/16" }}
+                >
                   <div
-                    className="relative w-full max-h-[390px] max-w-[260px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-yellow-100"
-                    style={{ aspectRatio: "9/16" }}
-                  >
-                    <div
-                      className="w-full h-full bg-black flex items-center justify-center"
-                      dangerouslySetInnerHTML={{
-                        __html: `<vturb-smartplayer id="vid-${videoId}" style="display: block; width: 100%; height: 100%; object-fit: contain;"></vturb-smartplayer>`,
-                      }}
-                    />
-                  </div>
+                    id={`vid-${videoId}`}
+                    style={{ width: "100%", height: "100%" }}
+                  ></div>
+                  <script type="text/javascript">
+                    {`
+                        (function() {
+                          if (window.VTurb) {
+                            new window.VTurb("${videoId}", "vid-${videoId}");
+                          } else {
+                             const script = document.createElement("script");
+                             script.src = "https://scripts.converteai.net/cb2c2efc-2fa0-413a-8d5e-f3514b127b3f/players/${videoId}/player.js";
+                             script.async = true;
+                             document.head.appendChild(script);
+                          }
+                        })();
+                      `}
+                  </script>
+                  <iframe
+                    src={`https://scripts.converteai.net/cb2c2efc-2fa0-413a-8d5e-f3514b127b3f/players/${videoId}/embed.html`}
+                    allowFullScreen
+                    className="w-full h-full absolute inset-0 border-0"
+                    title="Testimonial Video"
+                  ></iframe>
                 </div>
               )
             )}
           </div>
+        )}
 
-          {(strategy.intro || strategy.items.length > 0) && (
-            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-4 border-2 border-yellow-200">
-              {strategy.intro && (
-                <p
-                  className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-3"
-                  dangerouslySetInnerHTML={{
-                    __html: strategy.intro.replace(
-                      /\*\*(.*?)\*\*/g,
-                      '<span class="font-bold text-orange-600">$1</span>',
-                    ),
-                  }}
-                />
-              )}
-              {strategy.items.length > 0 && (
-                <ul className="space-y-2 text-xs sm:text-sm text-gray-700">
-                  {strategy.items.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold flex-shrink-0">
-                        •
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {strategy.conclusion && (
-                <p
-                  className="text-xs sm:text-sm text-gray-700 leading-relaxed mt-3"
-                  dangerouslySetInnerHTML={{
-                    __html: strategy.conclusion.replace(
-                      /\*\*(.*?)\*\*/g,
-                      '<span class="font-bold text-orange-600">$1</span>',
-                    ),
-                  }}
-                />
-              )}
-            </div>
-          )}
-        </div>
+        {(strategy.intro || strategy.items.length > 0) && (
+          <div className="bg-[#41563F]/5 rounded-xl p-5 border border-[#41563F]/20">
+            {strategy.intro && (
+              <p
+                className="text-sm sm:text-base text-[#41563F] leading-relaxed mb-4 font-montserrat font-medium"
+                dangerouslySetInnerHTML={{
+                  __html: strategy.intro.replace(
+                    /\*\*(.*?)\*\*/g,
+                    '<span class="font-bold text-[#F04E96]">$1</span>',
+                  ),
+                }}
+              />
+            )}
+            {strategy.items.length > 0 && (
+              <ul className="space-y-3 text-sm sm:text-base text-[#41563F] font-montserrat">
+                {strategy.items.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="text-[#F04E96] font-bold mt-1 text-lg">
+                      •
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {strategy.conclusion && (
+              <p
+                className="text-sm sm:text-base text-[#41563F] leading-relaxed mt-4 font-montserrat font-medium"
+                dangerouslySetInnerHTML={{
+                  __html: strategy.conclusion.replace(
+                    /\*\*(.*?)\*\*/g,
+                    '<span class="font-bold text-[#F04E96]">$1</span>',
+                  ),
+                }}
+              />
+            )}
+          </div>
+        )}
 
         {footer.message && (
-          <div className="mt-4 pt-4 border-t border-gray-100">
-            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3 shadow-sm">
-              <p className="text-sm sm:text-base font-black text-yellow-900 uppercase italic text-center tracking-wide leading-relaxed">
+          <div className="mt-4 pt-4 border-t border-[#41563F]/10">
+            <div className="bg-[#41563F] rounded-xl p-4 shadow-md text-center">
+              <p className="text-base sm:text-lg font-black text-[#f8fbf2] uppercase italic tracking-wide leading-relaxed font-builttitling">
                 {footer.message}
               </p>
             </div>

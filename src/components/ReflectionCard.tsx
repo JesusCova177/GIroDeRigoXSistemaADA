@@ -104,59 +104,39 @@ export function ReflectionCard({
   };
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:max-w-2xl ">
+    <div className="flex flex-col items-center gap-2 rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl md:max-w-2xl ">
       <div className="flex items-center justify-between mb-3 sm:mb-4 relative z-10">
         <div className="flex items-center gap-2">
-          <div className="p-1.5 sm:p-2 bg-yellow-100 rounded-lg">
-            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600" />
-          </div>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-titling font-black text-yellow-400 italic">
-            {title}
-          </h3>
+          <h3
+            className="tracking-wide text-2xl sm:text-3xl md:text-4xl font-timberwolf font-black text-[#41563f] text-center not-italic uppercase mb-2"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
         </div>
-        {answeredCount > 0 && (
-          <div className="flex items-center gap-1 bg-yellow-100 px-2 sm:px-3 py-1 rounded-full">
-            <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-600 fill-yellow-600" />
-            <span className="text-xs font-bold text-yellow-700">
-              {answeredCount}/{questions.length}
-            </span>
-          </div>
-        )}
       </div>
 
       <div className="space-y-3 sm:space-y-4 relative z-10">
         {questions.map((question, index) => (
           <div
             key={index}
-            className={`bg-white rounded-xl p-3 sm:p-4 backdrop-blur-sm transition-all duration-300 ${
-              focusedIndex === index
-                ? "shadow-lg ring-2 ring-yellow-400 scale-102"
-                : "shadow hover:shadow-md"
-            }`}
+            className={`bg-[#41563f] rounded-xl p-3 sm:p-4 backdrop-blur-sm transition-all duration-300 `}
           >
             <div className="flex items-start gap-2 mb-2 sm:mb-3">
               <div
                 className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 ${
                   focusedIndex === index
-                    ? "bg-yellow-500 text-white scale-110"
-                    : "bg-yellow-100 text-yellow-600"
+                    ? "bg-[#F04E96] text-white scale-110"
+                    : "bg-[#f8fbf2] text-[#31563c] "
                 }`}
               >
                 {index + 1}
               </div>
-              <p className="text-xs sm:text-sm font-semibold text-gray-800 flex-1 font-montserrat">
+              <p className="text-md font-semibold text-[#f8fbf2] flex-1 font-montserrat">
                 {question}
               </p>
-              {focusedIndex === index && (
-                <Lightbulb
-                  className="w-4 h-4 text-yellow-500 animate-pulse flex-shrink-0"
-                  fill="currentColor"
-                />
-              )}
             </div>
             <textarea
               data-index={index}
-              className="w-full px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none bg-white transition-all duration-200 font-montserrat"
+              className="w-full px-2  py-2  text-md  border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F04E96] focus:border-transparent resize-none bg-white transition-all duration-200 font-montserrat"
               rows={2}
               placeholder="Escribe tu respuesta..."
               value={answers[index] || ""}
@@ -168,33 +148,12 @@ export function ReflectionCard({
         ))}
       </div>
 
-      {answeredCount === questions.length && (
-        <div className="mt-3 sm:mt-4 bg-gradient-to-r from-yellow-100 to-orange-100 border-2 border-yellow-300 rounded-xl p-3 sm:p-4 relative z-10 animate-scale-in">
-          <div className="flex items-center gap-2">
-            <div className="p-1.5 sm:p-2 bg-yellow-500 rounded-full flex-shrink-0">
-              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-white fill-white" />
-            </div>
-            <div>
-              <p className="font-bold text-sm sm:text-base text-gray-800">
-                ¡Reflexión Completa!
-              </p>
-              <p className="text-xs sm:text-sm text-gray-600">
-                Has respondido todas las preguntas
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
       {microTransition && (
-        <div className="mt-4 pt-4 border-t border-yellow-200 relative z-10">
-          <div className="flex items-start gap-3  border-2 border-yellow-400 rounded-lg p-4">
-            <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-            <p className="text-xs sm:text-sm text-gray-700 font-medium flex-1">
-              {microTransition}
-            </p>
-            <ChevronRight className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-          </div>
+        <div className="flex items-center gap-3 border-2  bg-[#41563f] p-4 rounded-xl">
+          <p className="text-md text-center text-[#f8fbf2] font-medium flex-1 font-montserrat">
+            {microTransition}
+          </p>
+          <ChevronRight className="w-5 h-5 text-white flex-shrink-0" />
         </div>
       )}
     </div>

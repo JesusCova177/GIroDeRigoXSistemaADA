@@ -11,6 +11,8 @@ interface IntroCardContent {
   };
 }
 
+import { ChevronRight } from "lucide-react";
+
 interface IntroCardProps {
   content: IntroCardContent;
 }
@@ -22,7 +24,7 @@ export function IntroCard({ content }: IntroCardProps) {
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       <div className=" items-center justify-center gap-4 sm:mb-6">
         <p
-          className="tracking-wide text-2xl sm:text-3xl md:text-4xl font-builttitling font-black text-[#F04E96] text-center italic uppercase mb-2"
+          className="tracking-wide text-4xl sm:text-3xl md:text-4xl font-timberwolf font-black text-[#31563c] text-center not-italic uppercase mb-2"
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>
@@ -31,13 +33,13 @@ export function IntroCard({ content }: IntroCardProps) {
         {paragraphs?.map((paragraph, index) => (
           <p
             key={index}
-            className="leading-relaxed self-start text-[#31563c] whitespace-pre-line  font-montserrat "
+            className="leading-relaxed self-start text-[#31563c] whitespace-pre-line  font-montserrat font-semibold"
             dangerouslySetInnerHTML={{ __html: paragraph }}
           />
         ))}
 
         {list && list.length > 0 && (
-          <ul className="list-disc pl-5 self-start sm:pl-8 space-y-2 ml-8 mt-4 text-gray-700 text-base sm:text-lg">
+          <ul className="list-disc text-[#31563c] font-montserrat font-medium self-startspace-y-2 ml-8 mt-4 text-base ">
             {list.map((item, index) => (
               <li key={index} className="leading-relaxed">
                 {item}
@@ -48,24 +50,23 @@ export function IntroCard({ content }: IntroCardProps) {
       </div>
 
       {footer && (
-        <div className="mt-8 pt-4 border-t border-gray-100">
-          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 shadow-sm">
-            <p className="text-sm sm:text-base font-black text-yellow-900 uppercase italic text-center tracking-wide leading-relaxed">
-              {footer}
-            </p>
-          </div>
+        <div className="flex items-center gap-3 border-2  bg-[#41563f] p-4 rounded-xl">
+          <p className="text-md text-center text-[#f8fbf2] font-medium flex-1 font-montserrat">
+            {footer}
+          </p>
         </div>
       )}
 
       {callout && (
         <div
-          className={`mt-6 p-4 rounded-lg border-2 ${callout.bgColor || "bg-blue-50"} ${callout.borderColor || "border-blue-300"}`}
+          className={`flex items-center mt-6 p-2 rounded-2xl border-2 ${callout.bgColor || "bg-[#31563c]"}`}
         >
           <p
-            className={`font-semibold ${callout.textColor || "text-blue-900"}`}
+            className={`font-semibold ${callout.textColor || "text-[#f8fbf2]"} text-center ${callout.borderColor ? "border " + callout.borderColor : "border-[#899788]"} rounded-lg px-3 py-2`}
           >
             {callout.text}
           </p>
+          <ChevronRight className="w-5 h-5 text-white flex-shrink-0" />
         </div>
       )}
     </div>

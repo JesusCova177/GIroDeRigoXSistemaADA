@@ -6,7 +6,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "intro",
     content: {
-      title: `<p class="title md:text-5xl">bajar grasa</p><br/>sin quedarte vacío`,
+      title: `bajar grasa<br/><p class="title md:text-5xl">sin quedarte vacío</p>`,
       paragraphs: [
         "Comer menos para pesar menos: <strong>la fórmula “perfecta”.</strong>",
         "Y sí… al principio funciona, la balanza baja, uno se emociona y hasta se siente “juicioso”.",
@@ -39,7 +39,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "intro",
     content: {
-      title: "Mi estrategia",
+      title: 'Mi<br/><p class="title md:text-5xl">estrategia</p>',
       paragraphs: [
         "Hay días en los que yo puedo generar déficit sin sufrir, sin ansiedad y sin que el rendimiento se me vaya al piso (días suaves o de descanso).",
         'Y hay días en los que yo tengo que meter combustible de verdad, porque si yo entreno fuerte y estoy "vacío", el cuerpo no solo no rinde… también se descontrola después.',
@@ -54,7 +54,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "intro",
     content: {
-      title: "Mi objetivo",
+      title: 'Mi<br/><p class="title md:text-5xl">objetivo</p>',
       paragraphs: [
         "Yo aquí no estoy buscando que vos “adelgacés a las malas” Yo estoy buscando que vos llegués más liviano, sí… pero también más fuerte, más estable y con energía real para entrenar.",
         "Y déjame dejarte esto claro desde ya, porque es la trampa más común: yo no quiero que vos llegués en déficit a la carrera. La semana del evento no es para “recortar” ni para “compensar aguantando hambre”",
@@ -72,7 +72,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Mi norte: “bajar grasa con energía”",
+      title:
+        'Mi norte: <br/><p class="title md:text-5xl">bajar grasa con energía</p>',
       concept: `No todas las calorías son iguales. \n\nLa distribución correcta de proteína, carbohidratos y grasas marcará la diferencia entre perder grasa preservando músculo (y rendimiento) o perder peso a costa de tu potencia. \n\nPara ciclistas, los carbohidratos son combustible, la proteína es recuperación, y las grasas son salud hormonal.`,
     },
     order_index: 2,
@@ -83,12 +84,14 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Ejemplo práctico (lo que yo hago):",
+      title:
+        'Ejemplo práctico <br/><p class="title md:text-5xl">(lo que yo hago)</p>',
       practicalHeading: "Según el día:",
+      concept:
+        "Si hoy tengo un entrenamiento suave o es día de descanso, lo aprovecho para comer más limpio y estable:",
       scenarios: [
         {
-          condition:
-            "Si hoy tengo un entrenamiento suave o es día de descanso, lo aprovecho para comer más limpio y estable:",
+          condition: "Día suave o descanso:",
           meals: [
             {
               name: "Desayuno",
@@ -115,7 +118,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Ejemplo práctico (lo que yo hago):",
+      title: 'Ejemplo práctico <br/><p class="title">lo que yo hago</p>',
       practicalHeading: "Según el día:",
       scenarios: [
         {
@@ -144,7 +147,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Carbohidratos con estrategia (no con miedo)",
+      title:
+        'Carbohidratos con estrategia <br/><p class="title md:text-5xl">no con miedo</p>',
       concept:
         'Yo no elimino carbohidratos.\n\nYo aprendo a usarlos. El carbohidrato es gasolina. \n\nEl error es usarlo "a lo loco" en ultraprocesados todo el día, o intentar entrenar duro sin él. \n\nYo lo vuelvo herramienta: poco cuando toca poco, y suficiente cuando toca rendir.',
     },
@@ -156,7 +160,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Ejemplo práctico (día de intensidad / series):",
+      title:
+        'Ejemplo práctico <br/><p class="title md:text-5xl">día de intensidad / series</p>',
       practicalHeading: "En el entreno yo meto un pre-entreno simple:",
       scenarios: [
         {
@@ -183,7 +188,9 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Ejemplo práctico (día de intensidad / series):",
+      image: "/img/gatorade.webp",
+      title:
+        'Ejemplo práctico <br/><p class="title md:text-5xl">día de intensidad / series</p>',
       practicalHeading: "Al entrenar lo que se absorbe fácil:",
       scenarios: [
         {
@@ -211,7 +218,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "preamble_checklist",
     content: {
-      title: "Mini checklist: carbohidratos",
+      title:
+        'Mini checklist: <br/><p class="title md:text-5xl">carbohidratos</p>',
       preamble:
         "Antes de seguir, responde estas preguntas. Son la clave para saber si tu carbo te está ayudando o traicionando.",
       items: [
@@ -230,7 +238,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "La ventana post-entreno (donde yo gano o pierdo la semana)",
+      title:
+        'La ventana post-entreno<br/><p class="title md:text-5xl">donde yo gano o pierdo la semana</p>',
       concept:
         "Después de montar yo tengo una ventana brutal para recuperar y para no activar la ansiedad. \n\nMucha gente se estrella aquí: termina de montar, llega con hambre de perro y decide por impulso.\n\nYo lo hago diferente: en la primera hora post-entreno yo como proteína + carbo real. \n\nAhí es donde yo construyo el cuerpo que quiero.",
     },
@@ -242,7 +251,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Ejemplo práctico (post-entreno real):",
+      title:
+        'Ejemplo práctico <br/><p class="title md:text-5xl">post-entreno real</p>',
       concept:
         "Si estoy apurado, un batido con fruta me salva… pero mi base es comida real.",
       practicalHeading: "Según el día:",
@@ -251,20 +261,6 @@ export const hardcodedStage1Challenges: Challenge[] = [
           condition: "Opción 1:",
           meals: ["Arroz Sonora", "pechuga FRIKO", "ensalada"],
         },
-      ],
-    },
-    order_index: 8,
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: "hardcoded-6-b1",
-    stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "nutrition_guide",
-    content: {
-      title: "Ejemplo práctico (post-entreno real):",
-      concept: " ",
-      practicalHeading: "Según el día:",
-      scenarios: [
         {
           condition: "Opción 2:",
           meals: [
@@ -278,12 +274,14 @@ export const hardcodedStage1Challenges: Challenge[] = [
     order_index: 8,
     created_at: new Date().toISOString(),
   },
+
   {
     id: "hardcoded-6-c",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "preamble_checklist",
     content: {
-      title: "Mini checklist: post-entreno",
+      title:
+        'Mini checklist <br/><p class="title md:text-5xl">post-entreno</p>',
       preamble: "Responde antes de cerrar el día de entrenamiento.",
       items: [
         '¿Yo ya tengo listo "qué voy a comer" al terminar?',
@@ -298,7 +296,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "reflection",
     content: {
-      title: "Reflexión: post-entreno",
+      title: 'Reflexión <br/><p class="title md:text-5xl">post-entreno</p>',
       questions: [
         "¿Qué hago normalmente apenas llego a casa de montar?",
         "¿Mi post-entreno me deja estable… o me deja con más hambre?",
@@ -315,7 +313,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Proteína como ancla (para no perder músculo)",
+      title:
+        'Proteína como ancla <br/><p class="title md:text-5xl">para no perder músculo</p>',
       concept:
         "Si yo pierdo músculo, pierdo motor. Entonces proteína todos los días ",
       practicalHeading: "No puede faltar:",
@@ -334,7 +333,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Ejemplo práctico (día normal):",
+      title:
+        'Ejemplo práctico <br/><p class="title md:text-5xl">día normal</p>',
       practicalHeading: "Distribución del día:",
       scenarios: [
         {
@@ -359,7 +359,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "preamble_checklist",
     content: {
-      title: "Mini checklist: proteína",
+      title: 'Mini checklist <br/><p class="title md:text-5xl">proteína</p>',
       preamble: "Revisa antes de cerrar el día.",
       items: [
         "¿Mi desayuno tiene proteína?",
@@ -377,9 +377,14 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Fuerza para perder grasa y rendir más (sí o sí)",
-      concept:
-        "La fuerza no es solo para verse bien. \n\nSirve para rendir, para protegerse de lesiones y para que el cuerpo guarde más energía útil en el músculo.",
+      title:
+        'Fuerza para perder grasa <br/><p class="title md:text-5xl">y rendir más (sí o sí)</p>',
+      concept: "La fuerza no es solo para verse bien",
+      list: [
+        "Sirve para rendir",
+        "para protegerse de lesiones",
+        "para que el cuerpo guarde más energía útil en el músculo.",
+      ],
       headerEmoji: "🏋️",
     },
     order_index: 16,
@@ -390,14 +395,12 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Ejemplo práctico (mi enfoque simple):",
+      title:
+        'Ejemplo práctico <br/><p class="title md:text-5xl">mi enfoque simple</p>',
       headerEmoji: "🏋️",
       practicalHeading: "2 sesiones por semana:",
-      scenarios: [
-        { condition: "1 tren inferior + core", meals: [] },
-        { condition: "1 tren superior + core", meals: [] },
-      ],
       concept: "Acá hay que aplicar Constancia más que perfección.",
+      list: ["1 tren inferior + core", "1 tren superior + core"],
     },
     order_index: 17,
     created_at: new Date().toISOString(),
@@ -407,7 +410,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "preamble_checklist",
     content: {
-      title: "Mini checklist: fuerza",
+      title: 'Mini checklist <br/><p class="title md:text-5xl">fuerza</p>',
       preamble: "Chequea tu semana de fuerza.",
       items: [
         "¿Tengo 2 espacios esta semana para fuerza?",
@@ -422,7 +425,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "reflection",
     content: {
-      title: "Reflexión: fuerza",
+      title: 'Reflexión <br/><p class="title md:text-5xl">fuerza</p>',
       questions: ["¿Yo quiero ser más liviano… o más liviano y más fuerte?"],
       microTransition:
         "Y el factor silencioso que te dispara antojos: hidratación.",
@@ -435,7 +438,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Hidratación que baja antojos (y mejora rendimiento)",
+      title:
+        'Hidratación que baja antojos <br/><p class="title md:text-5xl">y mejora rendimiento</p>',
       concept:
         'Muchas veces lo que yo llamo "hambre" es sed o deshidratación. \n\nY si yo estoy deshidratado: más fatiga, más antojo de dulce y menos control.',
       headerEmoji: "water",
@@ -448,24 +452,42 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Ejemplo práctico:",
+      title:
+        'Ejemplo práctico <br/><p class="title md:text-5xl">Mi regla diaria</p>',
       headerEmoji: "water",
-      practicalHeading: "Mi regla diaria:",
+
+      practicalHeading: " ",
       scenarios: [
         {
-          condition:
-            "Base (día normal): apunto a 30–35 ml de líquidos por kilo al día, repartidos desde la mañana (no todo en la tarde).",
-          meals: [],
+          condition: "Base (día normal):",
+          meals: [
+            {
+              name: "Agua",
+              items: [
+                "30–35 ml por kilo al día, repartidos desde la mañana (no todo en la tarde)",
+              ],
+            },
+          ],
         },
         {
-          condition:
-            "Si entreno y sudo: mantengo esa base y meto electrolitos cuando hay calor, sudor alto o sesión larga.",
-          meals: [],
+          condition: "Si entreno y sudo:",
+          meals: [
+            {
+              name: "mantengo esa base y meto",
+              items: [
+                "electrolitos cuando hay calor, sudor alto o sesión larga.",
+              ],
+            },
+          ],
         },
         {
-          condition:
-            "Si el entreno lo pide (largo/intenso): una bebida tipo Gatorade entra con estrategia — hidratar + carbo + sales.",
-          meals: [],
+          condition: "Si el entreno lo pide (largo/intenso):",
+          meals: [
+            {
+              name: "una bebida tipo",
+              items: ["Gatorade con estrategia", "hidratar + carbo + sales."],
+            },
+          ],
         },
       ],
     },
@@ -476,7 +498,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     id: "hardcoded-10-c",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "preamble_checklist",
-    title: "Mini checklist:",
+    title: 'Mini checklist <br/><p class="title md:text-5xl">hidratación</p>',
     content: {
       title: "Mini checklist: hidratación",
       items: [
@@ -493,7 +515,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "reflection",
     content: {
-      title: "Reflexión: hidratación",
+      title: 'Reflexión <br/><p class="title md:text-5xl">hidratación</p>',
       questions: [
         "¿Tomo suficiente agua a lo largo del día, o solo cuando recuerdo?",
       ],
@@ -509,7 +531,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: "nutrition_guide",
     content: {
       title:
-        'Antojos, eventos sociales y el error mortal: "compensar con hambre"',
+        'Antojos, eventos sociales y el error mortal: <br/><p class="title md:text-5xl">"compensar con hambre"</p>',
       concept:
         'Evento, salida, reunión… y entonces: "no como en todo el día pa\' compensar". \n\nEso termina en atrácón nocturno, ansiedad y culpa. Yo ya no hago eso. \n\nYo cumplo mi plan normal. \n\nY si quiero un gusto, lo planeo.',
     },
@@ -521,21 +543,37 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
-      title: "Ejemplo práctico:",
+      title:
+        'Ejemplo práctico <br/><p class="title md:text-5xl">cómo lo manejo</p>',
       practicalHeading: "Cómo lo manejo:",
+      concept: "Yo como normal antes de salir. No me salto comidas.",
       scenarios: [
         {
-          condition: "Yo como normal antes de salir. No me salto comidas.",
-          meals: [],
+          condition:
+            'Si sé que la comida va a ser tarde, meto una "comida ancla" 60–90 min antes:',
+          meals: [
+            {
+              name: " algo pequeño pero responsable (proteína + un carbo fácil)",
+              items: [
+                "yogur + fruta",
+                "sanduche sencillo",
+                "arepita con huevo",
+                "arroz con algo de proteína",
+              ],
+            },
+          ],
         },
         {
-          condition:
-            'Si sé que la comida va a ser tarde, meto una "comida ancla" 60–90 min antes: algo pequeño pero responsable (proteína + un carbo fácil). Ej: yogur + fruta, sanduche sencillo, arepita con huevo, o arroz con algo de proteína (poquito, sin llenarme).',
-          meals: [],
+          condition: "En el evento, yo decido con cabeza:",
+          meals: [
+            {
+              name: "algo pequeño pero responsable (proteína + un carbo fácil), como lo que hay, pero moderado. No tengo que llegar a porque ese es el grave error.",
+              items: ["recuperar todo lo que no comí"],
+            },
+          ],
         },
         {
-          condition:
-            'En el evento, yo decido con cabeza: como lo que hay, pero moderado. No tengo que llegar a "recuperar todo lo que no comí", porque ese es el grave error.',
+          condition: " ",
           meals: [],
         },
       ],
@@ -544,10 +582,27 @@ export const hardcodedStage1Challenges: Challenge[] = [
     created_at: new Date().toISOString(),
   },
   {
+    id: "hardcoded-11-b",
+    stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
+    type: "nutrition_guide",
+    content: {
+      title:
+        'En el evento, <br/><p class="title md:text-5xl">yo decido con cabeza</p>',
+      practicalHeading: "Cómo lo manejo:",
+      concept:
+        "algo pequeño pero responsable (proteína + un carbo fácil), como lo que hay, pero moderado. recuperar todo lo que no comí,  No tengo que llegar a porque ese es el grave error.",
+
+      scenarios: [],
+    },
+    order_index: 25,
+    created_at: new Date().toISOString(),
+  },
+  {
     id: "hardcoded-11-c",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "preamble_checklist",
-    title: "Mini checklist:",
+    title:
+      'Mini checklist <br/><p class="title md:text-5xl">eventos sociales y comida</p>',
     content: {
       title: "Mini checklist:",
       items: [
@@ -566,7 +621,8 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "reflection",
     content: {
-      title: "Reflexión:",
+      title:
+        'Reflexión <br/><p class="title md:text-5xl">eventos sociales y comida</p>',
       questions: [
         "¿Cuándo fue la última vez que llegué a un evento con hambre y lo usé como excusa para comer de más?",
       ],
@@ -645,7 +701,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "preamble_checklist",
     content: {
-      title: "Resumen Fase 1",
+      title: 'Resumen br <br/><p class="title md:text-5xl">Fase 1</p>',
       preamble: "Si solo record\u00e1s 3 cosas de esta Fase 1...",
       items: [
         "Yo no elimino carbohidratos: los uso con estrategia seg\u00fan el entreno.",
@@ -800,7 +856,8 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "intro",
     content: {
-      title: "La nutrición hace parte del entrenamiento",
+      title:
+        'La nutrición hace<br/> parte  <p class="title md:text-5xl">del entrenamiento</p>',
       paragraphs: [
         "Hubo una \u00e9poca en la que yo pensaba que la nutrici\u00f3n en la bici era \u201calgo que se resuelve\u201d: un banano, un bocadillo, ag\u00fcita\u2026 y chao.",
         "Y mientras las salidas eran cortas, esa idea me funcionaba\u2026 o por lo menos cre\u00eda que me funcionaba.",
@@ -845,14 +902,44 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: "hardcoded-stage2-4",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "intro",
+    type: "nutrition_guide",
     content: {
+      practicalHeading: "Cada cosa tiene su momento",
       title: "Cada cosa tiene su momento",
-      paragraphs: [
-        "\u2022 En el bolsillo (energ\u00eda f\u00e1cil de dosificar):  Unas Gomitas Grizzly, porque es pr\u00e1ctico, r\u00e1pido y lo puedo distribuir en tandas.",
-        "\u2022 En la carama\u00f1ola (cuando el entreno lo pide): si hace calor, sudo mucho o la sesi\u00f3n es larga/intensa, una bebida tipo Gatorade puede ser una herramienta porque trae l\u00edquido + carbo + sales.",
-        "No es necesario meter bebidas con carbo \u201cporque s\u00ed\u201d en una salida corta y suave donde con agua vas bien.",
+      scenarios: [
+        {
+          condition: "En el bolsillo",
+          meals: [
+            {
+              name: "energia fácil de dosificar",
+              items: [
+                "Unas Gomitas Grizzly",
+                "porque es práctico,",
+                "rápido y lo puedo distribuir en tandas.",
+              ],
+            },
+          ],
+        },
+        {
+          condition: "En la caramañola",
+          meals: [
+            {
+              name: "cuando el entreno lo pide, si hace calor, sudo mucho o la sesión es larga/intensa",
+              items: [
+                "una bebida tipo Gatorade",
+                "puede ser una herramienta porque trae",
+                "líquido",
+                "+ ",
+                "carbo",
+                "+ ",
+                "sales.",
+              ],
+            },
+          ],
+        },
       ],
+      microTransition:
+        " no es necesario meter bebidas con carbo “porque sí” en una salida corta y suave donde con agua vas bien.",
     },
     order_index: 3,
     created_at: new Date().toISOString(),
@@ -860,18 +947,44 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: "hardcoded-stage2-5",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "intro",
+    type: "nutrition_guide",
     content: {
       title: "Cada cosa tiene su momento",
-      paragraphs: [
-        "\u2022 S\u00f3lido (solo si la intensidad lo permite): en un fondo suave (Z2) y si yo tolero s\u00f3lido, algo controlado tipo Crake\u00f1as puede funcionar. ",
-        " Eso sí, evitar masticar galletas en series o subidas duras cuando la respiraci\u00f3n est\u00e1 arriba (ah\u00ed manda lo f\u00e1cil de absorber).",
-        "\u2022 Al terminar (recuperaci\u00f3n de verdad): yo no \u201cveo qu\u00e9 aparece\u201d. Yo recupero con comida real: Arroz Sonora + pollo FRIKO, o Pasta La Mu\u00f1eca + prote\u00edna magra US MEAT.",
-        "No llegar a improvisar con fritos o cualquier cosa porque \u201cme lo gan\u00e9\u201d.",
+      practicalHeading: "Cada cosa tiene su momento",
+      scenarios: [
+        {
+          condition: "Sólido (solo si la intensidad lo permite)",
+          meals: [
+            {
+              name: "En un fondo suave (Z2) y si yo tolero sólido",
+              items: [
+                "Algo controlado tipo Crakeñas puede funcionar.",
+                "Eso sí, evitar masticar galletas en series o subidas duras cuando la respiración está arriba (ahí manda lo fácil de absorber).",
+              ],
+            },
+          ],
+        },
+        {
+          condition:
+            "Al terminar (recuperación de verdad): Yo no “veo qué aparece”",
+          meals: [
+            {
+              name: "",
+              items: [
+                "Yo recupero con comida real",
+                "Arroz Sonora",
+                " +",
+                "pollo FRIKO",
+                "o Pasta La Muñeca",
+                "+",
+                "proteína magra US MEAT.",
+                "No llegar a improvisar con fritos o cualquier cosa porque “me lo gané”.",
+              ],
+            },
+          ],
+        },
       ],
-      callout: {
-        text: "Se acab\u00f3 el \u201ca ver qu\u00e9 aparece\u201d.",
-      },
+      microTransition: "Se acab\u00f3 el \u201ca ver qu\u00e9 aparece\u201d.",
     },
     order_index: 4,
     created_at: new Date().toISOString(),
