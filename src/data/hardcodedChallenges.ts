@@ -317,6 +317,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "nutrition_guide",
     content: {
+      image: "/img/fu.png",
       title:
         'Proteína como ancla <br/><p class="title md:text-5xl">para no perder músculo</p>',
       concept:
@@ -783,8 +784,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "cta",
     content: {
-      title: "Tu camino en el Sistema ADA",
-      icon: "rocket",
+      title: "Tu siguiente paso",
       message:
         "Antes de pasar a la Fase 2, no quiero que esto se quede en \u201cqu\u00e9 bonito leer\u201d. Quiero que lo hag\u00e1s con estructura, y que lo sosteng\u00e1s.\n\nEn la siguiente tarjeta te cuento c\u00f3mo podemos hacerlo.",
       options: [],
@@ -906,8 +906,8 @@ export const hardcodedStage2Challenges: Challenge[] = [
     type: "nutrition_guide",
     content: {
       practicalHeading: "Cada cosa tiene su momento",
-      title:
-        'Cada cosa <br/> <p class="title md:text-5xl">tiene su momento</p>',
+      image: "/img/gg.png",
+      title: 'Cada cosa<br/> <p class="title md:text-5xl">tiene su momento</p>',
       scenarios: [
         {
           condition: "En el bolsillo",
@@ -951,6 +951,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "nutrition_guide",
     content: {
+      image: "/img/crakenas.png",
       title:
         'Cada cosa <br/> <p class="title md:text-5xl">tiene su momento</p>',
       practicalHeading: "Cada cosa tiene su momento",
@@ -967,6 +968,22 @@ export const hardcodedStage2Challenges: Challenge[] = [
             },
           ],
         },
+      ],
+      microTransition: "Se acab\u00f3 el \u201ca ver qu\u00e9 aparece\u201d.",
+    },
+    order_index: 4,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "hardcoded-stage2-5",
+    stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
+    type: "nutrition_guide",
+    content: {
+      image: "/img/pafu.png",
+      title:
+        'Cada cosa <br/> <p class="title md:text-5xl">tiene su momento</p>',
+      practicalHeading: "Cada cosa tiene su momento",
+      scenarios: [
         {
           condition:
             "Al terminar (recuperación de verdad): Yo no “veo qué aparece”",
@@ -1017,6 +1034,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "nutrition_guide",
     content: {
+      image: "/img/ac.png",
       title:
         'Pre-entreno: yo como seg\u00fan la zona <br/> <p class="title md:text-5xl">suave vs intenso</p>',
       concept:
@@ -1173,6 +1191,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "nutrition_guide",
     content: {
+      image: "/img/ggc.png",
       title:
         'Qu\u00e9 funciona mejor <br/> <p class="title md:text-5xl">seg\u00fan el tipo de esfuerzo</p>',
       practicalHeading: "Opciones:",
@@ -1505,6 +1524,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "nutrition_guide",
     content: {
+      image: "/img/fa.png",
       title:
         'Regla simple y <br/> <p class="title">ejemplos pr\u00e1cticos</p>',
       concept:
@@ -1516,10 +1536,27 @@ export const hardcodedStage2Challenges: Challenge[] = [
           meals: [
             {
               name: "",
-              items: ["Arroz Sonora", "+ Pollo FRIKO", "+ Ensalada"],
+              items: ["Arroz Sonora", "+", "Pollo FRIKO", "+", "Ensalada"],
             },
           ],
         },
+      ],
+      microTransition: "Si no va en el bolsillo, no existe: armemos kit.",
+    },
+    order_index: 22,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "hardcoded-stage2-21",
+    stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
+    type: "nutrition_guide",
+    content: {
+      image: "/img/pu.png",
+      title:
+        'Regla simple y <br/> <p class="title">ejemplos pr\u00e1cticos</p>',
+      concept: "",
+      practicalHeading: "Comidas reales:",
+      scenarios: [
         {
           condition: "Opci\u00f3n 2",
           meals: [
@@ -1527,8 +1564,10 @@ export const hardcodedStage2Challenges: Challenge[] = [
               name: "",
               items: [
                 "Pasta La Mu\u00f1eca",
-                "+ Carne magra US MEAT",
-                "+ Verduras",
+                "+",
+                "Carne magra US MEAT",
+                "+",
+                "Verduras",
               ],
             },
           ],
@@ -2301,8 +2340,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
     stage_id: "997d041d-857e-4183-a063-ba238caeed00",
     type: "intro",
     content: {
-      title:
-        'Descanso y organización <br/><p class="title">(48 horas antes)</p>',
+      title: 'Descanso y organización <br/><p class="title">48 horas antes</p>',
       list: [
         "Kit",
         "ropa",

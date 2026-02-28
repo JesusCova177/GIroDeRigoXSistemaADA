@@ -47,30 +47,17 @@ const CTACard: React.FC<CTACardProps> = ({
   currentStage,
 }) => {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-8 shadow-xl ">
       {(content.title || content.icon) && (
-        <div className="flex-shrink-0 flex items-center gap-3 mb-3">
-          {" "}
-          {/* flex-shrink-0 evita que el título se aplaste */}
-          <div className="bg-gradient-to-br from-[#FECC41] to-orange-500 p-2 rounded-lg shadow-[0_0_20px_rgba(251,191,36,0.3)]">
-            {content.icon === "zap" ? (
-              <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 fill-slate-900" />
-            ) : content.icon === "rocket" ? (
-              <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-            ) : (
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-            )}
-          </div>
-          <h3 className="text-3xl font-bold tracking-tight font-montserrat font-bolt text-[#31563c]">
-            {content.title}
-          </h3>
-        </div>
+        <h3 className="text-3xl font-bold tracking-tight font-timberwolf font-bolt text-[#31563c]">
+          {content.title}
+        </h3>
       )}
 
       <div className="flex-1 space-y-3 sm:space-y-4">
         {content.message && (
           <p
-            className="text-sm sm:text-base leading-relaxed whitespace-pre-line font-montserrat"
+            className="text-md text-[#31563c] font-semibold leading-relaxed whitespace-pre-line font-montserrat"
             dangerouslySetInnerHTML={{ __html: content.message }}
           />
         )}
