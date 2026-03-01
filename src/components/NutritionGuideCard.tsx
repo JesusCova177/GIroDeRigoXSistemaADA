@@ -69,7 +69,7 @@ export function NutritionGuideCard({
       <div className="space-y-4 self-start ml-4">
         {concept && (
           <p
-            className="leading-relaxed self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold"
+            className="leading-relaxed text-justify self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold"
             dangerouslySetInnerHTML={{ __html: concept }}
           />
         )}

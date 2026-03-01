@@ -118,7 +118,7 @@ export function ReflectionCard({
         {questions.map((question, index) => (
           <div
             key={index}
-            className={`bg-[#41563f] rounded-xl p-3 sm:p-4 backdrop-blur-sm transition-all duration-300 `}
+            className={`bg-[#607e5e] rounded-xl p-3 sm:p-4 backdrop-blur-sm transition-all duration-300 `}
           >
             <div className="flex items-start gap-2 mb-2 sm:mb-3">
               <div

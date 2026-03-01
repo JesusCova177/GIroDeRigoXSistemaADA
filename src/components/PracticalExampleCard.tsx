@@ -42,10 +42,10 @@ export function PracticalExampleCard({ content }: PracticalExampleCardProps) {
       </div>
 
       {/* Intro Texts */}
-      <div className="space-y-4 mb-6 text-center w-full px-2">
+      <div className="space-y-4 mb-4 text-center w-full px-2">
         {introText && (
           <p
-            className="text-base text-[#41563F] font-montserrat font-medium leading-relaxed whitespace-pre-line"
+            className="text-base text-[#41563F] text-justify font-montserrat font-medium leading-relaxed whitespace-pre-line"
             dangerouslySetInnerHTML={{ __html: introText }}
           />
         )}
