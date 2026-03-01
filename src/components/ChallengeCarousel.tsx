@@ -12,6 +12,7 @@ import CTACard from "./CTACard";
 import { PreambleChecklistCard } from "./PreambleChecklistCard";
 import { BifurcationCard } from "./BifurcationCard";
 import { NutritionGuideCard } from "./NutritionGuideCard";
+import { PracticalExampleCard } from "./PracticalExampleCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -375,6 +376,8 @@ export function ChallengeCarousel({
                     />
                   ) : challenge.type === "testimonial" ? (
                     <TestimonialCard content={content} />
+                  ) : challenge.type === "practical_example" ? (
+                    <PracticalExampleCard content={content} />
                   ) : challenge.type === "action_plan" ? (
                     <ActionPlanCard content={content} />
                   ) : challenge.type === "route" ||

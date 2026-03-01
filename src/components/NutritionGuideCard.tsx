@@ -56,6 +56,16 @@ export function NutritionGuideCard({
         />
       </div>
 
+      {image && (
+        <div className="w-full flex justify-center mb-6 p-4 rounded-2xl">
+          <img
+            src={image}
+            alt={title}
+            className="w-full max-w-[400px] h-auto object-contain rounded-xl"
+          />
+        </div>
+      )}
+
       <div className="space-y-4 self-start ml-4">
         {concept && (
           <p
@@ -127,16 +137,6 @@ export function NutritionGuideCard({
               </div>
             </div>
           ))}
-        </div>
-      )}
-
-      {image && (
-        <div className="w-full flex justify-center mb-6 p-4 rounded-2xl">
-          <img
-            src={image}
-            alt={title}
-            className="w-full max-w-[400px] h-auto object-contain rounded-xl"
-          />
         </div>
       )}
 

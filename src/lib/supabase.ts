@@ -1,26 +1,24 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
+  throw new Error("Missing Supabase environment variables");
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export async function getStageCardMapping(): Promise<Record<string, number>> {
   try {
-    const { data, error } = await supabase
-      .from('ada_stages_cards')
-      .select(`
+    const { data, error } = await supabase.from("ada_stages_cards").select(`
         id,
         ada_stages!inner ( name ),
         ada_cards!inner ( name )
       `);
 
     if (error) throw error;
-    
+
     // Returns Record<"StageName:CardName", id>
     const mapping = data.reduce((acc: Record<string, number>, item: any) => {
       const key = `${item.ada_stages.name}:${item.ada_cards.name}`;
@@ -28,10 +26,10 @@ export async function getStageCardMapping(): Promise<Record<string, number>> {
       return acc;
     }, {});
 
-    console.log('[getStageCardMapping] Generated mapping:', mapping);
+    console.log("[getStageCardMapping] Generated mapping:", mapping);
     return mapping;
   } catch (error) {
-    console.error('Error fetching stage card mapping:', error);
+    console.error("Error fetching stage card mapping:", error);
     return {};
   }
 }
@@ -45,13 +43,15 @@ export interface StageProgress {
   complete_date: string | null;
 }
 
-export async function upsertAdaUser(email: string): Promise<AdaUserProgress | null> {
+export async function upsertAdaUser(
+  email: string,
+): Promise<AdaUserProgress | null> {
   try {
     // 1. Check if user exists
     const { data: existingUser, error: searchError } = await supabase
-      .from('ada_users')
-      .select('id')
-      .eq('correo', email)
+      .from("ada_users")
+      .select("id")
+      .eq("correo", email)
       .maybeSingle();
 
     if (searchError) throw searchError;
@@ -61,58 +61,58 @@ export async function upsertAdaUser(email: string): Promise<AdaUserProgress | nu
     if (existingUser) {
       // 2. Update existing user
       const { error: updateError } = await supabase
-        .from('ada_users')
-        .update({ 
+        .from("ada_users")
+        .update({
           update_at: new Date().toISOString(),
-          dispositivo: device 
+          dispositivo: device,
         })
-        .eq('id', existingUser.id);
-      
+        .eq("id", existingUser.id);
+
       if (updateError) throw updateError;
-      console.log('ADA User updated:', existingUser.id);
+      console.log("ADA User updated:", existingUser.id);
       return { id: existingUser.id };
     } else {
       // 3. Insert new user
       const { data: newUser, error } = await supabase
-        .from('ada_users')
+        .from("ada_users")
         .insert({
           correo: email,
           dispositivo: device,
           created_at: new Date().toISOString(),
-          update_at: new Date().toISOString()
+          update_at: new Date().toISOString(),
         })
-        .select('id')
+        .select("id")
         .single();
-      
+
       if (error) throw error;
-      
+
       if (newUser) {
         return { id: newUser.id };
       }
       return null;
     }
   } catch (error) {
-    console.error('Error upserting ADA user:', error);
+    console.error("Error upserting ADA user:", error);
     return null;
   }
 }
 
 export async function getUserStageProgress(
   userId: number,
-  stageNumber: number
+  stageNumber: number,
 ): Promise<StageProgress | null> {
   try {
     const { data, error } = await supabase
-      .from('ada_user_stage_progress')
-      .select('last_card_index, complete_date')
-      .eq('user_id', userId)
-      .eq('stage_number', stageNumber)
+      .from("ada_user_stage_progress")
+      .select("last_card_index, complete_date")
+      .eq("user_id", userId)
+      .eq("stage_number", stageNumber)
       .maybeSingle();
 
     if (error) throw error;
     return data || { last_card_index: 0, complete_date: null };
   } catch (error) {
-    console.error('Error fetching stage progress:', error);
+    console.error("Error fetching stage progress:", error);
     return null;
   }
 }
@@ -121,32 +121,37 @@ export async function updateUserStageProgress(
   userId: number,
   stageNumber: number,
   cardIndex: number,
-  isCompleted?: boolean
+  isCompleted?: boolean,
 ) {
   try {
     const updateData: any = {
       last_card_index: cardIndex,
-      update_at: new Date().toISOString()
+      update_at: new Date().toISOString(),
     };
 
     if (isCompleted) {
       updateData.complete_date = new Date().toISOString();
     }
 
-    const { error } = await supabase
-      .from('ada_user_stage_progress')
-      .upsert({
+    const { error } = await supabase.from("ada_user_stage_progress").upsert(
+      {
         user_id: userId,
         stage_number: stageNumber,
-        ...updateData
-      }, {
-        onConflict: 'user_id, stage_number'
-      });
+        ...updateData,
+      },
+      {
+        onConflict: "user_id, stage_number",
+      },
+    );
 
     if (error) throw error;
-    console.log('[updateUserStageProgress] Progress saved:', { stageNumber, cardIndex, isCompleted });
+    console.log("[updateUserStageProgress] Progress saved:", {
+      stageNumber,
+      cardIndex,
+      isCompleted,
+    });
   } catch (error) {
-    console.error('Error updating user stage progress:', error);
+    console.error("Error updating user stage progress:", error);
   }
 }
 
@@ -154,46 +159,54 @@ export async function saveAdaResponse(
   userId: number,
   typeSelectionId: number,
   challengeId: string,
-  resUser: any
+  resUser: any,
 ) {
   try {
-    console.log('[saveAdaResponse] Saving (upsert):', { userId, typeSelectionId, challengeId, resUser });
+    console.log("[saveAdaResponse] Saving (upsert):", {
+      userId,
+      typeSelectionId,
+      challengeId,
+      resUser,
+    });
 
-    const { error } = await supabase
-      .from('ada_user_selection')
-      .upsert({
+    const { error } = await supabase.from("ada_user_selection").upsert(
+      {
         user_id: userId,
         type_selection_id: typeSelectionId,
         challenge_id: challengeId,
         res_user: resUser,
-        update_at: new Date().toISOString()
-      }, {
-        onConflict: 'user_id, challenge_id'
-      });
+        update_at: new Date().toISOString(),
+      },
+      {
+        onConflict: "user_id, challenge_id",
+      },
+    );
 
     if (error) throw error;
-    console.log('[saveAdaResponse] Save successful for:', challengeId);
+    console.log("[saveAdaResponse] Save successful for:", challengeId);
   } catch (error) {
-    console.error('Error saving ADA response:', error);
+    console.error("Error saving ADA response:", error);
   }
 }
 
 export async function getUserSelectionsForStage(
   userId: number,
-  stageNumber: number
+  stageNumber: number,
 ): Promise<Record<string, any>> {
   try {
     // Load ALL selections for this user. We use challenge.id (e.g. "hardcoded-5")
     // directly as the key — no prefix filtering needed.
     const { data, error } = await supabase
-      .from('ada_user_selection')
-      .select('challenge_id, res_user')
-      .eq('user_id', userId)
-      .not('challenge_id', 'is', null);
+      .from("ada_user_selection")
+      .select("challenge_id, res_user")
+      .eq("user_id", userId)
+      .not("challenge_id", "is", null);
 
     if (error) throw error;
-    
-    console.log(`[getUserSelectionsForStage] Loaded ${data?.length ?? 0} selections for user ${userId}`);
+
+    console.log(
+      `[getUserSelectionsForStage] Loaded ${data?.length ?? 0} selections for user ${userId}`,
+    );
 
     // Return a map of challenge_id -> resUser
     return (data || []).reduce((acc: Record<string, any>, item: any) => {
@@ -203,7 +216,7 @@ export async function getUserSelectionsForStage(
       return acc;
     }, {});
   } catch (error) {
-    console.error('Error fetching user selections for stage:', error);
+    console.error("Error fetching user selections for stage:", error);
     return {};
   }
 }
@@ -222,96 +235,123 @@ export interface Stage {
 export interface Challenge {
   id: string;
   stage_id: string;
-  type: 'checklist' | 'reflection' | 'combined' | 'phase_importance' | 'action_plan' | 'cta' | 'intro' | 'nutrition_guide' | 'preamble_checklist' | 'testimonial' | 'bifurcation' | 'route';
+  type:
+    | "checklist"
+    | "reflection"
+    | "combined"
+    | "phase_importance"
+    | "action_plan"
+    | "cta"
+    | "intro"
+    | "nutrition_guide"
+    | "practical_example"
+    | "preamble_checklist"
+    | "testimonial"
+    | "bifurcation"
+    | "route";
   title?: string;
-  content: string[] | {
-    title?: string;
-    subtitle?: string;
-    preamble?: string;
-    checklist?: string[];
-    reflections?: string[];
-    sections?: Array<{
-      icon: string;
-      title: string;
-      content: string;
-    }>;
-    sectionsTitle?: string;
-    keyTakeaways?: string[];
-    phases?: Array<{
-      title: string;
-      items: string[];
-    }>;
-    message?: string;
-    options?: Array<{
-      title: string;
-      subtitle?: string;
-      description: string;
-      buttonText: string;
-      buttonUrl?: string;
-      isPrimary?: boolean;
-    }>;
-    transition?: {
-      text: string;
-      buttonText: string;
-      buttonUrl: string;
-    };
-    list?: string[];
-    icon?: string;
-    paragraphs?: string[];
-    // Testimonial fields
-    person?: {
-      name: string;
-      initial: string;
-      duration: string;
-    };
-    strategy?: {
-      intro: string;
-      items: string[];
-      conclusion: string;
-    };
-    videoEmbed?: string;
-    concept?: string;
-    practicalHeading?: string;
-    variant?: string;
-    header?: {
-      distance: string;
-      ascent: string;
-      maxAlt: string;
-      label: string;
-    };
-    image?: string;
-    scenarios?: Array<{
-      condition: string;
-      meals: Array<{
-        name: string;
-        items: string[];
-      }> | string[];
-    }>;
-    microTransition?: string;
-    quote?: string;
-    author?: string;
-    context?: string;
-    actions?: Array<{ title: string; description: string }> | string[];
-    points?: Array<{ title: string; description: string }> | string[];
-    items?: string[];
-    questions?: string[];
-    intro?: string;
-    videoId?: string;
-    routes?: Array<{ routeId: string; name: string; description: string; details?: any }>;
-    question?: string;
-    headerEmoji?: string;
-    description?: string;
-    finalNote?: string;
-    role?: string;
-    metrics?: Array<{ label: string; value: string; icon?: string; color?: string }>;
-    footer?: string | { title: string; message: string };
-    callout?: {
-      text: string;
-      bgColor?: string;
-      borderColor?: string;
-      textColor?: string;
-    };
-  };
+  content:
+    | string[]
+    | {
+        title?: string;
+        subtitle?: string;
+        preamble?: string;
+        checklist?: string[];
+        reflections?: string[];
+        sections?: Array<{
+          icon: string;
+          title: string;
+          content: string;
+        }>;
+        sectionsTitle?: string;
+        keyTakeaways?: string[];
+        phases?: Array<{
+          title: string;
+          items: string[];
+        }>;
+        message?: string;
+        options?: Array<{
+          title: string;
+          subtitle?: string;
+          description: string;
+          buttonText: string;
+          buttonUrl?: string;
+          isPrimary?: boolean;
+        }>;
+        transition?: {
+          text: string;
+          buttonText: string;
+          buttonUrl: string;
+        };
+        list?: string[];
+        icon?: string;
+        paragraphs?: string[];
+        // Testimonial fields
+        person?: {
+          name: string;
+          initial: string;
+          duration: string;
+        };
+        strategy?: {
+          intro: string;
+          items: string[];
+          conclusion: string;
+        };
+        videoEmbed?: string;
+        concept?: string;
+        practicalHeading?: string;
+        variant?: string;
+        header?: {
+          distance: string;
+          ascent: string;
+          maxAlt: string;
+          label: string;
+        };
+        image?: string;
+        scenarios?: Array<{
+          condition: string;
+          meals:
+            | Array<{
+                name: string;
+                items: string[];
+              }>
+            | string[];
+        }>;
+        microTransition?: string;
+        quote?: string;
+        author?: string;
+        context?: string;
+        actions?: Array<{ title: string; description: string }> | string[];
+        points?: Array<{ title: string; description: string }> | string[];
+        items?: string[];
+        questions?: string[];
+        intro?: string;
+        videoId?: string;
+        routes?: Array<{
+          routeId: string;
+          name: string;
+          description: string;
+          details?: any;
+        }>;
+        question?: string;
+        headerEmoji?: string;
+        description?: string;
+        finalNote?: string;
+        role?: string;
+        metrics?: Array<{
+          label: string;
+          value: string;
+          icon?: string;
+          color?: string;
+        }>;
+        footer?: string | { title: string; message: string };
+        callout?: {
+          text: string;
+          bgColor?: string;
+          borderColor?: string;
+          textColor?: string;
+        };
+      };
   order_index: number;
   created_at: string;
 }

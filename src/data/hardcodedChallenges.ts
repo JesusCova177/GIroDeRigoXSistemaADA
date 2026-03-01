@@ -82,31 +82,29 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: "hardcoded-4-b",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      title:
-        'Ejemplo práctico <br/><p class="title md:text-5xl">lo que yo hago</p>',
-      image: "/img/fhda.png",
-      practicalHeading: "Según el día:",
-      concept:
+      title: "EJEMPLO PRÁCTICO",
+      subtitle: "LO QUE YO HAGO",
+      introText:
         "Si hoy tengo un entrenamiento suave o es día de descanso, lo aprovecho para comer más limpio y estable:",
-      scenarios: [
+      mainCondition: "Día suave o descanso",
+      frameBlocks: [
         {
-          condition: "Día suave o descanso:",
-          meals: [
-            {
-              name: "Desayuno",
-              items: ["Huevos 100%", "Arepa Don Maíz", "Fruta"],
-            },
-            {
-              name: "Almuerzo",
-              items: [
-                "Pechuga de pollo FRIKO",
-                "Verduras",
-                "Porción controlada de Arroz Sonora",
-              ],
-            },
+          condition: "Desayuno",
+          items: ["Huevos", "Arepa", "Fruta"],
+          showCheckmarks: true, // Esto enciende los "check" verdes que tiene la imagen a la derecha
+          image: ["/img/100-huevos.png", "/img/don-maiz.png"], // Puedes usar un string único o enviarle múltiples logotipos al bloque
+        },
+        {
+          condition: "Almuerzo:",
+          items: [
+            "Pechuga de pollo",
+            "Verduras",
+            "Porción controlada de arroz",
           ],
+          showCheckmarks: true, // Esto enciende los checks
+          image: "/img/logo-friko-sonora.png", // O un arreglo con ["/img/friko.png", "/img/sonora.png"]
         },
       ],
     },
@@ -117,26 +115,24 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: "hardcoded-4-b2",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      title: 'Ejemplo práctico <br/><p class="title">lo que yo hago</p>',
-      image: "/img/corpohas.png",
-      practicalHeading: "Según el día:",
-      scenarios: [
+      title: "EJEMPLO PRÁCTICO",
+      subtitle: "LO QUE YO HAGO",
+      introText: "Si el entreno es <strong>más intenso</strong>", // Puedes usar negritas de HTML opcional
+      mainCondition: "",
+      frameBlocks: [
         {
-          condition: "Si el entreno es más intenso:",
-          meals: [
-            {
-              name: "Le sumo",
-              items: [
-                "Aguacate Corpohass",
-                "Más carbohidrato",
-                "Pastas La Muñeca",
-                "Papa",
-                "Yuca",
-              ],
-            },
-          ],
+          condition: "Le sumo:",
+          items: ["Aguacate"],
+          showCheckmarks: false,
+          image: "/img/corpohass.png", // Ruta de tu imagen combinada o el de corpohass
+        },
+        {
+          condition: "Más carbohidrato",
+          items: ["Papa", "Yuca"], // Renderiza botones al lado del otro
+          showCheckmarks: false,
+          image: "/img/pastas-muneca.png",
         },
       ],
     },
@@ -243,20 +239,30 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: "hardcoded-6-b",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "intro",
+    type: "practical_example",
     content: {
-      image: "/img/afun.png",
-      practicalHeading: "Según el día:",
-      title:
-        'Ejemplo práctico <br/><p class="title md:text-5xl">post-entreno real</p>',
-      paragraphs: [
-        "Si estoy apurado, un batido con fruta me salva… pero mi base es comida real.",
-        "Opción 1: <ul class='list'><li>Arroz</li><li>Sonora pechuga FRIKO</li><li>Ensalada</li></ul>",
-        "Opción 2: <ul class='list'><li>Pasta La Muñeca (porción medida)</li><li>Carne magra US MEAT</li><li>Verduras</li></ul>",
+      title: "EJEMPLO PRÁCTICO",
+      subtitle: "POST-ENTRENO REAL",
+      introText:
+        "Si estoy apurado, un batido con fruta me salva... pero mi base es comida real.",
+      frameBlocks: [
+        {
+          condition: "Opción 1:",
+          items: ["Arroz", "Sonora pechuga FRIKO", "Ensalada"],
+          showCheckmarks: false,
+          image: ["/img/logo-friko-sonora.png"],
+        },
+        {
+          condition: "Opción 2:",
+          items: [
+            "Pasta La Muñeca (porción medida)",
+            "Carne magra US MEAT",
+            "Verduras",
+          ],
+          showCheckmarks: false,
+          image: ["/img/pastas-muneca.png", "/img/us-meat.png"],
+        },
       ],
-      callout: {
-        text: "cosa por desesperación.",
-      },
     },
     order_index: 8,
     created_at: new Date().toISOString(),
@@ -319,24 +325,30 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: "hardcoded-8-b",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      image: "/img/huf.png",
-      title:
-        'Ejemplo práctico <br/><p class="title md:text-5xl">día normal</p>',
-      practicalHeading: "Distribución del día:",
-      scenarios: [
+      title: "EJEMPLO PRÁCTICO",
+      subtitle: "DÍA NORMAL",
+      introText: "",
+      mainCondition: "",
+      frameBlocks: [
         {
           condition: "Desayuno:",
-          meals: ["Huevos 100%"],
+          items: ["Huevos 100%"],
+          showCheckmarks: false,
+          image: ["/img/100-huevos.png"],
         },
         {
           condition: "Almuerzo:",
-          meals: ["pollo FRIKO", "carne magra US MEAT"],
+          items: ["pollo FRIKO", "carne magra US MEAT"],
+          showCheckmarks: false,
+          image: ["/img/logo-friko-sonora.png", "/img/us-meat.png"],
         },
         {
           condition: "Cena:",
-          meals: ["proteína limpia + verduras", "carbo según el entreno"],
+          items: ["proteína limpia + verduras", "carbo según el entreno"],
+          showCheckmarks: false,
+          image: [],
         },
       ],
     },
@@ -439,45 +451,38 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: "hardcoded-10-b",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      title:
-        'Ejemplo práctico <br/><p class="title md:text-5xl">Mi regla diaria</p>',
-      headerEmoji: "water",
-      image: "/img/gatorade.webp",
-
-      practicalHeading: " ",
-      scenarios: [
+      title: "EJEMPLO PRÁCTICO",
+      subtitle: "MI REGLA DIARIA",
+      introText: "",
+      mainCondition: "",
+      frameBlocks: [
         {
           condition: "Base (día normal):",
-          meals: [
-            {
-              name: "Agua",
-              items: [
-                "30–35 ml por kilo al día, repartidos desde la mañana (no todo en la tarde)",
-              ],
-            },
+          items: [
+            "Agua:",
+            "30–35 ml por kilo al día, repartidos desde la mañana (no todo en la tarde)",
           ],
+          showCheckmarks: false,
+          image: ["/img/gatorade.webp"], // Ajusta la ruta dependiendo de cómo esté el logo en public/img
         },
         {
           condition: "Si entreno y sudo:",
-          meals: [
-            {
-              name: "mantengo esa base y meto",
-              items: [
-                "electrolitos cuando hay calor, sudor alto o sesión larga.",
-              ],
-            },
+          items: [
+            "mantengo esa base y meto:",
+            "electrolitos cuando hay calor, sudor alto o sesión larga.",
           ],
+          showCheckmarks: false,
         },
         {
           condition: "Si el entreno lo pide (largo/intenso):",
-          meals: [
-            {
-              name: "una bebida tipo",
-              items: ["Gatorade con estrategia", "hidratar + carbo + sales."],
-            },
+          items: [
+            "una bebida tipo:",
+            "Gatorade con estrategia",
+            "hidratar + carbo + sales.",
           ],
+          showCheckmarks: false,
         },
       ],
     },
@@ -531,27 +536,23 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: "hardcoded-11-b",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      title:
-        'Ejemplo práctico <br/><p class="title md:text-5xl">cómo lo manejo</p>',
-      practicalHeading: "Cómo lo manejo:",
-      concept: "Yo como normal antes de salir. No me salto comidas.",
-      scenarios: [
+      title: "EJEMPLO PRÁCTICO",
+      subtitle: "CÓMO LO MANEJO",
+      introText:
+        "Yo como normal antes de salir. No me salto comidas.\nSi sé que la comida va a ser tarde, meto una comida ancla 60–90 min antes:\n\nalgo pequeño pero responsable ",
+      mainCondition: "",
+      frameBlocks: [
         {
-          condition:
-            'Si sé que la comida va a ser tarde, meto una "comida ancla" 60–90 min antes:',
-          meals: [
-            {
-              name: " algo pequeño pero responsable (proteína + un carbo fácil)",
-              items: [
-                "yogur + fruta",
-                "sanduche sencillo",
-                "arepita con huevo",
-                "arroz con algo de proteína",
-              ],
-            },
+          condition: "proteína + un carbo fácil:",
+          items: [
+            "yogur + fruta",
+            "sanduche sencillo",
+            "arepita con huevo",
+            "arroz con algo de proteína",
           ],
+          showCheckmarks: false,
         },
       ],
     },
