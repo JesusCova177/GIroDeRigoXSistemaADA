@@ -97,9 +97,7 @@ export function BifurcationCard({
           <h2 className="text-3xl font-timberwolf font-black text-[#F04E96] italic uppercase mb-2">
             ¿Cuál reto vas a hacer en La Sucursal?
           </h2>
-          <p className="text-base text-[#41563F] font-montserrat font-medium">
-            {question}
-          </p>
+          <p className="">{question}</p>
         </div>
       </div>
 

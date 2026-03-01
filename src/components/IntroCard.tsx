@@ -1,5 +1,6 @@
 interface IntroCardContent {
   title: string;
+  image?: string;
   paragraphs: string[];
   list?: string[];
   footer?: string;
@@ -18,7 +19,7 @@ interface IntroCardProps {
 }
 
 export function IntroCard({ content }: IntroCardProps) {
-  const { title, paragraphs, list, footer, callout } = content;
+  const { title, image, paragraphs, list, footer, callout } = content;
 
   return (
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
@@ -33,7 +34,7 @@ export function IntroCard({ content }: IntroCardProps) {
         {paragraphs?.map((paragraph, index) => (
           <p
             key={index}
-            className="leading-relaxed self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold"
+            className="leading-relaxed self-start text-justify text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold"
             dangerouslySetInnerHTML={{ __html: paragraph }}
           />
         ))}
@@ -59,14 +60,24 @@ export function IntroCard({ content }: IntroCardProps) {
 
       {callout && (
         <div
-          className={`flex items-center mt-6 p-2 rounded-2xl border-2 ${callout.bgColor || "bg-[#31563c]"}`}
+          className={`flex items-center mt-6 p-2 rounded-2xl  ${callout.bgColor || "bg-[#ebf3dc]"}`}
         >
           <p
-            className={`font-semibold ${callout.textColor || "text-[#f8fbf2]"} text-center ${callout.borderColor ? "border " + callout.borderColor : "border-[#899788]"} rounded-lg px-3 py-2`}
+            className={`font-normal text- ${callout.textColor || "text-[#31563c]"} text-center ${callout.borderColor ? "border " + callout.borderColor : "border-[#899788]"} rounded-lg px-3 py-2`}
           >
             {callout.text}
           </p>
-          <ChevronRight className="w-5 h-5 text-white flex-shrink-0" />
+          <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
+        </div>
+      )}
+
+      {image && (
+        <div className="w-full flex justify-center mb-6 p-4 rounded-2xl">
+          <img
+            src={image}
+            alt={title}
+            className="w-full max-w-[400px] h-auto object-contain rounded-xl"
+          />
         </div>
       )}
     </div>

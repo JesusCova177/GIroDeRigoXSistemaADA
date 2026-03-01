@@ -49,12 +49,12 @@ const CTACard: React.FC<CTACardProps> = ({
   return (
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-8 shadow-xl ">
       {(content.title || content.icon) && (
-        <h3 className="text-3xl font-bold tracking-tight font-timberwolf font-bolt text-[#31563c]">
+        <h3 className="text-3xl mb-4 font-bold tracking-tight font-timberwolf font-bolt text-[#31563c]">
           {content.title}
         </h3>
       )}
 
-      <div className="flex-1 space-y-3 sm:space-y-4">
+      <div className="flex-1 space-y-3 sm:space-y-4 ">
         {content.message && (
           <p
             className="text-md text-[#31563c] font-semibold leading-relaxed whitespace-pre-line font-montserrat"
@@ -63,11 +63,17 @@ const CTACard: React.FC<CTACardProps> = ({
         )}
 
         {content.options && content.options.length > 0 && (
-          <div className="p-4 bg-white rounded-xl shadow-md">
-            <span>Dentro del</span>
-            <img src="/img/giroderigoweb_.webp" alt="" />
-            <span> tenes 2 caminos</span>
-
+          <div className="p-4 bg-white  rounded-xl shadow-md">
+            <div className="flex flex-col items-center gap-2 mb-2">
+              <span className="font-montserrat font-semibold text-md text-gray-400">
+                Dentro del
+              </span>
+              <img src="/img/sistemaada.png" alt="" className="h-auto w-40" />
+              <span className="font-montserrat font-semibold">
+                {" "}
+                tenes 2 caminos
+              </span>
+            </div>
             <div className="space-y-3">
               {content.options.map((option, index) => (
                 <div
@@ -109,7 +115,7 @@ const CTACard: React.FC<CTACardProps> = ({
                     }}
                     className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all hover:gap-3 ${
                       option.isPrimary
-                        ? "bg-white text-emerald-700 hover:bg-emerald-50"
+                        ? "bg-amber-500 text-slate-900 hover:bg-amber-400"
                         : "bg-amber-500 text-slate-900 hover:bg-amber-400"
                     }`}
                   >
@@ -151,7 +157,7 @@ const CTACard: React.FC<CTACardProps> = ({
           <div className="pt-6 mt-4 border-t border-slate-200">
             <button
               onClick={() => onNavigateToStage(currentStage + 1)}
-              className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:from-emerald-500 hover:to-teal-600 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-emerald-900/20"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all hover:gap-3 bg-amber-500 text-slate-900 hover:bg-amber-400"
             >
               Siguiente Etapa
               <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />

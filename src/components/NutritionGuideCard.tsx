@@ -44,7 +44,6 @@ export function NutritionGuideCard({
   scenarios,
   microTransition,
   microTransitionScenarios,
-  headerEmoji,
   rule,
   list,
 }: NutritionGuideCardProps) {
@@ -57,25 +56,17 @@ export function NutritionGuideCard({
         />
       </div>
 
-      {image && (
-        <div className="w-full flex justify-center mb-6 bg-[#637c60] p-4 rounded-2xl">
-          <img
-            src={image}
-            alt={title}
-            className="w-full max-w-[400px] h-auto object-contain rounded-xl"
+      <div className="space-y-4 self-start ml-4">
+        {concept && (
+          <p
+            className="leading-relaxed self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold"
+            dangerouslySetInnerHTML={{ __html: concept }}
           />
-        </div>
-      )}
-
-      {concept && (
-        <p
-          className="text-lg text-md text-justify whitespace-pre-line text-[#41563F] leading-relaxed font-montserrat font-medium "
-          dangerouslySetInnerHTML={{ __html: concept }}
-        />
-      )}
+        )}
+      </div>
 
       {list && list.length > 0 && (
-        <ul className="w-full text-lg text-[#41563F] leading-relaxed font-montserrat font-medium list-disc pl-6 space-y-2 mb-6">
+        <ul className="w-full mt-2 ml-12 text-lg text-[#31563c] leading-relaxed font-montserrat font-semibold list-disc pl-6 space-y-2 mb-6">
           {list.map((item, index) => (
             <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
           ))}
@@ -83,7 +74,7 @@ export function NutritionGuideCard({
       )}
 
       {practicalHeading && (
-        <div className="flex flex-col gap-1 mt-2 mb-4">
+        <div className="flex flex-col gap-1  mt-2 mb-4">
           <div className="flex items-center gap-2 mb-4"></div>
           {(scenarios ?? []).map((scenario, scenarioIndex) => (
             <div
@@ -139,6 +130,16 @@ export function NutritionGuideCard({
         </div>
       )}
 
+      {image && (
+        <div className="w-full flex justify-center mb-6 p-4 rounded-2xl">
+          <img
+            src={image}
+            alt={title}
+            className="w-full max-w-[400px] h-auto object-contain rounded-xl"
+          />
+        </div>
+      )}
+
       {microTransition && (
         <div className="flex items-center gap-3 border-2  bg-[#41563f] p-4 rounded-xl">
           <div className="flex-1">
@@ -158,7 +159,7 @@ export function NutritionGuideCard({
                         {scenario.condition && (
                           <div className="flex items-center gap-4 m-2">
                             <TrendingUp className="w-4 h-4 text-yellow-500 flex-shrink-0 mt-0.5" />
-                            <p className="text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,1.2rem)] whitespace-pre-line text-yellow-800 italic">
+                            <p className="text-md whitespace-pre-line text-yellow-800 italic">
                               {scenario.condition}
                             </p>
                           </div>
@@ -181,7 +182,7 @@ export function NutritionGuideCard({
                               return (
                                 <div key={mealIndex} className="space-y-1">
                                   {meal.name && (
-                                    <p className="leading-relaxed text-[clamp(0.8rem,3vw,1rem)] md:text-[clamp(1rem,2vw,2rem)] whitespace-pre-line font-montserrat text-yellow-900">
+                                    <p className="leading-relaxed text-md whitespace-pre-line font-montserrat text-yellow-900">
                                       {meal.name}:
                                     </p>
                                   )}
@@ -235,7 +236,7 @@ export function NutritionGuideCard({
                     <X className="w-5 h-5 stroke-[3]" />
                   )}
                 </div>
-                <p className="font-montserrat font-semibold text-lg text-[#3d5a37]">
+                <p className="font-montserrat font-semibold text-md text-[#3d5a37]">
                   {item.text}
                 </p>
               </div>

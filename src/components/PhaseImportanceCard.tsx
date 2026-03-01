@@ -49,7 +49,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
               </h3>
             </div>
             <div className="pl-12 sm:pl-14">
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line font-montserrat">
+              <p className="leading-relaxed self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold">
                 {section.content}
               </p>
             </div>

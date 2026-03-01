@@ -28,7 +28,7 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
   };
 
   return (
-    <div className="absolute top-1/2 left-1/2 transform scale-[85%] md:scale-90 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center  ">
+    <div className="absolute top-1/2 left-1/2 transform scale-[90%] md:scale-90 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center  ">
       <img
         src="./img/giroderigoweb_.webp"
         alt=""
@@ -38,7 +38,7 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
         ¡bienvenidos al!
       </h2>
       <img
-        src="./img/giroderigoweb.webp"
+        src="./img/roadmaplogo.png"
         alt=""
         className="h-48 w-auto mb-6 md:w-[14rem] md:h-auto"
       />

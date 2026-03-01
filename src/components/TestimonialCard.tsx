@@ -113,7 +113,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
   return (
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       <div className="w-full relative z-10">
-        <div className="flex  items-center mb-6">
+        <div className="flex  items-center justify-center gap-4 ">
           <div className="p-2 bg-[#F04E96] rounded-full shadow-md mb-4">
             <Quote className="w-6 h-6 text-white" />
           </div>
@@ -124,11 +124,13 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
             />
           </div>
         </div>
-        {intro && (
-          <p className="text-lg text-justify text-[#41563F] leading-relaxed font-montserrat font-medium mb-4 whitespace-pre-line">
-            {intro}
-          </p>
-        )}
+        <div className="space-y-4 ml-4 self-start">
+          {intro && (
+            <p className="text-md text-justify text-[#31563c] leading-relaxed font-montserrat font-semibold mb-4 whitespace-pre-line">
+              {intro}
+            </p>
+          )}
+        </div>
 
         {metrics.length > 0 && (
           <div className="grid grid-cols-1 gap-3 mb-6">

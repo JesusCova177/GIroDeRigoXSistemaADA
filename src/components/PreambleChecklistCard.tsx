@@ -84,9 +84,9 @@ export function PreambleChecklistCard({
       </div>
 
       {preamble && (
-        <div className="mb-4 sm:mb-6   rounded-lg p-3 sm:p-4">
+        <div className="space-y-4 self-start ml-4 mb-2">
           <div className="flex items-start gap-2 sm:gap-3">
-            <p className="text-md font-medium text-[#41563f] leading-relaxed whitespace-pre-line">
+            <p className="leading-relaxed self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold">
               {preamble}
             </p>
           </div>
@@ -119,7 +119,7 @@ export function PreambleChecklistCard({
               )}
             </div>
             <span
-              className={`flex-1 text-md sm:text-sm text-gray-700 transition-all duration-200 ${
+              className={`flex-1 text-md sm:text-sm text-[#31563c] transition-all duration-200 ${
                 checkedItems.has(index)
                   ? "line-through text-gray-400"
                   : "group-hover:text-gray-900 group-hover:translate-x-1"

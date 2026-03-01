@@ -28,6 +28,7 @@
     padding: 0;
     scrollbar-width: none;
     touch-action: none;
+    background-color: #f8fbf2;
   }
 
   #root {
@@ -68,6 +69,12 @@
 
   .adjust-title {
     font-size: 1.4rem;
+  }
+
+  .list {
+    list-style-type: none;
+    margin-left: 2.4rem;
+    margin-top: 0.6rem;
   }
 }
 

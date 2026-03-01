@@ -66,7 +66,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
                       <span className="text-[#F04E96] font-bold text-lg flex-shrink-0 mt-[-2px]">
                         •
                       </span>
-                      <span className="text-sm sm:text-base text-[#f8fbf2] leading-relaxed font-montserrat font-medium">
+                      <span className="text-md sm:text-base text-[#f8fbf2] leading-relaxed font-montserrat font-semibold">
                         {item}
                       </span>
                     </li>
@@ -84,7 +84,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#F04E96] text-white flex items-center justify-center font-bold text-sm mt-0.5 shadow-sm font-montserrat">
                       {index + 1}
                     </span>
-                    <span className="text-sm sm:text-base text-[#41563F] leading-relaxed font-medium font-montserrat">
+                    <span className="text-md sm:text-base text-[#41563F] leading-relaxed font-semibold font-montserrat">
                       {action}
                     </span>
                   </li>
@@ -98,7 +98,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
       {content.footer && (
         <div className="mt-8 pt-4 w-full border-t border-[#41563F]/10">
           <div className="bg-[#41563F] rounded-xl p-4 shadow-md text-center">
-            <p className="text-sm sm:text-base font-black text-[#f8fbf2] uppercase italic tracking-wide leading-relaxed font-builttitling">
+            <p className="text-md sm:text-base font-black text-[#f8fbf2] uppercase italic tracking-wide leading-relaxed font-builttitling">
               {content.footer}
             </p>
           </div>

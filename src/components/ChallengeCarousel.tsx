@@ -393,7 +393,7 @@ export function ChallengeCarousel({
                     />
                   ) : (
                     <div className="bg-white rounded-2xl shadow p-6">
-                      <p className="text-gray-500">
+                      <p className="leading-relaxed self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold">
                         Card type {challenge.type} not implemented yet.
                       </p>
                     </div>

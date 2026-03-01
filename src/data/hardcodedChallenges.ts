@@ -120,7 +120,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     type: "nutrition_guide",
     content: {
       title: 'Ejemplo práctico <br/><p class="title">lo que yo hago</p>',
-      image: "/img/corpohas.svg",
+      image: "/img/corpohas.png",
       practicalHeading: "Según el día:",
       scenarios: [
         {
@@ -185,32 +185,23 @@ export const hardcodedStage1Challenges: Challenge[] = [
     order_index: 5,
     created_at: new Date().toISOString(),
   },
-
   {
     id: "hardcoded-4-d1",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "nutrition_guide",
+    type: "intro",
     content: {
-      image: "/img/gatorade.webp",
+      image: "/img/gastoweb.png",
       title:
         'Ejemplo práctico <br/><p class="title md:text-5xl">día de intensidad / series</p>',
       practicalHeading: "Al entrenar lo que se absorbe fácil:",
-      scenarios: [
-        {
-          condition: "Durante (si el entreno es intenso y largo):",
-          meals: [
-            {
-              name: "",
-              items: [
-                "Bebida deportiva tipo Gatorade",
-                "Geles de carbohidrato",
-              ],
-            },
-          ],
-        },
+      paragraphs: [
+        "Durante, si el entreno es intenso y largo, yo ya sé que probablemente voy a necesitar una bebida deportiva tipo Gatorade o una estrategia con geles.",
+        "En salidas largas no podemos depender solo de las reservas .",
       ],
-      microTransition:
-        "En salidas largas no podemos depender solo de las reservas. En Fase 2 y 3 te lo explico mejor.",
+
+      callout: {
+        text: "(en Fase 2 y 3 te lo explico mejor)",
+      },
     },
     order_index: 5,
     created_at: new Date().toISOString(),
@@ -252,28 +243,20 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: "hardcoded-6-b",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "nutrition_guide",
+    type: "intro",
     content: {
       image: "/img/afun.png",
       practicalHeading: "Según el día:",
       title:
         'Ejemplo práctico <br/><p class="title md:text-5xl">post-entreno real</p>',
-      concept:
+      paragraphs: [
         "Si estoy apurado, un batido con fruta me salva… pero mi base es comida real.",
-      scenarios: [
-        {
-          condition: "Opción 1:",
-          meals: ["Arroz Sonora", "pechuga FRIKO", "ensalada"],
-        },
-        {
-          condition: "Opción 2:",
-          meals: [
-            "Pasta La Muñeca (porción medida)",
-            "carne magra US MEAT",
-            "verduras",
-          ],
-        },
+        "Opción 1: <ul class='list'><li>Arroz</li><li>Sonora pechuga FRIKO</li><li>Ensalada</li></ul>",
+        "Opción 2: <ul class='list'><li>Pasta La Muñeca (porción medida)</li><li>Carne magra US MEAT</li><li>Verduras</li></ul>",
       ],
+      callout: {
+        text: "cosa por desesperación.",
+      },
     },
     order_index: 8,
     created_at: new Date().toISOString(),
