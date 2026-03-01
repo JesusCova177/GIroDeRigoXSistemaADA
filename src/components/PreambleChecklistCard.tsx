@@ -169,12 +169,12 @@ export function PreambleChecklistCard({
 
       {microTransition && (
         <div className="mt-4 pt-4 ">
-          <div className="flex items-center gap-3 border-2  bg-[#41563f] p-4 rounded-xl">
+          <div className="flex items-center font-normal text-md text-center rounded-lg px-3 py-2 bg-[#ebf3dc]">
             <p
-              className="text-md text-center text-[#f8fbf2] font-medium flex-1 font-montserrat"
+              className="text-md text-center font-light flex-1 font-montserrat  text-[#31563c] flex-shrink-0"
               dangerouslySetInnerHTML={{ __html: microTransition }}
             />
-            <ChevronRight className="w-5 h-5 text-[#f8fbf2] flex-shrink-0" />
+            <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
           </div>
         </div>
       )}

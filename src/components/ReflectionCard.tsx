@@ -149,11 +149,11 @@ export function ReflectionCard({
       </div>
 
       {microTransition && (
-        <div className="flex items-center gap-3 border-2  bg-[#41563f] p-4 rounded-xl">
-          <p className="text-md text-center text-[#f8fbf2] font-medium flex-1 font-montserrat">
+        <div className="flex items-center font-normal text-md text-center rounded-lg px-3 py-2 bg-[#ebf3dc]">
+          <p className="text-md text-center font-light flex-1 font-montserrat  text-[#31563c] flex-shrink-0">
             {microTransition}
           </p>
-          <ChevronRight className="w-5 h-5 text-white flex-shrink-0" />
+          <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
         </div>
       )}
     </div>

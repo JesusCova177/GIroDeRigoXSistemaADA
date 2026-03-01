@@ -141,9 +141,9 @@ export function NutritionGuideCard({
       )}
 
       {microTransition && (
-        <div className="flex items-center gap-3 border-2  bg-[#41563f] p-4 rounded-xl">
+        <div className="flex items-center font-normal text-md text-center rounded-lg px-3 py-2 bg-[#ebf3dc]">
           <div className="flex-1">
-            <p className="text-md text-center text-[#f8fbf2] font-medium flex-1 font-montserrat">
+            <p className="text-md text-center font-light flex-1 font-montserrat  text-[#31563c] flex-shrink-0">
               {microTransition}
             </p>
             {/* Mostrar scenarios para microTransition si existen */}
@@ -211,7 +211,7 @@ export function NutritionGuideCard({
                 </div>
               )}
           </div>
-          <ChevronRight className="w-5 h-5 text-white flex-shrink-0" />
+          <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
         </div>
       )}
 
