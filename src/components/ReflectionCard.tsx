@@ -118,25 +118,25 @@ export function ReflectionCard({
         {questions.map((question, index) => (
           <div
             key={index}
-            className={`bg-[#607e5e] rounded-xl p-3 sm:p-4 backdrop-blur-sm transition-all duration-300 `}
+            className={`bg-[#E9EBE4] rounded-xl p-3 sm:p-4 backdrop-blur-sm transition-all duration-300 shadow-inner`}
           >
             <div className="flex items-start gap-2 mb-2 sm:mb-3">
               <div
-                className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 ${
+                className={`flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300  ${
                   focusedIndex === index
                     ? "bg-[#F04E96] text-white scale-110"
-                    : "bg-[#f8fbf2] text-[#31563c] "
+                    : "bg-[#f8fbf2] text-[#41563F] "
                 }`}
               >
                 {index + 1}
               </div>
-              <p className="text-md font-semibold text-[#f8fbf2] flex-1 font-montserrat">
+              <p className="text-md font-semibold text-[#41563F] flex-1 font-montserrat">
                 {question}
               </p>
             </div>
             <textarea
               data-index={index}
-              className="w-full px-2  py-2  text-md  border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F04E96] focus:border-transparent resize-none bg-white transition-all duration-200 font-montserrat"
+              className="w-full px-2 py-2 text-md  border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F04E96] focus:border-transparent resize-none bg-white transition-all duration-200 font-montserrat"
               rows={2}
               placeholder="Escribe tu respuesta..."
               value={answers[index] || ""}
@@ -150,7 +150,7 @@ export function ReflectionCard({
 
       {microTransition && (
         <div className="flex items-center font-normal text-md text-center rounded-lg px-3 py-2 bg-[#ebf3dc]">
-          <p className="text-md text-center font-light flex-1 font-montserrat  text-[#31563c] flex-shrink-0">
+          <p className="text-md text-center font-normal flex-1 font-montserrat  text-[#1d3826] flex-shrink-0">
             {microTransition}
           </p>
           <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />

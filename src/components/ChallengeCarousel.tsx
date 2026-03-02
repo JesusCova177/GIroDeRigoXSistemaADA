@@ -13,6 +13,7 @@ import { PreambleChecklistCard } from "./PreambleChecklistCard";
 import { BifurcationCard } from "./BifurcationCard";
 import { NutritionGuideCard } from "./NutritionGuideCard";
 import { PracticalExampleCard } from "./PracticalExampleCard";
+import { HighlightBlockCard } from "./HighlightBlockCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -378,6 +379,8 @@ export function ChallengeCarousel({
                     <TestimonialCard content={content} />
                   ) : challenge.type === "practical_example" ? (
                     <PracticalExampleCard content={content} />
+                  ) : challenge.type === "highlight_block" ? (
+                    <HighlightBlockCard content={content as any} />
                   ) : challenge.type === "action_plan" ? (
                     <ActionPlanCard content={content} />
                   ) : challenge.type === "route" ||

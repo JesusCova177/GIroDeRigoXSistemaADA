@@ -214,8 +214,12 @@ function App() {
           adaUserId,
           stageNumber,
         );
-        // Cuando navegamos de manera explícita (siguiente etapa) forzamos al inicio para no quedar atrapados en el final
-        setCurrentCardIndex(0);
+        // Respetamos donde quedó
+        if (progress) {
+          setCurrentCardIndex(progress.last_card_index);
+        } else {
+          setCurrentCardIndex(0);
+        }
         setUserSelections(selections);
       } else {
         setCurrentCardIndex(0);
@@ -253,7 +257,7 @@ function App() {
       }
 
       setChallenges(allChallenges);
-      setCurrentCardIndex(0); // Forzar reset visual a la tarjeta 0 inmediatemente
+      // No forzamos reiniciar el layout si ya trajimos su index del DB arriba
       setShowStageSelector(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
