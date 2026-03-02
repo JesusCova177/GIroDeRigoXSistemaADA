@@ -23,7 +23,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
           <Target className="w-6 h-6 text-white" />
         </div>
         <div className="w-full">
-          <h3 className="text-3xl font-timberwolf font-black text-[#41563F] text-center italic uppercase ">
+          <h3 className="text-2xl font-timberwolf font-black text-[#41563F] text-center italic uppercase ">
             Plan de Acción
           </h3>
         </div>
@@ -32,7 +32,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
       <div className="w-full space-y-6">
         {content.keyTakeaways && content.keyTakeaways.length > 0 && (
           <div className="bg-white/80 rounded-2xl p-5 border border-[#41563F]/20 shadow-sm">
-            <h4 className="text-base sm:text-lg font-bold text-[#F04E96] mb-4 flex items-center gap-2 font-montserrat uppercase">
+            <h4 className="text-2xl font-bold text-[#F04E96] mb-4 flex items-center gap-2 font-montserrat uppercase">
               <span className="text-xl">💡</span>
               Si solo recordás 3 cosas
             </h4>
@@ -54,11 +54,11 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
             content.phases.map((phase, phaseIndex) => (
               <div
                 key={phaseIndex}
-                className="bg-[#41563F] rounded-xl p-5 shadow-md border border-[#41563F]"
+                className="bg-[#E9EBE4] rounded-xl p-5  border shadow-inner"
               >
-                <h5 className="text-lg sm:text-xl font-black text-[#f8fbf2] mb-3 font-builttitling uppercase italic tracking-wide text-center">
+                <h4 className="text-2xl font-black text-[#41563F] mb-3 font-builttitling uppercase italic tracking-wide text-center">
                   {phase.title}
-                </h5>
+                </h4>
                 <div className="bg-[#f8fbf2]/10 h-px w-full mb-4"></div>
                 <ul className="space-y-3">
                   {phase.items.map((item, itemIndex) => (
@@ -66,7 +66,7 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
                       <span className="text-[#F04E96] font-bold text-lg flex-shrink-0 mt-[-2px]">
                         •
                       </span>
-                      <span className="text-md sm:text-base text-[#f8fbf2] leading-relaxed font-montserrat font-semibold">
+                      <span className="text-md sm:text-base text-[#41563F] leading-relaxed font-montserrat font-semibold">
                         {item}
                       </span>
                     </li>

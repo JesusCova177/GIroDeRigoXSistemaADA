@@ -49,7 +49,7 @@ const CTACard: React.FC<CTACardProps> = ({
   return (
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-8 shadow-xl ">
       {(content.title || content.icon) && (
-        <h3 className="text-3xl mb-4 font-bold tracking-tight font-timberwolf font-bolt text-[#31563c]">
+        <h3 className="text-2xl mb-4 font-bold tracking-tight font-timberwolf font-bolt text-[#31563c] uppercase">
           {content.title}
         </h3>
       )}
@@ -86,7 +86,7 @@ const CTACard: React.FC<CTACardProps> = ({
                 >
                   <div className="flex items-start gap-2 mb-2">
                     {option.isPrimary ? (
-                      <Users className="w-5 h-5 flex-shrink-0 mt-1 text-emerald-200" />
+                      <Users className="w-5 h-5 flex-shrink-0 mt-1 text-[#fcc359]" />
                     ) : (
                       <BookOpen className="w-5 h-5 flex-shrink-0 mt-1 text-amber-400" />
                     )}
@@ -115,8 +115,8 @@ const CTACard: React.FC<CTACardProps> = ({
                     }}
                     className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all hover:gap-3 ${
                       option.isPrimary
-                        ? "bg-amber-500 text-slate-900 hover:bg-amber-400"
-                        : "bg-amber-500 text-slate-900 hover:bg-amber-400"
+                        ? "bg-[#fcc359] text-slate-900 hover:bg-amber-400"
+                        : "bg-[#fcc359] text-slate-900 hover:bg-amber-400"
                     }`}
                   >
                     {option.buttonText}
@@ -139,7 +139,7 @@ const CTACard: React.FC<CTACardProps> = ({
                     onNavigateNext();
                   }
                 }}
-                className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 hover:from-amber-300 hover:to-orange-400 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-orange-900/20"
+                className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg bg-[#31563C] text-white"
               >
                 {content.transition.buttonText}
                 <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
@@ -157,7 +157,7 @@ const CTACard: React.FC<CTACardProps> = ({
           <div className="pt-6 mt-4 border-t border-slate-200">
             <button
               onClick={() => onNavigateToStage(currentStage + 1)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition-all hover:gap-3 bg-amber-500 text-slate-900 hover:bg-amber-400"
+              className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg bg-[#31563C] text-white "
             >
               Siguiente Etapa
               <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />

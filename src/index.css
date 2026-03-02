@@ -59,8 +59,9 @@
   }
 
   .title {
-    font-family: "BuiltTitling", sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: #f04e96;
+    font-style: normal;
   }
 
   .tablet {

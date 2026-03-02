@@ -51,7 +51,7 @@ export function NutritionGuideCard({
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
       <div className="flex items-center gap-2 mb-4">
         <p
-          className="tracking-wide text-3xl font-timberwolf font-black text-[#41563F] text-center italic uppercase mb-2"
+          className="tracking-wide text-2xl font-timberwolf font-black text-[#41563F] text-center italic uppercase mb-2"
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>

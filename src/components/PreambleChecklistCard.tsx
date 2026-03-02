@@ -78,7 +78,7 @@ export function PreambleChecklistCard({
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       <div className="flex items-center gap-2 mb-3 sm:mb-4">
         <h2
-          className="text-3xl text-center font-timberwolf font-black text-[#41563f] italic"
+          className="text-2xl text-center font-timberwolf font-black text-[#41563f] italic uppercase"
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>

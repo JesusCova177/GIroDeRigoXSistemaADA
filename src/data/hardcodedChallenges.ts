@@ -125,13 +125,13 @@ export const hardcodedStage1Challenges: Challenge[] = [
         {
           condition: "Le sumo:",
           items: ["Aguacate"],
-          showCheckmarks: false,
+          showCheckmarks: true,
           image: "/img/corpohas.png", // Ruta de tu imagen combinada o el de corpohass
         },
         {
           condition: "Más carbohidrato",
           items: ["Papa", "Yuca"], // Renderiza botones al lado del otro
-          showCheckmarks: false,
+          showCheckmarks: true,
           image: "/img/pastamuneca.webp",
           imagePosition: "top", // Esto mueve la imagen debajo del bloque, en vez de a la derecha
         },
@@ -247,13 +247,13 @@ export const hardcodedStage1Challenges: Challenge[] = [
         {
           condition: "Opción 1:",
           items: ["Arroz", "+", "Pechuga de pollo", "Ensalada"],
-          showCheckmarks: false,
+          showCheckmarks: true,
           image: ["/img/sonorafriko.png"],
         },
         {
           condition: "Opción 2:",
           items: ["Pasta", "+", "Carne magra", "Verduras"],
-          showCheckmarks: false,
+          showCheckmarks: true,
           image: ["/img/pastasmeat.png"],
         },
       ],
@@ -298,18 +298,19 @@ export const hardcodedStage1Challenges: Challenge[] = [
   {
     id: "hardcoded-8",
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      image: "/img/fu.png",
       title:
         'Proteína como ancla <br/><p class="title md:text-5xl">para no perder músculo</p>',
-      concept:
+      introText:
         "Si yo pierdo músculo, pierdo motor. Entonces proteína todos los días ",
-      practicalHeading: "No puede faltar:",
-      scenarios: [
+      mainCondition: "No puede faltar:",
+      frameBlocks: [
         {
-          condition: "Lo escencial:",
-          meals: ["Pechuga de pollo ", "Carne magra"],
+          condition: "Lo esencial:",
+          items: ["Pechuga de pollo", "Carne magra"],
+          showCheckmarks: true,
+          image: ["/img/frikous.png"],
         },
       ],
     },
@@ -329,19 +330,19 @@ export const hardcodedStage1Challenges: Challenge[] = [
         {
           condition: "Desayuno:",
           items: ["Huevos"],
-          showCheckmarks: false,
-          image: ["/img/huevos_100.webp"],
+          showCheckmarks: true,
+          image: ["/img/huevos_100.png"],
         },
         {
           condition: "Almuerzo:",
           items: ["Pechuga de pollo", "Carne magra"],
-          showCheckmarks: false,
-          image: ["/img/logo-friko-sonora.png", "/img/us-meat.png"],
+          showCheckmarks: true,
+          image: ["/img/frikous.png"],
         },
         {
           condition: "Cena:",
           items: ["proteína limpia + verduras", "carbo según el entreno"],
-          showCheckmarks: false,
+          showCheckmarks: true,
           image: [],
         },
       ],
@@ -522,7 +523,14 @@ export const hardcodedStage1Challenges: Challenge[] = [
             "arepita con huevo",
             "arroz con algo de proteína",
           ],
-          showCheckmarks: false,
+          showCheckmarks: true,
+          image: ["/img/huevosmaiz.png"], // Puedes usar un string único o enviarle múltiples logotipos al bloque
+        },
+        {
+          condition: "",
+          items: ["arroz con algo de proteína"],
+          showCheckmarks: true,
+          image: ["/img/frikosonora.png"],
         },
       ],
     },
@@ -584,7 +592,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "testimonial",
     content: {
-      title: "Testimonio real",
+      title: "Testimonio -<br/> Kevin Jiménez",
       subtitle: "Kevin - 3 meses en el sistema",
       intro:
         "Kevin llevaba alrededor de tres meses en el sistema ADA y cont\u00f3 que baj\u00f3 aproximadamente 5 kilos, se sent\u00eda m\u00e1s fuerte en la bici y ya no andaba cansado todo el d\u00eda.",
@@ -618,7 +626,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "testimonial",
     content: {
-      title: "Testimonio real",
+      title: "Testimonio",
       subtitle: "Kevin - El resultado en carrera",
       intro: "Sobre su participaci\u00f3n en eventos:",
       description:
@@ -632,7 +640,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "testimonial",
     content: {
-      title: "Testimonio en video",
+      title: "Testimonio",
       subtitle: "Kevin - Su experiencia directa",
       videoId: "698a8fd8f17bd82f6aeda3a2",
       footer: {
@@ -744,7 +752,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "cta",
     content: {
-      message: "Dentro del Sistema ADA ten\u00e9s dos caminos:",
+      message: "",
       options: [
         {
           title: "Plataforma Educativa",
@@ -844,45 +852,40 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: "hardcoded-stage2-4",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      practicalHeading: "Cada cosa tiene su momento",
-      image: "/img/gg.png",
       title: 'Cada cosa<br/> <p class="title md:text-5xl">tiene su momento</p>',
-      scenarios: [
+      introText:
+        "Cada cosa tiene su momento: qué llevo en el bolsillo y qué va en la caramañola.",
+      frameBlocks: [
         {
           condition: "En el bolsillo",
-          meals: [
-            {
-              name: "energia fácil de dosificar",
-              items: [
-                "Unas Gomitas Grizzly",
-                "porque es práctico,",
-                "rápido y lo puedo distribuir en tandas.",
-              ],
-            },
+          items: [
+            "Energía fácil de dosificar",
+            "Unas Gomitas Grizzly",
+            "porque es práctico, rápido y lo puedo distribuir en tandas.",
           ],
+          showCheckmarks: true,
+          image: ["/img/gg.png"],
         },
         {
           condition: "En la caramañola",
-          meals: [
-            {
-              name: "cuando el entreno lo pide, si hace calor, sudo mucho o la sesión es larga/intensa",
-              items: [
-                "una bebida tipo Gatorade",
-                "puede ser una herramienta porque trae",
-                "líquido",
-                "+ ",
-                "carbo",
-                "+ ",
-                "sales.",
-              ],
-            },
+          items: [
+            "cuando el entreno lo pide: hace calor, sudo mucho o la sesión es larga/intensa",
+            "una bebida tipo Gatorade",
+            "puede ser una herramienta porque trae",
+            "líquido + carbo + sales.",
           ],
+          showCheckmarks: true,
+        },
+        {
+          condition: "Ojo:",
+          items: [
+            "no es necesario meter bebidas con carbo “porque sí” en una salida corta y suave donde con agua vas bien.",
+          ],
+          showCheckmarks: false,
         },
       ],
-      microTransition:
-        " no es necesario meter bebidas con carbo “porque sí” en una salida corta y suave donde con agua vas bien.",
     },
     order_index: 3,
     created_at: new Date().toISOString(),
@@ -1625,7 +1628,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "testimonial",
     content: {
-      title: "Testimonio en video",
+      title: "Testimonio",
       subtitle: "Escuch\u00e1 su experiencia:",
       videoId: "698a8fe143730f8baa98d2ea",
       footer: {
@@ -1785,15 +1788,15 @@ export const hardcodedStage3Challenges: Challenge[] = [
         {
           id: "cana",
           label: "Reto Caña",
-          icon: "🌾",
-          description: "69,7 km",
+          icon: "/img/retocana.png",
+          description: "68 km",
           color: "amber",
         },
         {
           id: "salsa",
           label: "Reto Salsa",
-          icon: "💃",
-          description: "180,1 km",
+          icon: "/img/retosalsa.png",
+          description: "180 km",
           color: "rose",
         },
       ],
@@ -1810,8 +1813,9 @@ export const hardcodedStage3Challenges: Challenge[] = [
     content: {
       variant: "cana",
       title: "Reto Caña",
+      imageTitle: "/img/retocana.png",
       header: {
-        distance: "69,7 km",
+        distance: "68 km",
         ascent: "1,670 m",
         maxAlt: "1,986 m",
         label: "Tu ruta (GPX oficial)",
@@ -1862,6 +1866,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: "d776b3db-f59b-4052-8855-11d5462834c9",
     type: "phase_importance",
     content: {
+      imageTitle: "/img/retosalsa.png",
       variant: "salsa",
       title: "Reto Salsa",
       header: {
@@ -2124,31 +2129,16 @@ export const hardcodedStage3Challenges: Challenge[] = [
     created_at: new Date().toISOString(),
   },
   {
-    id: "hardcoded-stage3-common-8-video",
-    stage_id: "d776b3db-f59b-4052-8855-11d5462834c9",
+    id: "hardcoded-stage2-27",
+    stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "testimonial",
     content: {
-      title: "Testimonio en video",
-      subtitle: "",
-      intro: "",
-      person: {
-        name: "Hugo Peláez",
-        initial: "H",
-        duration: "Ciclista Amateur",
-      },
-      metrics: [],
-      description: "",
-      strategy: {
-        intro: "",
-        items: [],
-        conclusion: "",
-      },
-      videoEmbed:
-        '<vturb-smartplayer id="vid-698aaa3e6e05f1df885b2f62" style="display: block; margin: 0 auto; width: 100%; height: 100%; object-fit: contain; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/cb2c2efc-2fa0-413a-8d5e-f3514b127b3f/players/698aaa3e6e05f1df885b2f62/v4/player.js", s.async=!0,document.head.appendChild(s); </script>',
+      title: "Testimonio",
+      subtitle: "Escuch\u00e1 su experiencia:",
+      videoId: "698aaa3e6e05f1df885b2f62",
       footer: {
-        title: "",
-        message:
-          "Listo. Ya viste el punto: el que llega con guion, llega con gasolina.",
+        title: "Microtransici\u00f3n",
+        message: "\u00a1Ahora es tu turno de lograr estos resultados!",
       },
     },
     order_index: 19,
@@ -2444,6 +2434,16 @@ export const hardcodedStage4Challenges: Challenge[] = [
         initial: "J",
         duration: "Primer Giro",
       },
+    },
+    order_index: 12,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "hardcoded-stage4-13",
+    stage_id: "997d041d-857e-4183-a063-ba238caeed00",
+    type: "testimonial",
+    content: {
+      title: "Testimonio - <br/> Juan Camilo",
       description:
         'Resultado: pudo hacer el Giro con la dificultad normal del reto, lo disfrutó. Y lo dice claro: gran parte fue "irse nutriendo durante cada uno de los momentos del evento" con un plan estructurado, no improvisado.',
       metrics: [],
@@ -2461,31 +2461,17 @@ export const hardcodedStage4Challenges: Challenge[] = [
     created_at: new Date().toISOString(),
   },
   {
-    id: "hardcoded-stage4-14",
-    stage_id: "997d041d-857e-4183-a063-ba238caeed00",
+    id: "hardcoded-stage2-27",
+    stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "testimonial",
     content: {
-      title: "Testimonio en video",
-      subtitle: "",
-      intro: "",
-      person: {
-        name: "Juan Camilo",
-        initial: "J",
-        duration: "Primer Giro",
-      },
-      metrics: [],
-      description: "",
-      strategy: {
-        intro: "",
-        items: [],
-        conclusion: "",
-      },
+      title: "Testimonio",
+      subtitle: "Escuch\u00e1 su experiencia:",
+      videoId: "698a8fddd36ca2951c49c407",
       footer: {
-        title: "",
-        message: "",
+        title: "Microtransici\u00f3n",
+        message: "\u00a1Ahora es tu turno de lograr estos resultados!",
       },
-      videoEmbed:
-        '<vturb-smartplayer id="vid-698a8fddd36ca2951c49c407" style="display: block; margin: 0 auto; width: 100%; height: 100%; object-fit: contain; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/cb2c2efc-2fa0-413a-8d5e-f3514b127b3f/players/698a8fddd36ca2951c49c407/v4/player.js", s.async=!0,document.head.appendChild(s); </script>',
     },
     order_index: 13,
     created_at: new Date().toISOString(),

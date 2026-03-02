@@ -108,7 +108,7 @@ export function ReflectionCard({
       <div className="flex items-center justify-between mb-3 sm:mb-4 relative z-10">
         <div className="flex items-center gap-2">
           <h3
-            className="tracking-wide text-3xl font-timberwolf font-black text-[#41563f] text-center not-italic uppercase mb-2"
+            className="tracking-wide text-2xl font-timberwolf font-black text-[#41563f] text-center not-italic uppercase mb-2"
             dangerouslySetInnerHTML={{ __html: title }}
           />
         </div>

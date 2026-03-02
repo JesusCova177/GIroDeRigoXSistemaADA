@@ -119,7 +119,7 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
           </div>
           <div>
             <h3
-              className="whitespace-pre-line font-builttitling text-3xl font-black text-[#F04E96] text-center italic uppercase mb-2 tracking-wide"
+              className="whitespace-pre-line font-builttitling text-2xl font-black text-[#F04E96] text-center italic uppercase mb-2 tracking-wide"
               dangerouslySetInnerHTML={{ __html: title }}
             />
           </div>

@@ -94,7 +94,7 @@ export function BifurcationCard({
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl ">
       <div className="flex flex-col items-center gap-3 mb-6 w-full">
         <div className="w-full text-center">
-          <h2 className="text-3xl font-timberwolf font-black text-[#F04E96] italic uppercase mb-2">
+          <h2 className="text-3xl font-timberwolf font-black text-[#41563F] italic uppercase mb-2">
             ¿Cuál reto vas a hacer en La Sucursal?
           </h2>
           <p className="">{question}</p>
@@ -139,10 +139,18 @@ export function BifurcationCard({
                 </div>
               )}
 
-              <div className="mb-4 transform transition-transform duration-300 hover:scale-110">
-                <span className="text-5xl block filter drop-shadow-sm">
-                  {option.icon}
-                </span>
+              <div className="mb-4 transform transition-transform duration-300 hover:scale-110 flex justify-center w-full min-h-[60px]">
+                {option.icon.startsWith("/") || option.icon.includes(".") ? (
+                  <img
+                    src={option.icon}
+                    alt={option.label}
+                    className="h-16 w-auto object-contain drop-shadow-sm"
+                  />
+                ) : (
+                  <span className="text-5xl block filter drop-shadow-sm">
+                    {option.icon}
+                  </span>
+                )}
               </div>
 
               <h3

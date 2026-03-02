@@ -25,7 +25,7 @@ export function IntroCard({ content }: IntroCardProps) {
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       <div className=" items-center justify-center gap-4 sm:mb-6">
         <p
-          className="tracking-wide text-3xl font-timberwolf font-black text-[#31563c] text-center not-italic uppercase mb-2"
+          className="tracking-wide text-2xl font-timberwolf font-black text-[#31563c] text-center not-italic uppercase mb-2"
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>

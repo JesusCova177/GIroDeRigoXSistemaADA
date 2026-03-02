@@ -30,13 +30,13 @@ export function PracticalExampleCard({ content }: PracticalExampleCardProps) {
       <div className="mb-6 w-full flex flex-col items-center">
         {title && (
           <h2
-            className="text-4xl text-center font-timberwolf font-black text-[#41563F] italic uppercase mb-1"
+            className="text-2xl text-center font-timberwolf font-black text-[#41563F] italic uppercase mb-1"
             dangerouslySetInnerHTML={{ __html: title }}
           />
         )}
         {subtitle && (
           <h3
-            className="text-2xl sm:text-3xl font-montserrat font-black text-[#F04E96] text-center uppercase"
+            className="text-2xl font-montserrat font-black text-[#F04E96] text-center uppercase"
             dangerouslySetInnerHTML={{ __html: subtitle }}
           />
         )}
@@ -58,7 +58,7 @@ export function PracticalExampleCard({ content }: PracticalExampleCardProps) {
       </div>
       {/* Frame / Block Container */}
       {frameBlocks && frameBlocks.length > 0 && (
-        <div className="w-full bg-[#E9EBE4] rounded-[2rem] p-6 sm:p-8 flex flex-col gap-8 shadow-inner">
+        <div className="w-full bg-[#E9EBE4] rounded-[2rem] p-6 sm:p-8 flex flex-col gap-4 shadow-inner">
           {frameBlocks.map((block, index) => {
             const renderImage = () => {
               if (!block.image) return null;
@@ -70,7 +70,7 @@ export function PracticalExampleCard({ content }: PracticalExampleCardProps) {
                         key={imgIndex}
                         src={img}
                         alt="Logo"
-                        className="h-16 sm:h-20 object-contain mix-blend-multiply"
+                        className="h-32 sm:h-20 object-contain mix-blend-multiply"
                       />
                     ))
                   ) : (

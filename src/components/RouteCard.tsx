@@ -14,6 +14,7 @@ interface RouteSection {
 interface RouteCardContent {
   variant: string;
   title?: string; // Added title
+  titleImage?: string; // Added image for title
   header: RouteHeader;
   intro: string;
   image?: string; // Added image for graph
@@ -39,7 +40,8 @@ export function RouteCard({ content }: RouteCardProps) {
     );
   }
 
-  const { header, intro, sections, variant, title, image } = content;
+  const { header, intro, sections, variant, title, imageTitle, image } =
+    content;
 
   if (!header || !header.label) {
     console.error("[RouteCard] Error: header or header.label is missing", {
@@ -63,16 +65,16 @@ export function RouteCard({ content }: RouteCardProps) {
     <div
       className={`flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl `}
     >
+      {imageTitle && (
+        <div className="w-[10rem] h-auto mb-2  ">
+          <img
+            src={imageTitle}
+            alt="Perfil Altimétrico"
+            className="w-full h-auto"
+          />
+        </div>
+      )}
       <div className="mb-6 w-full flex flex-col items-center">
-        {title && (
-          <h2
-            className={`text-3xl text-center font-timberwolf font-black text-[#41563F] italic uppercase mb-2`}
-          >
-            {title}
-          </h2>
-        )}
-        <div className="h-1 w-16 bg-[#F04E96] rounded-full mb-4"></div>
-
         <span
           className={`inline-block text-xs font-black font-montserrat tracking-widest px-3 py-1 bg-[#41563F] text-white uppercase mb-6`}
         >
@@ -110,11 +112,11 @@ export function RouteCard({ content }: RouteCardProps) {
         </div>
 
         {image && (
-          <div className="w-full mb-6 p-2 bg-white border border-[#41563F]/5 shadow-sm">
+          <div className="w-full mb-6 p-2 ">
             <img
               src={image}
               alt="Perfil Altimétrico"
-              className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              className="w-full h-auto"
             />
           </div>
         )}
@@ -137,7 +139,7 @@ export function RouteCard({ content }: RouteCardProps) {
           {sections.map((section, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 p-3 bg-white border-l-4 border-[#F04E96] shadow-sm hover:shadow-md transition-all"
+              className="flex items-center gap-4 p-3  border-l-4 border-[#F04E96] shadow-sm hover:shadow-md transition-all"
             >
               <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-2xl">
                 {section.icon}

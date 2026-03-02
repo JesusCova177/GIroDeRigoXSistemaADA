@@ -19,13 +19,13 @@ export function HighlightBlockCard({ content }: HighlightBlockCardProps) {
       <div className="mb-8 w-full flex flex-col items-center">
         {title && (
           <h2
-            className="text-4xl text-center font-timberwolf font-black text-[#41563F] italic uppercase mb-1"
+            className="text-2xl text-center font-timberwolf font-black text-[#41563F] italic uppercase mb-1"
             dangerouslySetInnerHTML={{ __html: title }}
           />
         )}
         {subtitle && (
           <h3
-            className="text-2xl sm:text-3xl font-montserrat font-black text-[#F04E96] text-center uppercase"
+            className="text-2xl font-montserrat font-black text-[#F04E96] text-center uppercase"
             dangerouslySetInnerHTML={{ __html: subtitle }}
           />
         )}
