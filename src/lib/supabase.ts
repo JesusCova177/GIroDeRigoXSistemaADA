@@ -248,7 +248,9 @@ export interface Challenge {
     | "preamble_checklist"
     | "testimonial"
     | "bifurcation"
-    | "route";
+    | "route"
+    | "highlight_block"
+    | "phase_protocol";
   title?: string;
   content:
     | string[]

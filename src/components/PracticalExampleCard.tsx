@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ChevronRight } from "lucide-react";
 
 export interface FrameBlock {
   condition?: string;
@@ -6,6 +6,7 @@ export interface FrameBlock {
   showCheckmarks?: boolean;
   image?: string | string[];
   imagePosition?: "top" | "bottom";
+  renderMode?: "chips" | "paragraphs";
 }
 
 export interface PracticalExampleContent {
@@ -14,6 +15,7 @@ export interface PracticalExampleContent {
   introText?: string;
   mainCondition?: string;
   frameBlocks: FrameBlock[];
+  footerText?: string;
 }
 
 interface PracticalExampleCardProps {
@@ -21,7 +23,7 @@ interface PracticalExampleCardProps {
 }
 
 export function PracticalExampleCard({ content }: PracticalExampleCardProps) {
-  const { title, subtitle, introText, mainCondition, frameBlocks } =
+  const { title, subtitle, introText, mainCondition, frameBlocks, footerText } =
     content || {};
 
   return (
@@ -96,34 +98,51 @@ export function PracticalExampleCard({ content }: PracticalExampleCardProps) {
                 {/* Top Image Render */}
                 {block.imagePosition === "top" && renderImage()}
 
-                {/* Items (Chips) */}
+                {/* Items */}
                 {block.items && block.items.length > 0 && (
-                  <div className="flex flex-wrap justify-center items-center gap-2">
-                    {block.items.map((item, itemIndex) => {
-                      if (item.trim() === "+") {
-                        return (
-                          <span
+                  <>
+                    {block.renderMode === "paragraphs" ? (
+                      <div className="space-y-4 text-left w-full">
+                        {block.items.map((item, itemIndex) => (
+                          <p
                             key={itemIndex}
-                            className="text-2xl font-montserrat font-black text-[#41563F] mx-1"
+                            className="text-base text-[#41563F] font-montserrat leading-relaxed"
                           >
-                            +
-                          </span>
-                        );
-                      }
+                            {item}
+                          </p>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="flex flex-wrap justify-center items-center gap-2">
+                        {block.items.map((item, itemIndex) => {
+                          if (item.trim() === "+") {
+                            return (
+                              <span
+                                key={itemIndex}
+                                className="text-2xl font-montserrat font-black text-[#41563F] mx-1"
+                              >
+                                +
+                              </span>
+                            );
+                          }
 
-                      return (
-                        <span
-                          key={itemIndex}
-                          className="inline-flex items-center gap-2 bg-[#d7e0d3]/80 px-3 py-1.5 rounded-lg text-[15px] text-[#41563F] font-montserrat font-semibold shadow-sm border border-[#c4cfbe]/50"
-                        >
-                          {block.showCheckmarks && (
-                            <CheckCircle2 className="w-[18px] h-[18px] text-[#556e52] flex-shrink-0" />
-                          )}
-                          <span dangerouslySetInnerHTML={{ __html: item }} />
-                        </span>
-                      );
-                    })}
-                  </div>
+                          return (
+                            <span
+                              key={itemIndex}
+                              className="inline-flex items-center gap-2 bg-[#d7e0d3]/80 px-3 py-1.5 rounded-lg text-[15px] text-[#41563F] font-montserrat font-semibold shadow-sm border border-[#c4cfbe]/50"
+                            >
+                              {block.showCheckmarks && (
+                                <CheckCircle2 className="w-[18px] h-[18px] text-[#556e52] flex-shrink-0" />
+                              )}
+                              <span
+                                dangerouslySetInnerHTML={{ __html: item }}
+                              />
+                            </span>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </>
                 )}
 
                 {/* Bottom Image Render (Default) */}
@@ -131,6 +150,17 @@ export function PracticalExampleCard({ content }: PracticalExampleCardProps) {
               </div>
             );
           })}
+        </div>
+      )}
+
+      {footerText && (
+        <div className="mt-4 w-full flex items-center font-normal text-sm text-center rounded-lg px-3 py-2 bg-[#ebf3dc]">
+          <div className="flex-1">
+            <p className="text-sm text-center font-light font-montserrat text-[#31563c] whitespace-pre-line">
+              {footerText}
+            </p>
+          </div>
+          <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
         </div>
       )}
     </div>

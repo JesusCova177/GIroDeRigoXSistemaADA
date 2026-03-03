@@ -807,7 +807,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     type: "intro",
     content: {
       title:
-        'La nutrición hace<br/> parte  <p class="title md:text-5xl">del entrenamiento</p>',
+        'La nutrición<br/><p class="title md:text-5xl">hace parte del entrenamiento</p>',
       paragraphs: [
         "Hubo una \u00e9poca en la que yo pensaba que la nutrici\u00f3n en la bici era \u201calgo que se resuelve\u201d: un banano, un bocadillo, ag\u00fcita\u2026 y chao.",
         "Y mientras las salidas eran cortas, esa idea me funcionaba\u2026 o por lo menos cre\u00eda que me funcionaba.",
@@ -893,62 +893,54 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: "hardcoded-stage2-5",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      image: "/img/crakenas.png",
       title:
         'Cada cosa <br/> <p class="title md:text-5xl">tiene su momento</p>',
-      practicalHeading: "Cada cosa tiene su momento",
-      scenarios: [
+      introText: "Cada cosa tiene su momento",
+      frameBlocks: [
         {
           condition: "Sólido (solo si la intensidad lo permite)",
-          meals: [
-            {
-              name: "En un fondo suave (Z2) y si yo tolero sólido",
-              items: [
-                "Algo controlado tipo Crakeñas puede funcionar.",
-                "Eso sí, evitar masticar galletas en series o subidas duras cuando la respiración está arriba (ahí manda lo fácil de absorber).",
-              ],
-            },
+          items: [
+            "Algo controlado tipo Crakeñas puede funcionar.",
+            "Eso sí, evitar masticar galletas en series o subidas duras cuando la respiración está arriba (ahí manda lo fácil de absorber).",
           ],
+          showCheckmarks: false,
+          image: "/img/crakenas.png",
+          imagePosition: "top",
         },
       ],
-      microTransition: "Se acab\u00f3 el \u201ca ver qu\u00e9 aparece\u201d.",
+      footerText: "Se acab\u00f3 el \u201ca ver qu\u00e9 aparece\u201d.",
     },
     order_index: 4,
     created_at: new Date().toISOString(),
   },
+
   {
     id: "hardcoded-stage2-5",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      image: "/img/pafu.png",
       title:
         'Cada cosa <br/> <p class="title md:text-5xl">tiene su momento</p>',
-      practicalHeading: "Cada cosa tiene su momento",
-      scenarios: [
+      introText:
+        "Al terminar (recuperación de verdad): Yo no “veo qué aparece”",
+      frameBlocks: [
         {
-          condition:
-            "Al terminar (recuperación de verdad): Yo no “veo qué aparece”",
-          meals: [
-            {
-              name: "",
-              items: [
-                "Yo recupero con comida real",
-                "Arroz Sonora",
-                " +",
-                "pollo FRIKO",
-                "o Pasta La Muñeca",
-                "+",
-                "proteína magra US MEAT.",
-                "No llegar a improvisar con fritos o cualquier cosa porque “me lo gané”.",
-              ],
-            },
-          ],
+          condition: "Comida de recuperación",
+          items: ["Arroz", " +", "pollo"],
+          showCheckmarks: true,
+          image: "/img/sonorafriko.png",
+        },
+        {
+          condition: "Comida de recuperación",
+          items: ["Pasta", "+", "proteína magra"],
+          showCheckmarks: true,
+          image: "/img/pastasmeat.png",
         },
       ],
-      microTransition: "Se acab\u00f3 el \u201ca ver qu\u00e9 aparece\u201d.",
+      footerText:
+        "No llegar a improvisar con fritos o cualquier cosa porque “me lo gané”.",
     },
     order_index: 4,
     created_at: new Date().toISOString(),
@@ -956,19 +948,20 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: "hardcoded-stage2-6",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "intro",
+    type: "phase_protocol",
     content: {
       title:
         'Qu\u00e9 cambia en esta <br/> <p class="title md:text-5xl">fase y por qu\u00e9</p>',
-      paragraphs: [
+      description:
         "En Fase 2 yo paso de \u201ccomer cuando me acuerdo\u201d a tener un protocolo:",
-        "\u2022 Yo hago pre-entreno seg\u00fan la zona (suave vs intenso).",
-        "\u2022 Yo defino cu\u00e1nto comer por hora seg\u00fan intensidad (Z3 vs Z4\u2013Z5).",
-        "\u2022 Yo respeto un m\u00ednimo de hidrataci\u00f3n por hora y meto electrolitos cuando toca.",
+      items: [
+        "Yo hago pre-entreno seg\u00fan la zona (suave vs intenso).",
+        "Yo defino cu\u00e1nto comer por hora seg\u00fan intensidad (Z3 vs Z4\u2013Z5).",
+        "Yo respeto un m\u00ednimo de hidrataci\u00f3n por hora y meto electrolitos cuando toca.",
       ],
-      callout: {
-        text: "Micro-regla de oro: yo no estreno estrategia el d\u00eda del Giro de Rigo; yo la entreno aqu\u00ed.",
-      },
+      microRuleLabel: "Micro-regla de oro",
+      microRuleText:
+        "Yo no estreno estrategia el d\u00eda del Giro de Rigo; yo la entreno aqu\u00ed.",
     },
     order_index: 5,
     created_at: new Date().toISOString(),
@@ -978,9 +971,9 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "nutrition_guide",
     content: {
-      image: "/img/ac.png",
+      image: "/img/huevossonora.png",
       title:
-        'Pre-entreno: yo como seg\u00fan la zona <br/> <p class="title md:text-5xl">suave vs intenso</p>',
+        '<p>Pre-entreno</p><p class= ""> yo como seg\u00fan la zona </p> <p class="font-montserrat uppercase not-italic text-[#F04E96] md:text-5xl">suave vs intenso</p>',
       concept:
         "El pre no es \u201ccomer por comer\u201d; es preparar el cuerpo para lo que voy a hacer, sin que la digesti\u00f3n estorbe.",
       practicalHeading: "C\u00f3mo lo hago (por escenarios):",
@@ -1001,10 +994,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
           meals: [
             {
               name: "Preparo el tanque sin caer pesado",
-              items: [
-                "Arroz Sonora",
-                "Huevos 100% (esto nunca le falla a los ciclistas)",
-              ],
+              items: ["Arroz ", "Huevos (esto nunca le falla a los ciclistas)"],
             },
           ],
         },
@@ -1034,14 +1024,15 @@ export const hardcodedStage2Challenges: Challenge[] = [
             },
           ],
         },
+      ],
+      rule: [
         {
-          condition: "Regla de oro",
-          meals: [
-            {
-              name: "Se prueba en entreno",
-              items: ["No se estrena el d\u00eda del Giro"],
-            },
-          ],
+          type: "positive",
+          text: "Se prueba en entreno",
+        },
+        {
+          type: "negative",
+          text: " no se estrena el dia del evento",
         },
       ],
     },
@@ -1071,7 +1062,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     type: "nutrition_guide",
     content: {
       title:
-        'Durante: cu\u00e1nto meto<br/> <p class="title md:text-5xl">por hora</p>',
+        'Durante <br/> <p class="title md:text-5xl">cu\u00e1nto meto por hora</p>',
       concept:
         "Yo dejo de comer por impulso y paso a un rango por hora. Porque si yo \u201cespero el baj\u00f3n\u201d, ya voy tarde.",
       practicalHeading: "Rangos que yo uso en mi sistema ADA (se entrenan):",
@@ -1466,26 +1457,22 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: "hardcoded-stage2-21",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      image: "/img/fa.png",
       title:
         'Regla simple y <br/> <p class="title">ejemplos pr\u00e1cticos</p>',
-      concept:
+      introText:
         "En la primera hora post-entreno yo meto carbo + prote\u00edna. \nNo perfecto, pero s\u00ed a tiempo. \nSi el post queda resuelto, el resto del d\u00eda se vuelve mucho m\u00e1s f\u00e1cil.",
-      practicalHeading: "Comidas reales:",
-      scenarios: [
+      frameBlocks: [
         {
-          condition: "Opci\u00f3n 1",
-          meals: [
-            {
-              name: "",
-              items: ["Arroz Sonora", "+", "Pollo FRIKO", "+", "Ensalada"],
-            },
-          ],
+          condition: "Comidas reales",
+          items: ["Arroz Sonora", "+", "Pollo FRIKO", "+", "Ensalada"],
+          showCheckmarks: true,
+          image: "/img/frikosonora.png",
+          imagePosition: "top",
         },
       ],
-      microTransition: "Si no va en el bolsillo, no existe: armemos kit.",
+      footerText: "Si no va en el bolsillo, no existe: armemos kit.",
     },
     order_index: 22,
     created_at: new Date().toISOString(),
@@ -1493,31 +1480,28 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: "hardcoded-stage2-21",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      image: "/img/pu.png",
       title:
         'Regla simple y <br/> <p class="title">ejemplos pr\u00e1cticos</p>',
-      concept: "",
-      practicalHeading: "Comidas reales:",
-      scenarios: [
+      introText:
+        "En la primera hora post-entreno yo meto carbo + prote\u00edna. \nNo perfecto, pero s\u00ed a tiempo. \nSi el post queda resuelto, el resto del d\u00eda se vuelve mucho m\u00e1s f\u00e1cil.",
+      frameBlocks: [
         {
-          condition: "Opci\u00f3n 2",
-          meals: [
-            {
-              name: "",
-              items: [
-                "Pasta La Mu\u00f1eca",
-                "+",
-                "Carne magra US MEAT",
-                "+",
-                "Verduras",
-              ],
-            },
+          condition: "Comidas reales",
+          items: [
+            "Pasta La Mu\u00f1eca",
+            "+",
+            "Carne magra US MEAT",
+            "+",
+            "Verduras",
           ],
+          showCheckmarks: true,
+          image: "/img/pastasmeat.png",
+          imagePosition: "top",
         },
       ],
-      microTransition: "Si no va en el bolsillo, no existe: armemos kit.",
+      footerText: "Si no va en el bolsillo, no existe: armemos kit.",
     },
     order_index: 22,
     created_at: new Date().toISOString(),
