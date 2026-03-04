@@ -592,7 +592,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "testimonial",
     content: {
-      title: "Testimonio -<br/> Kevin Jiménez",
+      title: "Testimonio - <br/> Kevin Jiménez",
       subtitle: "Kevin - 3 meses en el sistema",
       intro:
         "Kevin llevaba alrededor de tres meses en el sistema ADA y cont\u00f3 que baj\u00f3 aproximadamente 5 kilos, se sent\u00eda m\u00e1s fuerte en la bici y ya no andaba cansado todo el d\u00eda.",
@@ -626,7 +626,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "testimonial",
     content: {
-      title: "Testimonio",
+      title: "Testimonio - <br/> Kevin Jiménez",
       subtitle: "Kevin - El resultado en carrera",
       intro: "Sobre su participaci\u00f3n en eventos:",
       description:
@@ -640,7 +640,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "testimonial",
     content: {
-      title: "Testimonio",
+      title: "Testimonio - <br/> Kevin Jiménez",
       subtitle: "Kevin - Su experiencia directa",
       videoId: "698a8fd8f17bd82f6aeda3a2",
       footer: {
@@ -1595,7 +1595,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "testimonial",
     content: {
-      title: "Testimonio",
+      title: "Testimonio \u2014 \nMarcelo Guti\u00e9rrez",
       subtitle: "Escuch\u00e1 su experiencia:",
       videoId: "698a8fe143730f8baa98d2ea",
       footer: {
@@ -1888,14 +1888,24 @@ export const hardcodedStage3Challenges: Challenge[] = [
   {
     id: "hardcoded-stage3-common-1",
     stage_id: "d776b3db-f59b-4052-8855-11d5462834c9",
-    type: "intro",
+    type: "phase_importance",
     content: {
       title:
         'Hidratación + sodio <br/> <p class="title">el combustible invisible</p>',
-      paragraphs: [],
-      list: [
-        "Mínimo en la bici: 400–500 ml por hora (ajustás por calor/sudor).",
-        "Sodio por hora: rango práctico 300–600 mg según sudoración y clima (lo entrenás, no lo adivinás).",
+      sectionsTitle: "Lo mínimo que no se negocia",
+      sections: [
+        {
+          icon: "droplet",
+          title: "Hidratación por hora",
+          content:
+            "Mínimo en la bici: 400–500 ml por hora (ajustás por calor/sudor).",
+        },
+        {
+          icon: "zap",
+          title: "Sodio por hora",
+          content:
+            "Rango práctico 300–600 mg según sudoración y clima (lo entrenás, no lo adivinás).",
+        },
       ],
     },
     order_index: 8,
@@ -1904,20 +1914,19 @@ export const hardcodedStage3Challenges: Challenge[] = [
   {
     id: "hardcoded-stage3-common-1b",
     stage_id: "d776b3db-f59b-4052-8855-11d5462834c9",
-    type: "intro",
+    type: "phase_protocol",
     content: {
       title: 'Regla de oro <br/><p class="title">vaciado gástrico</p>',
-      paragraphs: [
+      description:
+        "En esta fase no solo importa cuántos gramos metés, sino <strong>cómo</strong> los disolvés: el estómago necesita agua para que el carbo pase bien.",
+      items: [
         'Si metés el carbo muy concentrado, queda pesado y no "pasa".',
-        "Por eso no concentrés de más: máximo 9% → 90 g de carbo por litro.",
-        "Si sentís pesadez: más agua / menos concentración / mejor repartido.",
+        "No concentrés de más: máximo 9% → 90 g de carbo por litro.",
+        "Si sentís pesadez: más agua, menos concentración y mejor repartido durante la hora.",
       ],
-      callout: {
-        text: "¡Ojo! El carbo necesita su agua para pasar.",
-        bgColor: "bg-yellow-50",
-        borderColor: "border-yellow-200",
-        textColor: "text-yellow-900",
-      },
+      microRuleLabel: "Micro-regla de oro",
+      microRuleText:
+        "El carbo siempre viaja con su agua: si sube la dosis, también tiene que subir el líquido.",
     },
     order_index: 9,
     created_at: new Date().toISOString(),
@@ -2101,7 +2110,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "testimonial",
     content: {
-      title: "Testimonio",
+      title: "Testimonio - \nHugo Peláez",
       subtitle: "Escuch\u00e1 su experiencia:",
       videoId: "698aaa3e6e05f1df885b2f62",
       footer: {
@@ -2393,7 +2402,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
     stage_id: "997d041d-857e-4183-a063-ba238caeed00",
     type: "testimonial",
     content: {
-      title: "",
+      title: "Testimonio - <br/> Juan Camilo",
       subtitle: "Juan Camilo (primer Giro de Rigo)",
       intro:
         'Juan Camilo llegó con un miedo normal: era su primer Giro, y su temor real era sufrir demasiado o no completar el reto. Lo que él resalta no es "motivación", sino estrategia: acompañamiento y una estrategia de alimentación diseñada para los días previos, el día previo y el día del evento.',

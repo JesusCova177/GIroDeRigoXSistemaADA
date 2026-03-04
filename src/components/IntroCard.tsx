@@ -51,20 +51,16 @@ export function IntroCard({ content }: IntroCardProps) {
       </div>
 
       {footer && (
-        <div className="flex items-center gap-3 border-2  bg-[#41563f] p-4 rounded-xl">
-          <p className="text-md text-center text-[#f8fbf2] font-medium flex-1 font-montserrat">
+        <div className="flex items-center font-normal text-md text-center rounded-lg px-3 py-2 bg-[#ebf3dc] mt-4">
+          <p className="text-md font-montserrat font-light text-[#41563F] mx-1">
             {footer}
           </p>
         </div>
       )}
 
       {callout && (
-        <div
-          className={`flex items-center mt-6 p-2 rounded-2xl  ${callout.bgColor || "bg-[#ebf3dc]"}`}
-        >
-          <p
-            className={`font-normal text- ${callout.textColor || "text-[#31563c]"} text-center ${callout.borderColor ? "border " + callout.borderColor : "border-[#899788]"} rounded-lg px-3 py-2`}
-          >
+        <div className="flex items-center font-normal text-md text-center rounded-lg px-3 py-2 bg-[#ebf3dc] mt-3">
+          <p className="text-md font-montserrat font-light text-[#41563F] mx-1">
             {callout.text}
           </p>
           <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
