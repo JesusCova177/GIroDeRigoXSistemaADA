@@ -60,9 +60,11 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
       </div>
 
       {content.callout && (
-        <div className="mt-6 sm:mt-8 bg-blue-50 p-4 rounded-xl border border-blue-100">
-          <p className="text-gray-800 font-medium">
-            <span className="font-bold block mb-1">Regla táctica:</span>
+        <div className="flex items-center font-normal text-md text-center rounded-lg px-3 py-2 bg-[#ebf3dc] mt-6">
+          <p className="text-md text-center font-light flex-1 font-montserrat  text-[#31563c] flex-shrink-0">
+            <span className="font-bold font-timberwolf block mb-1">
+              Regla táctica:
+            </span>
             {content.callout.text}
           </p>
         </div>
