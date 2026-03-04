@@ -15,6 +15,7 @@ import { NutritionGuideCard } from "./NutritionGuideCard";
 import { PracticalExampleCard } from "./PracticalExampleCard";
 import { HighlightBlockCard } from "./HighlightBlockCard";
 import { PhaseProtocolCard } from "./PhaseProtocolCard";
+import { PocketBottleCard } from "./PocketBottleCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ChallengeCarouselProps {
@@ -385,6 +386,8 @@ export function ChallengeCarousel({
                     <HighlightBlockCard content={content as any} />
                   ) : challenge.type === "phase_protocol" ? (
                     <PhaseProtocolCard content={content as any} />
+                  ) : challenge.type === "pocket_bottle" ? (
+                    <PocketBottleCard content={content as any} />
                   ) : challenge.type === "action_plan" ? (
                     <ActionPlanCard content={content} />
                   ) : challenge.type === "route" ||

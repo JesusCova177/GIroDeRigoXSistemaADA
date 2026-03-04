@@ -852,38 +852,27 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: "hardcoded-stage2-4",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "practical_example",
+    type: "pocket_bottle",
     content: {
-      title: 'Cada cosa<br/> <p class="title md:text-5xl">tiene su momento</p>',
-      introText:
-        "Cada cosa tiene su momento: qué llevo en el bolsillo y qué va en la caramañola.",
-      frameBlocks: [
+      sections: [
         {
-          condition: "En el bolsillo",
-          items: [
-            "Energía fácil de dosificar",
-            "Unas Gomitas Grizzly",
-            "porque es práctico, rápido y lo puedo distribuir en tandas.",
-          ],
-          showCheckmarks: true,
-          image: ["/img/gg.png"],
+          title: "En el bolsillo",
+          description:
+            "Cada cosa tiene su momento: qué llevo en el bolsillo y qué va en la caramañola.",
+          chipLabel: "Gomitas Grizzly: energía fácil de dosificar",
+          image: "/img/gg.png",
+          note: "Energía fácil de dosificar: porque es práctico, rápido y lo puedo distribuir en tandas.",
         },
         {
-          condition: "En la caramañola",
-          items: [
-            "cuando el entreno lo pide: hace calor, sudo mucho o la sesión es larga/intensa",
-            "una bebida tipo Gatorade",
-            "puede ser una herramienta porque trae",
-            "líquido + carbo + sales.",
-          ],
-          showCheckmarks: true,
+          title: "En la caramañola",
+          description:
+            "Cuando el entreno lo pide: hace calor, sudo mucho o la sesión es larga/intensa.",
+          chipLabel: "Bebida tipo Gatorade",
+          note: "Puede ser una herramienta porque trae líquido + carbo + sales.",
         },
         {
-          condition: "Ojo:",
-          items: [
-            "no es necesario meter bebidas con carbo “porque sí” en una salida corta y suave donde con agua vas bien.",
-          ],
-          showCheckmarks: false,
+          title: "Ojo",
+          note: "No es necesario meter bebidas con carbo “porque sí” en una salida corta y suave donde con agua vas bien.",
         },
       ],
     },
@@ -1124,43 +1113,37 @@ export const hardcodedStage2Challenges: Challenge[] = [
   {
     id: "hardcoded-stage2-11",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "nutrition_guide",
+    type: "practical_example",
     content: {
-      image: "/img/ggc.png",
       title:
         'Qu\u00e9 funciona mejor <br/> <p class="title md:text-5xl">seg\u00fan el tipo de esfuerzo</p>',
-      practicalHeading: "Opciones:",
-      scenarios: [
+      introText:
+        "Opciones que funcionan mejor seg\u00fan si sube la intensidad o si es largo y suave.",
+      frameBlocks: [
         {
           condition: "Si sube la intensidad (Z4\u2013Z5)",
-          meals: [
-            {
-              name: "La sangre se va a las piernas",
-              items: [
-                "Poca fibra y poca grasa",
-                "Geles",
-                "Compota",
-                "Gomitas Grizzly",
-                "Bebida con carbohidrato Gatorade",
-                "Miel",
-              ],
-            },
+          items: [
+            "Poca fibra y poca grasa",
+            "Geles",
+            "Compota",
+            "Gomitas",
+            "Bebida con carbohidrato",
+            "Miel",
           ],
+          showCheckmarks: true,
+          image: "/img/ggc.png",
+          imagePosition: "top",
         },
         {
           condition: "Si es largo y suave (Z2\u2013Z3 estable)",
-          meals: [
-            {
-              name: "Puedo tolerar m\u00e1s s\u00f3lido",
-              items: [
-                "Banano",
-                "Bocadillo",
-                "S\u00e1nduche sencillo",
-                "Galletas Crake\u00f1as",
-                "Barritas caseras",
-              ],
-            },
+          items: [
+            "Banano",
+            "Bocadillo",
+            "S\u00e1nduche sencillo",
+            "Galletas",
+            "Barritas caseras",
           ],
+          showCheckmarks: true,
         },
       ],
     },
@@ -1721,8 +1704,9 @@ export const hardcodedStage3Challenges: Challenge[] = [
         "el dulce ya no te provoca",
         "o te pasa lo típico: se te pierde un gel o algo no te entra como esperabas",
       ],
-      footer:
-        "Listo. Esta fase no es para inventar: es para llegar con un plan probado.",
+      callout: {
+        text: "Listo. Esta fase no es para inventar: es para llegar con un plan probado.",
+      },
     },
     order_index: 1,
     created_at: new Date().toISOString(),
@@ -1804,7 +1788,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         maxAlt: "1,986 m",
         label: "Tu ruta (GPX oficial)",
       },
-      image: "/img/retocana.png", // Placeholder or upload? I'll use a placeholder for now or ask user.
+      image: "/img/maparetocana.png", // Placeholder or upload? I'll use a placeholder for now or ask user.
       intro:
         "Caña tiene el esfuerzo adelantado. Si te vaciás por ego en la primera subida fuerte, el resto se vuelve una cuenta larga de fatiga.",
       sections: [], // No sections in the first card.
@@ -1854,12 +1838,12 @@ export const hardcodedStage3Challenges: Challenge[] = [
       variant: "salsa",
       title: "Reto Salsa",
       header: {
-        distance: "180,1 km",
+        distance: "180 km",
         ascent: "3,151 m",
         maxAlt: "1,986 m",
         label: "Tu ruta (GPX oficial)",
       },
-      image: "/img/retosalsa.png", // Placeholder
+      image: "/img/maparetosalsa.png", // Placeholder
       intro:
         "Salsa es una batalla de horas. No gana el más fuerte al inicio; gana el que mantiene el tanque alto cuando pasan 5–6 horas.",
       sections: [],

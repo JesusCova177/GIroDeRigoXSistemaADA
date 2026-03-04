@@ -250,7 +250,8 @@ export interface Challenge {
     | "bifurcation"
     | "route"
     | "highlight_block"
-    | "phase_protocol";
+    | "phase_protocol"
+    | "pocket_bottle";
   title?: string;
   content:
     | string[]

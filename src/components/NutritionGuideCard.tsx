@@ -82,7 +82,7 @@ export function NutritionGuideCard({
               {scenarios.map((scenario, scenarioIndex) => (
                 <div key={scenarioIndex} className="space-y-1">
                   {scenario.condition && (
-                    <p className="text-sm font-montserrat font-semibold text-[#31563c]">
+                    <p className="text-xl font-montserrat uppercase font-semibold text-[#F04E96]">
                       {scenario.condition}
                     </p>
                   )}
@@ -124,7 +124,7 @@ export function NutritionGuideCard({
               {list.map((item, index) => (
                 <span
                   key={index}
-                  className="inline-flex items-center gap-1 bg-white px-3 py-1 rounded-full text-sm text-[#31563c] font-montserrat font-semibold border border-[#d0ddc0]"
+                  className="inline-flex items-center gap-2 bg-[#d7e0d3]/80 px-3 py-1.5 rounded-lg text-[15px] text-[#41563F] font-montserrat font-semibold shadow-sm border border-[#c4cfbe]/50"
                   dangerouslySetInnerHTML={{ __html: item }}
                 />
               ))}

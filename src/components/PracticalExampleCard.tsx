@@ -113,7 +113,7 @@ export function PracticalExampleCard({ content }: PracticalExampleCardProps) {
                         ))}
                       </div>
                     ) : (
-                      <div className="flex flex-wrap justify-center items-center gap-2">
+                      <div className="flex flex-wrap justify-start items-center gap-2">
                         {block.items.map((item, itemIndex) => {
                           if (item.trim() === "+") {
                             return (

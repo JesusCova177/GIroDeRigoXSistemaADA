@@ -14,7 +14,7 @@ interface RouteSection {
 interface RouteCardContent {
   variant: string;
   title?: string; // Added title
-  titleImage?: string; // Added image for title
+  imageTitle?: string; // Added image for title
   header: RouteHeader;
   intro: string;
   image?: string; // Added image for graph

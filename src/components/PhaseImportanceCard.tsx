@@ -1,3 +1,5 @@
+import { ChevronRight } from "lucide-react";
+
 interface PhaseImportanceCardProps {
   content: {
     title?: string;
@@ -68,12 +70,13 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
 
       {content.footer && (
         <div className="mt-6 pt-4 border-t border-gray-100">
-          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 shadow-sm">
-            <p className="text-sm sm:text-base font-black text-yellow-900 uppercase italic text-center tracking-wide leading-relaxed">
+          <div className="flex items-center font-normal text-md text-center rounded-lg px-3 py-2 bg-[#ebf3dc]">
+            <p className="text-md text-center font-light flex-1 font-montserrat  text-[#31563c] flex-shrink-0">
               {typeof content.footer === "string"
                 ? content.footer
                 : content.footer.message}
             </p>
+            <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
           </div>
         </div>
       )}
