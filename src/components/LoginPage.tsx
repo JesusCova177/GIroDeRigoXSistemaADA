@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Zap, Loader2 } from "lucide-react";
+import { Loader2, IdCard } from "lucide-react";
 
 interface LoginPageProps {
   onLogin: (email: string) => Promise<void>;
@@ -43,13 +43,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <div className="relative">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#41563F]" />
+              <IdCard className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#41563F]" />
               <input
                 id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Ingrese su correo electrónico"
+                placeholder="Ingrese su cedula"
                 className="font-montserrat w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl text-md focus:outline-none focus:ring-1 focus:ring-[#41563F] focus:border-transparent transition-all text-[#41563F] placeholder-[#41563F]"
                 disabled={loading}
                 required
