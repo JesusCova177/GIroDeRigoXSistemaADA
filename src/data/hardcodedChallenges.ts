@@ -2246,16 +2246,21 @@ export const hardcodedStage4Challenges: Challenge[] = [
   {
     id: "hardcoded-stage4-5",
     stage_id: "997d041d-857e-4183-a063-ba238caeed00",
-    type: "intro",
+    type: "phase_protocol",
     content: {
       title: 'Descanso y organización <br/><p class="title">48 horas antes</p>',
-      list: [
-        "Kit",
-        "ropa",
-        "ruta",
-        "transporte",
-        "nutrición y líquidos listos.",
+      description:
+        "Dos días antes quiero bajar el estrés y tener todo resuelto: así duermo mejor, como mejor y llego con la cabeza tranquila.",
+      items: [
+        "Kit revisado (casco, gafas, guantes, repuestos básicos).",
+        "Ropa lista según clima esperado (maillot, chaqueta, guantes, etc.).",
+        "Ruta y horarios claros (salida, tiempos aproximados, puntos clave).",
+        "Transporte organizado (cómo llego, con quién, a qué hora).",
+        "Nutrición y líquidos listos y empacados para el día del evento.",
       ],
+      microRuleLabel: "Micro-regla de oro",
+      microRuleText:
+        "Lo que se organiza 48 horas antes no se improvisa en la línea de salida.",
     },
     order_index: 4,
     created_at: new Date().toISOString(),

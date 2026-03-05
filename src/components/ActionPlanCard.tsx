@@ -97,8 +97,8 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
 
       {content.footer && (
         <div className="mt-8 pt-4 w-full border-t border-[#41563F]/10">
-          <div className="bg-[#41563F] rounded-xl p-4 shadow-md text-center">
-            <p className="text-md sm:text-base font-black text-[#f8fbf2] uppercase italic tracking-wide leading-relaxed font-builttitling">
+          <div className="flex items-center font-normal text-md text-center rounded-lg px-3 py-2 bg-[#ebf3dc] mt-4">
+            <p className="text-md font-montserrat font-light text-[#41563F] mx-1">
               {content.footer}
             </p>
           </div>
