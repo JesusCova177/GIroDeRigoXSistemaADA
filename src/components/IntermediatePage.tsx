@@ -38,7 +38,7 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
         ¡bienvenidos al!
       </h2>
       <img
-        src="./img/roadmaplogo.png"
+        src="./img/roadmaplogo.webp"
         alt=""
         className="h-48 w-auto mb-6 md:w-[14rem] md:h-auto"
       />

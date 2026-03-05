@@ -68,7 +68,7 @@ const CTACard: React.FC<CTACardProps> = ({
               <span className="font-montserrat font-semibold text-md text-gray-400">
                 Dentro del
               </span>
-              <img src="/img/sistemaada.png" alt="" className="h-auto w-40" />
+              <img src="/img/sistemaada.webp" alt="" className="h-auto w-40" />
               <span className="font-montserrat font-semibold">
                 {" "}
                 tenes 2 caminos

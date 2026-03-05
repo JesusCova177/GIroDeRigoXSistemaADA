@@ -35,7 +35,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
     >
       <div className="bg-[#f8fbf2] md:flex md:flex-col md:items-center md:justify-center md:rounded-2xl md:grid-rows-1 md:p-8 md:shadow-xl w-full max-w-md md:z-10 md:justify-self-center">
         <img
-          src="./img/roadmaplogo.png"
+          src="./img/roadmaplogo.webp"
           alt="Logo"
           className="md:w-64 md:h-auto"
         />

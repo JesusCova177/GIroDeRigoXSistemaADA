@@ -94,7 +94,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
           condition: "Desayuno",
           items: ["Huevos", "Arepa", "Fruta"],
           showCheckmarks: true, // Esto enciende los "check" verdes que tiene la imagen a la derecha
-          image: ["/img/huevosmaiz.png"], // Puedes usar un string único o enviarle múltiples logotipos al bloque
+          image: ["/img/huevosmaiz.webp"], // Puedes usar un string único o enviarle múltiples logotipos al bloque
         },
         {
           condition: "Almuerzo:",
@@ -104,7 +104,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
             "Porción controlada de arroz",
           ],
           showCheckmarks: true, // Esto enciende los checks
-          image: "/img/frikosonora.png", // O un arreglo con ["/img/friko.png", "/img/sonora.png"]
+          image: "/img/frikosonora.webp", // O un arreglo con ["/img/friko.png", "/img/sonora.png"]
         },
       ],
     },
@@ -126,7 +126,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
           condition: "Le sumo:",
           items: ["Aguacate"],
           showCheckmarks: true,
-          image: "/img/corpohas.png", // Ruta de tu imagen combinada o el de corpohass
+          image: "/img/corpohas.webp", // Ruta de tu imagen combinada o el de corpohass
         },
         {
           condition: "Más carbohidrato",
@@ -184,7 +184,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
     type: "intro",
     content: {
-      image: "/img/gastoweb.png",
+      image: "/img/gastoweb.webp",
       title:
         'Ejemplo práctico <br/><p class="title md:text-5xl">día de intensidad / series</p>',
       practicalHeading: "Al entrenar lo que se absorbe fácil:",
@@ -248,13 +248,13 @@ export const hardcodedStage1Challenges: Challenge[] = [
           condition: "Opción 1:",
           items: ["Arroz", "+", "Pechuga de pollo", "Ensalada"],
           showCheckmarks: true,
-          image: ["/img/sonorafriko.png"],
+          image: ["/img/sonorafriko.webp"],
         },
         {
           condition: "Opción 2:",
           items: ["Pasta", "+", "Carne magra", "Verduras"],
           showCheckmarks: true,
-          image: ["/img/pastasmeat.png"],
+          image: ["/img/pastasmeat.webp"],
         },
       ],
     },
@@ -310,7 +310,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
           condition: "Lo esencial:",
           items: ["Pechuga de pollo", "Carne magra"],
           showCheckmarks: true,
-          image: ["/img/frikous.png"],
+          image: ["/img/frikous.webp"],
         },
       ],
     },
@@ -331,13 +331,13 @@ export const hardcodedStage1Challenges: Challenge[] = [
           condition: "Desayuno:",
           items: ["Huevos"],
           showCheckmarks: true,
-          image: ["/img/huevos_100.png"],
+          image: ["/img/huevos_100.webp"],
         },
         {
           condition: "Almuerzo:",
           items: ["Pechuga de pollo", "Carne magra"],
           showCheckmarks: true,
-          image: ["/img/frikous.png"],
+          image: ["/img/frikous.webp"],
         },
         {
           condition: "Cena:",
@@ -450,7 +450,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
     content: {
       title:
         'EJEMPLO PRÁCTICO <br/><p class="title md:text-5xl">MI REGLA DIARIA</p>',
-      image: "/img/gastoweb.png",
+      image: "/img/gastoweb.webp",
       paragraphs: [
         "<strong>Base (día normal):</strong> Agua: 30–35 ml por kilo al día, repartidos desde la mañana (no todo en la tarde).",
         "<strong>Si entreno y sudo:</strong> Mantengo esa base y meto: electrolitos cuando hay calor, sudor alto o sesión larga.",
@@ -524,13 +524,13 @@ export const hardcodedStage1Challenges: Challenge[] = [
             "arroz con algo de proteína",
           ],
           showCheckmarks: true,
-          image: ["/img/huevosmaiz.png"], // Puedes usar un string único o enviarle múltiples logotipos al bloque
+          image: ["/img/huevosmaiz.webp"], // Puedes usar un string único o enviarle múltiples logotipos al bloque
         },
         {
           condition: "",
           items: ["arroz con algo de proteína"],
           showCheckmarks: true,
-          image: ["/img/frikosonora.png"],
+          image: ["/img/frikosonora.webp"],
         },
       ],
     },
@@ -860,7 +860,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
           description:
             "Cada cosa tiene su momento: qué llevo en el bolsillo y qué va en la caramañola.",
           chipLabel: "Gomitas Grizzly: energía fácil de dosificar",
-          image: "/img/gg.png",
+          image: "/img/gg.webp",
           note: "Energía fácil de dosificar: porque es práctico, rápido y lo puedo distribuir en tandas.",
         },
         {
@@ -895,7 +895,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
             "Eso sí, evitar masticar galletas en series o subidas duras cuando la respiración está arriba (ahí manda lo fácil de absorber).",
           ],
           showCheckmarks: false,
-          image: "/img/crakenas.png",
+          image: "/img/crakenas.webp",
           imagePosition: "top",
         },
       ],
@@ -919,13 +919,13 @@ export const hardcodedStage2Challenges: Challenge[] = [
           condition: "Comida de recuperación",
           items: ["Arroz", " +", "pollo"],
           showCheckmarks: true,
-          image: "/img/sonorafriko.png",
+          image: "/img/sonorafriko.webp",
         },
         {
           condition: "Comida de recuperación",
           items: ["Pasta", "+", "proteína magra"],
           showCheckmarks: true,
-          image: "/img/pastasmeat.png",
+          image: "/img/pastasmeat.webp",
         },
       ],
       footerText:
@@ -960,7 +960,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "nutrition_guide",
     content: {
-      image: "/img/huevossonora.png",
+      image: "/img/huevossonora.webp",
       title:
         '<p>Pre-entreno</p><p class= ""> yo como seg\u00fan la zona </p> <p class="font-montserrat uppercase not-italic text-[#F04E96] md:text-5xl">suave vs intenso</p>',
       concept:
@@ -997,7 +997,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "nutrition_guide",
     content: {
-      image: "/img/rigobeet.png",
+      image: "/img/rigobeet.webp",
       title:
         'Extra \u00fatil <br/> <p class="title md:text-5xl">para intensidad</p>',
       concept:
@@ -1131,7 +1131,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
             "Miel",
           ],
           showCheckmarks: true,
-          image: "/img/ggc.png",
+          image: "/img/ggc.webp",
           imagePosition: "top",
         },
         {
@@ -1451,7 +1451,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
           condition: "Comidas reales",
           items: ["Arroz Sonora", "+", "Pollo FRIKO", "+", "Ensalada"],
           showCheckmarks: true,
-          image: "/img/frikosonora.png",
+          image: "/img/frikosonora.webp",
           imagePosition: "top",
         },
       ],
@@ -1480,7 +1480,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
             "Verduras",
           ],
           showCheckmarks: true,
-          image: "/img/pastasmeat.png",
+          image: "/img/pastasmeat.webp",
           imagePosition: "top",
         },
       ],
@@ -1756,14 +1756,14 @@ export const hardcodedStage3Challenges: Challenge[] = [
         {
           id: "cana",
           label: "Reto Caña",
-          icon: "/img/retocana.png",
+          icon: "/img/retocana.webp",
           description: "68 km",
           color: "amber",
         },
         {
           id: "salsa",
           label: "Reto Salsa",
-          icon: "/img/retosalsa.png",
+          icon: "/img/retosalsa.webp",
           description: "180 km",
           color: "rose",
         },
@@ -1781,14 +1781,14 @@ export const hardcodedStage3Challenges: Challenge[] = [
     content: {
       variant: "cana",
       title: "Reto Caña",
-      imageTitle: "/img/retocana.png",
+      imageTitle: "/img/retocana.webp",
       header: {
         distance: "68 km",
         ascent: "1,670 m",
         maxAlt: "1,986 m",
         label: "Tu ruta (GPX oficial)",
       },
-      image: "/img/maparetocana.png", // Placeholder or upload? I'll use a placeholder for now or ask user.
+      image: "/img/maparetocana.webp", // Placeholder or upload? I'll use a placeholder for now or ask user.
       intro:
         "Caña tiene el esfuerzo adelantado. Si te vaciás por ego en la primera subida fuerte, el resto se vuelve una cuenta larga de fatiga.",
       sections: [], // No sections in the first card.
@@ -1834,7 +1834,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: "d776b3db-f59b-4052-8855-11d5462834c9",
     type: "phase_importance",
     content: {
-      imageTitle: "/img/retosalsa.png",
+      imageTitle: "/img/retosalsa.webp",
       variant: "salsa",
       title: "Reto Salsa",
       header: {
@@ -1843,7 +1843,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         maxAlt: "1,986 m",
         label: "Tu ruta (GPX oficial)",
       },
-      image: "/img/maparetosalsa.png", // Placeholder
+      image: "/img/maparetosalsa.webp", // Placeholder
       intro:
         "Salsa es una batalla de horas. No gana el más fuerte al inicio; gana el que mantiene el tanque alto cuando pasan 5–6 horas.",
       sections: [],
