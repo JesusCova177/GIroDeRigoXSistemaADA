@@ -10,10 +10,10 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
   const [loading, setLoading] = useState(false);
   const [activeBtn, setActiveBtn] = useState<number | null>(null);
   const messages = [
-    `Fase 1: Preparación física y mental para el reto.`,
-    `Fase 2: Optimización corporal y nutricional.`,
-    `Fase 3: Estrategia y adaptación en ruta.`,
-    `Fase 4: Tapering y recuperación final.`,
+    `Fase 1: Optimización de composición corporal.`,
+    `Fase 2: Adaptación y resistencia.`,
+    `Fase 3: Simulación de carrera.`,
+    `Fase 4: Tapering final.`,
   ];
   const handleBtnClick = (idx: number) => {
     setActiveBtn(idx);
