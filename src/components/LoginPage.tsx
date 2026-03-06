@@ -7,7 +7,7 @@ interface LoginPageProps {
 }
 
 export function LoginPage({ onLogin }: LoginPageProps) {
-  const [email, setEmail] = useState("");
+  const [cedula, setCedula] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -49,7 +49,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 id="cedula"
                 type="text"
                 value={cedula}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setCedula(e.target.value)}
                 placeholder="Ingrese su cedula"
                 className="font-montserrat w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl text-md focus:outline-none focus:ring-1 focus:ring-[#41563F] focus:border-transparent transition-all text-[#41563F] placeholder-[#41563F]"
                 disabled={loading}
