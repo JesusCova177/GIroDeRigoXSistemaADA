@@ -3,7 +3,7 @@ import { Loader2 } from "lucide-react";
 import { IdCardIcon } from "./IdCardIcon";
 
 interface LoginPageProps {
-  onLogin: (email: string) => Promise<void>;
+  onLogin: (cedula: string) => Promise<void>;
 }
 
 export function LoginPage({ onLogin }: LoginPageProps) {
