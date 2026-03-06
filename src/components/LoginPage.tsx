@@ -15,7 +15,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
     e.preventDefault();
 
     if (!cedula) {
-      setError("Ingrese una cedula válida");
+      setError("Ingrese una cédula válida");
       return;
     }
 
@@ -50,7 +50,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 type="text"
                 value={cedula}
                 onChange={(e) => setCedula(e.target.value)}
-                placeholder="Ingrese su cedula"
+                placeholder="Ingrese su cédula"
                 className="font-montserrat w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl text-md focus:outline-none focus:ring-1 focus:ring-[#41563F] focus:border-transparent transition-all text-[#41563F] placeholder-[#41563F]"
                 disabled={loading}
                 required
