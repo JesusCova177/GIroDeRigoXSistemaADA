@@ -75,8 +75,9 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
       </div>
 
       <p className="font-montserrat font-medium text-[#41563f] text-center mb-2 md:text-lg max-w-[400px]">
-        Si vos queres llegar bien al
-        <br /> Giro de rigo, esto no se construye en una semana.
+        Si vos queres llegar bien a
+        <br />
+        El Giro de Rigo, esto no se construye en una semana.
         <strong> Se construye desde ya</strong>
       </p>
 

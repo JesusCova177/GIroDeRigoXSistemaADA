@@ -166,7 +166,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
         {
           condition: "",
           items: [
-            "Harina",
+            "Harina de arroz",
             "Banano",
             "crema de arroz",
             "Yogur griego",
@@ -843,7 +843,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
       paragraphs: [
         "Me cambi\u00f3 la forma de ver las cosas: el est\u00f3mago tambi\u00e9n se entrena.",
         "No es solo \u201cqu\u00e9 comer\u201d, es cu\u00e1nto por hora, cada cu\u00e1nto, y c\u00f3mo lo reparto para sostener energ\u00eda sin reventarme por dentro.",
-        " Y lo m\u00e1s importante: esto no se estrena el d\u00eda del Giro de Rigo, se practica en los entrenos.",
+        " Y lo m\u00e1s importante: esto no se estrena el d\u00eda de El Giro de Rigo, se practica en los entrenos.",
       ],
     },
     order_index: 2,
@@ -857,8 +857,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
       sections: [
         {
           title: "En el bolsillo",
-          description:
-            "Cada cosa tiene su momento: qué llevo en el bolsillo y qué va en la caramañola.",
+          description: "Qué llevo en el bolsillo y qué va en la caramañola.",
           chipLabel: "Gomitas Grizzly: energía fácil de dosificar",
           image: "/img/gg.webp",
           note: "Energía fácil de dosificar: porque es práctico, rápido y lo puedo distribuir en tandas.",
@@ -886,10 +885,10 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title:
         'Cada cosa <br/> <p class="title md:text-5xl">tiene su momento</p>',
-      introText: "Cada cosa tiene su momento",
+      introText: "Sólido (solo si la intensidad lo permite)",
       frameBlocks: [
         {
-          condition: "Sólido (solo si la intensidad lo permite)",
+          condition: "",
           items: [
             "Algo controlado tipo Crakeñas puede funcionar.",
             "Eso sí, evitar masticar galletas en series o subidas duras cuando la respiración está arriba (ahí manda lo fácil de absorber).",
@@ -950,7 +949,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
       ],
       microRuleLabel: "Micro-regla de oro",
       microRuleText:
-        "Yo no estreno estrategia el d\u00eda del Giro de Rigo; yo la entreno aqu\u00ed.",
+        "Yo no estreno estrategia el d\u00eda de El Giro de Rigo; yo la entreno aqu\u00ed.",
     },
     order_index: 5,
     created_at: new Date().toISOString(),
@@ -1132,7 +1131,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
           ],
           showCheckmarks: true,
           image: "/img/ggc.webp",
-          imagePosition: "top",
+          imagePosition: "bottom",
         },
         {
           condition: "Si es largo y suave (Z2\u2013Z3 estable)",
@@ -1288,7 +1287,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
         },
       ],
       microTransition:
-        "Ahora s\u00ed: A entrenar el est\u00f3mago. Para que el d\u00eda del Giro todo te pase bien.",
+        "Ahora s\u00ed: A entrenar el est\u00f3mago. Para que el d\u00eda de El Giro de Rigo todo te pase bien.",
     },
     order_index: 16,
     created_at: new Date().toISOString(),
@@ -1307,8 +1306,8 @@ export const hardcodedStage2Challenges: Challenge[] = [
           condition: "Semana 1",
           meals: [
             {
-              name: "30\u201340 g/h",
-              items: ["Base en Z3"],
+              name: "",
+              items: ["30\u201340 g/h (Base en Z3)"],
             },
           ],
         },
@@ -1316,8 +1315,10 @@ export const hardcodedStage2Challenges: Challenge[] = [
           condition: "Semana 2",
           meals: [
             {
-              name: "40\u201350 g/h",
-              items: ["Mejor repartido: cada 20 min entra algo"],
+              name: "",
+              items: [
+                "40\u201350 g/h (Mejor repartido: cada 20 min entra algo)",
+              ],
             },
           ],
         },
@@ -1338,8 +1339,8 @@ export const hardcodedStage2Challenges: Challenge[] = [
           condition: "Semana 3",
           meals: [
             {
-              name: "50\u201360 g/h",
-              items: ["Ya \u201ccasi carrera\u201d"],
+              name: "",
+              items: ["50\u201360 g/h (Ya \u201ccasi carrera\u201d)"],
             },
           ],
         },
@@ -1347,8 +1348,8 @@ export const hardcodedStage2Challenges: Challenge[] = [
           condition: "Semana 4",
           meals: [
             {
-              name: "60\u201370 g/h",
-              items: ["En una salida clave"],
+              name: "",
+              items: ["60\u201370 g/h (En una salida clave)"],
             },
           ],
         },
@@ -1667,7 +1668,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
       title: "Transici\u00f3n a Fase 3",
       hasNextStageButton: true,
       message:
-        "Cuando ya s\u00e9 sostener energ\u00eda y mi est\u00f3mago responde, paso a Fase 3 \u2014 Simulaci\u00f3n de carrera: practico la carga, el ritmo y la estrategia real del d\u00eda del Giro.",
+        "Cuando ya s\u00e9 sostener energ\u00eda y mi est\u00f3mago responde, paso a Fase 3 \u2014 Simulaci\u00f3n de carrera: practico la carga, el ritmo y la estrategia real del d\u00eda de El Giro de Rigo.",
     },
     order_index: 30,
     created_at: new Date().toISOString(),
@@ -1682,8 +1683,8 @@ export const hardcodedStage3Challenges: Challenge[] = [
     content: {
       title: 'Simulación de <br/> <p class="title">Carrera</p>',
       paragraphs: [
-        "He aprendido que el Giro no se define solo por piernas. Se define por qué tambien sostenés la energía cuando ya vas cansado.",
-        "En septiembre y octubre dejamos de “salir a entrenar” y pasamos a <b>simular</b>: ensayamos el guion que vas a ejecutar el día del evento.",
+        "He aprendido que El Giro de Rigo no se define solo por piernas. Se define por qué tambien sostenés la energía cuando ya vas cansado.",
+        "En septiembre y octubre dejamos de “salir a entrenar” y pasamos a <b>simular</b>: ensayamos el guion que vas a ejecutar el día de El Giro de Rigo.",
       ],
     },
     order_index: 0,
@@ -2047,7 +2048,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         {
           title: "Plan de acción (2/3): Ensayo General",
           items: [
-            "1 ensayo general: un fondo largo (según tu reto) con el mismo plan que usarías el día del Giro.",
+            "1 ensayo general: un fondo largo (según tu reto) con el mismo plan que usarías el día de El Giro de Rigo.",
             "Es el momento de probar todo tal cual será el evento.",
           ],
         },
@@ -2091,7 +2092,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
       },
       metrics: [],
       description:
-        'El año pasado entré al Sistema ADA y antes del Giro de Rigo 2025 alcancé a bajar unos kilos. Le dije a Daniel: "parce, ayúdeme que necesito ir fino a ese fondo". Me explicó exactamente qué comer y cada cuánto, y también cómo hidratarme. Resultado: terminé el Giro 2025 estupendo, y quedé clasificado en el corral race. Este año voy más motivado a entrenar y a llegar más fuerte, pero sobre todo a alimentarme como debe ser. Recomendado al 100%.',
+        'El año pasado entré al Sistema ADA y antes de El Giro de Rigo 2025 alcancé a bajar unos kilos. Le dije a Daniel: "parce, ayúdeme que necesito ir fino a ese fondo". Me explicó exactamente qué comer y cada cuánto, y también cómo hidratarme. Resultado: terminé El Giro de Rigo 2025 estupendo, y quedé clasificado en el corral race. Este año voy más motivado a entrenar y a llegar más fuerte, pero sobre todo a alimentarme como debe ser. Recomendado al 100%.',
       strategy: {
         intro: "",
         items: [],
@@ -2179,7 +2180,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
       paragraphs: [
         'Esta semana yo no estoy "mejorando la forma". Eso ya se hizo. Esta semana yo estoy asegurando el resultado.',
         'El error más común: la gente recorta comida "pa\' llegar liviano", mete entreno extra "pa\' sentirse seguro", hace cargas raras sin agua… y llega con fatiga, estómago sensible y depósitos a medias.',
-        "En la semana del Giro yo me enfoco en tres cosas: descanso, hidratación y glucógeno lleno. Y hago algo que parece simple, pero cambia todo: organizo todo dos días antes. Porque el estrés también cansa… y cuando uno está estresado, come peor, duerme peor y llega con la cabeza vuelta nada.",
+        "En la semana de El Giro de Rigo yo me enfoco en tres cosas: descanso, hidratación y glucógeno lleno. Y hago algo que parece simple, pero cambia todo: organizo todo dos días antes. Porque el estrés también cansa… y cuando uno está estresado, come peor, duerme peor y llega con la cabeza vuelta nada.",
       ],
     },
     order_index: 0,
@@ -2200,7 +2201,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
         {
           icon: "zap",
           title: "Quiero depósitos llenos",
-          content: "Subí carbos con comida simple y real",
+          content: "Subo carbos con comida simple y real",
         },
         {
           icon: "zap",
@@ -2253,7 +2254,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
         "Dos días antes quiero bajar el estrés y tener todo resuelto: así duermo mejor, como mejor y llego con la cabeza tranquila.",
       items: [
         "Kit revisado (casco, gafas, guantes, repuestos básicos).",
-        "Ropa lista según clima esperado (maillot, chaqueta, guantes, etc.).",
+        "Ropa lista según clima esperado (jersey, chaqueta, guantes, etc.).",
         "Ruta y horarios claros (salida, tiempos aproximados, puntos clave).",
         "Transporte organizado (cómo llego, con quién, a qué hora).",
         "Nutrición y líquidos listos y empacados para el día del evento.",
@@ -2394,7 +2395,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
         "3–4 días antes: sueño ordenado + hidratación constante + carbo subiendo suave",
         "2 días antes: todo organizado + comidas simples",
         "1 día antes: carbo más alto, fibra baja, descanso",
-        "Día del Giro: desayuno simple + ejecución por reloj + abastecimientos inteligentes",
+        "Día de El Giro de Rigo: desayuno simple + ejecución por reloj + abastecimientos inteligentes",
       ],
       footer: "Camilo llegó con un plan claro, acompañado por el Sistema ADA.",
     },
@@ -2427,7 +2428,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
     content: {
       title: "Testimonio - <br/> Juan Camilo",
       description:
-        'Resultado: pudo hacer el Giro con la dificultad normal del reto, lo disfrutó. Y lo dice claro: gran parte fue "irse nutriendo durante cada uno de los momentos del evento" con un plan estructurado, no improvisado.',
+        'Resultado: pudo hacer El Giro de Rigo con la dificultad normal del reto, lo disfrutó. Y lo dice claro: gran parte fue "irse nutriendo durante cada uno de los momentos del evento" con un plan estructurado, no improvisado.',
       metrics: [],
       strategy: {
         intro: "",
