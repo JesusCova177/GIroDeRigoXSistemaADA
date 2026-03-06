@@ -14,15 +14,15 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!email || !email.includes("@")) {
-      setError("Please enter a valid email address");
+    if (!cedula) {
+      setError("Ingrese una cedula válida");
       return;
     }
 
     try {
       setLoading(true);
       setError(null);
-      await onLogin(email);
+      await onLogin(cedula);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to log in");
       setLoading(false);
@@ -46,9 +46,9 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             <div className="relative">
               <IdCardIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#41563F]" />
               <input
-                id="email"
-                type="email"
-                value={email}
+                id="cedula"
+                type="text"
+                value={cedula}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Ingrese su cedula"
                 className="font-montserrat w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl text-md focus:outline-none focus:ring-1 focus:ring-[#41563F] focus:border-transparent transition-all text-[#41563F] placeholder-[#41563F]"
