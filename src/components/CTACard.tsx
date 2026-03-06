@@ -47,7 +47,7 @@ const CTACard: React.FC<CTACardProps> = ({
   currentStage,
 }) => {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-8 shadow-xl ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-8 shadow-xl max-w-2xl mx-auto ">
       {(content.title || content.icon) && (
         <h3 className="text-2xl mb-4 font-bold tracking-tight font-timberwolf font-bolt text-[#31563c] uppercase">
           {content.title}

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { saveAdaResponse } from "../lib/supabase";
-import { Check, MapPin } from "lucide-react";
+import { Check } from "lucide-react";
 
 interface BifurcationOption {
   id: string;
@@ -22,7 +22,7 @@ interface BifurcationCardProps {
   adaUserId?: number | null;
   challengeId?: string | null;
   currentIndex?: number;
-  initialSelections?: Record<string, any>;
+  initialSelections?: Record<string, string>;
 }
 
 export function BifurcationCard({
@@ -31,7 +31,6 @@ export function BifurcationCard({
   onSelect,
   adaUserId,
   challengeId,
-  currentIndex,
   initialSelections,
 }: BifurcationCardProps) {
   const { question, options } = content;

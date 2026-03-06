@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Loader2, IdCard } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import { IdCardIcon } from "./IdCardIcon";
 
 interface LoginPageProps {
   onLogin: (email: string) => Promise<void>;
@@ -43,7 +44,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <div className="relative">
-              <IdCard className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#41563F]" />
+              <IdCardIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#41563F]" />
               <input
                 id="email"
                 type="email"

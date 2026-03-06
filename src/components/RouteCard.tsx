@@ -63,7 +63,7 @@ export function RouteCard({ content }: RouteCardProps) {
 
   return (
     <div
-      className={`flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl `}
+      className={`flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto`}
     >
       {imageTitle && (
         <div className="w-[10rem] h-auto mb-2  ">
