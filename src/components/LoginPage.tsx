@@ -47,7 +47,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <IdCardIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#41563F]" />
               <input
                 id="cedula"
-                type="text"
+                type="cedula"
                 value={cedula}
                 onChange={(e) => setCedula(e.target.value)}
                 placeholder="Ingrese su cédula"
