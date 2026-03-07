@@ -399,7 +399,6 @@ export function ChallengeCarousel({
                     )
                   ) : challenge.type === "cta" ? (
                     <CTACard
-                      content={content}
                       onNavigateNext={goToNext}
                       onNavigateToStage={onNavigateToStage}
                       currentStage={currentStage}

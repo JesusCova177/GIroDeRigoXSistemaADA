@@ -77,6 +77,14 @@
     margin-left: 2.4rem;
     margin-top: 0.6rem;
   }
+
+  .modalIcon {
+    display: inline-flex;
+    height: 1.8rem;
+    width: 1.8rem;
+    fill: #fcc55d;
+    color: #fcc55d;
+  }
 }
 
 @layer utilities {
