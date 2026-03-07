@@ -50,8 +50,8 @@
 
   .font-timberwolf {
     font-family: "Timberwolf", sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    font-weight: normal;
+    letter-spacing: 0;
   }
 
   .active {
@@ -80,10 +80,17 @@
 
   .modalIcon {
     display: inline-flex;
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 1.4rem;
+    width: 1.4rem;
     fill: #fcc55d;
     color: #fcc55d;
+    margin-right: 0.5rem;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar {
+    scrollbar-width: thin;
+    width: 8px;
+    height: 8px;
   }
 }
 

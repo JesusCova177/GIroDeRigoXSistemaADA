@@ -747,57 +747,6 @@ export const hardcodedStage1Challenges: Challenge[] = [
     order_index: 35,
     created_at: new Date().toISOString(),
   },
-  {
-    id: "hardcoded-20",
-    stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "cta",
-    content: {
-      message: "",
-      options: [
-        {
-          title: "Plataforma Educativa",
-          subtitle: "A tu ritmo, sin improvisar",
-          description:
-            "Para entender cómo perder peso y aplicarlo a tu ritmo, sin improvisar.",
-          buttonText: "Quiero acceso a la Plataforma Educativa",
-          buttonUrl: "#",
-          isPrimary: false,
-        },
-        {
-          title: "Plan Personalizado",
-          subtitle: "Educaci\u00f3n + Plan de alimentaci\u00f3n",
-          description:
-            "Acelerar resultados sin adivinar porciones ni el tiempo exacto de cada comida.",
-          buttonText: "Quiero el Combo: Educaci\u00f3n + Plan Personalizado",
-          buttonUrl: "#",
-          isPrimary: true,
-        },
-      ],
-      transition: {
-        text: "Tu transformaci\u00f3n apenas comienza.",
-        buttonText: "Siguiente",
-        buttonUrl: "#",
-      },
-      footer:
-        "Sin compromiso \u2022 Resultados reales \u2022 Soporte constante",
-    },
-    order_index: 36,
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: "hardcoded-21",
-    stage_id: "c893f30f-8b81-4393-a958-4f1dd9d383e4",
-    type: "cta",
-    content: {
-      message:
-        "Ahora el foco cambia: ya no es solo bajar grasa... es entrenar el est\u00f3mago y la resistencia para que en fondos largos no te d\u00e9 la p\u00e1lida y pod\u00e1s sostener energ\u00eda de principio a fin.",
-      options: [],
-      hasNextStageButton: true,
-      footerSubtext: "Sistema ADA \u2022 Fase 2",
-    },
-    order_index: 37,
-    created_at: new Date().toISOString(),
-  },
 ];
 
 export const hardcodedStage2Challenges: Challenge[] = [
@@ -1629,37 +1578,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     order_index: 28,
     created_at: new Date().toISOString(),
   },
-  {
-    id: "hardcoded-stage2-29",
-    stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
-    type: "cta",
-    content: {
-      title: "Tu siguiente paso",
-      message:
-        "Si quer\u00e9s hacer esto bien, sin adivinar y sin repetir errores que se pagan caro en carrera, dentro del Sistema ADA ten\u00e9s dos caminos:",
-      options: [
-        {
-          title: "Plataforma educativa",
-          subtitle: "Para seguir con estructura y claridad.",
-          description: "",
-          buttonText: "Quiero acceso a la Plataforma Educativa",
-          buttonUrl: "https://form.typeform.com/to/ABCDEF",
-          isPrimary: false,
-        },
-        {
-          title: "Plataforma educativa + plan de alimentación personalizado",
-          subtitle:
-            "Para ejecutar con un plan hecho para vos y llegar m\u00e1s seguro a la l\u00ednea de salida.",
-          description: "",
-          buttonText: "Quiero el Combo: Educaci\u00f3n + Plan Personalizado",
-          buttonUrl: "https://form.typeform.com/to/GHIJKL",
-          isPrimary: true,
-        },
-      ],
-    },
-    order_index: 29,
-    created_at: new Date().toISOString(),
-  },
+
   {
     id: "hardcoded-stage2-30",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
@@ -2122,38 +2041,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     order_index: 19,
     created_at: new Date().toISOString(),
   },
-  {
-    id: "hardcoded-stage3-common-9",
-    stage_id: "d776b3db-f59b-4052-8855-11d5462834c9",
-    type: "cta",
-    content: {
-      title: "Tu siguiente paso",
-      message:
-        "Si querés el paso a paso completo o que te lo armemos nosotros:",
-      options: [
-        {
-          title: "Plataforma educativa",
-          subtitle:
-            "Si querés el paso a paso <b>por módulos</b> para armar tu estrategia y ejecutarla sin improvisar, entrá a la plataforma educativa del <b>Sistema ADA</b>.",
-          description: "",
-          buttonText: "Quiero acceso a la plataforma educativa",
-          buttonUrl: "https://form.typeform.com/to/ABCDEF",
-          isPrimary: false,
-        },
-        {
-          title: "Plataforma educativa + plan de alimentación personalizado",
-          subtitle:
-            "Si querés irte a la fija: te acompañamos y te armamos <b>tu plan de alimentación personalizado</b>, según tu caso real.",
-          description: "",
-          buttonText: "Quiero mi plan personalizado + plataforma educativa",
-          buttonUrl: "https://form.typeform.com/to/GHIJKL",
-          isPrimary: true,
-        },
-      ],
-    },
-    order_index: 20,
-    created_at: new Date().toISOString(),
-  },
+
   {
     id: "hardcoded-stage3-common-10",
     stage_id: "d776b3db-f59b-4052-8855-11d5462834c9",
@@ -2490,6 +2378,14 @@ export const hardcodedStage4Challenges: Challenge[] = [
         "Nos vemos en la línea de salida: tanque lleno, cabeza tranquila y ejecución simple.",
     },
     order_index: 14,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: "hardcoded-stage4-16",
+    stage_id: "997d041d-857e-4183-a063-ba238caeed00",
+    type: "farewell",
+    content: {},
+    order_index: 15,
     created_at: new Date().toISOString(),
   },
 ];

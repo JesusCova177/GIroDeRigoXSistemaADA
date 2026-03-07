@@ -9,6 +9,7 @@ import { RouteCard } from "./RouteCard";
 import { TestimonialCard } from "./TestimonialCard";
 import ActionPlanCard from "./ActionPlanCard";
 import CTACard from "./CTACard";
+import { FarewellCard } from "./FarewellCard";
 import { PreambleChecklistCard } from "./PreambleChecklistCard";
 import { BifurcationCard } from "./BifurcationCard";
 import { NutritionGuideCard } from "./NutritionGuideCard";
@@ -403,6 +404,8 @@ export function ChallengeCarousel({
                       onNavigateToStage={onNavigateToStage}
                       currentStage={currentStage}
                     />
+                  ) : challenge.type === "farewell" ? (
+                    <FarewellCard />
                   ) : (
                     <div className="bg-white rounded-2xl shadow p-6">
                       <p className="leading-relaxed self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold">
@@ -415,6 +418,11 @@ export function ChallengeCarousel({
             })}
           </div>
         </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 417.1 27.41"
+          className="modalIcon"
+        />
       </div>
     </div>
   );

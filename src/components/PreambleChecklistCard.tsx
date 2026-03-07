@@ -122,7 +122,7 @@ export function PreambleChecklistCard({
               className={`flex-1 text-md sm:text-sm text-[#31563c] transition-all duration-200 ${
                 checkedItems.has(index)
                   ? "line-through text-gray-400"
-                  : "group-hover:text-gray-900 group-hover:translate-x-1"
+                  : " group-hover:translate-x-1"
               }`}
             >
               {item}

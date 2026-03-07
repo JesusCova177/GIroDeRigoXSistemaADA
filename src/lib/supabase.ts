@@ -251,7 +251,8 @@ export interface Challenge {
     | "route"
     | "highlight_block"
     | "phase_protocol"
-    | "pocket_bottle";
+    | "pocket_bottle"
+    | "farewell";
   title?: string;
   content:
     | string[]
