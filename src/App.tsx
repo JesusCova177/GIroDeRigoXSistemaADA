@@ -196,7 +196,10 @@ function App() {
     }
   }
 
-  async function navigateToStage(stageNumber: number) {
+  async function loadStage(
+    stageNumber: number,
+    options: { useProgress: boolean },
+  ) {
     try {
       setLoading(true);
       setError(null);
@@ -212,21 +215,23 @@ function App() {
 
       setCurrentStage(stage);
 
-      // Fetch progress for the target stage
+      // Configurar índice de carta inicial y selecciones
       if (adaUserId) {
-        const progress = await getUserStageProgress(adaUserId, stageNumber);
+        let initialIndex = 0;
+
+        if (options.useProgress) {
+          const progress = await getUserStageProgress(adaUserId, stageNumber);
+          if (progress) {
+            initialIndex = progress.last_card_index;
+          }
+        }
+
+        setCurrentCardIndex(initialIndex);
+
         const selections = await getUserSelectionsForStage(
           adaUserId,
           stageNumber,
         );
-
-        // Respetamos donde quedó el usuario en esa etapa
-        if (progress) {
-          setCurrentCardIndex(progress.last_card_index);
-        } else {
-          setCurrentCardIndex(0);
-        }
-
         setUserSelections(selections);
       } else {
         setCurrentCardIndex(0);
@@ -264,13 +269,22 @@ function App() {
       }
 
       setChallenges(allChallenges);
-      // No forzamos reiniciar el layout si ya trajimos su index del DB arriba
       setShowStageSelector(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
     }
+  }
+
+  async function navigateToStage(stageNumber: number) {
+    // Navegación general (header): respeta el progreso guardado
+    await loadStage(stageNumber, { useProgress: true });
+  }
+
+  async function navigateToStageFromCTA(stageNumber: number) {
+    // Navegación desde CTA: siempre arranca en la primera carta (índice 0)
+    await loadStage(stageNumber, { useProgress: false });
   }
 
   if (authLoading) {
@@ -373,7 +387,7 @@ function App() {
                   initialCardIndex={currentCardIndex}
                   onCardChange={handleCardChange}
                   userSelections={userSelections}
-                  onNavigateToStage={navigateToStage}
+                  onNavigateToStage={navigateToStageFromCTA}
                   currentStage={currentStage.stage_number}
                 />
               ) : (
