@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   supabase,
-  upsertAdaUser,
+  findAdaUserByCedula,
   updateUserStageProgress,
   getUserStageProgress,
   getUserSelectionsForStage,
@@ -46,17 +46,18 @@ function App() {
 
   async function checkUser() {
     try {
-      const storedEmail = localStorage.getItem("userEmail");
-      if (storedEmail) {
-        setUser({ email: storedEmail } as User);
-        const userProgress = await upsertAdaUser(storedEmail);
+      const storedCedula = localStorage.getItem("userCedula");
+      if (storedCedula) {
+        const userProgress = await findAdaUserByCedula(storedCedula);
         if (userProgress) {
+          setUser({ email: userProgress.correo || storedCedula } as User);
           setAdaUserId(userProgress.id);
           // For now, always start at Stage 1 as per initial requirement,
           // but we will fetch its specific card progress.
           await fetchStageData(1, userProgress.id);
         } else {
-          await fetchStageData(1);
+          localStorage.removeItem("userCedula");
+          setUser(null);
         }
       }
     } catch (err) {
@@ -66,20 +67,24 @@ function App() {
     }
   }
 
-  async function handleLogin(email: string) {
-    localStorage.setItem("userEmail", email);
-    setUser({ email } as User);
-    const userProgress = await upsertAdaUser(email);
-    if (userProgress) {
-      setAdaUserId(userProgress.id);
-      // show intermediate page first, then fetch stage data when continuing
-      setShowIntermediate(true);
-    } else {
-      setShowIntermediate(true);
+  async function handleLogin(cedula: string) {
+    const normalizedCedula = cedula.trim();
+    const userProgress = await findAdaUserByCedula(normalizedCedula);
+
+    if (!userProgress) {
+      throw new Error("La cédula no está registrada");
     }
+
+    localStorage.setItem("userCedula", normalizedCedula);
+    localStorage.removeItem("userEmail");
+    setUser({ email: userProgress.correo || normalizedCedula } as User);
+    setAdaUserId(userProgress.id);
+    // show intermediate page first, then fetch stage data when continuing
+    setShowIntermediate(true);
   }
 
   async function handleLogout() {
+    localStorage.removeItem("userCedula");
     localStorage.removeItem("userEmail");
     setUser(null);
     setCurrentStage(null);
@@ -292,6 +297,7 @@ function App() {
           // allow going back to login if desired
           setShowIntermediate(false);
           setUser(null);
+          localStorage.removeItem("userCedula");
           localStorage.removeItem("userEmail");
         }}
       />
