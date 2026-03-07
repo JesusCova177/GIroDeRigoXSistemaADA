@@ -828,7 +828,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     created_at: new Date().toISOString(),
   },
   {
-    id: "hardcoded-stage2-5",
+    id: "hardcoded-stage2-5b",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "practical_example",
     content: {
@@ -844,7 +844,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
           ],
           showCheckmarks: false,
           image: "/img/crakenas.webp",
-          imagePosition: "top",
+          imagePosition: "botom",
         },
       ],
       footerText: "Se acab\u00f3 el \u201ca ver qu\u00e9 aparece\u201d.",
@@ -1388,7 +1388,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     created_at: new Date().toISOString(),
   },
   {
-    id: "hardcoded-stage2-21",
+    id: "hardcoded-stage2-21b",
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "practical_example",
     content: {
@@ -2292,7 +2292,7 @@ export const hardcodedStage4Challenges: Challenge[] = [
     created_at: new Date().toISOString(),
   },
   {
-    id: "hardcoded-stage4-13",
+    id: "hardcoded-stage4-13b",
     stage_id: "997d041d-857e-4183-a063-ba238caeed00",
     type: "testimonial",
     content: {

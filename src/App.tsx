@@ -219,12 +219,14 @@ function App() {
           adaUserId,
           stageNumber,
         );
-        // Respetamos donde quedó
+
+        // Respetamos donde quedó el usuario en esa etapa
         if (progress) {
           setCurrentCardIndex(progress.last_card_index);
         } else {
           setCurrentCardIndex(0);
         }
+
         setUserSelections(selections);
       } else {
         setCurrentCardIndex(0);

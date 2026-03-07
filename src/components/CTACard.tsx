@@ -539,7 +539,7 @@ const CTACard: React.FC<CTACardProps> = ({
                 herramientas para el Giro.
               </p>
 
-              {onNavigateToStage && currentStage && (
+              {onNavigateToStage && currentStage && currentStage < 4 && (
                 <button
                   type="button"
                   onClick={() => onNavigateToStage(currentStage + 1)}
