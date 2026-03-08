@@ -1092,7 +1092,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     stage_id: "2b526d15-0a34-48b0-9e81-1b5f64d8bd4c",
     type: "preamble_checklist",
     content: {
-      title: 'Mini checklist br<br/> <p class="title">Objetivo por hora</p>',
+      title: 'Mini checklist <br/> <p class="title">Objetivo por hora</p>',
       items: [
         "\u00bfYa s\u00e9 mi objetivo por hora para hoy?",
         "\u00bfEstoy repartiendo (no todo en 5 minutos)?",
@@ -1405,8 +1405,7 @@ export const hardcodedStage2Challenges: Challenge[] = [
     content: {
       title:
         'Regla simple y <br/> <p class="title">ejemplos pr\u00e1cticos</p>',
-      introText:
-        "En la primera hora post-entreno yo meto carbo + prote\u00edna. \nNo perfecto, pero s\u00ed a tiempo. \nSi el post queda resuelto, el resto del d\u00eda se vuelve mucho m\u00e1s f\u00e1cil.",
+      introText: "",
       frameBlocks: [
         {
           condition: "Comidas reales",

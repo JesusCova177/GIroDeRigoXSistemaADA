@@ -285,8 +285,6 @@ const CTACard: React.FC<CTACardProps> = ({
                 </div>
               </div>
 
-
-            <CardDecoration />
               <div className="p-6 sm:p-8 flex flex-col h-full">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#383838]">
                   Fundamentos ADA
