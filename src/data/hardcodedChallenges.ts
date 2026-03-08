@@ -1862,10 +1862,9 @@ export const hardcodedStage3Challenges: Challenge[] = [
     content: {
       title: "Cafeína (si la usás, que sea entrenada)",
       paragraphs: [
-        "No es obligatoria. Si la usás, que sea probada en entreno, en dosis baja al inicio, y mirando dos cosas:",
+        "No es obligatoria. Si la usás, que sea probada en entreno, en dosis baja\n\n Dosis habitual: 3–6 mg por kg de peso.\n\n Y observa estas dos cosas:",
       ],
       list: [
-        "La dosis habitual: 3–6 mg por kg de peso",
         "¿me mejora el enfoque o me acelera de más?",
         "¿me daña el sueño o el estómago?",
       ],
