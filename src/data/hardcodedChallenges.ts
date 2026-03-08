@@ -1865,6 +1865,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
         "No es obligatoria. Si la usás, que sea probada en entreno, en dosis baja al inicio, y mirando dos cosas:",
       ],
       list: [
+        "La dosis habitual: 3–6 mg por kg de peso",
         "¿me mejora el enfoque o me acelera de más?",
         "¿me daña el sueño o el estómago?",
       ],
