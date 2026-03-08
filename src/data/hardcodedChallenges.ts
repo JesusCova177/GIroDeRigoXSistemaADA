@@ -1860,7 +1860,7 @@ export const hardcodedStage3Challenges: Challenge[] = [
     stage_id: "d776b3db-f59b-4052-8855-11d5462834c9",
     type: "intro",
     content: {
-      title: "Cafeína (si la usás, que sea entrenada)",
+      title: '<p class="title">Cafeína</p> (si la usás, que sea entrenada)',
       paragraphs: [
         "No es obligatoria. Si la usás, que sea probada en entreno, en dosis baja\n\n Dosis habitual: 3–6 mg por kg de peso.\n\n Y observa estas dos cosas:",
       ],
