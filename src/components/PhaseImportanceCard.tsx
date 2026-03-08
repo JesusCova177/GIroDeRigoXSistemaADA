@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import { CardDecoration } from "./CardDecoration";
 
 interface PhaseImportanceCardProps {
   content: {
@@ -20,7 +21,7 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
     <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
       {content.title && (
         <span
-          className="text-3xl font-timberwolf text-center font-black mb-6 uppercase italic text-[#31563C] tracking-wider"
+          className="text-2xl font-timberwolf text-center font-black mb-6 uppercase italic text-[#31563C] tracking-wider"
           dangerouslySetInnerHTML={{ __html: content.title }}
         />
       )}
@@ -82,6 +83,8 @@ export function PhaseImportanceCard({ content }: PhaseImportanceCardProps) {
           </div>
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 }

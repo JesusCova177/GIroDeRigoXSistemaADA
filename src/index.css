@@ -14,10 +14,10 @@
 }
 
 @font-face {
-  font-family: "timberwolf";
-  src: url("./assets/fonts/TimberWolf-Regular.ttf") format("opentype");
-  font-weight: bold;
-  font-style: italic;
+  font-family: "Timberwolf";
+  src: url("./assets/fonts/TimberWolf-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @layer base {
@@ -49,9 +49,9 @@
   }
 
   .font-timberwolf {
-    font-family: "timberwolf", sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    font-family: "Timberwolf", sans-serif;
+    font-weight: normal;
+    letter-spacing: 0;
   }
 
   .active {
@@ -76,6 +76,21 @@
     list-style-type: none;
     margin-left: 2.4rem;
     margin-top: 0.6rem;
+  }
+
+  .modalIcon {
+    display: inline-flex;
+    height: 1.4rem;
+    width: 1.4rem;
+    fill: #fcc55d;
+    color: #fcc55d;
+    margin-right: 0.5rem;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar {
+    scrollbar-width: thin;
+    width: 8px;
+    height: 8px;
   }
 }
 

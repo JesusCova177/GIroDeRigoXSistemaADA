@@ -9,6 +9,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { saveAdaResponse } from "../lib/supabase";
+import { CardDecoration } from "./CardDecoration";
 
 interface PreambleChecklistCardProps {
   title: string;
@@ -122,7 +123,7 @@ export function PreambleChecklistCard({
               className={`flex-1 text-md sm:text-sm text-[#31563c] transition-all duration-200 ${
                 checkedItems.has(index)
                   ? "line-through text-gray-400"
-                  : "group-hover:text-gray-900 group-hover:translate-x-1"
+                  : " group-hover:translate-x-1"
               }`}
             >
               {item}
@@ -178,6 +179,8 @@ export function PreambleChecklistCard({
           </div>
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 }

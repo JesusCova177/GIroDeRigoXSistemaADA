@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   supabase,
-  upsertAdaUser,
+  findAdaUserByCedula,
   updateUserStageProgress,
   getUserStageProgress,
   getUserSelectionsForStage,
@@ -46,17 +46,18 @@ function App() {
 
   async function checkUser() {
     try {
-      const storedEmail = localStorage.getItem("userEmail");
-      if (storedEmail) {
-        setUser({ email: storedEmail } as User);
-        const userProgress = await upsertAdaUser(storedEmail);
+      const storedCedula = localStorage.getItem("userCedula");
+      if (storedCedula) {
+        const userProgress = await findAdaUserByCedula(storedCedula);
         if (userProgress) {
+          setUser({ email: userProgress.correo || storedCedula } as User);
           setAdaUserId(userProgress.id);
           // For now, always start at Stage 1 as per initial requirement,
           // but we will fetch its specific card progress.
           await fetchStageData(1, userProgress.id);
         } else {
-          await fetchStageData(1);
+          localStorage.removeItem("userCedula");
+          setUser(null);
         }
       }
     } catch (err) {
@@ -66,20 +67,24 @@ function App() {
     }
   }
 
-  async function handleLogin(email: string) {
-    localStorage.setItem("userEmail", email);
-    setUser({ email } as User);
-    const userProgress = await upsertAdaUser(email);
-    if (userProgress) {
-      setAdaUserId(userProgress.id);
-      // show intermediate page first, then fetch stage data when continuing
-      setShowIntermediate(true);
-    } else {
-      setShowIntermediate(true);
+  async function handleLogin(cedula: string) {
+    const normalizedCedula = cedula.trim();
+    const userProgress = await findAdaUserByCedula(normalizedCedula);
+
+    if (!userProgress) {
+      throw new Error("La cédula no está registrada");
     }
+
+    localStorage.setItem("userCedula", normalizedCedula);
+    localStorage.removeItem("userEmail");
+    setUser({ email: userProgress.correo || normalizedCedula } as User);
+    setAdaUserId(userProgress.id);
+    // show intermediate page first, then fetch stage data when continuing
+    setShowIntermediate(true);
   }
 
   async function handleLogout() {
+    localStorage.removeItem("userCedula");
     localStorage.removeItem("userEmail");
     setUser(null);
     setCurrentStage(null);
@@ -191,7 +196,10 @@ function App() {
     }
   }
 
-  async function navigateToStage(stageNumber: number) {
+  async function loadStage(
+    stageNumber: number,
+    options: { useProgress: boolean },
+  ) {
     try {
       setLoading(true);
       setError(null);
@@ -207,19 +215,23 @@ function App() {
 
       setCurrentStage(stage);
 
-      // Fetch progress for the target stage
+      // Configurar índice de carta inicial y selecciones
       if (adaUserId) {
-        const progress = await getUserStageProgress(adaUserId, stageNumber);
+        let initialIndex = 0;
+
+        if (options.useProgress) {
+          const progress = await getUserStageProgress(adaUserId, stageNumber);
+          if (progress) {
+            initialIndex = progress.last_card_index;
+          }
+        }
+
+        setCurrentCardIndex(initialIndex);
+
         const selections = await getUserSelectionsForStage(
           adaUserId,
           stageNumber,
         );
-        // Respetamos donde quedó
-        if (progress) {
-          setCurrentCardIndex(progress.last_card_index);
-        } else {
-          setCurrentCardIndex(0);
-        }
         setUserSelections(selections);
       } else {
         setCurrentCardIndex(0);
@@ -257,13 +269,22 @@ function App() {
       }
 
       setChallenges(allChallenges);
-      // No forzamos reiniciar el layout si ya trajimos su index del DB arriba
       setShowStageSelector(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
     }
+  }
+
+  async function navigateToStage(stageNumber: number) {
+    // Navegación general (header): respeta el progreso guardado
+    await loadStage(stageNumber, { useProgress: true });
+  }
+
+  async function navigateToStageFromCTA(stageNumber: number) {
+    // Navegación desde CTA: siempre arranca en la primera carta (índice 0)
+    await loadStage(stageNumber, { useProgress: false });
   }
 
   if (authLoading) {
@@ -292,6 +313,7 @@ function App() {
           // allow going back to login if desired
           setShowIntermediate(false);
           setUser(null);
+          localStorage.removeItem("userCedula");
           localStorage.removeItem("userEmail");
         }}
       />
@@ -365,7 +387,7 @@ function App() {
                   initialCardIndex={currentCardIndex}
                   onCardChange={handleCardChange}
                   userSelections={userSelections}
-                  onNavigateToStage={navigateToStage}
+                  onNavigateToStage={navigateToStageFromCTA}
                   currentStage={currentStage.stage_number}
                 />
               ) : (

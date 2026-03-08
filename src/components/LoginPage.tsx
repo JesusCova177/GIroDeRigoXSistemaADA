@@ -1,27 +1,28 @@
 import { useState } from "react";
-import { Mail, Zap, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import { IdCardIcon } from "./IdCardIcon";
 
 interface LoginPageProps {
-  onLogin: (email: string) => Promise<void>;
+  onLogin: (cedula: string) => Promise<void>;
 }
 
 export function LoginPage({ onLogin }: LoginPageProps) {
-  const [email, setEmail] = useState("");
+  const [cedula, setCedula] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!email || !email.includes("@")) {
-      setError("Please enter a valid email address");
+    if (!cedula) {
+      setError("Ingrese una cédula válida");
       return;
     }
 
     try {
       setLoading(true);
       setError(null);
-      await onLogin(email);
+      await onLogin(cedula);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to log in");
       setLoading(false);
@@ -31,11 +32,19 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   return (
     <div
       className="h-dvh grid-rows-1
-     bg-[#f8fbf2] flex flex-col justify-center items-center p-12 md:grid md:grid-cols-2 md:bg-[#41563F]"
+     bg-[#f8fbf2] flex flex-col justify-center items-center p-12 md:grid md:grid-cols-2 md:bg-[#41563F] relative overflow-hidden"
     >
+      <div className="hidden md:block absolute top-0 left-0 w-[36rem] h-auto transform -rotate-12">
+        <img src="/img/rosas.webp" alt="" />
+      </div>
+
+      <div className="hidden md:block absolute bottom-0 right-0 w-[36rem] h-auto transform rotate-[160deg]">
+        <img src="/img/rosas.webp" alt="" />
+      </div>
+
       <div className="bg-[#f8fbf2] md:flex md:flex-col md:items-center md:justify-center md:rounded-2xl md:grid-rows-1 md:p-8 md:shadow-xl w-full max-w-md md:z-10 md:justify-self-center">
         <img
-          src="./img/roadmaplogo.png"
+          src="./img/roadmaplogo.webp"
           alt="Logo"
           className="md:w-64 md:h-auto"
         />
@@ -43,13 +52,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <div className="relative">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#41563F]" />
+              <IdCardIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#41563F]" />
               <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Ingrese su correo electrónico"
+                id="cedula"
+                type="cedula"
+                value={cedula}
+                onChange={(e) => setCedula(e.target.value)}
+                placeholder="Ingrese su cédula"
                 className="font-montserrat w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl text-md focus:outline-none focus:ring-1 focus:ring-[#41563F] focus:border-transparent transition-all text-[#41563F] placeholder-[#41563F]"
                 disabled={loading}
                 required

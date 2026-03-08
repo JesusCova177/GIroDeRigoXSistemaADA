@@ -9,6 +9,7 @@ import { RouteCard } from "./RouteCard";
 import { TestimonialCard } from "./TestimonialCard";
 import ActionPlanCard from "./ActionPlanCard";
 import CTACard from "./CTACard";
+import { FarewellCard } from "./FarewellCard";
 import { PreambleChecklistCard } from "./PreambleChecklistCard";
 import { BifurcationCard } from "./BifurcationCard";
 import { NutritionGuideCard } from "./NutritionGuideCard";
@@ -399,11 +400,12 @@ export function ChallengeCarousel({
                     )
                   ) : challenge.type === "cta" ? (
                     <CTACard
-                      content={content}
                       onNavigateNext={goToNext}
                       onNavigateToStage={onNavigateToStage}
                       currentStage={currentStage}
                     />
+                  ) : challenge.type === "farewell" ? (
+                    <FarewellCard />
                   ) : (
                     <div className="bg-white rounded-2xl shadow p-6">
                       <p className="leading-relaxed self-start text-[#31563c] whitespace-pre-line text-md font-montserrat font-semibold">

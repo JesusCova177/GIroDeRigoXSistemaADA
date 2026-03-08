@@ -36,6 +36,7 @@ export async function getStageCardMapping(): Promise<Record<string, number>> {
 
 export interface AdaUserProgress {
   id: number;
+  correo?: string | null;
 }
 
 export interface StageProgress {
@@ -43,56 +44,35 @@ export interface StageProgress {
   complete_date: string | null;
 }
 
-export async function upsertAdaUser(
-  email: string,
+export async function findAdaUserByCedula(
+  cedula: string,
 ): Promise<AdaUserProgress | null> {
   try {
-    // 1. Check if user exists
+    // Login is strict: user must already exist with this cedula.
     const { data: existingUser, error: searchError } = await supabase
       .from("ada_users")
-      .select("id")
-      .eq("correo", email)
+      .select("id, correo")
+      .eq("cedula", cedula)
+      .limit(1)
       .maybeSingle();
 
     if (searchError) throw searchError;
+    if (!existingUser) return null;
 
-    const device = navigator.userAgent; // Simple device info
+    const device = navigator.userAgent;
 
-    if (existingUser) {
-      // 2. Update existing user
-      const { error: updateError } = await supabase
-        .from("ada_users")
-        .update({
-          update_at: new Date().toISOString(),
-          dispositivo: device,
-        })
-        .eq("id", existingUser.id);
+    const { error: updateError } = await supabase
+      .from("ada_users")
+      .update({
+        update_at: new Date().toISOString(),
+        dispositivo: device,
+      })
+      .eq("id", existingUser.id);
 
-      if (updateError) throw updateError;
-      console.log("ADA User updated:", existingUser.id);
-      return { id: existingUser.id };
-    } else {
-      // 3. Insert new user
-      const { data: newUser, error } = await supabase
-        .from("ada_users")
-        .insert({
-          correo: email,
-          dispositivo: device,
-          created_at: new Date().toISOString(),
-          update_at: new Date().toISOString(),
-        })
-        .select("id")
-        .single();
-
-      if (error) throw error;
-
-      if (newUser) {
-        return { id: newUser.id };
-      }
-      return null;
-    }
+    if (updateError) throw updateError;
+    return { id: existingUser.id, correo: existingUser.correo };
   } catch (error) {
-    console.error("Error upserting ADA user:", error);
+    console.error("Error finding ADA user by cedula:", error);
     return null;
   }
 }
@@ -191,7 +171,7 @@ export async function saveAdaResponse(
 
 export async function getUserSelectionsForStage(
   userId: number,
-  stageNumber: number,
+  _stageNumber: number,
 ): Promise<Record<string, any>> {
   try {
     // Load ALL selections for this user. We use challenge.id (e.g. "hardcoded-5")
@@ -251,7 +231,8 @@ export interface Challenge {
     | "route"
     | "highlight_block"
     | "phase_protocol"
-    | "pocket_bottle";
+    | "pocket_bottle"
+    | "farewell";
   title?: string;
   content:
     | string[]

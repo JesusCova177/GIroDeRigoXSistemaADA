@@ -11,6 +11,8 @@ interface RouteSection {
   content: string;
 }
 
+import { CardDecoration } from "./CardDecoration";
+
 interface RouteCardContent {
   variant: string;
   title?: string; // Added title
@@ -63,7 +65,7 @@ export function RouteCard({ content }: RouteCardProps) {
 
   return (
     <div
-      className={`flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl `}
+      className={`flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto`}
     >
       {imageTitle && (
         <div className="w-[10rem] h-auto mb-2  ">
@@ -112,7 +114,7 @@ export function RouteCard({ content }: RouteCardProps) {
         </div>
 
         {image && (
-          <div className="w-full mb-6 p-2 ">
+          <div className="w-full mb-6 p-2 md:w-[24rem] ">
             <img
               src={image}
               alt="Perfil Altimétrico"
@@ -156,6 +158,8 @@ export function RouteCard({ content }: RouteCardProps) {
           ))}
         </div>
       </div>
+
+      <CardDecoration />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { saveAdaResponse } from "../lib/supabase";
-import { Check, MapPin } from "lucide-react";
+import { Check } from "lucide-react";
+import { CardDecoration } from "./CardDecoration";
 
 interface BifurcationOption {
   id: string;
@@ -22,7 +23,7 @@ interface BifurcationCardProps {
   adaUserId?: number | null;
   challengeId?: string | null;
   currentIndex?: number;
-  initialSelections?: Record<string, any>;
+  initialSelections?: Record<string, string>;
 }
 
 export function BifurcationCard({
@@ -31,7 +32,6 @@ export function BifurcationCard({
   onSelect,
   adaUserId,
   challengeId,
-  currentIndex,
   initialSelections,
 }: BifurcationCardProps) {
   const { question, options } = content;
@@ -91,10 +91,10 @@ export function BifurcationCard({
   };
 
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl ">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
       <div className="flex flex-col items-center gap-3 mb-6 w-full">
         <div className="w-full text-center">
-          <h2 className="text-3xl font-timberwolf font-black text-[#41563F] italic uppercase mb-2">
+          <h2 className="text-2xl font-timberwolf font-black text-[#41563F] italic uppercase mb-2">
             ¿Cuál reto vas a hacer en La Sucursal?
           </h2>
           <p className="">{question}</p>
@@ -168,6 +168,8 @@ export function BifurcationCard({
           );
         })}
       </div>
+
+      <CardDecoration />
     </div>
   );
 }

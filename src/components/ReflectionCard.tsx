@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Lightbulb, BookOpen, Star, ChevronRight } from "lucide-react";
 import { saveAdaResponse } from "../lib/supabase";
+import { CardDecoration } from "./CardDecoration";
 
 interface ReflectionCardProps {
   title: string;
@@ -104,7 +105,7 @@ export function ReflectionCard({
   };
 
   return (
-    <div className="flex flex-col items-center gap-2 rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl md:max-w-2xl ">
+    <div className="flex flex-col items-center gap-2 rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto ">
       <div className="flex items-center justify-between mb-3 sm:mb-4 relative z-10">
         <div className="flex items-center gap-2">
           <h3
@@ -156,6 +157,8 @@ export function ReflectionCard({
           <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 }

@@ -13,6 +13,7 @@ interface IntroCardContent {
 }
 
 import { ChevronRight } from "lucide-react";
+import { CardDecoration } from "./CardDecoration";
 
 interface IntroCardProps {
   content: IntroCardContent;
@@ -76,6 +77,8 @@ export function IntroCard({ content }: IntroCardProps) {
           />
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 }

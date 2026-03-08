@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import { CardDecoration } from "./CardDecoration";
 
 export interface PhaseProtocolContent {
   /** Título principal de la carta, por ejemplo: "¿QUÉ CAMBIA EN ESTA FASE Y POR QUÉ?" */
@@ -86,6 +87,8 @@ export function PhaseProtocolCard({ content }: PhaseProtocolCardProps) {
           )}
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 }

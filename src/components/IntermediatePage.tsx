@@ -10,10 +10,10 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
   const [loading, setLoading] = useState(false);
   const [activeBtn, setActiveBtn] = useState<number | null>(null);
   const messages = [
-    `Fase 1: Preparación física y mental para el reto.`,
-    `Fase 2: Optimización corporal y nutricional.`,
-    `Fase 3: Estrategia y adaptación en ruta.`,
-    `Fase 4: Tapering y recuperación final.`,
+    `Fase 1: Optimización de composición corporal.`,
+    `Fase 2: Adaptación y resistencia.`,
+    `Fase 3: Simulación de carrera.`,
+    `Fase 4: Tapering final.`,
   ];
   const handleBtnClick = (idx: number) => {
     setActiveBtn(idx);
@@ -38,7 +38,7 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
         ¡bienvenidos al!
       </h2>
       <img
-        src="./img/roadmaplogo.png"
+        src="./img/roadmaplogo.webp"
         alt=""
         className="h-48 w-auto mb-6 md:w-[14rem] md:h-auto"
       />
@@ -59,7 +59,7 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
             {[1, 2, 3, 4].map((num, idx) => (
               <button
                 key={num}
-                className={`btn-num w-12 h-12 rounded-xl font-builttitling text-xl flex items-center justify-center border fon border-[#41563F] text-[#41563F] hover:bg-[#41563F] hover:text-white transition-colors md:w-16 md:h-16 md:text-5xl ${activeBtn === idx ? "bg-[#41563F] text-white" : ""}`}
+                className={`btn-num w-12 h-12 rounded-xl font-builttitling text-xl flex items-center justify-center border fon border-[#41563F] text-[#41563F] hover:bg-[#41563F] hover:text-white transition-colors md:w-16 md:h-16 ${activeBtn === idx ? "bg-[#41563F] text-white" : ""}`}
                 onClick={() => handleBtnClick(idx)}
               >
                 {num}
@@ -75,8 +75,9 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
       </div>
 
       <p className="font-montserrat font-medium text-[#41563f] text-center mb-2 md:text-lg max-w-[400px]">
-        Si vos queres llegar bien al
-        <br /> Giro de rigo, esto no se construye en una semana.
+        Si vos queres llegar bien a
+        <br />
+        El Giro de Rigo, esto no se construye en una semana.
         <strong> Se construye desde ya</strong>
       </p>
 

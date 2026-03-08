@@ -1,3 +1,5 @@
+import { CardDecoration } from "./CardDecoration";
+
 export interface HighlightBlockContent {
   title?: string;
   subtitle?: string;
@@ -63,6 +65,8 @@ export function HighlightBlockCard({ content }: HighlightBlockCardProps) {
           </div>
         )}
       </div>
+
+      <CardDecoration />
     </div>
   );
 }

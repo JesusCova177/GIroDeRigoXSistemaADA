@@ -1,4 +1,5 @@
 import { TrendingUp, Check, X } from "lucide-react";
+import { CardDecoration } from "./CardDecoration";
 
 interface Meal {
   name: string;
@@ -40,7 +41,7 @@ export function NutritionGuideCard({
   list,
 }: NutritionGuideCardProps) {
   return (
-    <div className="flex flex-col items-stretch rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
+    <div className="flex flex-col items-center rounded-2xl bg-[#f8fbf2] p-8 mb-6 sm:mb-8 shadow-xl max-w-2xl mx-auto">
       {/* Título grande tipo "EXTRA ÚTIL PARA INTENSIDAD" */}
       <p
         className="tracking-wide text-2xl font-timberwolf font-black text-[#41563F] text-center italic uppercase mb-4"
@@ -188,6 +189,8 @@ export function NutritionGuideCard({
           </div>
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 }
