@@ -1393,7 +1393,8 @@ export const hardcodedStage2Challenges: Challenge[] = [
           imagePosition: "bottom",
         },
       ],
-      footerText: "Si no va en el bolsillo, no existe: armemos kit.",
+      footerText:
+        "Veamos otra ejemplo de comida de recuperación que funciona bien.",
     },
     order_index: 22,
     created_at: new Date().toISOString(),
