@@ -9,6 +9,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { saveAdaResponse } from "../lib/supabase";
+import { CardDecoration } from "./CardDecoration";
 
 interface PreambleChecklistCardProps {
   title: string;
@@ -178,6 +179,8 @@ export function PreambleChecklistCard({
           </div>
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 }

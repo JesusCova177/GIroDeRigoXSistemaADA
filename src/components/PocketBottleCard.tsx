@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import { CardDecoration } from "./CardDecoration";
 
 export interface PocketBottleSection {
   title: string;
@@ -62,6 +63,8 @@ export function PocketBottleCard({ content }: PocketBottleCardProps) {
           </div>
         ))}
       </div>
+
+      <CardDecoration />
     </div>
   );
 }

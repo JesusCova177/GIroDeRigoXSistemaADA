@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Quote, TrendingDown, Zap, Trophy, LucideIcon } from "lucide-react";
+import { CardDecoration } from "./CardDecoration";
 
 interface Metric {
   label: string;
@@ -264,6 +265,8 @@ export function TestimonialCard({ content }: TestimonialCardProps) {
           </div>
         )}
       </div>
+
+      <CardDecoration />
     </div>
   );
 }

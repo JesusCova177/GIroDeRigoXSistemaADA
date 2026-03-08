@@ -33,7 +33,7 @@ export function StageHeader({
   const progressPercentage = (stage.stage_number / totalStages) * 100;
 
   return (
-    <div className="flex flex-col md:-mb-4">
+    <div className="flex flex-col md:-mb-4 overflow-hidden">
       <div
         className={`flex flex-col relative items-center justify-start shadow-l py-6 md:scale-[80%] md:-mb-6 rounded-2xl transition-all duration-300 overflow-hidden ${
           showStageSelector

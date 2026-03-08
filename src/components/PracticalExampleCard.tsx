@@ -1,4 +1,5 @@
 import { CheckCircle2, ChevronRight } from "lucide-react";
+import { CardDecoration } from "./CardDecoration";
 
 export interface FrameBlock {
   condition?: string;
@@ -163,6 +164,8 @@ export function PracticalExampleCard({ content }: PracticalExampleCardProps) {
           <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 }

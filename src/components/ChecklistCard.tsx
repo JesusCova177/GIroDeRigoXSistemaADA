@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Check, CheckCircle2, Trophy, Sparkles } from "lucide-react";
 import { saveAdaResponse } from "../lib/supabase";
+import { CardDecoration } from "./CardDecoration";
 
 interface ChecklistCardProps {
   title: string;
@@ -154,6 +155,8 @@ export function ChecklistCard({
           )}
         </div>
       </div>
+
+      <CardDecoration />
     </div>
   );
 }

@@ -418,11 +418,6 @@ export function ChallengeCarousel({
             })}
           </div>
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 417.1 27.41"
-          className="modalIcon"
-        />
       </div>
     </div>
   );

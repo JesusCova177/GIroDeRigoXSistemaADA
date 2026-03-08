@@ -8,6 +8,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { saveAdaResponse } from "../lib/supabase";
+import { CardDecoration } from "./CardDecoration";
 
 interface CombinedChallengeCardProps {
   title: string;
@@ -514,6 +515,8 @@ export function CombinedChallengeCard({
           </div>
         )}
       </div>
+
+      <CardDecoration />
     </div>
   );
 }

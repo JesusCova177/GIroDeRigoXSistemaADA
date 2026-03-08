@@ -32,8 +32,16 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   return (
     <div
       className="h-dvh grid-rows-1
-     bg-[#f8fbf2] flex flex-col justify-center items-center p-12 md:grid md:grid-cols-2 md:bg-[#41563F]"
+     bg-[#f8fbf2] flex flex-col justify-center items-center p-12 md:grid md:grid-cols-2 md:bg-[#41563F] relative overflow-hidden"
     >
+      <div className="hidden md:block absolute top-0 left-0 w-[36rem] h-auto transform -rotate-12">
+        <img src="/img/rosas.webp" alt="" />
+      </div>
+
+      <div className="hidden md:block absolute bottom-0 right-0 w-[36rem] h-auto transform rotate-[160deg]">
+        <img src="/img/rosas.webp" alt="" />
+      </div>
+
       <div className="bg-[#f8fbf2] md:flex md:flex-col md:items-center md:justify-center md:rounded-2xl md:grid-rows-1 md:p-8 md:shadow-xl w-full max-w-md md:z-10 md:justify-self-center">
         <img
           src="./img/roadmaplogo.webp"

@@ -1,5 +1,6 @@
 import React from "react";
 import { CheckCircle2, Target } from "lucide-react";
+import { CardDecoration } from "./CardDecoration";
 
 interface ActionPlanContent {
   keyTakeaways?: string[];
@@ -104,6 +105,8 @@ const ActionPlanCard: React.FC<ActionPlanCardProps> = ({ content }) => {
           </div>
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 };

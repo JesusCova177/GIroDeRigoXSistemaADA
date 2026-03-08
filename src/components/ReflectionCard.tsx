@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Lightbulb, BookOpen, Star, ChevronRight } from "lucide-react";
 import { saveAdaResponse } from "../lib/supabase";
+import { CardDecoration } from "./CardDecoration";
 
 interface ReflectionCardProps {
   title: string;
@@ -156,6 +157,8 @@ export function ReflectionCard({
           <ChevronRight className="w-5 h-5 text-[#31563c] flex-shrink-0" />
         </div>
       )}
+
+      <CardDecoration />
     </div>
   );
 }

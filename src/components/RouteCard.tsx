@@ -11,6 +11,8 @@ interface RouteSection {
   content: string;
 }
 
+import { CardDecoration } from "./CardDecoration";
+
 interface RouteCardContent {
   variant: string;
   title?: string; // Added title
@@ -112,7 +114,7 @@ export function RouteCard({ content }: RouteCardProps) {
         </div>
 
         {image && (
-          <div className="w-full mb-6 p-2 ">
+          <div className="w-full mb-6 p-2 md:w-[24rem] ">
             <img
               src={image}
               alt="Perfil Altimétrico"
@@ -156,6 +158,8 @@ export function RouteCard({ content }: RouteCardProps) {
           ))}
         </div>
       </div>
+
+      <CardDecoration />
     </div>
   );
 }

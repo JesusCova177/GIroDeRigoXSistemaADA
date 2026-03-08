@@ -59,7 +59,7 @@ export default function IntermediatePage({ onContinue, onBack }: Props) {
             {[1, 2, 3, 4].map((num, idx) => (
               <button
                 key={num}
-                className={`btn-num w-12 h-12 rounded-xl font-builttitling text-xl flex items-center justify-center border fon border-[#41563F] text-[#41563F] hover:bg-[#41563F] hover:text-white transition-colors md:w-16 md:h-16 md:text-5xl ${activeBtn === idx ? "bg-[#41563F] text-white" : ""}`}
+                className={`btn-num w-12 h-12 rounded-xl font-builttitling text-xl flex items-center justify-center border fon border-[#41563F] text-[#41563F] hover:bg-[#41563F] hover:text-white transition-colors md:w-16 md:h-16 ${activeBtn === idx ? "bg-[#41563F] text-white" : ""}`}
                 onClick={() => handleBtnClick(idx)}
               >
                 {num}
