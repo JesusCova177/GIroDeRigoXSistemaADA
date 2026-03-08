@@ -149,7 +149,7 @@ export const hardcodedStage1Challenges: Challenge[] = [
       title:
         'Carbohidratos con estrategia <br/><p class="title md:text-5xl">no con miedo</p>',
       concept:
-        'Yo no elimino carbohidratos.\n\nYo aprendo a usarlos. El carbohidrato es gasolina. \n\nEl error es usarlo "a lo loco" en ultraprocesados todo el día, o intentar entrenar duro sin él. \n\nYo lo vuelvo herramienta: poco cuando toca poco, y suficiente cuando toca rendir.',
+        'Yo no elimino carbohidratos, Yo aprendo a usarlos. \n\nEl carbohidrato es gasolina. \n\nEl error es usarlo "a lo loco" en ultraprocesados todo el día, o intentar entrenar duro sin él. \n\nYo lo vuelvo herramienta: poco cuando toca poco, y suficiente cuando toca rendir.',
     },
     order_index: 4,
     created_at: new Date().toISOString(),
