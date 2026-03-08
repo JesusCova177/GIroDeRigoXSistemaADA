@@ -4,7 +4,7 @@ export function CardDecoration() {
       xmlns="http://www.w3.org/2000/svg"
       id="Capa_1"
       viewBox="0 0 557.72 36.65"
-      className="w-[65%] mt-6"
+      className="w-[65%] mt-6 md:w-[40%]"
     >
       <defs>
         <style>{`.cls-1{opacity:.67;}.cls-2{fill:#686868;}`}</style>
